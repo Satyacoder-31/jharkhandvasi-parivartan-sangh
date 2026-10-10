@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --color-forest: #123b2a;
+    --color-forest-dark: #0a2419;
+    --color-evergreen: #1d5139;
+    --color-moss: #6f8d58;
+    --color-sage: #b8cba5;
+    --color-sage-light: #e9f0e4;
+    --color-ivory: #f7f5ec;
+    --color-ivory-light: #fdfcf9;
+    --color-earth: #795943;
+    --color-earth-dark: #533d2e;
+    --color-charcoal: #17231c;
+    --color-amber: #e28723;
+  }
+
+  body {
+    background-color: #fdfcf9;
+    color: #17231c;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f5ec;
+}
+html.dark ::-webkit-scrollbar-track,
+[data-theme="dark"] ::-webkit-scrollbar-track,
+body.dark ::-webkit-scrollbar-track {
+  background: #071f14;
+}
+::-webkit-scrollbar-thumb {
+  background: #6f8d58;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1d5139;
+}
+
+/* Badges & Pills */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Editorial Serif Accents */
+.italic-accent {
+  font-style: italic;
+  font-weight: 400;
+  color: #6f8d58;
+}
+
+/* ========================================================
+   DARK THEME COMPREHENSIVE RULES
+   ======================================================== */
+html.dark,
+[data-theme="dark"],
+body.dark {
+  color-scheme: dark;
+}
+
+html.dark body,
+[data-theme="dark"] body,
+body.dark {
+  background-color: #071f14 !important;
+  color: #f7f5ec !important;
+}
+
+/* Light mode guarantee */
+html:not(.dark) body {
+  background-color: #fdfcf9;
+  color: #17231c;
+}
+
+/* Dark mode surface & card transformations */
+html.dark .bg-white,
+[data-theme="dark"] .bg-white,
+body.dark .bg-white {
+  background-color: #0d2c1f !important;
+  color: #f7f5ec !important;
+  border-color: rgba(184, 203, 165, 0.2) !important;
+}
+
+html.dark .bg-\[\#FDFCF9\],
+[data-theme="dark"] .bg-\[\#FDFCF9\],
+body.dark .bg-\[\#FDFCF9\] {
+  background-color: #071f14 !important;
+}
+
+html.dark .bg-\[\#F7F5EC\],
+[data-theme="dark"] .bg-\[\#F7F5EC\],
+body.dark .bg-\[\#F7F5EC\] {
+  background-color: #0a2419 !important;
+  border-color: rgba(184, 203, 165, 0.18) !important;
+}
+
+html.dark .text-\[\#123B2A\],
+[data-theme="dark"] .text-\[\#123B2A\],
+body.dark .text-\[\#123B2A\] {
+  color: #f7f5ec !important;
+}
+
+html.dark .text-\[\#17231C\],
+[data-theme="dark"] .text-\[\#17231C\],
+body.dark .text-\[\#17231C\],
+html.dark .text-\[\#17231C\]\/90,
+[data-theme="dark"] .text-\[\#17231C\]\/90,
+html.dark .text-\[\#17231C\]\/85,
+[data-theme="dark"] .text-\[\#17231C\]\/85,
+html.dark .text-\[\#17231C\]\/80,
+[data-theme="dark"] .text-\[\#17231C\]\/80,
+html.dark .text-\[\#17231C\]\/75,
+[data-theme="dark"] .text-\[\#17231C\]\/75 {
+  color: rgba(247, 245, 236, 0.88) !important;
+}
+
+html.dark .text-\[\#795943\],
+[data-theme="dark"] .text-\[\#795943\],
+body.dark .text-\[\#795943\] {
+  color: #b8cba5 !important;
+}
+
+html.dark .border-\[\#123B2A\]\/10,
+html.dark .border-\[\#123B2A\]\/15,
+html.dark .border-\[\#123B2A\]\/20,
+[data-theme="dark"] .border-\[\#123B2A\]\/10,
+[data-theme="dark"] .border-\[\#123B2A\]\/15,
+[data-theme="dark"] .border-\[\#123B2A\]\/20,
+body.dark .border-\[\#123B2A\]\/10,
+body.dark .border-\[\#123B2A\]\/15,
+body.dark .border-\[\#123B2A\]\/20 {
+  border-color: rgba(184, 203, 165, 0.2) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid #1d5139;
+  outline-offset: 2px;
+}
