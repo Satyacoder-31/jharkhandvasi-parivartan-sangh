@@ -19,8 +19,8 @@
   }
 
   body {
-    background-color: #fdfcf9;
-    color: #17231c;
+    background-color: #071f14;
+    color: #f7f5ec;
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -88,10 +88,39 @@ body.dark {
   color: #f7f5ec !important;
 }
 
-/* Light mode guarantee */
-html:not(.dark) body {
-  background-color: #fdfcf9;
-  color: #17231c;
+/* Light mode overrides (when explicitly switched to light) */
+html.light body,
+[data-theme="light"] body {
+  background-color: #fdfcf9 !important;
+  color: #17231c !important;
+}
+
+html.light .bg-white,
+[data-theme="light"] .bg-white {
+  background-color: #ffffff !important;
+  color: #17231c !important;
+  border-color: rgba(18, 59, 42, 0.1) !important;
+}
+
+html.light .bg-\[\#FDFCF9\],
+[data-theme="light"] .bg-\[\#FDFCF9\] {
+  background-color: #fdfcf9 !important;
+}
+
+html.light .bg-\[\#F7F5EC\],
+[data-theme="light"] .bg-\[\#F7F5EC\] {
+  background-color: #f7f5ec !important;
+  border-color: rgba(18, 59, 42, 0.1) !important;
+}
+
+html.light .text-\[\#123B2A\],
+[data-theme="light"] .text-\[\#123B2A\] {
+  color: #123b2a !important;
+}
+
+html.light .text-\[\#17231C\],
+[data-theme="light"] .text-\[\#17231C\] {
+  color: #17231c !important;
 }
 
 /* Dark mode surface & card transformations */

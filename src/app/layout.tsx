@@ -62,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSerif.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`dark ${dmSerif.variable} ${plusJakarta.variable}`} data-theme="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <head>
         {/* Instant Script: Guarantee scroll position starts at (0, 0) on refresh & sync dark theme */}
         <script
@@ -74,19 +74,23 @@ export default function RootLayout({
                 }
                 window.scrollTo(0, 0);
                 var t = localStorage.getItem('jps-theme');
-                if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                } else {
+                if (t === 'light') {
                   document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
                   document.documentElement.setAttribute('data-theme', 'light');
+                  document.documentElement.style.colorScheme = 'light';
+                } else {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.style.colorScheme = 'dark';
                 }
               } catch (e) {}
             `,
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FDFCF9] dark:bg-[#071F14] text-[#17231C] dark:text-[#F7F5EC] antialiased selection:bg-[#B8CBA5] selection:text-[#123B2A] transition-colors duration-300">
+      <body className="min-h-screen flex flex-col bg-[#071F14] text-[#F7F5EC] dark:bg-[#071F14] dark:text-[#F7F5EC] antialiased selection:bg-[#B8CBA5] selection:text-[#123B2A] transition-colors duration-300">
         <ThemeProvider>
           <Preloader />
           <CustomCursor />
