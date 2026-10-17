@@ -13,6 +13,7 @@ import {
   Sun,
   Moon,
   ArrowUpRight,
+  Lock,
 } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
@@ -155,6 +156,19 @@ export default function Navbar() {
                 <Moon className="w-4 h-4 transition-transform hover:-rotate-45" />
               )}
             </button>
+
+            {/* Admin Portal Quick Access */}
+            <Link
+              href="/admin"
+              className={`p-2 rounded-xl transition-all ${
+                isScrolled
+                  ? "text-[#123B2A]/70 dark:text-white/70 hover:text-[#E28723] hover:bg-black/5 dark:hover:bg-white/10"
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              }`}
+              title="Admin Portal (Manage Website Content)"
+            >
+              <Lock className="w-4 h-4" />
+            </Link>
 
             {/* Donate CTA Button */}
             <Link
@@ -302,6 +316,14 @@ export default function Navbar() {
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>WhatsApp Coordination</span>
               </a>
+              <Link
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="w-full py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#123B2A] dark:text-[#B8CBA5] text-xs font-semibold flex items-center justify-center gap-2 border border-black/10 dark:border-white/15"
+              >
+                <Lock className="w-3.5 h-3.5 text-[#E28723]" />
+                <span>Admin Management Portal</span>
+              </Link>
             </div>
           </div>
         </div>

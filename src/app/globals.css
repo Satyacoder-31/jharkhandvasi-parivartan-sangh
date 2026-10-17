@@ -145,6 +145,22 @@ body.dark .bg-\[\#F7F5EC\] {
   border-color: rgba(184, 203, 165, 0.18) !important;
 }
 
+html.dark .bg-\[\#E9F0E4\],
+[data-theme="dark"] .bg-\[\#E9F0E4\],
+body.dark .bg-\[\#E9F0E4\] {
+  background-color: #06180f !important;
+  border-color: rgba(184, 203, 165, 0.25) !important;
+  color: #f7f5ec !important;
+}
+
+html.dark .bg-\[\#FFF8EE\],
+[data-theme="dark"] .bg-\[\#FFF8EE\],
+body.dark .bg-\[\#FFF8EE\] {
+  background-color: #1e1307 !important;
+  border-color: rgba(226, 135, 35, 0.35) !important;
+  color: #f7f5ec !important;
+}
+
 html.dark .text-\[\#123B2A\],
 [data-theme="dark"] .text-\[\#123B2A\],
 body.dark .text-\[\#123B2A\] {

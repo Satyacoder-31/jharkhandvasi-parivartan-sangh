@@ -7,6 +7,7 @@ import FloatingHelpline from "@/components/FloatingHelpline";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SiteContentProvider } from "@/context/SiteContentContext";
 
 const dmSerif = DM_Serif_Display({
   weight: ["400"],
@@ -94,12 +95,14 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-[#071F14] text-[#F7F5EC] dark:bg-[#071F14] dark:text-[#F7F5EC] antialiased selection:bg-[#B8CBA5] selection:text-[#123B2A] transition-colors duration-300">
         <ThemeProvider>
-          <Preloader />
-          <CustomCursor />
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <FloatingHelpline />
+          <SiteContentProvider>
+            <Preloader />
+            <CustomCursor />
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <FloatingHelpline />
+          </SiteContentProvider>
         </ThemeProvider>
       </body>
     </html>

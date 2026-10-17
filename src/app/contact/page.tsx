@@ -13,6 +13,7 @@ import {
   Building2,
   Globe,
 } from "lucide-react";
+import OfficeAddressesView from "@/components/OfficeAddressesView";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
@@ -110,129 +111,7 @@ export default function ContactPage() {
               </h2>
             </div>
 
-            <div className="space-y-4">
-              {/* Registered Head Office (Mumbai) */}
-              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
-                  <Building2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#E28723] block">
-                    Registered Head Office (Mumbai)
-                  </span>
-                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Jharkhandvasi Parivartan Sangh
-                  </h4>
-                  <p className="text-xs text-[#17231C]/80 mt-1 leading-relaxed font-light">
-                    32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai – 400091, Maharashtra.
-                  </p>
-                  <p className="text-[11px] text-[#795943] mt-1 font-medium">
-                    Reg. No: E-30004/07/07/2013 MUMBAI
-                  </p>
-                </div>
-              </div>
-
-              {/* Branch Office (Giridih, Jharkhand) */}
-              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#1D5139] block">
-                    Branch Office (Jharkhand)
-                  </span>
-                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Giridih Coordination Center
-                  </h4>
-                  <p className="text-xs text-[#17231C]/80 mt-1 leading-relaxed font-light">
-                    DK Traders, Buxidih Road, Near Burman Decorator, Giridih, Jharkhand – 815301.
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone Helpline */}
-              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Helplines & Telephones
-                  </h4>
-                  <a
-                    href="tel:+917808008058"
-                    className="text-xs text-[#1D5139] font-bold block mt-1 hover:underline"
-                  >
-                    +91 78080 08058 (Primary Official Helpline)
-                  </a>
-                  <a
-                    href="tel:+919022288222"
-                    className="text-xs text-[#1D5139] font-semibold block mt-0.5 hover:underline"
-                  >
-                    +91 90222 88222 (24/7 Distress Desk)
-                  </a>
-                  <span className="text-[11px] text-[#795943] block mt-0.5">
-                    Round the clock for medical, social & legal emergencies.
-                  </span>
-                </div>
-              </div>
-
-              {/* WhatsApp Support */}
-              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    WhatsApp Assistance
-                  </h4>
-                  <a
-                    href="https://wa.me/917808008058"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-[#1D5139] font-bold block mt-1 hover:underline"
-                  >
-                    +91 78080 08058 (Chat directly)
-                  </a>
-                  <span className="text-[11px] text-[#795943] block mt-0.5">
-                    Send incident documents, medical records, or location pins.
-                  </span>
-                </div>
-              </div>
-
-              {/* Email Addresses & Web */}
-              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Emails & Web Portal
-                  </h4>
-                  <a
-                    href="mailto:jpsngo12@gmail.com"
-                    className="text-xs text-[#1D5139] font-medium block mt-1 hover:underline"
-                  >
-                    jpsngo12@gmail.com
-                  </a>
-                  <a
-                    href="mailto:info@jpsngo.org"
-                    className="text-xs text-[#795943] block hover:underline"
-                  >
-                    info@jpsngo.org
-                  </a>
-                  <a
-                    href="https://www.jpsngo.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-[#E28723] font-semibold block mt-1 hover:underline flex items-center gap-1"
-                  >
-                    <Globe className="w-3 h-3" />
-                    <span>www.jpsngo.org</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            <OfficeAddressesView />
           </div>
 
           {/* Right Column: Contact & Support Form (7 cols) */}

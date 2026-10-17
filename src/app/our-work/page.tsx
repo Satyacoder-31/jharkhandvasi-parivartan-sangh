@@ -231,13 +231,15 @@ export default function OurWorkPage() {
 
                   {/* Emergency Assistance Panel for Migrants */}
                   {program.hasEmergencyPanel && (
-                    <div className="p-4 rounded-2xl bg-[#E9F0E4] border border-[#6F8D58]/30 flex items-start gap-3">
-                      <Phone className="w-5 h-5 text-[#1D5139] flex-shrink-0 mt-0.5" />
-                      <div className="text-xs text-[#123B2A]">
-                        <strong className="block text-[#1D5139] font-bold">
+                    <div className="p-4 rounded-2xl bg-[#E9F0E4] dark:bg-[#06180F] border border-[#6F8D58]/30 dark:border-[#B8CBA5]/30 flex items-start gap-3 shadow-sm">
+                      <Phone className="w-5 h-5 text-[#1D5139] dark:text-[#B8CBA5] flex-shrink-0 mt-0.5" />
+                      <div className="text-xs text-[#123B2A] dark:text-[#F7F5EC]">
+                        <strong className="block text-[#1D5139] dark:text-[#E28723] font-bold">
                           24/7 Migrant Distress Helpline: +91 90222 88222
                         </strong>
-                        Our emergency response protocol is active day and night for hospital casualties, accidents, or urgent repatriation coordination.
+                        <span className="text-[#17231C]/90 dark:text-[#F7F5EC]/85">
+                          Our emergency response protocol is active day and night for hospital casualties, accidents, or urgent repatriation coordination.
+                        </span>
                       </div>
                     </div>
                   )}

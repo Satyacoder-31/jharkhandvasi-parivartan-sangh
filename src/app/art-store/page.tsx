@@ -309,14 +309,14 @@ export default function ArtStorePage() {
                   </p>
 
                   {/* High-Visibility Welfare Impact Box */}
-                  <div className="p-3.5 rounded-2xl bg-[#E8F5E9] border-2 border-[#2E7D32]/35 text-xs text-[#0F3822] leading-relaxed shadow-sm">
-                    <div className="flex items-center gap-1.5 font-bold text-[#1D5139] mb-1">
+                  <div className="p-3.5 rounded-2xl bg-[#E8F5E9] dark:bg-[#06180F] border-2 border-[#2E7D32]/35 dark:border-[#2E7D32]/60 text-xs text-[#0F3822] dark:text-[#E8F5E9] leading-relaxed shadow-sm">
+                    <div className="flex items-center gap-1.5 font-bold text-[#1D5139] dark:text-[#81C784] mb-1">
                       <Heart className="w-3.5 h-3.5 text-[#D84315] fill-[#D84315] flex-shrink-0" />
-                      <span className="uppercase text-[10px] tracking-wider font-extrabold text-[#1B5E20]">
+                      <span className="uppercase text-[10px] tracking-wider font-extrabold text-[#1B5E20] dark:text-[#A5D6A7]">
                         Direct Welfare Impact:
                       </span>
                     </div>
-                    <p className="font-semibold text-xs text-[#143E2B] leading-snug">
+                    <p className="font-semibold text-xs text-[#143E2B] dark:text-[#F1F8E9] leading-snug">
                       {art.impact}
                     </p>
                   </div>
@@ -407,15 +407,15 @@ export default function ArtStorePage() {
               </div>
 
               {orderComplete ? (
-                <div className="p-5 rounded-2xl bg-[#E9F0E4] border border-[#6F8D58]/30 text-center space-y-2 animate-fade-in">
-                  <CheckCircle2 className="w-10 h-10 text-[#1D5139] mx-auto" />
-                  <h4 className="font-serif text-base font-bold text-[#123B2A]">
+                <div className="p-5 rounded-2xl bg-[#E9F0E4] dark:bg-[#06180F] border border-[#6F8D58]/30 dark:border-[#B8CBA5]/30 text-center space-y-2 animate-fade-in">
+                  <CheckCircle2 className="w-10 h-10 text-[#1D5139] dark:text-[#B8CBA5] mx-auto" />
+                  <h4 className="font-serif text-base font-bold text-[#123B2A] dark:text-white">
                     Acquisition Pledge Registered!
                   </h4>
-                  <p className="text-xs text-[#17231C]/80">
+                  <p className="text-xs text-[#17231C]/80 dark:text-[#F7F5EC]/85">
                     Thank you, <strong>{buyerName}</strong>. Your reference token is <strong>{orderRef}</strong>.
                   </p>
-                  <p className="text-[11px] text-[#795943]">
+                  <p className="text-[11px] text-[#795943] dark:text-[#B8CBA5]">
                     Our Borivali West office will call or WhatsApp you at <strong>{buyerPhone}</strong> to confirm packaging, shipping address, and verified donation coordinates.
                   </p>
                   <button

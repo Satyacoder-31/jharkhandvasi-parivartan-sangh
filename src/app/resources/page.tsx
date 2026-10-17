@@ -96,10 +96,10 @@ export default function ResourcesPage() {
 
       {/* 4. DISCLOSURE ON SOURCING */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="p-6 rounded-2xl bg-[#E9F0E4] border border-[#6F8D58]/30 text-xs text-[#123B2A] flex items-start gap-3">
-          <ShieldCheck className="w-5 h-5 text-[#1D5139] flex-shrink-0 mt-0.5" />
+        <div className="p-6 rounded-2xl bg-[#E9F0E4] dark:bg-[#06180F] border border-[#6F8D58]/30 dark:border-[#B8CBA5]/30 text-xs text-[#123B2A] dark:text-[#F7F5EC] flex items-start gap-3 shadow-sm">
+          <ShieldCheck className="w-5 h-5 text-[#1D5139] dark:text-[#B8CBA5] flex-shrink-0 mt-0.5" />
           <div className="leading-relaxed font-light">
-            <strong>Publication Ethics:</strong> All educational manuals, welfare guides, and environmental documentation published here are curated strictly for non-commercial social assistance, community literacy, and public empowerment.
+            <strong className="font-bold text-[#123B2A] dark:text-white">Publication Ethics:</strong> All educational manuals, welfare guides, and environmental documentation published here are curated strictly for non-commercial social assistance, community literacy, and public empowerment.
           </div>
         </div>
       </section>

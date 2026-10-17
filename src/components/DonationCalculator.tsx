@@ -162,23 +162,26 @@ export default function DonationCalculator() {
         </div>
 
         {/* Live Dynamic Impact Explanation Box */}
-        <div className="p-5 rounded-2xl bg-[#E9F0E4] border border-[#6F8D58]/30 text-[#123B2A] flex items-start gap-3 mb-8">
-          <Info className="w-5 h-5 text-[#1D5139] flex-shrink-0 mt-0.5" />
+        <div className="p-5 rounded-2xl bg-[#E9F0E4] dark:bg-[#06180F] border border-[#6F8D58]/40 dark:border-[#B8CBA5]/30 text-[#123B2A] dark:text-[#F7F5EC] flex items-start gap-3 mb-8 shadow-sm">
+          <Info className="w-5 h-5 text-[#1D5139] dark:text-[#B8CBA5] flex-shrink-0 mt-0.5" />
           <div>
-            <span className="text-xs font-bold text-[#1D5139] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#1D5139] dark:text-[#B8CBA5] uppercase tracking-wider block">
               Estimated Impact For ₹{currentAmount.toLocaleString()} ({selectedCause})
             </span>
-            <p className="text-xs sm:text-sm text-[#17231C]/90 mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#123B2A] dark:text-[#F7F5EC] mt-1.5 leading-relaxed font-medium">
               {currentImpact}
             </p>
           </div>
         </div>
 
         {/* Pledge vs Payment Transparency Notice */}
-        <div className="p-4 rounded-2xl bg-[#FFF8EE] border border-[#E28723]/30 text-xs text-[#795943] flex items-start gap-2.5 mb-8">
+        <div className="p-4 rounded-2xl bg-[#FFF8EE] dark:bg-[#1C1207] border border-[#E28723]/40 dark:border-[#E28723]/50 text-xs text-[#533D2E] dark:text-[#F7F5EC]/95 flex items-start gap-2.5 mb-8 shadow-sm">
           <AlertTriangle className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
           <div className="leading-relaxed">
-            <strong className="text-[#123B2A]">Verification & Anti-Fraud Notice:</strong> JPS requires direct verification before receiving monetary donations. We do not process untracked third-party web gateways without authorized representative confirmation. Recording a pledge registers your generous intent; an authorized representative will provide official verified bank account details.
+            <strong className="text-[#123B2A] dark:text-[#E28723] font-bold">Verification & Anti-Fraud Notice:</strong>{" "}
+            <span>
+              JPS requires direct verification before receiving monetary donations. We do not process untracked third-party web gateways without authorized representative confirmation. Recording a pledge registers your generous intent; an authorized representative will provide official verified bank account details.
+            </span>
           </div>
         </div>
 
@@ -213,8 +216,8 @@ export default function DonationCalculator() {
             </div>
           </div>
         ) : (
-          <form onSubmit={handlePledgeSubmit} className="space-y-4 pt-4 border-t border-[#123B2A]/10">
-            <h4 className="text-xs font-bold text-[#123B2A] uppercase tracking-wider">
+          <form onSubmit={handlePledgeSubmit} className="space-y-4 pt-4 border-t border-[#123B2A]/10 dark:border-white/10">
+            <h4 className="text-xs font-bold text-[#123B2A] dark:text-[#B8CBA5] uppercase tracking-wider">
               Record Your Contribution Pledge:
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -224,7 +227,7 @@ export default function DonationCalculator() {
                 value={donorName}
                 onChange={(e) => setDonorName(e.target.value)}
                 required
-                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 bg-[#FDFCF9] text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
+                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 dark:border-[#B8CBA5]/30 bg-[#FDFCF9] dark:bg-[#071F14] text-[#17231C] dark:text-[#F7F5EC] placeholder:text-[#17231C]/50 dark:placeholder:text-[#F7F5EC]/40 text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
               />
               <input
                 type="tel"
@@ -232,14 +235,14 @@ export default function DonationCalculator() {
                 value={donorPhone}
                 onChange={(e) => setDonorPhone(e.target.value)}
                 required
-                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 bg-[#FDFCF9] text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
+                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 dark:border-[#B8CBA5]/30 bg-[#FDFCF9] dark:bg-[#071F14] text-[#17231C] dark:text-[#F7F5EC] placeholder:text-[#17231C]/50 dark:placeholder:text-[#F7F5EC]/40 text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
               />
               <input
                 type="email"
                 placeholder="Email Address (Optional)"
                 value={donorEmail}
                 onChange={(e) => setDonorEmail(e.target.value)}
-                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 bg-[#FDFCF9] text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
+                className="px-4 py-2.5 rounded-xl border border-[#123B2A]/20 dark:border-[#B8CBA5]/30 bg-[#FDFCF9] dark:bg-[#071F14] text-[#17231C] dark:text-[#F7F5EC] placeholder:text-[#17231C]/50 dark:placeholder:text-[#F7F5EC]/40 text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none"
               />
             </div>
 

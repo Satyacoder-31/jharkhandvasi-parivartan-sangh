@@ -1,0 +1,627 @@
+export interface OfficeLocation {
+  id: string;
+  type: string;
+  title: string;
+  address: string;
+  landmark: string;
+  city: string;
+  state: string;
+  pin: string;
+  phone: string;
+  hours: string;
+}
+
+export interface HeroSlideData {
+  id: number;
+  eyebrow: string;
+  hindiTitle: string;
+  title: string;
+  italicWord: string;
+  titleEnd: string;
+  description: string;
+  image: string;
+  alt: string;
+  primaryCta: { text: string; href: string };
+  secondaryCta: { text: string; href: string };
+  badgeText: string;
+}
+
+export interface LeadershipMember {
+  id: string;
+  name: string;
+  role: string;
+  organization: string;
+  image: string;
+  bio: string;
+  phone?: string;
+  email?: string;
+}
+
+export interface ProgramData {
+  id: string;
+  eyebrow: string;
+  hindiTitle: string;
+  title: string;
+  description: string;
+  image: string;
+  stats: string;
+  bullets: string[];
+}
+
+export interface ArtworkData {
+  id: string;
+  title: string;
+  hindiTitle: string;
+  artist: string;
+  origin: string;
+  dimensions: string;
+  medium: string;
+  price: number;
+  description: string;
+  image: string;
+  inStock: boolean;
+  featured: boolean;
+}
+
+export interface EventData {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  category: string;
+  badge: string;
+  description: string;
+  image: string;
+  dignitaries?: string;
+}
+
+export interface MediaPhoto {
+  id: string;
+  title: string;
+  category: "Leadership" | "Events" | "Field Work" | "Press" | "Art" | "Nature";
+  url: string;
+  caption: string;
+}
+
+export interface SiteContent {
+  organization: {
+    name: string;
+    hindiName: string;
+    tagline: string;
+    regNo: string;
+    estd: string;
+    primaryPhone: string;
+    secondaryPhone: string;
+    email: string;
+    alternateEmail: string;
+    website: string;
+    bankDetails: {
+      bankName: string;
+      accountNumber: string;
+      ifsc: string;
+      taxExemption: string;
+      pan: string;
+    };
+    offices: OfficeLocation[];
+  };
+  stats: {
+    years: number;
+    yearsLabel: string;
+    workers: number;
+    workersLabel: string;
+    screenings: number;
+    screeningsLabel: string;
+    districts: number;
+    districtsLabel: string;
+  };
+  heroSlides: HeroSlideData[];
+  about: {
+    founderName: string;
+    founderRole: string;
+    founderImage: string;
+    founderMessage: string;
+    founderQuote: string;
+    originStory: string;
+    mission: string;
+    vision: string;
+    leadership: LeadershipMember[];
+  };
+  programs: ProgramData[];
+  artStore: ArtworkData[];
+  events: EventData[];
+  mediaGallery: MediaPhoto[];
+}
+
+export const defaultSiteContent: SiteContent = {
+  organization: {
+    name: "Jharkhandvasi Parivartan Sangh",
+    hindiName: "झारखंडवासी परिवर्तन संघ",
+    tagline: "सेवा से परिवर्तन की ओर",
+    regNo: "E-30004/07/07/2013 MUMBAI",
+    estd: "2005",
+    primaryPhone: "+91 78080 08058",
+    secondaryPhone: "+91 90222 88222",
+    email: "jpsngo12@gmail.com",
+    alternateEmail: "help@jpsngo.org",
+    website: "https://jharkhandvasi-parivartan-sangh-rho.vercel.app",
+    bankDetails: {
+      bankName: "Bank of India (BOI), Mahavirnagar Charkop",
+      accountNumber: "013610110004678",
+      ifsc: "BKID0000136",
+      taxExemption: "80G: AABTJ8020A24MB02",
+      pan: "AABTJ8020A",
+    },
+    offices: [
+      {
+        id: "mumbai-headquarters",
+        type: "Head Office",
+        title: "Registered Head Office (Mumbai)",
+        address: "32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West)",
+        landmark: "Gorai-1, Near Link Road",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pin: "400091",
+        phone: "+91 90222 88222",
+        hours: "Mon – Sat: 10:00 AM – 8:00 PM",
+      },
+      {
+        id: "giridih-branch",
+        type: "Regional Office",
+        title: "Regional Branch Office (Jharkhand)",
+        address: "DK Traders, Buxidih Road, Near Burman Decorator",
+        landmark: "Near Tower Chowk",
+        city: "Giridih",
+        state: "Jharkhand",
+        pin: "815301",
+        phone: "+91 78080 08058",
+        hours: "24/7 Grassroots Emergency Coordination",
+      },
+      {
+        id: "malad-field-desk",
+        type: "Suburban Helpdesk",
+        title: "Migrant Labor Assistance Center (Malad)",
+        address: "Room 14, Chawl No. 3, Kurar Village, Malad (East)",
+        landmark: "Western Express Highway Corridor",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pin: "400097",
+        phone: "+91 78080 08058",
+        hours: "Daily: 9:00 AM – 9:00 PM",
+      },
+    ],
+  },
+  stats: {
+    years: 20,
+    yearsLabel: "Years of NGO Service",
+    workers: 15000,
+    workersLabel: "Migrant Workers & Families Aided",
+    screenings: 8500,
+    screeningsLabel: "Free Health Screenings Delivered",
+    districts: 24,
+    districtsLabel: "All Jharkhand Districts Covered",
+  },
+  heroSlides: [
+    {
+      id: 1,
+      eyebrow: "SERVICE • EMPOWERMENT • TRANSFORMATION",
+      hindiTitle: "सेवा से परिवर्तन की ओर",
+      title: "Growing Hope. Nurturing Lives.",
+      italicWord: "Transforming",
+      titleEnd: "Communities.",
+      description:
+        "Standing beside migrant families, empowering children with education, caring for elders, and preserving Jharkhand's natural heritage through compassion and collective grassroots action.",
+      image: "/images/hero-forest.jpg",
+      alt: "Lush green forest canopy of Jharkhand with morning sunlight",
+      primaryCta: { text: "Explore Our Work", href: "/our-work" },
+      secondaryCta: { text: "Become a Volunteer", href: "/get-involved" },
+      badgeText: "Native Forestry & Sustainable Communities",
+    },
+    {
+      id: 2,
+      eyebrow: "CHILD PROTECTION & LITERACY",
+      hindiTitle: "हर बच्चे को शिक्षा का अधिकार",
+      title: "Educating Minds.",
+      italicWord: "Igniting",
+      titleEnd: "Brighter Futures.",
+      description:
+        "Active coordination with the Child Welfare Committee (CWC) to combat child vulnerability and distribute Shiksha Protsahan study kits, uniforms, and learning materials.",
+      image: "/images/hero-education.jpg",
+      alt: "Underprivileged children joyfully learning together outdoors",
+      primaryCta: { text: "Child Welfare Programs", href: "/our-work#education" },
+      secondaryCta: { text: "Support A Student", href: "/donate" },
+      badgeText: "100+ Educational Kits Distributed",
+    },
+    {
+      id: 3,
+      eyebrow: "HEALTHCARE & GERIATRIC SUPPORT",
+      hindiTitle: "हर जीवन में सम्मान, हर समाज में अवसर",
+      title: "Dignity and Care for Our",
+      italicWord: "Cherished",
+      titleEnd: "Senior Citizens.",
+      description:
+        "Free medical checkups, vital health screenings, and supportive elder networks organized regularly across Borivali West and Mumbai suburbs.",
+      image: "/images/senior-health.jpg",
+      alt: "Doctor providing compassionate checkup to elderly citizen in health camp",
+      primaryCta: { text: "Senior Health Initiatives", href: "/our-work#seniors" },
+      secondaryCta: { text: "Request Medical Help", href: "/contact" },
+      badgeText: "Free Health Camps in Borivali West",
+    },
+    {
+      id: 4,
+      eyebrow: "MIGRANT RIGHTS & CRISIS AID",
+      hindiTitle: "एक ज़रूरत • एक प्रयास • एक बदलाव",
+      title: "A Reliable Voice for",
+      italicWord: "Dignified",
+      titleEnd: "Migrant Labor.",
+      description:
+        "24/7 grassroots emergency helpline, medical intervention, legal redressal, and administrative coordination for dignified repatriation to native villages in Jharkhand.",
+      image: "/images/community-assembly.jpg",
+      alt: "Migrant worker community assembly discussing welfare in Mumbai",
+      primaryCta: { text: "Emergency Support Protocol", href: "/contact" },
+      secondaryCta: { text: "Learn Our Story", href: "/about" },
+      badgeText: "24/7 Active Crisis Helpline: +91 90222 88222",
+    },
+    {
+      id: 5,
+      eyebrow: "20 YEARS OF SERVICE • SOUVENIR LAUNCH",
+      hindiTitle: "अपना झारखंड — संस्कृति, एकता और सम्मान",
+      title: "Celebrating Two Decades of",
+      italicWord: "Cultural Pride",
+      titleEnd: "& Diaspora Solidarity.",
+      description:
+        "Honoring Jharkhand's statehood in Mumbai with traditional Santhali dances, civil servant leadership, and the landmark release of 'अपना झारखंड' magazine.",
+      image: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
+      alt: "Release of Apna Jharkhand souvenir magazine by Babulal Marandi and Prahlad Modi",
+      primaryCta: { text: "Explore Press & Media", href: "/events" },
+      secondaryCta: { text: "Our Leadership Team", href: "/about" },
+      badgeText: "Released by Hon'ble Dignitaries in Mumbai",
+    },
+    {
+      id: 6,
+      eyebrow: "SACRED FORESTS & NATURE RESTORATION",
+      hindiTitle: "प्रकृति और पर्यावरण संरक्षण",
+      title: "Guardians of Sacred Sal Groves &",
+      italicWord: "Living Water",
+      titleEnd: "Sanctuaries.",
+      description:
+        "Preserving Jharkhand's indigenous ecology through community tree plantation drives, seed sharing, and clean water watershed management initiatives.",
+      image: "/images/watershed-nature.jpg",
+      alt: "Pristine forest river with clean flowing water in Jharkhand",
+      primaryCta: { text: "Nature & Ecology Mission", href: "/nature" },
+      secondaryCta: { text: "Donate for Saplings", href: "/donate" },
+      badgeText: "5,000+ Native Saplings Planted",
+    },
+  ],
+  about: {
+    founderName: "Arvind Arya",
+    founderRole: "Founder & National President",
+    founderImage: "/images/leadership/founder-arvind-arya.jpg",
+    founderMessage:
+      "Jharkhand is not merely a land of mineral richness and deep Sal canopies; it is the living spirit of our hardworking ancestors. When our brothers and sisters migrate to Mumbai seeking honest livelihood, they must never feel abandoned or defenseless in times of sickness or tragedy. JPS was built on the foundation of compassion, justice, and solidarity. Every child we educate and every elderly patient we nurse brings us closer to a dignified society.",
+    founderQuote: "एक जुर्रत... एक ज़रूरत — सेवा से परिवर्तन की ओर",
+    originStory:
+      "Jharkhandvasi Parivartan Sangh (JPS), established in 2005 and registered under the Maharashtra Public Trust Act in 2013 (Regd. No. E-30004/MUMBAI), began as a grassroots sanctuary for migrant laborers in Mumbai. Over two decades, it has evolved into a trusted interstate bridge connecting tribal roots in Jharkhand with Mumbai's bustling metropolitan life.",
+    mission:
+      "To protect, empower, and uplift migrant laborers, vulnerable elders, and marginalized children through immediate crisis relief, sustained healthcare access, educational sponsorship, and cultural identity preservation.",
+    vision:
+      "A compassionate, self-reliant diaspora where no migrant worker is denied justice or dignity, and every family remains proudly connected to their cultural heritage.",
+    leadership: [
+      {
+        id: "arvind-arya",
+        name: "Arvind Arya",
+        role: "Founder & National President",
+        organization: "Jharkhandvasi Parivartan Sangh",
+        image: "/images/leadership/founder-arvind-arya.jpg",
+        bio: "Social reformer and grassroots activist leading migrant welfare, community health camps, and diaspora unity in Mumbai since 2005.",
+        phone: "+91 90222 88222",
+        email: "arvind.arya@jpsngo.org",
+      },
+      {
+        id: "ramvilas-sharma",
+        name: "Ramvilas Sharma",
+        role: "Senior Vice President",
+        organization: "Executive Committee",
+        image: "/images/community-assembly.jpg",
+        bio: "Oversees migrant labor rights, administrative arbitration, and hospital emergency liaison across western suburbs of Mumbai.",
+      },
+      {
+        id: "surendra-sharma",
+        name: "Surendra Sharma",
+        role: "General Secretary",
+        organization: "JPS Secretariat",
+        image: "/images/cultural-birsa.jpg",
+        bio: "Coordinates community outreach, annual Birsa Munda Smruti Samaroh, and cultural development wings.",
+      },
+      {
+        id: "mahendra-sharma",
+        name: "Mahendra Sharma",
+        role: "Treasurer & Finance Trustee",
+        organization: "Board of Trustees",
+        image: "/images/tree-planting.jpg",
+        bio: "Manages financial audit compliance, 80G documentation, and emergency patient relief fund allocations.",
+      },
+    ],
+  },
+  programs: [
+    {
+      id: "migrants",
+      eyebrow: "CORE PRIORITY • 24/7 HELPLINE",
+      hindiTitle: "प्रवासी श्रमिक सुरक्षा एवं सहायता",
+      title: "Migrant Worker Rights & Emergency Support",
+      description:
+        "Frontline emergency aid for unorganized migrant laborers in Mumbai facing medical crises, workplace exploitation, or sudden accidents.",
+      image: "/images/community-assembly.jpg",
+      stats: "15,000+ Workers Assisted",
+      bullets: [
+        "24/7 dedicated crisis response desk (+91 78080 08058 / +91 90222 88222)",
+        "Hospital emergency admission and compassionate patient advocacy",
+        "Free legal redressal and labor dispute mediation assistance",
+        "Dignified coordination and logistics for repatriation of mortal remains",
+      ],
+    },
+    {
+      id: "seniors",
+      eyebrow: "GERIATRIC WELFARE & HEALTHCARE",
+      hindiTitle: "वरिष्ठ नागरिक स्वास्थ्य एवं सम्मान",
+      title: "Senior Citizens Care & Free Medical Camps",
+      description:
+        "Comprehensive healthcare and preventative wellness screenings organized regularly across Borivali West and Mumbai suburbs.",
+      image: "/images/senior-health.jpg",
+      stats: "8,500+ Health Screenings",
+      bullets: [
+        "Bi-monthly comprehensive free medical and vital health screenings",
+        "Free distribution of essential chronic medications and mobility aids",
+        "Eye testing, cataract detection, and corrective spectacles distribution",
+        "Active senior citizen community meetups combating elder loneliness",
+      ],
+    },
+    {
+      id: "education",
+      eyebrow: "LITERACY & PROTECTION",
+      hindiTitle: "शिक्षा प्रोत्साहन एवं बाल कल्याण",
+      title: "Child Welfare & Education Sponsorship",
+      description:
+        "Protecting children of daily-wage migrants from school dropouts through active Child Welfare Committee coordination and learning kits.",
+      image: "/images/hero-education.jpg",
+      stats: "1,200+ School Kits Provided",
+      bullets: [
+        "Annual Shiksha Protsahan study kits (notebooks, bags, geometry sets)",
+        "School admission guidance and fee support for migrant children",
+        "Community weekend tutorial centers in suburban worker settlements",
+        "Child protection seminars and anti-child-labor campaigns",
+      ],
+    },
+    {
+      id: "women",
+      eyebrow: "LIVELIHOOD & SELF-RELIANCE",
+      hindiTitle: "महिला सशक्तिकरण एवं आत्मनिर्भरता",
+      title: "Women's Self-Help & Micro-Skill Training",
+      description:
+        "Fostering economic independence and vocational skills for underprivileged women from Jharkhand residing in Mumbai.",
+      image: "/images/women-empowerment.jpg",
+      stats: "650+ Women Trained",
+      bullets: [
+        "Vocational tailoring, embroidery, and handicraft training workshops",
+        "Micro-enterprise financial literacy and Self-Help Group (SHG) formation",
+        "Maternal healthcare counseling and nutritional guidance drives",
+        "Legal awareness on women's rights and domestic grievance redressal",
+      ],
+    },
+    {
+      id: "nature",
+      eyebrow: "ENVIRONMENTAL CONSERVATION",
+      hindiTitle: "प्रकृति और पर्यावरण संरक्षण",
+      title: "Native Forestry & Watershed Restoration",
+      description:
+        "Protecting Jharkhand's ecological heritage through tree plantation, watershed conservation, and environmental education.",
+      image: "/images/watershed-nature.jpg",
+      stats: "5,000+ Saplings Planted",
+      bullets: [
+        "Sal, Mahua, and native sapling plantations across degraded soils",
+        "Soil conservation and rural watershed revival awareness drives",
+        "Eco-solidarity camps connecting urban diaspora youth with mother nature",
+        "Traditional organic farming and bio-compost promotion",
+      ],
+    },
+    {
+      id: "culture",
+      eyebrow: "HERITAGE & DIASPORA SOLIDARITY",
+      hindiTitle: "संस्कृति, कला एवं एकता",
+      title: "Cultural Heritage & Diaspora Community Unity",
+      description:
+        "Preserving indigenous tribal arts, folk music, and commemorating freedom fighters like Bhagwan Birsa Munda.",
+      image: "/images/cultural-birsa.jpg",
+      stats: "20+ Years Documented",
+      bullets: [
+        "Annual Bhagwan Birsa Munda Smruti Samaroh in Mumbai",
+        "Sohrai & Khovar traditional tribal mural exhibitions and art charity",
+        "Publication of 'अपना झारखंड' souvenir documenting diaspora history",
+        "Promoting Chhau, Jhumar, and Santhali folk performers on national stages",
+      ],
+    },
+  ],
+  artStore: [
+    {
+      id: "art-birsa-frame",
+      title: "Bhagwan Birsa Munda Commemorative Frame",
+      hindiTitle: "धरती आबा भगवान बिरसा मुंडा फोटो फ्रेम",
+      artist: "Traditional Craftsmen Collective",
+      origin: "Khunti / Ranchi, Jharkhand",
+      dimensions: "18\" × 24\" Handcrafted Teak Finish Frame",
+      medium: "High-resolution Archival Gold Print on Canvas",
+      price: 1500,
+      description:
+        "An iconic portrait of Dharti Aaba Bhagwan Birsa Munda, the legendary tribal freedom fighter who ignited the historic Ulgulan revolt. 100% proceeds support child education and senior citizen medical camps.",
+      image: "/images/art/birsa-munda-frame.jpg",
+      inStock: true,
+      featured: true,
+    },
+    {
+      id: "art-sohrai-wildlife",
+      title: "Sacred Sohrai Tribal Wall Painting",
+      hindiTitle: "पारंपरिक सोहराई भित्ति चित्र",
+      artist: "Indigenous Tribal Women Artisans",
+      origin: "Hazaribagh, Jharkhand",
+      dimensions: "24\" × 36\" Stretched Canvas",
+      medium: "Natural Earth Pigments & Acrylic on Hand-woven Canvas",
+      price: 3200,
+      description:
+        "GI-tagged Sohrai tribal art featuring fertility motifs, sacred forest animals, and botanical symbols painted in reverence of nature and harvest.",
+      image: "/images/art-sohrai.jpg",
+      inStock: true,
+      featured: true,
+    },
+    {
+      id: "art-jhumar-celebration",
+      title: "Karam Festival Jhumar Dance Canvas",
+      hindiTitle: "करम पर्व झूमर लोक नृत्य",
+      artist: "Santhal Pargana Folk Collective",
+      origin: "Dumka, Jharkhand",
+      dimensions: "20\" × 30\" Gallery Wrapped Canvas",
+      medium: "Oil & Acrylic on Textured Canvas",
+      price: 2800,
+      description:
+        "Vibrant depiction of women dancing hand-in-hand celebrating the Karam festival under the sacred Mahua tree with Madal drums beating in harmony.",
+      image: "/images/cultural-birsa.jpg",
+      inStock: true,
+      featured: false,
+    },
+    {
+      id: "art-sal-forest-canopy",
+      title: "Morning Sun in Saranda Sal Forest",
+      hindiTitle: "सारंडा के साल वन में भोर की किरणें",
+      artist: "Arvind Arya & Youth Photo Collective",
+      origin: "West Singhbhum, Jharkhand",
+      dimensions: "16\" × 24\" Matte Photographic Print with Museum Mount",
+      medium: "Fine Art Photography on Archival Hahnemühle Paper",
+      price: 1800,
+      description:
+        "Golden rays piercing through the 700-hill Sal tree canopy of Asia's largest Sal forest in Saranda.",
+      image: "/images/hero-forest.jpg",
+      inStock: true,
+      featured: false,
+    },
+  ],
+  events: [
+    {
+      id: "event-souvenir-launch",
+      title: "Release of 'अपना झारखंड' Souvenir Magazine",
+      date: "November 15, 2024",
+      location: "Prabodhankar Thackeray Hall, Borivali (West), Mumbai",
+      category: "Milestone Celebration",
+      badge: "20-Year Souvenir Launch",
+      description:
+        "Marking two decades of relentless grassroots service, JPS celebrated Jharkhand Foundation Day with the release of the historic souvenir magazine 'अपना झारखंड'. Unveiled by distinguished dignitaries including former Chief Minister Shri Babulal Marandi and Shri Prahlad Modi.",
+      image: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
+      dignitaries: "Shri Babulal Marandi, Shri Prahlad Modi, Senior IPS/IAS Officers",
+    },
+    {
+      id: "event-birsa-jayanti",
+      title: "Bhagwan Birsa Munda 150th Janmotsav Samaroh",
+      date: "November 15, 2025",
+      location: "Borivali Suburban Cultural Grounds, Mumbai",
+      category: "Cultural Commemoration",
+      badge: "Statehood & Tribal Pride",
+      description:
+        "Grand assembly of over 2,500 diaspora members with traditional Santhali and Chhau folk dance performances, floral tributes before Dharti Aaba, and felicitation of community elders.",
+      image: "/images/events/birsa-munda-garland-stage-ceremony.jpg",
+      dignitaries: "Community Leaders, Cultural Envoys, Local Representatives",
+    },
+    {
+      id: "event-health-camp-borivali",
+      title: "Mega Free Health Screening & Medicine Camp",
+      date: "January 26, 2026",
+      location: "Gorai Community Hall, Borivali West, Mumbai",
+      category: "Healthcare Action",
+      badge: "Frontline Health",
+      description:
+        "Comprehensive health checkups conducted for 450+ migrant families, construction laborers, and senior citizens with free distribution of essential medications and eye checkups.",
+      image: "/images/senior-health.jpg",
+      dignitaries: "Dr. Rajesh Kumar (Chief Medical Coordinator), Volunteer Doctors",
+    },
+    {
+      id: "event-newspaper-map-archive",
+      title: "20-Year Statewide Press Archive & Coverage Map Release",
+      date: "March 2026",
+      location: "Mumbai Press Club & JPS Headquarters",
+      category: "Press Archive",
+      badge: "All 24 Districts Covered",
+      description:
+        "Unveiling the comprehensive media documentation tracking two decades of JPS interventions reported across leading dailies including Prabhat Khabar, Dainik Jagran, Hindustan, and Times of India.",
+      image: "/images/press/jharkhand-newspaper-map.png",
+      dignitaries: "Veteran Journalists, Legal Advocates, Community Trustees",
+    },
+  ],
+  mediaGallery: [
+    {
+      id: "photo-1",
+      title: "Apna Jharkhand Magazine Launch",
+      category: "Events",
+      url: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
+      caption: "Former CM Babulal Marandi and Prahlad Modi releasing the landmark 20-year souvenir.",
+    },
+    {
+      id: "photo-2",
+      title: "Birsa Munda Garlanding Ceremony",
+      category: "Events",
+      url: "/images/events/birsa-munda-garland-stage-ceremony.jpg",
+      caption: "President Arvind Arya and delegates paying floral homage to Bhagwan Birsa Munda.",
+    },
+    {
+      id: "photo-3",
+      title: "Pravasi Sammelan Memorandum",
+      category: "Leadership",
+      url: "/images/events/pravasi-sammelan-memorandum-presentation.jpg",
+      caption: "Presentation of community charter to Ex-MP Gopal Shetty & MLA Sanjay Upadhyay.",
+    },
+    {
+      id: "photo-4",
+      title: "Shivaji Maharaj Throne Tribute",
+      category: "Leadership",
+      url: "/images/events/shivaji-maharaj-throne-delegation.jpg",
+      caption: "Executive delegation honoring Maharashtra heritage before Chhatrapati Shivaji Maharaj.",
+    },
+    {
+      id: "photo-5",
+      title: "Statewide Press Coverage Map",
+      category: "Press",
+      url: "/images/press/jharkhand-newspaper-map.png",
+      caption: "20 years of grassroots news coverage mapped across all 24 districts of Jharkhand.",
+    },
+    {
+      id: "photo-6",
+      title: "Bhagwan Birsa Munda Photo Frame",
+      category: "Art",
+      url: "/images/art/birsa-munda-frame.jpg",
+      caption: "Traditional archival teak-finish portrait frame for charity donations.",
+    },
+    {
+      id: "photo-7",
+      title: "Senior Citizens Healthcare Camp",
+      category: "Field Work",
+      url: "/images/senior-health.jpg",
+      caption: "Volunteer medical doctors conducting free checkups in Borivali West.",
+    },
+    {
+      id: "photo-8",
+      title: "Native Tree Plantation Drive",
+      category: "Nature",
+      url: "/images/tree-planting.jpg",
+      caption: "Volunteers planting native Sal saplings for soil and water restoration.",
+    },
+    {
+      id: "photo-9",
+      title: "Child Education Outreach",
+      category: "Field Work",
+      url: "/images/hero-education.jpg",
+      caption: "Distributing Shiksha Protsahan school kits to children of migrant laborers.",
+    },
+    {
+      id: "photo-10",
+      title: "Community Assembly in Mumbai",
+      category: "Field Work",
+      url: "/images/community-assembly.jpg",
+      caption: "Migrant worker assembly resolving community disputes and welfare coordination.",
+    },
+  ],
+};

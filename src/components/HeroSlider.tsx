@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play, Heart, Shield, Sparkles } from "lucide-react";
 
+import { useSiteContent } from "@/context/SiteContentContext";
+
 interface Slide {
   id: number;
   eyebrow: string;
@@ -20,7 +22,7 @@ interface Slide {
   badgeText: string;
 }
 
-const slides: Slide[] = [
+const fallbackSlides: Slide[] = [
   {
     id: 1,
     eyebrow: "SERVICE • EMPOWERMENT • TRANSFORMATION",
@@ -114,8 +116,18 @@ const slides: Slide[] = [
 ];
 
 export default function HeroSlider() {
+  const { content } = useSiteContent();
+  const slides = content.heroSlides && content.heroSlides.length > 0 ? content.heroSlides : fallbackSlides;
+
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  // Safety check if slide index exceeds updated array length
+  useEffect(() => {
+    if (current >= slides.length) {
+      setCurrent(0);
+    }
+  }, [slides.length, current]);
 
   useEffect(() => {
     if (!isPlaying) return;

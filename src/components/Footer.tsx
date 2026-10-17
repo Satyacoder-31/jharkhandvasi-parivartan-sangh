@@ -16,9 +16,12 @@ import {
   Send,
   CheckCircle2,
   ChevronUp,
+  Lock,
 } from "lucide-react";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 export default function Footer() {
+  const { content } = useSiteContent();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -265,43 +268,53 @@ export default function Footer() {
           {/* Column 4: Verified Contact & Helpline (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              Contact & Official Offices
+              Contact &amp; Official Offices
             </h5>
             <div className="flex flex-col gap-3.5 text-xs text-[#F7F5EC]/80 font-light">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block font-medium">Registered Head Office (Mumbai):</strong>
-                  <span>32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai-400091</span>
+                  <strong className="text-white block font-medium">
+                    {content.organization.offices[0]?.title || "Registered Head Office (Mumbai)"}:
+                  </strong>
+                  <span>
+                    {content.organization.offices[0]?.address ||
+                      "32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai-400091"}
+                  </span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block font-medium">Branch Office (Giridih):</strong>
-                  <span>DK Traders, Buxidih Road, Near Bus Stand, Giridih, Jharkhand - 815301</span>
+                  <strong className="text-white block font-medium">
+                    {content.organization.offices[1]?.title || "Branch Office (Giridih)"}:
+                  </strong>
+                  <span>
+                    {content.organization.offices[1]?.address ||
+                      "DK Traders, Buxidih Road, Near Burman Decorator, Giridih, Jharkhand - 815301"}
+                  </span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+917808008058" className="text-white font-bold hover:text-[#B8CBA5] block">
-                    +91 78080 08058
+                  <a href={`tel:${content.organization.primaryPhone}`} className="text-white font-bold hover:text-[#B8CBA5] block">
+                    {content.organization.primaryPhone}
                   </a>
-                  <a href="tel:+919022288222" className="text-[#F7F5EC]/90 text-[11px] hover:text-white block">
-                    Alt Helpline: +91 90222 88222
+                  <a href={`tel:${content.organization.secondaryPhone}`} className="text-[#F7F5EC]/90 text-[11px] hover:text-white block">
+                    Alt Helpline: {content.organization.secondaryPhone}
                   </a>
-                  <span className="text-[10px] text-[#B8CBA5]">24/7 Registered Community & Crisis Helpline</span>
+                  <span className="text-[10px] text-[#B8CBA5]">24/7 Registered Community &amp; Crisis Helpline</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="mailto:jpsngo12@gmail.com" className="hover:text-white block">
-                    jpsngo12@gmail.com
+                  <a href={`mailto:${content.organization.email}`} className="hover:text-white block">
+                    {content.organization.email}
                   </a>
-                  <a href="mailto:info@jpsngo.org" className="hover:text-white block text-[11px] text-[#B8CBA5]">
-                    info@jpsngo.org
+                  <a href={`mailto:${content.organization.alternateEmail}`} className="hover:text-white block text-[11px] text-[#B8CBA5]">
+                    {content.organization.alternateEmail}
                   </a>
                 </div>
               </div>
@@ -310,17 +323,17 @@ export default function Footer() {
             <div className="mt-2 pt-3 border-t border-white/10 space-y-1.5 text-[11px] text-[#B8CBA5]/90">
               <div className="flex items-center gap-1.5 text-white font-medium">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#E28723]" />
-                <span>Reg. No: E-30004/07/07/2013 MUMBAI</span>
+                <span>Reg. No: {content.organization.regNo}</span>
               </div>
               <div className="text-[10px] text-[#F7F5EC]/70">
-                80G: AABTJ8020A24MB02 | NITI Aayog: MH/2022/0329647
+                80G: {content.organization.bankDetails.taxExemption} | PAN: {content.organization.bankDetails.pan}
               </div>
               <div>
                 <Link
                   href="/donate"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-[#E28723] hover:underline mt-1"
                 >
-                  <span>Bank & 80G Tax Exemption Details</span>
+                  <span>Bank &amp; 80G Tax Exemption Details</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -328,15 +341,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 3. BOTTOM STRIP WITH BACK-TO-TOP */}
+        {/* 3. BOTTOM STRIP WITH BACK-TO-TOP & ADMIN PORTAL LINK */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F5EC]/60 font-light">
           <div>
-            © 2005–2026 झारखंडवासी परिवर्तन संघ (रजि.) | एक जुर्रत... एक ज़रूरत
+            © 2005–2026 {content.organization.hindiName} (रजि.) | {content.organization.tagline}
           </div>
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             <Link href="/about" className="hover:text-white transition-colors">Founding Story</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Emergency Redressal</Link>
             <Link href="/donate" className="hover:text-white transition-colors">Financial Transparency</Link>
+            <Link
+              href="/admin"
+              className="inline-flex items-center gap-1.5 text-[#E28723] hover:text-[#f39c38] font-semibold transition-colors px-2.5 py-0.5 rounded-full bg-white/5 border border-[#E28723]/30"
+              title="Manage website content, photos, and addresses"
+            >
+              <Lock className="w-3 h-3" />
+              <span>Admin Portal</span>
+            </Link>
             <button
               onClick={scrollToTop}
               className="inline-flex items-center gap-1 text-[#B8CBA5] hover:text-white transition-colors ml-2"
