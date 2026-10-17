@@ -67,16 +67,18 @@ export default function ImpactPage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       {/* 1. EDITORIAL PAGE HEADER */}
-      <section className="bg-[#071F14] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 relative overflow-hidden">
+      <section className="bg-[#05140D] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 relative overflow-hidden">
         <Image
           src="/images/senior-health.jpg"
           alt="Healthcare camp and community support"
           fill
           priority
-          className="object-cover opacity-50 filter brightness-85"
+          className="object-cover object-center filter brightness-85"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />
+        {/* Rich cinematic dark gradient overlays like homepage hero */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">

@@ -104,16 +104,18 @@ export default function NaturePage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       {/* 1. CINEMATIC NATURE HERO */}
-      <section className="relative w-full min-h-[580px] lg:min-h-[680px] flex items-center justify-center bg-[#071F14] text-white overflow-hidden">
+      <section className="relative w-full min-h-[580px] lg:min-h-[680px] flex items-center justify-center bg-[#05140D] text-white overflow-hidden">
         <Image
           src="/images/hero-forest.jpg"
           alt="Ancient Sal and Mahua forest of Jharkhand with sun rays"
           fill
           priority
-          className="object-cover opacity-60 filter brightness-85"
+          className="object-cover object-center filter brightness-85"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/75 to-black/50" />
+        {/* Rich cinematic dark gradient overlays like homepage hero */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 sm:pt-40 pb-20 lg:pb-28 text-center space-y-6">
           <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 mx-auto">
@@ -282,15 +284,17 @@ export default function NaturePage() {
 
       {/* 5. TREE PLANTING PHOTO BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative rounded-3xl overflow-hidden h-[340px] sm:h-[420px] shadow-2xl border border-[#123B2A]/15">
+        <div className="relative rounded-3xl overflow-hidden h-[340px] sm:h-[420px] shadow-2xl border border-[#B8CBA5]/20 bg-[#05140D]">
           <Image
             src="/images/tree-planting.jpg"
             alt="Community tree planting in Jharkhand by JPS volunteers"
             fill
-            className="object-cover"
+            className="object-cover object-center filter brightness-85"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071F14]/90 via-[#071F14]/60 to-transparent" />
+          {/* Rich cinematic dark gradient overlays like homepage hero */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
           <div className="absolute inset-0 p-8 sm:p-14 flex flex-col justify-center max-w-xl text-white space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-white/20 self-start">
               Planting Seeds of Transformation

@@ -40,15 +40,17 @@ export default function HomePage() {
       {/* 2. VERIFIED STATISTICS STRIP (ANIMATED INCREASING NUMBERS ON SCROLL) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <ScrollReveal direction="up" duration={800}>
-          <div className="relative bg-[#123B2A] dark:bg-[#071F14] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-[#B8CBA5]/20 overflow-hidden">
+          <div className="relative bg-[#05140D] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-[#B8CBA5]/20 overflow-hidden">
             <Image
               src="/images/tree-planting.jpg"
               alt="Native Sal trees and soil restoration nature backdrop"
               fill
-              className="object-cover opacity-45 filter brightness-85"
+              className="object-cover object-center filter brightness-85"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#071F14]/90 via-[#071F14]/75 to-[#071F14]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/85" />
+            {/* Rich cinematic dark gradient overlays like homepage hero */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
             <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
               {/* Stat 1: 20+ Years */}
               <div className="pt-4 sm:pt-0 sm:px-4 text-center">
@@ -826,15 +828,17 @@ export default function HomePage() {
       {/* 9. VOLUNTEER & DONATE CTA (SCROLL REVEAL FADE WITH BACKGROUND IMAGE) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <ScrollReveal direction="up" duration={700}>
-          <div className="relative bg-[#123B2A] dark:bg-[#071F14] text-white rounded-3xl p-8 sm:p-12 border border-[#B8CBA5]/25 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl overflow-hidden">
+          <div className="relative bg-[#05140D] text-white rounded-3xl p-8 sm:p-12 border border-[#B8CBA5]/25 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl overflow-hidden">
             <Image
               src="/images/tree-planting.jpg"
               alt="Volunteers planting native Sal saplings"
               fill
-              className="object-cover opacity-45 filter brightness-85"
+              className="object-cover object-center filter brightness-85"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A]/90 via-[#123B2A]/75 to-[#123B2A]/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
+            {/* Rich cinematic dark gradient overlays like homepage hero */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
 
             <div className="relative z-10 max-w-xl space-y-2">
               <span className="text-xs uppercase tracking-wider text-[#B8CBA5] font-bold">

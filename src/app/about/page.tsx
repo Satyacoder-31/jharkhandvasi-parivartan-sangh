@@ -96,16 +96,18 @@ export default function AboutPage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       {/* 1. EDITORIAL PAGE HEADER */}
-      <section className="bg-[#071F14] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 relative overflow-hidden">
+      <section className="bg-[#05140D] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 relative overflow-hidden">
         <Image
           src="/images/community-assembly.jpg"
           alt="Jharkhandvasi Parivartan Sangh Community Assembly"
           fill
           priority
-          className="object-cover opacity-50 filter brightness-85"
+          className="object-cover object-center filter brightness-85"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />
+        {/* Rich cinematic dark gradient overlays like homepage hero */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="flex flex-wrap items-center gap-2">
@@ -561,15 +563,16 @@ export default function AboutPage() {
 
       {/* 8. CTA WITH STATEWIDE NEWSPAPER MAP BACKGROUND */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-[#123B2A] text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-xl overflow-hidden border border-[#B8CBA5]/25">
+        <div className="relative bg-[#05140D] text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-xl overflow-hidden border border-[#B8CBA5]/25">
           <Image
             src="/images/press/jharkhand-newspaper-map.png"
             alt="Statewide Newspaper Map of Jharkhand"
             fill
-            className="object-contain object-center opacity-30 filter brightness-90 contrast-125 pointer-events-none"
+            className="object-contain object-center filter brightness-85 contrast-125 pointer-events-none"
             sizes="(max-width: 1024px) 100vw, 900px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/85 to-[#071F14]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/75 to-[#05140D]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
           <div className="relative z-10 space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 text-[10px]">
               20+ Years Documented Across All 24 Districts
