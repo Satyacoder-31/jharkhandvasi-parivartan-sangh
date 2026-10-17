@@ -181,6 +181,55 @@ export default function ArtStorePage() {
         </div>
       </section>
 
+      {/* 2.5 WELFARE IMPACT AT A GLANCE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-4 rounded-2xl bg-white border-2 border-[#2E7D32]/20 shadow-sm flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] text-[#1B5E20] flex items-center justify-center flex-shrink-0 text-lg">
+              👓
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#E28723] block">Elder Care</span>
+              <h4 className="font-serif text-sm font-bold text-[#123B2A]">35+ Eye Tests &amp; Glasses</h4>
+              <p className="text-[11px] text-[#17231C]/75 mt-0.5 font-light">Free prescription spectacles &amp; checkups per portrait sponsored.</p>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white border-2 border-[#2E7D32]/20 shadow-sm flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] text-[#1B5E20] flex items-center justify-center flex-shrink-0 text-lg">
+              🎒
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D5139] block">Child Literacy</span>
+              <h4 className="font-serif text-sm font-bold text-[#123B2A]">9 Full School Kits</h4>
+              <p className="text-[11px] text-[#17231C]/75 mt-0.5 font-light">Bags, stationery, books, and uniforms for tribal school children.</p>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white border-2 border-[#2E7D32]/20 shadow-sm flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] text-[#1B5E20] flex items-center justify-center flex-shrink-0 text-lg">
+              🍲
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#795943] block">Crisis Support</span>
+              <h4 className="font-serif text-sm font-bold text-[#123B2A]">Distress Ration Kits</h4>
+              <p className="text-[11px] text-[#17231C]/75 mt-0.5 font-light">Emergency grocery rations for stranded migrant families in Mumbai.</p>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white border-2 border-[#2E7D32]/20 shadow-sm flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] text-[#1B5E20] flex items-center justify-center flex-shrink-0 text-lg">
+              🌲
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D5139] block">Conservation</span>
+              <h4 className="font-serif text-sm font-bold text-[#123B2A]">25 Native Trees</h4>
+              <p className="text-[11px] text-[#17231C]/75 mt-0.5 font-light">Sapling care and protection of indigenous Sal and Mahua trees.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. CATEGORY FILTERS & ART CATALOG */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-[#123B2A]/10">
@@ -257,9 +306,17 @@ export default function ArtStorePage() {
                     {art.description}
                   </p>
 
-                  <div className="p-3 rounded-xl bg-[#E9F0E4] border border-[#6F8D58]/20 text-[11px] text-[#123B2A] leading-relaxed">
-                    <strong className="block text-[#1D5139]">Welfare Impact:</strong>
-                    {art.impact}
+                  {/* High-Visibility Welfare Impact Box */}
+                  <div className="p-3.5 rounded-2xl bg-[#E8F5E9] border-2 border-[#2E7D32]/35 text-xs text-[#0F3822] leading-relaxed shadow-sm">
+                    <div className="flex items-center gap-1.5 font-bold text-[#1D5139] mb-1">
+                      <Heart className="w-3.5 h-3.5 text-[#D84315] fill-[#D84315] flex-shrink-0" />
+                      <span className="uppercase text-[10px] tracking-wider font-extrabold text-[#1B5E20]">
+                        Direct Welfare Impact:
+                      </span>
+                    </div>
+                    <p className="font-semibold text-xs text-[#143E2B] leading-snug">
+                      {art.impact}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -324,6 +381,21 @@ export default function ArtStorePage() {
                 <span className="font-serif text-xl font-bold text-[#E28723] block mt-1">
                   ₹{selectedArt.suggestedDonation.toLocaleString()} Donation
                 </span>
+              </div>
+
+              {/* Highlighted Welfare Impact in Modal */}
+              <div className="p-4 rounded-2xl bg-[#E8F5E9] border-2 border-[#2E7D32]/40 space-y-1.5 shadow-sm">
+                <div className="flex items-center gap-1.5 text-[#1B5E20] font-extrabold text-xs uppercase tracking-wider">
+                  <Heart className="w-4 h-4 text-[#D84315] fill-[#D84315] flex-shrink-0" />
+                  <span>Direct Welfare Impact:</span>
+                </div>
+                <p className="text-xs sm:text-sm font-bold text-[#143E2B] leading-snug">
+                  {selectedArt.impact}
+                </p>
+                <div className="flex items-center gap-1.5 pt-1 text-[11px] text-[#2E7D32] font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32] flex-shrink-0" />
+                  <span>100% funds community aid • 80G Tax Exemption Receipt</span>
+                </div>
               </div>
 
               <div className="text-xs text-[#17231C]/80 space-y-1 font-light border-y border-[#123B2A]/10 py-3">

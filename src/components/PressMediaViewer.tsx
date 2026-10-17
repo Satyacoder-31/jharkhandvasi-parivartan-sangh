@@ -116,90 +116,77 @@ const pressItems: PressItem[] = [
 
 export default function PressMediaViewer() {
   const [selectedItem, setSelectedItem] = useState<PressItem | null>(null);
-  const [showMapModal, setShowMapModal] = useState<boolean>(false);
 
   return (
     <div className="space-y-16">
-      {/* 1. STATEWIDE NEWSPAPER MAP OF JHARKHAND SECTION */}
-      <div className="bg-gradient-to-br from-[#071F14] via-[#0E2F20] to-[#05180F] text-white rounded-3xl p-8 sm:p-12 border border-[#B8CBA5]/25 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D5139]/40 rounded-full blur-3xl pointer-events-none" />
+      {/* 1. STATEWIDE NEWSPAPER MAP OF JHARKHAND — CLEAR OPEN DISPLAY */}
+      <div className="bg-gradient-to-br from-[#071F14] via-[#0E2F20] to-[#05180F] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-[#B8CBA5]/25 shadow-2xl relative overflow-hidden space-y-8">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D5139]/30 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-5">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="badge-pill bg-[#E28723]/20 text-[#E28723] border border-[#E28723]/30">
-                Official Souvenir Map
-              </span>
-              <span className="text-xs text-[#B8CBA5] font-semibold tracking-wider">
-                अखबारों के पन्नों में झारखंड
-              </span>
-            </div>
-
-            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white">
-              The <span className="text-[#B8CBA5] italic">Statewide Newspaper Map</span> of Jharkhand
-            </h3>
-
-            <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              Every curve of Jharkhand&apos;s map represents real people and real stories. This iconic collage maps JPS&apos;s two decades of humanitarian work across all 24 districts — from Sahibganj, Deoghar, and Giridih to Ranchi, Palamu, and the Mumbai diaspora.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Media Sources</span>
-                <span className="font-serif text-base font-bold text-white">15+ Dailies</span>
-              </div>
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[10px] text-[#E28723] uppercase block font-semibold">Districts Covered</span>
-                <span className="font-serif text-base font-bold text-white">All 24 Districts</span>
-              </div>
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
-                <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Archive Span</span>
-                <span className="font-serif text-base font-bold text-white">2005 – 2026</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={() => setShowMapModal(true)}
-                className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c9741b] text-white text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
-              >
-                <ZoomIn className="w-4 h-4" />
-                <span>Inspect Full-Res Newspaper Map</span>
-              </button>
-              <a
-                href="/images/press/jharkhand-newspaper-map.png"
-                download="Jharkhand-Newspaper-Map-JPS.png"
-                className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-[#B8CBA5] text-xs font-bold tracking-wider border border-white/15 transition-all flex items-center gap-2"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                <span>Download High-Res PNG</span>
-              </a>
-            </div>
+        <div className="max-w-3xl space-y-3 relative z-10">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="badge-pill bg-[#E28723]/20 text-[#E28723] border border-[#E28723]/30">
+              Official Media Collage
+            </span>
+            <span className="text-xs text-[#B8CBA5] font-semibold tracking-wider">
+              अखबारों के पन्नों में झारखंड • 2005–2026
+            </span>
           </div>
 
-          {/* Interactive Map Visual */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div
-              onClick={() => setShowMapModal(true)}
-              className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group bg-[#05150d] border-2 border-[#B8CBA5]/30 shadow-2xl p-4 flex items-center justify-center hover:border-[#E28723] transition-all"
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/press/jharkhand-newspaper-map.webp"
-                  alt="Statewide Newspaper Map of Jharkhand - JPS Media Chronicle"
-                  fill
-                  className="object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  priority
-                />
-              </div>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white">
+            The <span className="text-[#B8CBA5] italic">Statewide Newspaper Map</span> of Jharkhand
+          </h3>
 
-              {/* Hover Badge */}
-              <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-[10px] text-white flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                <ZoomIn className="w-3 h-3 text-[#E28723]" />
-                <span>Click to Expand</span>
-              </div>
+          <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
+            Every curve and boundary of this map is composed of real newspaper clippings and headlines capturing JPS&apos;s two decades of humanitarian work across all 24 districts — from Sahibganj, Deoghar, and Giridih to Ranchi, Palamu, and the Mumbai diaspora.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Media Sources</span>
+              <span className="font-serif text-base font-bold text-white">15+ Dailies</span>
             </div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-[10px] text-[#E28723] uppercase block font-semibold">Districts Covered</span>
+              <span className="font-serif text-base font-bold text-white">All 24 Districts</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+              <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Archive Span</span>
+              <span className="font-serif text-base font-bold text-white">2005 – 2026</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Clear, High-Resolution Map Showcase Displayed Directly on the Page */}
+        <div className="relative z-10 bg-[#04120A] rounded-2xl border-2 border-[#B8CBA5]/30 p-4 sm:p-8 flex flex-col items-center justify-center shadow-2xl">
+          <div className="relative w-full h-[450px] sm:h-[600px] lg:h-[720px] max-w-5xl">
+            <Image
+              src="/images/press/jharkhand-newspaper-map.png"
+              alt="Statewide Newspaper Map of Jharkhand - JPS Media Chronicle"
+              fill
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              priority
+            />
+          </div>
+
+          {/* Clean Caption & Download Bar */}
+          <div className="w-full max-w-5xl mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F5EC]/80">
+            <div className="flex items-center gap-2 text-center sm:text-left">
+              <MapPin className="w-4 h-4 text-[#E28723] flex-shrink-0" />
+              <span>
+                <strong>Official Archival Silhouette:</strong> 3573 × 2851 px resolution featuring 15+ regional Hindi dailies across all 24 districts of Jharkhand.
+              </span>
+            </div>
+
+            <a
+              href="/images/press/jharkhand-newspaper-map.png"
+              download="Jharkhand-Newspaper-Map-JPS.png"
+              className="px-5 py-2.5 rounded-full bg-[#E28723] hover:bg-[#c9741b] text-white text-xs font-bold tracking-wider transition-all flex items-center gap-2 flex-shrink-0 shadow-md"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Download Original Full-Res PNG</span>
+            </a>
           </div>
         </div>
       </div>
@@ -338,64 +325,6 @@ export default function PressMediaViewer() {
                 className="text-xs text-[#E28723] hover:underline flex items-center gap-1 font-semibold"
               >
                 Open Original Image <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL 2: FULL-RES JHARKHAND NEWSPAPER MAP VIEWER */}
-      {showMapModal && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-          onClick={() => setShowMapModal(false)}
-        >
-          <div
-            className="bg-[#05140d] text-white rounded-3xl max-w-5xl w-full max-h-[94vh] overflow-hidden border border-[#B8CBA5]/40 shadow-2xl flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between flex-shrink-0">
-              <div>
-                <h4 className="font-serif text-lg font-bold text-white flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#E28723]" />
-                  Statewide Newspaper Map of Jharkhand
-                </h4>
-                <p className="text-[11px] text-[#B8CBA5]">
-                  Official Souvenir Collage • Press Coverage across all 24 Districts
-                </p>
-              </div>
-              <button
-                onClick={() => setShowMapModal(false)}
-                className="p-1.5 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-4 sm:p-6 overflow-y-auto flex items-center justify-center bg-black/60">
-              <div className="relative w-full h-[70vh] max-h-[700px]">
-                <Image
-                  src="/images/press/jharkhand-newspaper-map.png"
-                  alt="Full-Resolution Statewide Newspaper Map of Jharkhand"
-                  fill
-                  className="object-contain"
-                  sizes="100vw"
-                  priority
-                />
-              </div>
-            </div>
-
-            <div className="p-4 border-t border-white/10 flex items-center justify-between flex-shrink-0 bg-black/40">
-              <span className="text-xs text-white/70">
-                Resolution: 3573 × 2851 • Vector Masked Silhouette
-              </span>
-              <a
-                href="/images/press/jharkhand-newspaper-map.png"
-                download="Jharkhand-Newspaper-Map.png"
-                className="px-4 py-2 rounded-full bg-[#E28723] hover:bg-[#c9741b] text-white text-xs font-bold transition-all flex items-center gap-1.5"
-              >
-                <span>Download High-Resolution PNG</span>
               </a>
             </div>
           </div>
