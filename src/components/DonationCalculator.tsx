@@ -194,8 +194,22 @@ export default function DonationCalculator() {
             <p className="text-xs text-[#F7F5EC]/80 max-w-md mx-auto font-light leading-relaxed">
               Thank you, <strong>{donorName}</strong>. Your pledge of ₹{currentAmount.toLocaleString()} for <em>{selectedCause}</em> has been registered with reference <strong>{pledgeToken}</strong>.
             </p>
-            <div className="p-3 bg-white/10 rounded-xl text-xs max-w-sm mx-auto text-[#B8CBA5]">
-              Please call or WhatsApp our official office helpline at <strong>+91 90222 88222</strong> with your reference token to receive our verified official bank transfer coordinates.
+            <div className="p-4 bg-white/10 rounded-2xl text-xs max-w-lg mx-auto text-[#B8CBA5] space-y-1.5 text-left border border-white/15">
+              <div className="font-bold text-white uppercase text-[11px] tracking-wider">
+                Official Bank Transfer Coordinates:
+              </div>
+              <div className="text-white text-xs">
+                <strong>Bank:</strong> Bank of India (BOI), Mahavirnagar Charkop
+              </div>
+              <div className="text-[#E28723] font-mono font-bold text-sm">
+                A/C: 013610110004678 • IFSC: BKID0000136
+              </div>
+              <div className="text-[11px] text-[#F7F5EC]/80">
+                80G: AABTJ8020A24MB02 | PAN: AABTJ8020A
+              </div>
+              <div className="text-[11px] text-[#B8CBA5] pt-1">
+                Share payment screenshot or query to Helpline: <strong className="text-white">+91 78080 08058</strong> / <strong className="text-white">+91 90222 88222</strong>
+              </div>
             </div>
           </div>
         ) : (
@@ -260,10 +274,10 @@ export default function DonationCalculator() {
         <div className="bg-[#F7F5EC] p-6 rounded-3xl border border-[#123B2A]/10 space-y-2">
           <h4 className="font-serif text-base font-bold text-[#123B2A] flex items-center gap-2">
             <HelpCircle className="w-4 h-4 text-[#1D5139]" />
-            Official Account Verification
+            Official Account & 80G Verification
           </h4>
           <p className="text-xs text-[#17231C]/80 leading-relaxed font-light">
-            To ensure complete security and eliminate unauthorized intermediaries, bank details and UPI IDs are issued only through verified organizational channels. Contact our central desk at <strong>+91 90222 88222</strong> for payment verification.
+            All donations are directly deposited into the official <strong>Bank of India (A/C: 013610110004678, IFSC: BKID0000136)</strong> trust account. Tax exemption receipts under Section 80G (Reg. AABTJ8020A24MB02) are issued upon donation. Helpline: <strong>+91 78080 08058</strong>.
           </p>
         </div>
       </div>

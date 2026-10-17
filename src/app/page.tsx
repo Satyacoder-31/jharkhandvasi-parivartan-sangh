@@ -28,7 +28,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata = {
   title: "Jharkhandvasi Parivartan Sangh | सेवा से परिवर्तन की ओर",
   description:
-    "Official website of Jharkhandvasi Parivartan Sangh (JPS). A grassroots social welfare NGO serving migrant workers, vulnerable elders, and underprivileged children across Mumbai and Jharkhand. Helpline: +91 90222 88222.",
+    "Official website of Jharkhandvasi Parivartan Sangh (JPS). A grassroots social welfare NGO serving migrant workers, vulnerable elders, and underprivileged children across Mumbai and Jharkhand. Helpline: +91 78080 08058 / +91 90222 88222.",
 };
 
 export default function HomePage() {
@@ -50,16 +50,16 @@ export default function HomePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A]/90 via-[#123B2A]/80 to-[#123B2A]/90 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/90" />
             <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-              {/* Stat 1: 13+ Years */}
+              {/* Stat 1: 20+ Years */}
               <div className="pt-4 sm:pt-0 sm:px-4 text-center">
                 <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#B8CBA5] block">
-                  <AnimatedCounter target={13} suffix="+" duration={1800} />
+                  <AnimatedCounter target={20} suffix="+" duration={1800} />
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white mt-1 block">
                   Years of NGO Service
                 </span>
                 <span className="text-[11px] text-[#F7F5EC]/65 block mt-0.5">
-                  Active Since 2013
+                  Estd. 2005 • Regd. 2013
                 </span>
               </div>
 
@@ -98,7 +98,7 @@ export default function HomePage() {
                   Emergency Helpline
                 </span>
                 <span className="text-[11px] text-[#E28723] font-mono block mt-0.5">
-                  +91 90222 88222
+                  +91 78080 08058
                 </span>
               </div>
             </div>
@@ -554,11 +554,11 @@ export default function HomePage() {
                   </p>
                   <div className="flex flex-wrap items-center gap-3 pt-2">
                     <a
-                      href="tel:+919022288222"
+                      href="tel:+917808008058"
                       className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
                     >
                       <Phone className="w-4 h-4" />
-                      <span>Call Helpline: +91 90222 88222</span>
+                      <span>Call Helpline: +91 78080 08058</span>
                     </a>
                     <Link
                       href="/impact"

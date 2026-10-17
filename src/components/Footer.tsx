@@ -161,7 +161,7 @@ export default function Footer() {
                 <ExternalLink className="w-3 h-3 opacity-60" />
               </a>
               <a
-                href="https://wa.me/919022288222"
+                href="https://wa.me/917808008058"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 rounded-full bg-[#25D366]/20 hover:bg-[#25D366]/30 text-xs text-white transition-colors border border-[#25D366]/40 flex items-center gap-1.5"
@@ -263,27 +263,40 @@ export default function Footer() {
           {/* Column 4: Verified Contact & Helpline (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              Contact & Helpline
+              Contact & Official Offices
             </h5>
             <div className="flex flex-col gap-3.5 text-xs text-[#F7F5EC]/80 font-light">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
-                <span>Borivali West, Mumbai, Maharashtra 400092, India</span>
+                <div>
+                  <strong className="text-white block font-medium">Registered Head Office (Mumbai):</strong>
+                  <span>32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai-400091</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-white block font-medium">Branch Office (Giridih):</strong>
+                  <span>DK Traders, Buxidih Road, Near Bus Stand, Giridih, Jharkhand - 815301</span>
+                </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+919022288222" className="text-white font-medium hover:text-[#B8CBA5] block">
-                    +91 90222 88222
+                  <a href="tel:+917808008058" className="text-white font-bold hover:text-[#B8CBA5] block">
+                    +91 78080 08058
                   </a>
-                  <span className="text-[11px] text-[#B8CBA5]">24/7 Grassroots Emergency Helpline</span>
+                  <a href="tel:+919022288222" className="text-[#F7F5EC]/90 text-[11px] hover:text-white block">
+                    Alt Helpline: +91 90222 88222
+                  </a>
+                  <span className="text-[10px] text-[#B8CBA5]">24/7 Registered Community & Crisis Helpline</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="mailto:contact@jpsngo.org" className="hover:text-white block">
-                    contact@jpsngo.org
+                  <a href="mailto:jpsngo12@gmail.com" className="hover:text-white block">
+                    jpsngo12@gmail.com
                   </a>
                   <a href="mailto:info@jpsngo.org" className="hover:text-white block text-[11px] text-[#B8CBA5]">
                     info@jpsngo.org
@@ -292,20 +305,20 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-2 pt-3 border-t border-white/10 space-y-2">
-              <Link
-                href="/donate"
-                className="inline-flex items-center gap-1 text-xs font-semibold text-[#E28723] hover:underline"
-              >
-                <span>Read Financial Transparency FAQs</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="mt-2 pt-3 border-t border-white/10 space-y-1.5 text-[11px] text-[#B8CBA5]/90">
+              <div className="flex items-center gap-1.5 text-white font-medium">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E28723]" />
+                <span>Reg. No: E-30004/07/07/2013 MUMBAI</span>
+              </div>
+              <div className="text-[10px] text-[#F7F5EC]/70">
+                80G: AABTJ8020A24MB02 | NITI Aayog: MH/2022/0329647
+              </div>
               <div>
                 <Link
-                  href="/art-store"
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#B8CBA5] hover:underline"
+                  href="/donate"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#E28723] hover:underline mt-1"
                 >
-                  <span>Purchase Tribal Art to Fund Relief</span>
+                  <span>Bank & 80G Tax Exemption Details</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -316,7 +329,7 @@ export default function Footer() {
         {/* 3. BOTTOM STRIP WITH BACK-TO-TOP */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F5EC]/60 font-light">
           <div>
-            © 2013–2026 Jharkhandvasi Parivartan Sangh. All Rights Reserved.
+            © 2005–2026 झारखंडवासी परिवर्तन संघ (रजि.) | एक जुर्रत... एक ज़रूरत
           </div>
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             <Link href="/about" className="hover:text-white transition-colors">Founding Story</Link>

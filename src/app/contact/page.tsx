@@ -1,12 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle, Clock, ShieldAlert, ArrowRight, ExternalLink } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Clock,
+  ShieldAlert,
+  ArrowRight,
+  ExternalLink,
+  ShieldCheck,
+  Building2,
+  Globe,
+} from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact & Emergency Support | Jharkhandvasi Parivartan Sangh",
+  title: "Contact & Official Offices | Jharkhandvasi Parivartan Sangh",
   description:
-    "Get in touch with Jharkhandvasi Parivartan Sangh in Borivali West, Mumbai. 24/7 Helpline: +91 90222 88222. Direct support for migrant distress, medical camps, and community welfare.",
+    "Official contact coordinates for Jharkhandvasi Parivartan Sangh (JPS). Registered Head Office in Gorai-1 Borivali West, Mumbai, and Branch Office in Giridih, Jharkhand. 24/7 Helpline: +91 78080 08058 / +91 90222 88222.",
 };
 
 export default function ContactPage() {
@@ -25,14 +37,19 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/75 to-black/40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
-            <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-              Grassroots Helpline & Office
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
+                Official Offices & Helplines
+              </span>
+              <span className="text-xs text-[#E28723] font-semibold tracking-wider">
+                Mumbai • Giridih
+              </span>
+            </div>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-              Contact & Emergency <span className="italic text-[#B8CBA5]">Support</span> Desk
+              Get in Touch with <span className="italic text-[#B8CBA5]">Our Offices</span>
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              We operate a 24/7 emergency response network for migrant workers and families across Mumbai, alongside our central office in Borivali West.
+              We operate a 24/7 emergency response network for migrant workers and families, alongside our registered central office in Borivali West, Mumbai and branch in Giridih, Jharkhand.
             </p>
           </div>
         </div>
@@ -50,28 +67,28 @@ export default function ContactPage() {
               </span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-normal">
-              Facing Immediate Medical or Legal Crisis?
+              Facing Immediate Medical or Distress Crisis?
             </h3>
             <p className="text-xs sm:text-sm text-white/90 font-light leading-relaxed">
-              For hospital admissions, industrial trauma, or emergency repatriation, please do not wait for an email. Dial our 24/7 helpline immediately.
+              For urgent hospital assistance, industrial trauma, or emergency travel coordination, please dial our dedicated emergency helpline directly.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="tel:+919022288222"
+              href="tel:+917808008058"
               className="px-6 py-3.5 rounded-full bg-[#123B2A] hover:bg-[#1D5139] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-[#E28723]" />
-              <span>Call +91 90222 88222</span>
+              <span>Call +91 78080 08058</span>
             </a>
             <a
-              href="https://wa.me/919022288222?text=Emergency%20Assistance%20Requested"
+              href="https://wa.me/917808008058?text=Emergency%20Assistance%20Requested"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold tracking-wide border border-white/30 transition-all flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Emergency</span>
+              <span>WhatsApp Helpline</span>
             </a>
           </div>
         </div>
@@ -84,7 +101,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             <div>
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A] mb-2">
-                Official Channels
+                Official Locations
               </span>
               <h2 className="font-serif text-3xl font-normal text-[#123B2A]">
                 Headquarters & Communications
@@ -92,17 +109,41 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-4">
-              {/* Address */}
+              {/* Registered Head Office (Mumbai) */}
+              <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#E28723] block">
+                    Registered Head Office (Mumbai)
+                  </span>
+                  <h4 className="font-serif text-base font-semibold text-[#123B2A]">
+                    Jharkhandvasi Parivartan Sangh
+                  </h4>
+                  <p className="text-xs text-[#17231C]/80 mt-1 leading-relaxed font-light">
+                    32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai – 400091, Maharashtra.
+                  </p>
+                  <p className="text-[11px] text-[#795943] mt-1 font-medium">
+                    Reg. No: E-30004/07/07/2013 MUMBAI
+                  </p>
+                </div>
+              </div>
+
+              {/* Branch Office (Giridih, Jharkhand) */}
               <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#1D5139] block">
+                    Branch Office (Jharkhand)
+                  </span>
                   <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Central Office Address
+                    Giridih Coordination Center
                   </h4>
                   <p className="text-xs text-[#17231C]/80 mt-1 leading-relaxed font-light">
-                    Borivali West, Mumbai, Maharashtra 400092, India
+                    DK Traders, Buxidih Road, Near Bus Stand, Giridih, Jharkhand – 815301.
                   </p>
                 </div>
               </div>
@@ -114,16 +155,22 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    24/7 Emergency Helpline
+                    Helplines & Telephones
                   </h4>
                   <a
-                    href="tel:+919022288222"
+                    href="tel:+917808008058"
                     className="text-xs text-[#1D5139] font-bold block mt-1 hover:underline"
                   >
-                    +91 90222 88222
+                    +91 78080 08058 (Primary Official Helpline)
+                  </a>
+                  <a
+                    href="tel:+919022288222"
+                    className="text-xs text-[#1D5139] font-semibold block mt-0.5 hover:underline"
+                  >
+                    +91 90222 88222 (24/7 Distress Desk)
                   </a>
                   <span className="text-[11px] text-[#795943] block mt-0.5">
-                    Available round the clock for urgent interventions.
+                    Round the clock for medical, social & legal emergencies.
                   </span>
                 </div>
               </div>
@@ -138,33 +185,33 @@ export default function ContactPage() {
                     WhatsApp Assistance
                   </h4>
                   <a
-                    href="https://wa.me/919022288222"
+                    href="https://wa.me/917808008058"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-[#1D5139] font-bold block mt-1 hover:underline"
                   >
-                    +91 90222 88222 (Chat directly)
+                    +91 78080 08058 (Chat directly)
                   </a>
                   <span className="text-[11px] text-[#795943] block mt-0.5">
-                    Send incident details, hospital papers, or location pins.
+                    Send incident documents, medical records, or location pins.
                   </span>
                 </div>
               </div>
 
-              {/* Email Addresses */}
+              {/* Email Addresses & Web */}
               <div className="p-5 rounded-2xl bg-white border border-[#123B2A]/10 shadow-sm flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-base font-semibold text-[#123B2A]">
-                    Official Correspondence
+                    Emails & Web Portal
                   </h4>
                   <a
-                    href="mailto:contact@jpsngo.org"
+                    href="mailto:jpsngo12@gmail.com"
                     className="text-xs text-[#1D5139] font-medium block mt-1 hover:underline"
                   >
-                    contact@jpsngo.org
+                    jpsngo12@gmail.com
                   </a>
                   <a
                     href="mailto:info@jpsngo.org"
@@ -172,13 +219,34 @@ export default function ContactPage() {
                   >
                     info@jpsngo.org
                   </a>
+                  <a
+                    href="https://www.jpsngo.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#E28723] font-semibold block mt-1 hover:underline flex items-center gap-1"
+                  >
+                    <Globe className="w-3 h-3" />
+                    <span>www.jpsngo.org</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Column: Contact & Support Form (7 cols) */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-[#123B2A]/10 shadow-sm space-y-6">
+            <div className="space-y-1">
+              <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
+                Direct Query Intake
+              </span>
+              <h3 className="font-serif text-2xl font-normal text-[#123B2A]">
+                Send an Online Message to Our Office
+              </h3>
+              <p className="text-xs text-[#17231C]/75 font-light">
+                Fill in your details below. For urgent matters, our coordination desk will call or WhatsApp you directly.
+              </p>
+            </div>
+
             <ContactForm />
           </div>
         </div>

@@ -18,19 +18,35 @@ interface Hub {
 const hubs: Hub[] = [
   {
     id: "mumbai",
-    name: "Mumbai Central Office & 24/7 Helpline",
-    region: "Borivali West",
+    name: "Mumbai Registered Head Office & Central Helpline",
+    region: "32 Nalanda Society, Gorai-1, Borivali West",
     state: "Maharashtra",
     category: "Operational Headquarters",
     description:
-      "Core operational hub managing emergency crisis response for migrant laborers, free geriatric health camps, hospital liaison, and legal aid across the Mumbai Metropolitan Region.",
+      "Core operational hub managing 24/7 emergency response for migrant laborers, free eye and medical checkup camps, hospital liaison, and legal aid across the Mumbai Metropolitan Region.",
     activities: [
-      "24/7 Emergency Helpline Dispatch (+91 90222 88222)",
-      "Senior Citizen Free Health Checkup Camps",
+      "24/7 Emergency Helpline (+91 78080 08058 / +91 90222 88222)",
+      "Senior Citizen Free Medical & Eye Camps",
       "Coordination with Child Welfare Committee (CWC)",
       "Mortal Remains Dignified Repatriation Support",
     ],
-    helpline: "+91 90222 88222",
+    helpline: "+91 78080 08058",
+    established: "2005 (Movement) / 2013 (Trust)",
+  },
+  {
+    id: "giridih",
+    name: "Giridih Official Branch Office",
+    region: "DK Traders, Buxidih Road, Near Bus Stand",
+    state: "Jharkhand",
+    category: "Official State Branch",
+    description:
+      "Official regional branch coordinating community outreach, family distress relief, educational development, and returning worker rehabilitation across Giridih and surrounding districts.",
+    activities: [
+      "Grassroots Family Distress Assistance",
+      "Youth Skill Development & Educational Guidance",
+      "Inter-state Coordination with Mumbai Head Office",
+    ],
+    helpline: "+91 78080 08058",
     established: "2013",
   },
   {
@@ -46,7 +62,7 @@ const hubs: Hub[] = [
       "Inter-state Administrative Liaison",
       "Rehabilitation Coordination for Returned Workers",
     ],
-    helpline: "+91 90222 88222",
+    helpline: "+91 78080 08058",
     established: "2016",
   },
   {

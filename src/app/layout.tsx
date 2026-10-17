@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jpsngo.org"),
   title: "Jharkhandvasi Parivartan Sangh | सेवा से परिवर्तन की ओर",
   description:
-    "Jharkhandvasi Parivartan Sangh (JPS) is a premier grassroots social welfare organization in Borivali West, Mumbai. Dedicated to migrant worker protection, senior citizen health, child education, and cultural preservation. Helpline: +91 90222 88222.",
+    "Jharkhandvasi Parivartan Sangh (JPS, Regd. No. E-30004/MUMBAI, Estd. 2005) is a grassroots social welfare NGO serving migrant workers, children, elders, and cultural heritage across Mumbai and Jharkhand. Helpline: +91 78080 08058 / +91 90222 88222.",
   keywords: [
     "Jharkhandvasi Parivartan Sangh",
     "JPS NGO",
@@ -36,11 +36,13 @@ export const metadata: Metadata = {
     "Child education NGO",
     "Arvind Arya",
     "Bhagwan Birsa Munda Smruti",
+    "Giridih NGO",
+    "80G Tax Exemption NGO",
   ],
   openGraph: {
     title: "Jharkhandvasi Parivartan Sangh | सेवा से परिवर्तन की ओर",
     description:
-      "Grassroots social welfare organization serving migrant workers, children, senior citizens and vulnerable families across Mumbai and Jharkhand. Helpline: +91 90222 88222.",
+      "Grassroots social welfare organization serving migrant workers, children, senior citizens and vulnerable families across Mumbai and Jharkhand. Helpline: +91 78080 08058 / +91 90222 88222.",
     url: "https://jpsngo.org",
     siteName: "Jharkhandvasi Parivartan Sangh",
     images: [

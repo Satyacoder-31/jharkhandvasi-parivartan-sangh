@@ -28,7 +28,7 @@ export default function FloatingHelpline() {
       <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-3 pointer-events-auto">
         {/* WhatsApp Direct Chat */}
         <a
-          href="https://wa.me/919022288222?text=Hello%20Jharkhandvasi%20Parivartan%20Sangh,%20I%20would%20like%20to%20connect."
+          href="https://wa.me/917808008058?text=Hello%20Jharkhandvasi%20Parivartan%20Sangh,%20I%20would%20like%20to%20connect."
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#1D5139] hover:bg-[#123B2A] text-white shadow-xl hover:shadow-2xl border border-[#B8CBA5]/30 transition-all transform hover:-translate-y-1"
@@ -44,13 +44,13 @@ export default function FloatingHelpline() {
 
         {/* 24/7 Helpline Direct Dial */}
         <a
-          href="tel:+919022288222"
+          href="tel:+917808008058"
           className="group flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white shadow-lg transition-all transform hover:-translate-y-1"
           aria-label="Call 24/7 Helpline"
         >
           <Phone className="w-4 h-4 fill-white animate-pulse" />
           <span className="text-xs font-bold tracking-wide">
-            90222 88222
+            78080 08058
           </span>
         </a>
 

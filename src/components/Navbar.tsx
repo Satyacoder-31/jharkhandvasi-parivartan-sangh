@@ -287,14 +287,14 @@ export default function Navbar() {
                 Support Our Mission (Donate)
               </Link>
               <a
-                href="tel:+919022288222"
+                href="tel:+917808008058"
                 className="w-full py-2.5 rounded-full border border-[#123B2A] dark:border-white/30 text-[#123B2A] dark:text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#123B2A]/5 dark:hover:bg-white/5"
               >
                 <Phone className="w-3.5 h-3.5 text-[#E28723]" />
-                Call Helpline: +91 90222 88222
+                Call Helpline: +91 78080 08058
               </a>
               <a
-                href="https://wa.me/919022288222"
+                href="https://wa.me/917808008058"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#123B2A] dark:text-[#B8CBA5] text-xs font-medium flex items-center justify-center gap-1.5"
@@ -310,7 +310,7 @@ export default function Navbar() {
       {/* 5. MOBILE BOTTOM QUICK-ACTION BAR (Shows on screen < 768px for immediate access) */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#123B2A] dark:bg-[#071F14] border-t border-[#1D5139] px-4 py-2.5 flex items-center justify-between gap-3 md:hidden shadow-2xl">
         <a
-          href="tel:+919022288222"
+          href="tel:+917808008058"
           className="flex-1 py-2 px-3 rounded-full bg-[#0A2419] text-white text-xs font-semibold flex items-center justify-center gap-1.5 border border-white/10"
         >
           <Phone className="w-3.5 h-3.5 text-[#E28723]" />
