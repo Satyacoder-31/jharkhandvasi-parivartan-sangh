@@ -45,10 +45,10 @@ export default function HomePage() {
               src="/images/tree-planting.jpg"
               alt="Native Sal trees and soil restoration nature backdrop"
               fill
-              className="object-cover opacity-20"
+              className="object-cover opacity-45"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A]/90 via-[#123B2A]/80 to-[#123B2A]/90 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#071F14]/90 via-[#071F14]/75 to-[#071F14]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/85" />
             <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
               {/* Stat 1: 20+ Years */}
               <div className="pt-4 sm:pt-0 sm:px-4 text-center">
@@ -113,10 +113,10 @@ export default function HomePage() {
             src="/images/watershed-nature.jpg"
             alt="Pristine nature and forest rivers of Jharkhand"
             fill
-            className="object-cover opacity-10 dark:opacity-20"
+            className="object-cover opacity-35 dark:opacity-45"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#071F14]/95 dark:via-[#071F14]/85 dark:to-[#071F14]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Text Column: Slides from Left */}
@@ -191,10 +191,10 @@ export default function HomePage() {
           src="/images/hero-forest.jpg"
           alt="Ancient Sal and Mahua forest of Jharkhand"
           fill
-          className="object-cover opacity-10 dark:opacity-25"
+          className="object-cover opacity-35 dark:opacity-45"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/90 via-[#F7F5EC]/80 to-[#F7F5EC]/90 dark:from-[#071F14] dark:via-[#071F14]/90 dark:to-[#071F14]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/85 via-[#F7F5EC]/70 to-[#F7F5EC]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <ScrollReveal direction="up">
@@ -457,10 +457,10 @@ export default function HomePage() {
               src="/images/watershed-nature.jpg"
               alt="Natural watershed and pristine river of Jharkhand"
               fill
-              className="object-cover opacity-15 dark:opacity-30"
+              className="object-cover opacity-35 dark:opacity-45"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#071F14]/95 dark:via-[#071F14]/85 dark:to-[#071F14]/65" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-white/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/55" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
@@ -534,10 +534,10 @@ export default function HomePage() {
             src="/images/senior-health.jpg"
             alt="Frontline healthcare and relief"
             fill
-            className="object-cover opacity-10 dark:opacity-15"
+            className="object-cover opacity-30 dark:opacity-40"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F7F5EC]/95 via-[#F7F5EC]/85 to-[#F7F5EC]/75 dark:from-[#071F14] dark:via-[#071F14]/85 dark:to-[#071F14]/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F7F5EC]/90 via-[#F7F5EC]/75 to-[#F7F5EC]/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Content from Left */}
             <div className="lg:col-span-7">
@@ -603,10 +603,10 @@ export default function HomePage() {
             src="/images/art-sohrai.jpg"
             alt="Traditional Sohrai tribal art painting"
             fill
-            className="object-cover opacity-10 dark:opacity-15"
+            className="object-cover opacity-35 dark:opacity-45"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/90 to-white/80 dark:from-[#071F14] dark:via-[#071F14]/90 dark:to-[#071F14]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/80 to-white/65 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/65" />
 
           <div className="relative z-10 space-y-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#123B2A]/10 dark:border-white/10">
@@ -812,10 +812,10 @@ export default function HomePage() {
               src="/images/hero-forest.jpg"
               alt="Forest backdrop"
               fill
-              className="object-cover opacity-10 dark:opacity-15"
+              className="object-cover opacity-35 dark:opacity-45"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/90 via-[#F7F5EC]/80 to-[#F7F5EC]/90 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/85 via-[#F7F5EC]/75 to-[#F7F5EC]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/90" />
             <div className="relative z-10">
               <InteractiveMap />
             </div>
@@ -831,10 +831,10 @@ export default function HomePage() {
               src="/images/tree-planting.jpg"
               alt="Volunteers planting native Sal saplings"
               fill
-              className="object-cover opacity-20"
+              className="object-cover opacity-45"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A] via-[#123B2A]/85 to-[#123B2A]/65 dark:from-[#071F14] dark:via-[#071F14]/85 dark:to-[#071F14]/65" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A]/90 via-[#123B2A]/75 to-[#123B2A]/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
 
             <div className="relative z-10 max-w-xl space-y-2">
               <span className="text-xs uppercase tracking-wider text-[#B8CBA5] font-bold">

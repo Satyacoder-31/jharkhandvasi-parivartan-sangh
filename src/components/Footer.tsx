@@ -52,10 +52,10 @@ export default function Footer() {
             src="/images/watershed-nature.jpg"
             alt="Nature and community solidarity in Jharkhand"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-45"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071F14] via-[#071F14]/85 to-[#071F14]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071F14]/90 via-[#071F14]/75 to-[#071F14]/60" />
 
           <div className="relative z-10 p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl space-y-2">

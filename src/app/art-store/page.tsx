@@ -139,10 +139,10 @@ export default function ArtStorePage() {
           alt="Traditional tribal art painting"
           fill
           priority
-          className="object-cover opacity-25"
+          className="object-cover opacity-45"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/70 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">

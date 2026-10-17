@@ -152,9 +152,9 @@ export default function HeroSlider() {
             className="object-cover object-center"
             sizes="100vw"
           />
-          {/* Nature-inspired Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A2419]/95 via-[#0A2419]/75 to-[#0A2419]/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A2419] via-transparent to-black/30" />
+          {/* Rich cinematic dark gradient overlays (visible photo + high text contrast) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
         </div>
       ))}
 

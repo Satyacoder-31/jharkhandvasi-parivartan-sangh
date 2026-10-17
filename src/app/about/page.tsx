@@ -102,10 +102,10 @@ export default function AboutPage() {
           alt="Jharkhandvasi Parivartan Sangh Community Assembly"
           fill
           priority
-          className="object-cover opacity-20"
+          className="object-cover opacity-45"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="flex flex-wrap items-center gap-2">
@@ -559,15 +559,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 8. CTA */}
+      {/* 8. CTA WITH STATEWIDE NEWSPAPER MAP BACKGROUND */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="bg-[#123B2A] text-white rounded-3xl p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4 shadow-xl">
-          <h3 className="font-serif text-2xl sm:text-3xl font-normal">
-            Be Part of Our Next Decade of Transformation
-          </h3>
-          <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light leading-relaxed max-w-lg mx-auto">
-            Explore our programs in healthcare, education, culture, and nature, or join our active volunteer force across Mumbai and Jharkhand.
-          </p>
+        <div className="relative bg-[#123B2A] text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-xl overflow-hidden border border-[#B8CBA5]/25">
+          <Image
+            src="/images/press/jharkhand-newspaper-map.png"
+            alt="Statewide Newspaper Map of Jharkhand"
+            fill
+            className="object-contain object-center opacity-30 filter brightness-90 contrast-125 pointer-events-none"
+            sizes="(max-width: 1024px) 100vw, 900px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/85 to-[#071F14]/70" />
+          <div className="relative z-10 space-y-4">
+            <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 text-[10px]">
+              20+ Years Documented Across All 24 Districts
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal">
+              Be Part of Our Next Decade of Transformation
+            </h3>
+            <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed max-w-xl mx-auto">
+              Explore our programs in healthcare, education, culture, and nature, or join our active volunteer force across Mumbai and Jharkhand.
+            </p>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
               href="/our-work"

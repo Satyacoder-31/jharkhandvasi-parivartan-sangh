@@ -119,14 +119,27 @@ export default function PressMediaViewer() {
 
   return (
     <div className="space-y-16">
-      {/* 1. STATEWIDE NEWSPAPER MAP OF JHARKHAND — CLEAR OPEN DISPLAY */}
-      <div className="bg-gradient-to-br from-[#071F14] via-[#0E2F20] to-[#05180F] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-[#B8CBA5]/25 shadow-2xl relative overflow-hidden space-y-8">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D5139]/30 rounded-full blur-3xl pointer-events-none" />
+      {/* 1. STATEWIDE NEWSPAPER MAP OF JHARKHAND — ATMOSPHERIC ARCHIVAL BACKGROUND BANNER */}
+      <div className="relative rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#B8CBA5]/25 shadow-2xl overflow-hidden bg-[#071F14] text-white">
+        {/* Newspaper map as background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/press/jharkhand-newspaper-map.png"
+            alt="Statewide Newspaper Map of Jharkhand - Press Background"
+            fill
+            className="object-contain object-right opacity-35 filter brightness-95 contrast-125"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            priority
+          />
+          {/* Subtle gradient overlay to keep text legible and stylish */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071F14] via-[#071F14]/85 to-[#071F14]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071F14]/90 via-transparent to-[#071F14]/60" />
+        </div>
 
-        <div className="max-w-3xl space-y-3 relative z-10">
+        <div className="relative z-10 max-w-2xl space-y-5">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="badge-pill bg-[#E28723]/20 text-[#E28723] border border-[#E28723]/30">
-              Official Media Collage
+            <span className="badge-pill bg-[#E28723]/25 text-[#E28723] border border-[#E28723]/40">
+              Official Media Chronicle
             </span>
             <span className="text-xs text-[#B8CBA5] font-semibold tracking-wider">
               अखबारों के पन्नों में झारखंड • 2005–2026
@@ -134,58 +147,46 @@ export default function PressMediaViewer() {
           </div>
 
           <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white">
-            The <span className="text-[#B8CBA5] italic">Statewide Newspaper Map</span> of Jharkhand
+            Two Decades in the <span className="text-[#B8CBA5] italic">Statewide Press</span>
           </h3>
 
-          <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-            Every curve and boundary of this map is composed of real newspaper clippings and headlines capturing JPS&apos;s two decades of humanitarian work across all 24 districts — from Sahibganj, Deoghar, and Giridih to Ranchi, Palamu, and the Mumbai diaspora.
+          <p className="text-sm sm:text-base text-[#F7F5EC]/90 font-light leading-relaxed">
+            From frontline anti-trafficking rescues in Mumbai to forest conservation, cataract relief camps, and Jharkhand Sthapna Diwas celebrations across all 24 districts, our work has been extensively documented by leading national and regional dailies.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="p-3.5 rounded-xl bg-black/50 backdrop-blur-md border border-white/10">
               <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Media Sources</span>
-              <span className="font-serif text-base font-bold text-white">15+ Dailies</span>
+              <span className="font-serif text-lg font-bold text-white">15+ Dailies</span>
+              <span className="text-[10px] text-white/60 block">Jagran, NBT, Hindustan</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="p-3.5 rounded-xl bg-black/50 backdrop-blur-md border border-white/10">
               <span className="text-[10px] text-[#E28723] uppercase block font-semibold">Districts Covered</span>
-              <span className="font-serif text-base font-bold text-white">All 24 Districts</span>
+              <span className="font-serif text-lg font-bold text-white">All 24 Districts</span>
+              <span className="text-[10px] text-white/60 block">Giridih, Deoghar, Ranchi+</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+            <div className="p-3.5 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 col-span-2 sm:col-span-1">
               <span className="text-[10px] text-[#B8CBA5] uppercase block font-semibold">Archive Span</span>
-              <span className="font-serif text-base font-bold text-white">2005 – 2026</span>
+              <span className="font-serif text-lg font-bold text-white">2005 – 2026</span>
+              <span className="text-[10px] text-white/60 block">20+ Years Continuous</span>
             </div>
           </div>
-        </div>
 
-        {/* Clear, High-Resolution Map Showcase Displayed Directly on the Page */}
-        <div className="relative z-10 bg-[#04120A] rounded-2xl border-2 border-[#B8CBA5]/30 p-4 sm:p-8 flex flex-col items-center justify-center shadow-2xl">
-          <div className="relative w-full h-[450px] sm:h-[600px] lg:h-[720px] max-w-5xl">
-            <Image
-              src="/images/press/jharkhand-newspaper-map.png"
-              alt="Statewide Newspaper Map of Jharkhand - JPS Media Chronicle"
-              fill
-              className="object-contain drop-shadow-2xl"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-            />
-          </div>
-
-          {/* Clean Caption & Download Bar */}
-          <div className="w-full max-w-5xl mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F5EC]/80">
-            <div className="flex items-center gap-2 text-center sm:text-left">
+          <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-[#B8CBA5]">
+            <div className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4 text-[#E28723] flex-shrink-0" />
               <span>
-                <strong>Official Archival Silhouette:</strong> 3573 × 2851 px resolution featuring 15+ regional Hindi dailies across all 24 districts of Jharkhand.
+                Background silhouette: Statewide map composed of real newspaper clippings.
               </span>
             </div>
-
             <a
               href="/images/press/jharkhand-newspaper-map.png"
-              download="Jharkhand-Newspaper-Map-JPS.png"
-              className="px-5 py-2.5 rounded-full bg-[#E28723] hover:bg-[#c9741b] text-white text-xs font-bold tracking-wider transition-all flex items-center gap-2 flex-shrink-0 shadow-md"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#E28723] hover:underline flex items-center gap-1 font-semibold ml-auto"
             >
+              <span>View Full Resolution Map</span>
               <ExternalLink className="w-3.5 h-3.5" />
-              <span>Download Original Full-Res PNG</span>
             </a>
           </div>
         </div>
