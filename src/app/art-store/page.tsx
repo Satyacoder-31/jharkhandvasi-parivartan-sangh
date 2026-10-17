@@ -133,16 +133,17 @@ export default function ArtStorePage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       {/* 1. CINEMATIC HERO WITH ATMOSPHERIC BACKGROUND IMAGE */}
-      <section className="relative bg-[#071F14] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative bg-[#04100A] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 overflow-hidden">
         <Image
           src="/images/art-sohrai.jpg"
           alt="Traditional tribal art painting"
           fill
           priority
-          className="object-cover opacity-45"
+          className="object-cover opacity-35 filter brightness-75 contrast-105"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#04100A] via-[#04100A]/85 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04100A]/85 via-transparent to-[#04100A]/70" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
