@@ -149,7 +149,7 @@ export default function HeroSlider() {
             alt={slide.alt}
             fill
             priority={index === 0}
-            className="object-cover object-center"
+            className="object-cover object-center filter brightness-85"
             sizes="100vw"
           />
           {/* Rich cinematic dark gradient overlays (visible photo + high text contrast) */}

@@ -62,7 +62,7 @@ export default function GetInvolvedPage() {
           alt="Volunteers joining hands in community solidarity"
           fill
           priority
-          className="object-cover opacity-45"
+          className="object-cover opacity-50 filter brightness-85"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/80 to-black/60" />

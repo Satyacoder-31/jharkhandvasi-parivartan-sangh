@@ -45,7 +45,7 @@ export default function HomePage() {
               src="/images/tree-planting.jpg"
               alt="Native Sal trees and soil restoration nature backdrop"
               fill
-              className="object-cover opacity-45"
+              className="object-cover opacity-45 filter brightness-85"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#071F14]/90 via-[#071F14]/75 to-[#071F14]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/85" />
@@ -113,7 +113,7 @@ export default function HomePage() {
             src="/images/watershed-nature.jpg"
             alt="Pristine nature and forest rivers of Jharkhand"
             fill
-            className="object-cover opacity-35 dark:opacity-45"
+            className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
@@ -191,7 +191,7 @@ export default function HomePage() {
           src="/images/hero-forest.jpg"
           alt="Ancient Sal and Mahua forest of Jharkhand"
           fill
-          className="object-cover opacity-35 dark:opacity-45"
+          className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/85 via-[#F7F5EC]/70 to-[#F7F5EC]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/90" />
@@ -457,7 +457,7 @@ export default function HomePage() {
               src="/images/watershed-nature.jpg"
               alt="Natural watershed and pristine river of Jharkhand"
               fill
-              className="object-cover opacity-35 dark:opacity-45"
+              className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-white/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/55" />
@@ -534,7 +534,7 @@ export default function HomePage() {
             src="/images/senior-health.jpg"
             alt="Frontline healthcare and relief"
             fill
-            className="object-cover opacity-30 dark:opacity-40"
+            className="object-cover opacity-30 dark:opacity-40 filter brightness-85"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#F7F5EC]/90 via-[#F7F5EC]/75 to-[#F7F5EC]/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
@@ -603,7 +603,7 @@ export default function HomePage() {
             src="/images/art-sohrai.jpg"
             alt="Traditional Sohrai tribal art painting"
             fill
-            className="object-cover opacity-35 dark:opacity-45"
+            className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/80 to-white/65 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/65" />
@@ -812,7 +812,7 @@ export default function HomePage() {
               src="/images/hero-forest.jpg"
               alt="Forest backdrop"
               fill
-              className="object-cover opacity-35 dark:opacity-45"
+              className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5EC]/85 via-[#F7F5EC]/75 to-[#F7F5EC]/85 dark:from-[#071F14]/90 dark:via-[#071F14]/80 dark:to-[#071F14]/90" />
@@ -831,7 +831,7 @@ export default function HomePage() {
               src="/images/tree-planting.jpg"
               alt="Volunteers planting native Sal saplings"
               fill
-              className="object-cover opacity-45"
+              className="object-cover opacity-45 filter brightness-85"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#123B2A]/90 via-[#123B2A]/75 to-[#123B2A]/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />

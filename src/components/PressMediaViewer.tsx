@@ -127,7 +127,7 @@ export default function PressMediaViewer() {
             src="/images/press/jharkhand-newspaper-map.png"
             alt="Statewide Newspaper Map of Jharkhand - Press Background"
             fill
-            className="object-contain object-right opacity-35 filter brightness-95 contrast-125"
+            className="object-contain object-right opacity-35 filter brightness-85 contrast-125"
             sizes="(max-width: 1200px) 100vw, 1200px"
             priority
           />

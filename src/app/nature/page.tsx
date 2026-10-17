@@ -110,7 +110,7 @@ export default function NaturePage() {
           alt="Ancient Sal and Mahua forest of Jharkhand with sun rays"
           fill
           priority
-          className="object-cover opacity-60"
+          className="object-cover opacity-60 filter brightness-85"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/75 to-black/50" />
