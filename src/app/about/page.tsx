@@ -383,84 +383,142 @@ export default function AboutPage() {
         </div>
 
         {/* Real Documentary Archive Photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
-            <div className="relative h-44 w-full">
+            <div className="relative h-48 w-full">
+              <Image
+                src="/images/events/pravasi-sammelan-memorandum-presentation.jpg"
+                alt="Memorandum Presentation to Gopal Shetty & Sanjay Upadhyay"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-bold text-[#E28723] uppercase tracking-wider block">
+                Pravasi Sammelan (Borivali 2026)
+              </span>
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
+                Memorandum to Ex-MP Gopal Shetty &amp; MLA Sanjay Upadhyay
+              </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                Joint charter for migrant welfare, hospital access, and emergency assistance with youth leader Devendra Mahato.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-48 w-full">
+              <Image
+                src="/images/events/shivaji-maharaj-throne-delegation.jpg"
+                alt="JPS Core Team Homage at Chhatrapati Shivaji Maharaj Throne"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-bold text-[#1D5139] uppercase tracking-wider block">
+                Maharashtra Cultural Tribute
+              </span>
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
+                Executive Homage at Chhatrapati Shivaji Maharaj Throne
+              </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                JPS core executive leadership paying respects before the iconic golden throne statue in Mumbai.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-48 w-full">
               <Image
                 src="/images/events/governor-radhakrishnan-meeting.jpg"
                 alt="JPS delegation meeting with Jharkhand Governor CP Radhakrishnan"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
-            <div className="p-3.5 space-y-1">
-              <span className="text-[10px] font-bold text-[#E28723] uppercase tracking-wider block">
-                State Dignitary
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-bold text-[#795943] uppercase tracking-wider block">
+                Raj Bhavan Conclave
               </span>
-              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
                 With Former Jharkhand Governor CP Radhakrishnan
               </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                Submitting statewide development proposals and tribal welfare charters to the Hon&apos;ble Governor.
+              </p>
             </div>
           </div>
 
           <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
-            <div className="relative h-44 w-full">
+            <div className="relative h-48 w-full">
               <Image
                 src="/images/events/ashish-shelar-felicitation.jpg"
                 alt="Felicitation of Adv. Ashish Shelar (Mumbai BJP President)"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
-            <div className="p-3.5 space-y-1">
+            <div className="p-4 space-y-1">
               <span className="text-[10px] font-bold text-[#1D5139] uppercase tracking-wider block">
                 Maharashtra Assembly
               </span>
-              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
                 Felicitation of Adv. Ashish Shelar (Mumbai BJP President)
               </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                Building inter-state support for migrant social security and grassroots welfare networks.
+              </p>
             </div>
           </div>
 
           <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
-            <div className="relative h-44 w-full">
+            <div className="relative h-48 w-full">
               <Image
                 src="/images/events/babulal-marandi-meeting.jpg"
                 alt="Arvind Arya with First Chief Minister Babulal Marandi"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
-            <div className="p-3.5 space-y-1">
+            <div className="p-4 space-y-1">
               <span className="text-[10px] font-bold text-[#795943] uppercase tracking-wider block">
                 Leadership Dialogue
               </span>
-              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
                 Arvind Arya with First CM Babulal Marandi
               </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                Consultations on migrant welfare rights, tribal environmental protection, and diaspora initiatives.
+              </p>
             </div>
           </div>
 
           <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
-            <div className="relative h-44 w-full">
+            <div className="relative h-48 w-full">
               <Image
                 src="/images/events/mumbai-police-presentation.jpg"
                 alt="Magazine presentation to Greater Mumbai Police Officers"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
-            <div className="p-3.5 space-y-1">
+            <div className="p-4 space-y-1">
               <span className="text-[10px] font-bold text-[#E28723] uppercase tracking-wider block">
                 Law Enforcement Liaison
               </span>
-              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
-                Souvenir Presentation to Greater Mumbai Police Officers
+              <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
+                Presentation to Greater Mumbai Police Officers
               </h5>
+              <p className="text-[11px] text-[#17231C]/70 font-light">
+                Coordinating with police leadership for anti-trafficking vigilance and protection of domestic workers.
+              </p>
             </div>
           </div>
         </div>

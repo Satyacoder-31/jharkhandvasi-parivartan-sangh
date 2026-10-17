@@ -143,7 +143,7 @@ export default function ContactPage() {
                     Giridih Coordination Center
                   </h4>
                   <p className="text-xs text-[#17231C]/80 mt-1 leading-relaxed font-light">
-                    DK Traders, Buxidih Road, Near Bus Stand, Giridih, Jharkhand – 815301.
+                    DK Traders, Buxidih Road, Near Burman Decorator, Giridih, Jharkhand – 815301.
                   </p>
                 </div>
               </div>

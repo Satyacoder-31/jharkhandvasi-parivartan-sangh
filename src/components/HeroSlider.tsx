@@ -96,6 +96,21 @@ const slides: Slide[] = [
     secondaryCta: { text: "Our Leadership Team", href: "/about" },
     badgeText: "Released by Hon'ble Dignitaries in Mumbai",
   },
+  {
+    id: 6,
+    eyebrow: "PRAVASI SAMMELAN 2026 • VEER SAVARKAR UDYAN",
+    hindiTitle: "प्रवासी झारखंडवासी भव्य मिलन समारोह",
+    title: "Uniting Diaspora with Dignified",
+    italicWord: "Institutional",
+    titleEnd: "Representation.",
+    description:
+      "Historic Pravasi Sammelan convened in Borivali with Former MP Gopal Shetty, MLA Sanjay Upadhyay, youth leader Devendra Mahato, and Founder Arvind Arya presenting the migrant rights charter.",
+    image: "/images/events/pravasi-sammelan-memorandum-presentation.jpg",
+    alt: "Pravasi Jharkhandvasi Sammelan at Veer Savarkar Udyan Borivali with Gopal Shetty and Sanjay Upadhyay",
+    primaryCta: { text: "View Event Chronicles", href: "/events" },
+    secondaryCta: { text: "Our Leadership", href: "/about" },
+    badgeText: "Welfare Charter & Keynote Address at Borivali",
+  },
 ];
 
 export default function HeroSlider() {

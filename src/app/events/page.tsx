@@ -24,6 +24,15 @@ export const metadata = {
 const pastEvents = [
   {
     id: 1,
+    title: "Pravasi Jharkhandvasi Bhavya Milan Samaroh (Borivali)",
+    date: "10 October 2026 (Veer Savarkar Udyan)",
+    location: "Veer Savarkar Udyan, Borivali (W), Mumbai",
+    category: "Pravasi Sammelan 2026",
+    image: "/images/events/pravasi-sammelan-memorandum-presentation.jpg",
+    desc: "Grand diaspora conference with Former MP Gopal Shetty, MLA Sanjay Upadhyay, and youth leader Devendra Mahato submitting the joint memorandum for migrant welfare.",
+  },
+  {
+    id: 2,
     title: "Jharkhand Sthapna Diwas Festival Mumbai",
     date: "15 November (Annual Commemoration)",
     location: "Mumbai Auditoriums & Cultural Halls",
@@ -32,7 +41,7 @@ const pastEvents = [
     desc: "Annual landmark cultural gathering honoring Jharkhand's foundation day, bringing traditional Santhali dances, Chhau performers, and state ministers to celebrate diaspora solidarity.",
   },
   {
-    id: 2,
+    id: 3,
     title: "Free Eye Checkup & Spectacles Distribution Camp",
     date: "Periodic Community Outreach",
     location: "Dahisar & Borivali West, Mumbai",
@@ -41,7 +50,7 @@ const pastEvents = [
     desc: "Comprehensive diagnostic eye care camp organized with leading surgeons; over 250 free prescription spectacles distributed to low-income seniors and migrant laborers.",
   },
   {
-    id: 3,
+    id: 4,
     title: "Vimochen of 'Apna Jharkhand' Magazine",
     date: "Annual Statehood Celebration",
     location: "Shivaji Mandir Hall, Dadar Mumbai",
@@ -50,7 +59,7 @@ const pastEvents = [
     desc: "Grand launch of the official quarterly magazine 'अपना झारखंड' by First CM Babulal Marandi, Adv. Ashish Shelar, Prahlad Modi, and Anup Jalota.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Bhagwan Birsa Munda National Tribute & Chowk Assembly",
     date: "Birth Anniversary Observance",
     location: "Birsa Munda Chowk & Community Centers",
@@ -111,6 +120,127 @@ export default function EventsPage() {
               <Phone className="w-3.5 h-3.5 text-[#E28723]" />
               <span>Call Helpline: 78080 08058</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 SPOTLIGHT RECENT MILESTONE: PRAVASI SAMMELAN 2026 */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-[#071F14] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-[#1D5139] shadow-2xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D5139]/40 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left: Photos */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden border border-[#1D5139] shadow-lg group">
+                <Image
+                  src="/images/events/pravasi-sammelan-memorandum-presentation.jpg"
+                  alt="Memorandum presentation at Pravasi Jharkhandvasi Sammelan"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="badge-pill bg-[#E28723] text-white text-[10px] uppercase font-bold mb-1">
+                    Veer Savarkar Udyan, Borivali (W)
+                  </span>
+                  <p className="text-xs text-white/90 font-medium">
+                    Arvind Arya, MLA Sanjay Upadhyay, Ex-MP Gopal Shetty &amp; Devendra Mahato presenting the Pravasi Welfare Memorandum
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div className="relative h-28 rounded-xl overflow-hidden border border-[#1D5139]/60">
+                  <Image
+                    src="/images/events/pravasi-sammelan-borivali-poster.jpg"
+                    alt="Official Event Invitation Poster"
+                    fill
+                    className="object-cover"
+                    sizes="20vw"
+                  />
+                </div>
+                <div className="relative h-28 rounded-xl overflow-hidden border border-[#1D5139]/60">
+                  <Image
+                    src="/images/events/pravasi-sammelan-mla-sanjay-upadhyay-speech.jpg"
+                    alt="Keynote Address by MLA Sanjay Upadhyay"
+                    fill
+                    className="object-cover"
+                    sizes="20vw"
+                  />
+                </div>
+                <div className="relative h-28 rounded-xl overflow-hidden border border-[#1D5139]/60">
+                  <Image
+                    src="/images/events/pravasi-sammelan-arvind-arya-felicitation.jpg"
+                    alt="Felicitation of Founder Arvind Arya"
+                    fill
+                    className="object-cover"
+                    sizes="20vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Event Information & Dignitaries */}
+            <div className="lg:col-span-6 space-y-5">
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="badge-pill bg-[#E28723] text-white text-xs font-bold uppercase tracking-wider">
+                    Recent Conclave
+                  </span>
+                  <span className="text-xs text-[#B8CBA5]">
+                    10 October 2026 • 3:30 PM
+                  </span>
+                </div>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight text-white">
+                  प्रवासी झारखंडवासी भव्य मिलन समारोह
+                </h2>
+                <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed">
+                  A historic diaspora assembly convened at <strong>Veer Savarkar Udyan, Borivali (West), Mumbai</strong> uniting community leaders, public representatives, and youth activists to advance migrant rights and socio-economic support.
+                </p>
+              </div>
+
+              {/* Dignitaries List */}
+              <div className="space-y-2.5 pt-2 border-t border-[#1D5139]/80 text-xs">
+                <div className="flex items-start gap-2.5">
+                  <Award className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Chief Guest:</strong>{" "}
+                    <span className="text-[#F7F5EC]/90">माननीय श्री गोपाल शेट्टी (जनसेवक / पूर्व सांसद, बोरीवली, मुंबई)</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Award className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Special Guest:</strong>{" "}
+                    <span className="text-[#F7F5EC]/90">माननीय श्री संजय उपाध्याय (विधायक, बोरीवली)</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Award className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Special Guest:</strong>{" "}
+                    <span className="text-[#F7F5EC]/90">श्री देवेन्द्र महतो (वरिष्ठ उपाध्यक्ष JLKM, सामाजिक कार्यकर्ता एवं युवा आवाज)</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Convener &amp; Leadership:</strong>{" "}
+                    <span className="text-[#F7F5EC]/90">श्री अरविंद आर्य (संस्थापक राष्ट्रीय अध्यक्ष, JPS), सुधाकांत पांडे, शेखर अहिरे (भाजपा वॉर्ड १६ अध्यक्ष)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Resolutions */}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-[#F7F5EC]/80 space-y-1.5">
+                <p className="font-semibold text-white">Charter of Action &amp; Key Resolutions:</p>
+                <p>• Submission of joint memorandum seeking emergency transit care, subsidized hospital access, and migrant labor protection.</p>
+                <p>• Keynote address by MLA Sanjay Upadhyay committing municipal and state liaison backing for Jharkhandi migrants in Mumbai.</p>
+                <p>• Ceremonial felicitation of Founder Arvind Arya with sacred &apos;श्री राम&apos; angavastram and floral honors.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
