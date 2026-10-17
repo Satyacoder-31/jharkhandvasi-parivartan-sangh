@@ -104,17 +104,16 @@ export default function NaturePage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       {/* 1. CINEMATIC NATURE HERO */}
-      <section className="relative w-full min-h-[580px] lg:min-h-[680px] flex items-center justify-center bg-[#04100A] text-white overflow-hidden">
+      <section className="relative w-full min-h-[580px] lg:min-h-[680px] flex items-center justify-center bg-[#071F14] text-white overflow-hidden">
         <Image
           src="/images/hero-forest.jpg"
           alt="Ancient Sal and Mahua forest of Jharkhand with sun rays"
           fill
           priority
-          className="object-cover opacity-45 filter brightness-75 contrast-105"
+          className="object-cover opacity-60"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#04100A] via-[#04100A]/85 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04100A]/80 via-transparent to-[#04100A]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071F14] via-[#071F14]/75 to-black/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 sm:pt-40 pb-20 lg:pb-28 text-center space-y-6">
           <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 mx-auto">

@@ -120,20 +120,20 @@ export default function PressMediaViewer() {
   return (
     <div className="space-y-16">
       {/* 1. STATEWIDE NEWSPAPER MAP OF JHARKHAND — ATMOSPHERIC ARCHIVAL BACKGROUND BANNER */}
-      <div className="relative rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#B8CBA5]/25 shadow-2xl overflow-hidden bg-[#04100A] text-white">
+      <div className="relative rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#B8CBA5]/25 shadow-2xl overflow-hidden bg-[#071F14] text-white">
         {/* Newspaper map as background image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/press/jharkhand-newspaper-map.png"
             alt="Statewide Newspaper Map of Jharkhand - Press Background"
             fill
-            className="object-contain object-right opacity-30 filter brightness-80 contrast-125"
+            className="object-contain object-right opacity-35 filter brightness-95 contrast-125"
             sizes="(max-width: 1200px) 100vw, 1200px"
             priority
           />
           {/* Subtle gradient overlay to keep text legible and stylish */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04100A] via-[#04100A]/90 to-[#04100A]/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04100A]/95 via-transparent to-[#04100A]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071F14] via-[#071F14]/85 to-[#071F14]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071F14]/90 via-transparent to-[#071F14]/60" />
         </div>
 
         <div className="relative z-10 max-w-2xl space-y-5">

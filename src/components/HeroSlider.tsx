@@ -149,12 +149,12 @@ export default function HeroSlider() {
             alt={slide.alt}
             fill
             priority={index === 0}
-            className="object-cover object-center filter brightness-80 contrast-105"
+            className="object-cover object-center"
             sizes="100vw"
           />
           {/* Rich cinematic dark gradient overlays (visible photo + high text contrast) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030D08]/95 via-[#030D08]/75 to-[#030D08]/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030D08] via-transparent to-black/65" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05140D]/90 via-[#05140D]/65 to-[#05140D]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
         </div>
       ))}
 
