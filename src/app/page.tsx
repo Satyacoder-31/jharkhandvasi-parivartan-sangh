@@ -335,7 +335,7 @@ export default function HomePage() {
                 <div>
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
-                      src="/images/senior-health.jpg"
+                      src="/images/events/eye-camp-medical-checkup.jpg"
                       alt="Free Medical & Diagnostic Health Camps"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -413,8 +413,8 @@ export default function HomePage() {
                 <div>
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
-                      src="/images/cultural-birsa.jpg"
-                      alt="Bhagwan Birsa Munda Smruti Cultural Commemoration"
+                      src="/images/events/sthapna-diwas-stage-felicitation.jpg"
+                      alt="Jharkhand Sthapna Diwas Mahotsav Cultural Commemoration"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"

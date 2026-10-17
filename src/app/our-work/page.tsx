@@ -80,7 +80,7 @@ const programs = [
     id: "health",
     title: "Free Medical & Diagnostic Camps",
     eyebrow: "Preventive Care",
-    image: "/images/senior-health.jpg",
+    image: "/images/events/eye-camp-medical-checkup.jpg",
     overview:
       "Healthcare should never depend on financial privilege. JPS brings certified medical doctors, nurses, and diagnostic equipment directly into community halls and bastis across Mumbai.",
     activities: [
@@ -116,7 +116,7 @@ const programs = [
     id: "culture",
     title: "Tribal Heritage & Martyr Tributes",
     eyebrow: "Preserving Cultural Roots",
-    image: "/images/cultural-birsa.jpg",
+    image: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
     overview:
       "Migrating thousands of kilometers away from ancestral forests can erode cultural identity and indigenous pride. JPS celebrates and preserves the glorious history of Jharkhand's tribal revolutionaries in Mumbai.",
     activities: [

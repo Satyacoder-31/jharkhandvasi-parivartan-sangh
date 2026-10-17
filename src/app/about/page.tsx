@@ -74,22 +74,22 @@ const timelineEvents = [
 ];
 
 const leadershipTeam = [
-  { name: "Dr. Avinash Gupta", role: "Patron", badge: "Patron", category: "Patron" },
-  { name: "Shri Ramkumar Pal", role: "Patron", badge: "Patron", category: "Patron" },
-  { name: "Shri Ganpat Kothari", role: "Patron", badge: "Patron", category: "Patron" },
-  { name: "Shri Manulal Baitha", role: "Patron / Senior Member", badge: "Patron", category: "Patron" },
-  { name: "Shri Arvind Arya", role: "Founder & Chairman", badge: "Founder / President", category: "Executive" },
-  { name: "Shri Umashankar Modi", role: "National Working President", badge: "National Working President", category: "Executive" },
-  { name: "Shri Vishal Bhagat", role: "National Vice President", badge: "Vice President", category: "Executive" },
-  { name: "Shri Dwarika Singh", role: "National Vice President", badge: "Vice President", category: "Executive" },
-  { name: "Shri Niranjan Kumar", role: "National General Secretary", badge: "General Secretary", category: "Secretariat" },
-  { name: "Shri Tulsi Yadav", role: "National General Secretary", badge: "General Secretary", category: "Secretariat" },
-  { name: "Shri Manoj Kumar", role: "National Organisation Secretary", badge: "Org. Secretary", category: "Secretariat" },
-  { name: "Shri Kamdev Sahu", role: "National Secretary", badge: "Secretary", category: "Secretariat" },
-  { name: "Shri Sunil Arya", role: "National Treasurer", badge: "Finance / Treasurer", category: "Secretariat" },
-  { name: "Shri Rajiv Rohit", role: "National Media-In-Charge", badge: "Press & Media", category: "Specialized" },
-  { name: "Shri Jay Saha", role: "National Liaison Head", badge: "State Liaison", category: "Specialized" },
-  { name: "Shri Pradeep Lal", role: "National Advisor", badge: "Advisory Board", category: "Specialized" },
+  { name: "Dr. Avinash Gupta", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/dr-avinash-gupta.jpg" },
+  { name: "Shri Ramkumar Pal", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/ramkumar-pal.jpg" },
+  { name: "Shri Ganpat Kothari", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/ganpat-kothari.jpg" },
+  { name: "Shri Manulal Baitha", role: "Patron / Senior Member", badge: "Patron", category: "Patron", image: "/images/leadership/manulal-baitha.jpg" },
+  { name: "Shri Arvind Arya", role: "Founder & Chairman", badge: "Founder / President", category: "Executive", image: "/images/leadership/arvind-arya.jpg" },
+  { name: "Shri Umashankar Modi", role: "National Working President", badge: "Working President", category: "Executive", image: "/images/leadership/umashankar-modi.jpg" },
+  { name: "Shri Vishal Bhagat", role: "National Vice President", badge: "Vice President", category: "Executive", image: "/images/leadership/vishal-bhagat.jpg" },
+  { name: "Shri Dwarika Singh", role: "National Vice President", badge: "Vice President", category: "Executive", image: "/images/leadership/dwarika-singh.jpg" },
+  { name: "Shri Niranjan Kumar", role: "National General Secretary", badge: "General Secretary", category: "Secretariat", image: "/images/leadership/niranjan-kumar.jpg" },
+  { name: "Shri Tulsi Yadav", role: "National General Secretary", badge: "General Secretary", category: "Secretariat", image: "/images/leadership/tulsi-yadav.jpg" },
+  { name: "Shri Manoj Kumar", role: "National Organisation Secretary", badge: "Org. Secretary", category: "Secretariat", image: "/images/leadership/manoj-kumar.jpg" },
+  { name: "Shri Kamdev Sahu", role: "National Secretary", badge: "Secretary", category: "Secretariat", image: "/images/leadership/kamdev-sahu.jpg" },
+  { name: "Shri Sunil Arya", role: "National Treasurer", badge: "Finance / Treasurer", category: "Secretariat", image: "/images/leadership/sunil-arya.jpg" },
+  { name: "Shri Rajiv Rohit", role: "National Media-In-Charge", badge: "Press & Media", category: "Specialized", image: "/images/leadership/rajiv-rohit.jpg" },
+  { name: "Shri Jay Saha", role: "National Liaison Head", badge: "State Liaison", category: "Specialized", image: "/images/leadership/jay-saha.jpg" },
+  { name: "Shri Pradeep Lal", role: "National Advisor", badge: "Advisory Board", category: "Specialized", image: "/images/leadership/pradeep-lal.jpg" },
 ];
 
 export default function AboutPage() {
@@ -134,18 +134,22 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-4 flex flex-col items-center text-center space-y-3">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[#B8CBA5]/40 overflow-hidden shadow-xl bg-[#1D5139] flex items-center justify-center relative">
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-tr from-[#123B2A] to-[#1D5139] text-[#B8CBA5] p-3">
-                  <span className="font-serif text-3xl font-bold text-[#E28723]">AA</span>
-                  <span className="text-[10px] tracking-widest uppercase mt-1 text-white">Founder</span>
-                </div>
+              <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-[#B8CBA5]/50 overflow-hidden shadow-2xl bg-[#1D5139] relative">
+                <Image
+                  src="/images/leadership/arvind-arya.jpg"
+                  alt="Shri Arvind Arya - Founder & President"
+                  fill
+                  className="object-cover object-top"
+                  sizes="180px"
+                  priority
+                />
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-bold text-white">
-                  Arvind Arya
+                  Shri Arvind Arya
                 </h3>
                 <p className="text-xs text-[#E28723] font-semibold uppercase tracking-wider">
-                  Founder & President
+                  Founder & National President
                 </p>
                 <p className="text-[11px] text-[#B8CBA5] mt-0.5">
                   Jharkhandvasi Parivartan Sangh
@@ -296,47 +300,66 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {leadershipTeam.map((member, i) => (
             <div
               key={i}
-              className="bg-white p-5 rounded-2xl border border-[#123B2A]/10 shadow-sm hover:shadow-md transition-all group hover:-translate-y-0.5 space-y-3"
+              className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between">
-                <span
-                  className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                    member.category === "Patron"
-                      ? "bg-[#795943]/15 text-[#795943]"
-                      : member.category === "Executive"
-                      ? "bg-[#E28723]/15 text-[#E28723]"
-                      : "bg-[#1D5139]/15 text-[#1D5139]"
-                  }`}
-                >
-                  {member.badge}
-                </span>
-                <Users className="w-3.5 h-3.5 text-[#1D5139]/50 group-hover:text-[#1D5139] transition-colors" />
-              </div>
-
               <div>
-                <h4 className="font-serif text-base font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors">
-                  {member.name}
-                </h4>
-                <p className="text-xs text-[#795943] font-medium mt-0.5">
-                  {member.role}
-                </p>
+                <div className="relative w-full h-56 sm:h-64 bg-[#071F14]/5 overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} - ${member.role}`}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md backdrop-blur-md ${
+                        member.category === "Patron"
+                          ? "bg-[#795943]/90 text-white"
+                          : member.category === "Executive"
+                          ? "bg-[#E28723]/90 text-white"
+                          : "bg-[#1D5139]/90 text-white"
+                      }`}
+                    >
+                      {member.badge}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                    <span className="text-[10px] text-[#B8CBA5] font-semibold tracking-wide uppercase block">
+                      {member.category} Body
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-4 space-y-1.5">
+                  <h4 className="font-serif text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs text-[#795943] font-medium leading-relaxed">
+                    {member.role}
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-2 border-t border-[#123B2A]/5 text-[11px] text-[#17231C]/60 flex items-center justify-between">
+              <div className="p-4 pt-2 border-t border-[#123B2A]/5 text-[11px] text-[#17231C]/65 flex items-center justify-between">
                 <span>JPS National Body</span>
-                <span className="text-[#1D5139] font-medium">Active</span>
+                <span className="text-[#1D5139] font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Active
+                </span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 6. CIVIL SERVICES & MAHARASHTRA TIES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+      {/* 6. CIVIL SERVICES & MAHARASHTRA TIES (WITH REAL DOCUMENTARY PHOTOS) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[#123B2A] text-white p-8 sm:p-10 rounded-3xl border border-[#B8CBA5]/20 space-y-3">
             <Building2 className="w-8 h-8 text-[#E28723]" />
@@ -356,6 +379,89 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light leading-relaxed">
               With the support of educated, elite, and community-minded individuals from Jharkhand holding prestigious designations in the Government of India through their office as <strong>IAS and IRS officers</strong>, the Sangh is turning the aspirations of Jharkhandis into reality.
             </p>
+          </div>
+        </div>
+
+        {/* Real Documentary Archive Photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-4">
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-44 w-full">
+              <Image
+                src="/images/events/governor-radhakrishnan-meeting.jpg"
+                alt="JPS delegation meeting with Jharkhand Governor CP Radhakrishnan"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 25vw"
+              />
+            </div>
+            <div className="p-3.5 space-y-1">
+              <span className="text-[10px] font-bold text-[#E28723] uppercase tracking-wider block">
+                State Dignitary
+              </span>
+              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+                With Former Jharkhand Governor CP Radhakrishnan
+              </h5>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-44 w-full">
+              <Image
+                src="/images/events/ashish-shelar-felicitation.jpg"
+                alt="Felicitation of Adv. Ashish Shelar (Mumbai BJP President)"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 25vw"
+              />
+            </div>
+            <div className="p-3.5 space-y-1">
+              <span className="text-[10px] font-bold text-[#1D5139] uppercase tracking-wider block">
+                Maharashtra Assembly
+              </span>
+              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+                Felicitation of Adv. Ashish Shelar (Mumbai BJP President)
+              </h5>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-44 w-full">
+              <Image
+                src="/images/events/babulal-marandi-meeting.jpg"
+                alt="Arvind Arya with First Chief Minister Babulal Marandi"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 25vw"
+              />
+            </div>
+            <div className="p-3.5 space-y-1">
+              <span className="text-[10px] font-bold text-[#795943] uppercase tracking-wider block">
+                Leadership Dialogue
+              </span>
+              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+                Arvind Arya with First CM Babulal Marandi
+              </h5>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm group">
+            <div className="relative h-44 w-full">
+              <Image
+                src="/images/events/mumbai-police-presentation.jpg"
+                alt="Magazine presentation to Greater Mumbai Police Officers"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, 25vw"
+              />
+            </div>
+            <div className="p-3.5 space-y-1">
+              <span className="text-[10px] font-bold text-[#E28723] uppercase tracking-wider block">
+                Law Enforcement Liaison
+              </span>
+              <h5 className="font-serif text-xs font-bold text-[#123B2A] leading-snug">
+                Souvenir Presentation to Greater Mumbai Police Officers
+              </h5>
+            </div>
           </div>
         </div>
       </section>

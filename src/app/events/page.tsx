@@ -13,6 +13,7 @@ import {
   Award,
 } from "lucide-react";
 import GalleryLightbox from "@/components/GalleryLightbox";
+import PressMediaViewer from "@/components/PressMediaViewer";
 
 export const metadata = {
   title: "Events & Press Media | Jharkhandvasi Parivartan Sangh",
@@ -27,7 +28,7 @@ const pastEvents = [
     date: "15 November (Annual Commemoration)",
     location: "Mumbai Auditoriums & Cultural Halls",
     category: "Cultural Commemoration",
-    image: "/images/cultural-birsa.jpg",
+    image: "/images/events/sthapna-diwas-stage-felicitation.jpg",
     desc: "Annual landmark cultural gathering honoring Jharkhand's foundation day, bringing traditional Santhali dances, Chhau performers, and state ministers to celebrate diaspora solidarity.",
   },
   {
@@ -36,17 +37,17 @@ const pastEvents = [
     date: "Periodic Community Outreach",
     location: "Dahisar & Borivali West, Mumbai",
     category: "Medical Outreach",
-    image: "/images/senior-health.jpg",
+    image: "/images/events/eye-camp-medical-checkup.jpg",
     desc: "Comprehensive diagnostic eye care camp organized with leading surgeons; over 250 free prescription spectacles distributed to low-income seniors and migrant laborers.",
   },
   {
     id: 3,
-    title: "Shiksha Protsahan School Kit Distribution Drive",
-    date: "Annual Academic Term Launch",
-    location: "Suburban Community Center",
-    category: "Child Education",
-    image: "/images/hero-education.jpg",
-    desc: "Outreach program distributing school bags, notebooks, textbooks, and writing supplies to children of seasonal migrant workers.",
+    title: "Vimochen of 'Apna Jharkhand' Magazine",
+    date: "Annual Statehood Celebration",
+    location: "Shivaji Mandir Hall, Dadar Mumbai",
+    category: "Publication & Media",
+    image: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
+    desc: "Grand launch of the official quarterly magazine 'अपना झारखंड' by First CM Babulal Marandi, Adv. Ashish Shelar, Prahlad Modi, and Anup Jalota.",
   },
   {
     id: 4,
@@ -54,59 +55,8 @@ const pastEvents = [
     date: "Birth Anniversary Observance",
     location: "Birsa Munda Chowk & Community Centers",
     category: "Nationalism & Heritage",
-    image: "/images/art-birsa.jpg",
-    desc: "Honoring Dharti Aaba Bhagwan Birsa Munda's courage and sacrifice, promoting national pride and cultural roots among youth.",
-  },
-];
-
-const pressClippings = [
-  {
-    publication: "Navbharat Times (NBT)",
-    headline: "झारखंड स्थापना दिवस धूमधाम से मनाया",
-    date: "Statehood Day Coverage",
-    badge: "Leading Daily",
-    summary:
-      "Extensive coverage of Jharkhandvasi Parivartan Sangh's grand cultural event uniting thousands of Jharkhandis in Mumbai with traditional music and dignitaries.",
-  },
-  {
-    publication: "Dainik Jagran",
-    headline: "मध्यमवर्गीय परिवार के लिए अलग से फंड जारी करे राज्य सरकार: अरविंद आर्य",
-    date: "Policy & Press Statement",
-    badge: "National Hindi Daily",
-    summary:
-      "JPS Founder/President Arvind Arya's appeal to state authorities to allocate dedicated emergency welfare reserves for migrant and middle-class families.",
-  },
-  {
-    publication: "Dahisar Samachar / Local Press",
-    headline: "दहिसर में सरस्वती पूजा पर श्रद्धालुओं की भीड़ — संघ ने बांटे 250 चश्मे",
-    date: "Healthcare Relief",
-    badge: "Mumbai Local News",
-    summary:
-      "Free medical and ophthalmology camp where JPS provided doctor consultations and distributed 250 free corrective glasses to underserved residents.",
-  },
-  {
-    publication: "Santhal Hool Express",
-    headline: "मुंबई में मनाया गया 22वां झारखंड स्थापना दिवस महोत्सव",
-    date: "Diaspora Chronicle",
-    badge: "Regional Express",
-    summary:
-      "Felicitation of prominent leaders and industrialists including Mohan Prasad Saw of Giridih and Pravasi Group director Sikandar Ali for social services.",
-  },
-  {
-    publication: "Prabhat Khabar",
-    headline: "झारखंडवासी परिवर्तन संघ मुंबई ने मनाया झारखंड स्थापना दिवस",
-    date: "Cultural Heritage",
-    badge: "Jharkhand Daily",
-    summary:
-      "Highlighting traditional tribal dance forms, indigenous percussion instruments, and the diaspora's enduring ties between Maharashtra and Jharkhand.",
-  },
-  {
-    publication: "Dainik Pehla Samachar & Dabang Duniya",
-    headline: "झारखंड के स्थापना दिवस पर जुटे कई दिग्गज",
-    date: "Special Report",
-    badge: "Press Syndicate",
-    summary:
-      "Assembly of state ministers, administrative officers, community elders, and social workers at the annual JPS convention in Mumbai.",
+    image: "/images/events/birsa-munda-chowk-mumbai.jpg",
+    desc: "Honoring Dharti Aaba Bhagwan Birsa Munda's courage and sacrifice at Birsa Munda Chowk, promoting national pride and cultural roots among youth.",
   },
 ];
 
@@ -220,7 +170,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* 4. PRESS MEDIA COVERAGE & RECOGNITION (FROM SOUVENIR) */}
+      {/* 4. STATEWIDE NEWSPAPER MAP & PRESS MEDIA COVERAGE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="max-w-2xl">
@@ -231,7 +181,7 @@ export default function EventsPage() {
               Press Media Coverage & Statewide Recognition
             </h2>
             <p className="text-xs sm:text-sm text-[#17231C]/75 font-light mt-1">
-              Documented news reports highlighting JPS's welfare initiatives, cultural festivals, and humanitarian relief.
+              Documented news reports and investigative coverage highlighting JPS&apos;s welfare initiatives, cultural festivals, and humanitarian relief.
             </p>
           </div>
 
@@ -251,37 +201,7 @@ export default function EventsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pressClippings.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-6 rounded-3xl border border-[#123B2A]/10 shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between"
-            >
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#123B2A]/10 text-[#123B2A]">
-                    {item.badge}
-                  </span>
-                  <Newspaper className="w-4 h-4 text-[#795943]" />
-                </div>
-                <h4 className="font-serif text-base font-bold text-[#123B2A] leading-snug">
-                  {item.publication}
-                </h4>
-                <p className="text-xs text-[#E28723] font-medium italic">
-                  “{item.headline}”
-                </p>
-                <p className="text-xs text-[#17231C]/75 font-light leading-relaxed">
-                  {item.summary}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-[#123B2A]/5 text-[11px] text-[#795943] flex items-center justify-between">
-                <span>{item.date}</span>
-                <span className="text-[#1D5139] font-medium">Archive Verified ✓</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PressMediaViewer />
       </section>
 
       {/* 5. DOCUMENTARY PHOTO GALLERY WITH LIGHTBOX */}

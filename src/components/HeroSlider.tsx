@@ -81,6 +81,21 @@ const slides: Slide[] = [
     secondaryCta: { text: "Learn Our Story", href: "/about" },
     badgeText: "24/7 Active Crisis Helpline: +91 90222 88222",
   },
+  {
+    id: 5,
+    eyebrow: "20 YEARS OF SERVICE • SOUVENIR LAUNCH",
+    hindiTitle: "अपना झारखंड — संस्कृति, एकता और सम्मान",
+    title: "Celebrating Two Decades of",
+    italicWord: "Cultural Pride",
+    titleEnd: "& Diaspora Solidarity.",
+    description:
+      "Honoring Jharkhand's statehood in Mumbai with traditional Santhali dances, civil servant leadership, and the landmark release of 'अपना झारखंड' magazine.",
+    image: "/images/events/magazine-launch-babulal-marandi-prahlad-modi.jpg",
+    alt: "Release of Apna Jharkhand souvenir magazine by Babulal Marandi and Prahlad Modi",
+    primaryCta: { text: "Explore Press & Media", href: "/events" },
+    secondaryCta: { text: "Our Leadership Team", href: "/about" },
+    badgeText: "Released by Hon'ble Dignitaries in Mumbai",
+  },
 ];
 
 export default function HeroSlider() {
