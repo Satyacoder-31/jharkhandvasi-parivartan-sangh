@@ -83,6 +83,94 @@ export interface MediaPhoto {
   caption: string;
 }
 
+export interface HomepageContent {
+  stats: {
+    backgroundImage?: string;
+    stat1: { number: number; suffix: string; label: string; sublabel: string };
+    stat2: { number: number; suffix: string; label: string; sublabel: string };
+    stat3: { number: number; suffix: string; label: string; sublabel: string };
+    stat4: { number: string; suffix: string; label: string; sublabel: string };
+  };
+  aboutIntro: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    headingEnd: string;
+    paragraph1: string;
+    paragraph2: string;
+    image: string;
+    imageTag: string;
+    imageTitle: string;
+    imageLocation: string;
+    primaryBtnText: string;
+    primaryBtnHref: string;
+    secondaryBtnText: string;
+    secondaryBtnHref: string;
+  };
+  programsHeader: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+  };
+  natureSection: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+    image: string;
+    card1Title: string;
+    card1Desc: string;
+    card2Title: string;
+    card2Desc: string;
+    card3Title: string;
+    card3Desc: string;
+    actionBtnText: string;
+    actionBtnHref: string;
+    sideImage: string;
+    sideTag: string;
+    sideTitle: string;
+  };
+  crisisSection: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+    helplinePhone: string;
+    helplineBtnText: string;
+    secondaryBtnText: string;
+    secondaryBtnHref: string;
+    image: string;
+    imageTag: string;
+    imageTitle: string;
+  };
+  artSpotlight: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+    ctaBtnText: string;
+    ctaBtnHref: string;
+  };
+  projectHubs: {
+    badge: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+  };
+  volunteerCta: {
+    eyebrow: string;
+    headingStart: string;
+    headingItalic: string;
+    description: string;
+    image: string;
+    primaryBtnText: string;
+    primaryBtnHref: string;
+    secondaryBtnText: string;
+    secondaryBtnHref: string;
+  };
+}
+
 export interface SiteContent {
   organization: {
     name: string;
@@ -114,6 +202,7 @@ export interface SiteContent {
     districts: number;
     districtsLabel: string;
   };
+  homepage: HomepageContent;
   heroSlides: HeroSlideData[];
   about: {
     founderName: string;
@@ -199,6 +288,101 @@ export const defaultSiteContent: SiteContent = {
     screeningsLabel: "Free Health Screenings Delivered",
     districts: 24,
     districtsLabel: "All Jharkhand Districts Covered",
+  },
+  homepage: {
+    stats: {
+      backgroundImage: "/images/tree-planting.jpg",
+      stat1: { number: 20, suffix: "+", label: "Years of NGO Service", sublabel: "Estd. 2005 • Regd. 2013" },
+      stat2: { number: 5200, suffix: "+", label: "Community Network", sublabel: "Workers & Families Connected" },
+      stat3: { number: 100, suffix: "+", label: "Health & Relief Camps", sublabel: "Free Medical & Education Drives" },
+      stat4: { number: "24/7", suffix: "", label: "Emergency Helpline", sublabel: "+91 78080 08058" },
+    },
+    aboutIntro: {
+      badge: "About Our NGO",
+      headingStart: "Serving the Underserved with",
+      headingItalic: "Dignity",
+      headingEnd: "and Compassion",
+      paragraph1:
+        "Jharkhandvasi Parivartan Sangh (JPS) is a grassroots non-governmental social welfare organization headquartered in Borivali West, Mumbai. Founded under the leadership of Arvind Arya, JPS is dedicated to protecting the rights, healthcare, and dignity of migrant laborers, vulnerable elders, and marginalized children.",
+      paragraph2:
+        "Whether providing 24/7 emergency intervention for injured or stranded workers, coordinating with government Child Welfare Committees (CWC) to keep children in schools, or hosting free geriatric diagnostic health camps in suburban neighborhoods, our mission is human transformation: \"समाज के लिए, समाज के साथ\".",
+      image: "/images/community-assembly.jpg",
+      imageTag: "एक ज़रूरत • एक प्रयास • एक बदलाव",
+      imageTitle: "Grassroots Community Assembly & Workers' Welfare",
+      imageLocation: "Mumbai Suburban Community Hall",
+      primaryBtnText: "Read Founding Story",
+      primaryBtnHref: "/about",
+      secondaryBtnText: "Connect With Our Team",
+      secondaryBtnHref: "/contact",
+    },
+    programsHeader: {
+      badge: "Our NGO In Action",
+      headingStart: "Grassroots Programs Transforming",
+      headingItalic: "Lives",
+      description:
+        "Direct humanitarian action conducted across Mumbai suburban neighborhoods and coordinated with regional teams in Jharkhand.",
+    },
+    natureSection: {
+      badge: "प्रकृति और पर्यावरण संरक्षण • Nature & Sustainability",
+      headingStart: "Connecting Sacred Sal Forests, Clean Waters &",
+      headingItalic: "Community Welfare",
+      description:
+        "Jharkhand is defined by its deep sacred groves, Sal and Mahua canopies, and living river watersheds. At JPS, environmental conservation is an organic part of human upliftment. We nurture native sapling nurseries, protect natural aquifers, and unite diaspora families in ecological respect.",
+      image: "/images/watershed-nature.jpg",
+      card1Title: "15,000+ Native Saplings",
+      card1Desc: "Sal & Mahua Nursery Drives",
+      card2Title: "Sarhul Forest Reverence",
+      card2Desc: "Sacred Tribal Tree Tradition",
+      card3Title: "Watershed Protection",
+      card3Desc: "Stream Soil Stabilization",
+      actionBtnText: "Explore Signature Nature Mission",
+      actionBtnHref: "/nature",
+      sideImage: "/images/tree-planting.jpg",
+      sideTag: "Ground Action",
+      sideTitle: "Community Native Sapling Planting",
+    },
+    crisisSection: {
+      badge: "24/7 Crisis Response Protocol",
+      headingStart: "Emergency Intervention for",
+      headingItalic: "Migrant Workers",
+      description:
+        "When an underprivileged worker faces sudden medical trauma, accident, or acute crisis in Mumbai, families hundreds of kilometers away in Jharkhand have nowhere to turn. Our volunteer team arrives at hospitals and police jurisdictions day and night to provide immediate patient advocacy and dignified repatriation support.",
+      helplinePhone: "+91 78080 08058",
+      helplineBtnText: "Call Helpline: +91 78080 08058",
+      secondaryBtnText: "Read Field Case Studies",
+      secondaryBtnHref: "/impact",
+      image: "/images/volunteer-hands.jpg",
+      imageTag: "Field Volunteers",
+      imageTitle: "Compassionate Frontline Support",
+    },
+    artSpotlight: {
+      badge: "कला से सेवा • Art for Social Impact",
+      headingStart: "Portraits & Tribal Paintings",
+      headingItalic: "for Charity",
+      description:
+        "Support JPS by acquiring authentic handmade artworks created by indigenous tribal artisans and youth painters. 100% of your suggested donation directly finances medicine for destitute seniors, school kits for children, and emergency relief for stranded migrant workers.",
+      ctaBtnText: "Browse Charity Art Store",
+      ctaBtnHref: "/art-store",
+    },
+    projectHubs: {
+      badge: "Verified Project Locations",
+      headingStart: "Grassroots Presence Across",
+      headingItalic: "Mumbai & Jharkhand",
+      description:
+        "JPS bridges the migrant corridor between Western India and Eastern Jharkhand, providing direct assistance where vulnerability is highest.",
+    },
+    volunteerCta: {
+      eyebrow: "Direct Grassroots Participation",
+      headingStart: "Your Time & Support Turn Compassion Into",
+      headingItalic: "Enduring Action",
+      description:
+        "Whether you can volunteer at weekend health camps, mentor a child, or contribute towards emergency patient relief, every action counts.",
+      image: "/images/tree-planting.jpg",
+      primaryBtnText: "Become a Volunteer",
+      primaryBtnHref: "/get-involved",
+      secondaryBtnText: "Make a Contribution",
+      secondaryBtnHref: "/donate",
+    },
   },
   heroSlides: [
     {

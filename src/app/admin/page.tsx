@@ -33,6 +33,7 @@ import {
   Heart,
   ChevronRight,
   Sparkles,
+  TreePine,
 } from "lucide-react";
 import { useSiteContent } from "@/context/SiteContentContext";
 import {
@@ -938,354 +939,307 @@ export default function AdminPage() {
           )}
 
           {/* ========================================================================= */}
-          {/* TAB 2: HOMEPAGE HERO SLIDES & STATISTICS */}
+          {/* TAB 2: HOMEPAGE FULL CONTENT & SLIDES */}
           {/* ========================================================================= */}
           {activeTab === "hero" && (
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="border-b border-white/10 pb-4 flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <h2 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
                     <Sliders className="w-6 h-6 text-[#E28723]" />
-                    Homepage Hero Slides &amp; Metrics
+                    Complete Homepage CMS Editor
                   </h2>
                   <p className="text-xs text-[#B8CBA5] mt-1">
-                    Manage headline slides, Hindi subtitles, background photos, and key counter statistics.
+                    Manage all headlines, Hindi tags, paragraphs, photos, phone numbers, and buttons across every homepage section.
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
+                    onClick={handleSaveAll}
+                    className="px-4 py-2 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white font-bold text-xs flex items-center gap-2 shadow"
+                  >
+                    <Save className="w-4 h-4" />
+                    Save All Changes
+                  </button>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 1: HERO SLIDESHOW (6 CAROUSEL SLIDES) */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-5">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                      <Sliders className="w-5 h-5 text-[#E28723]" />
+                      1. Hero Slideshow Carousel ({draft.heroSlides.length} Slides)
+                    </h3>
+                    <p className="text-[11px] text-[#B8CBA5]">
+                      Full-screen top visual slider with Hindi subtitles, headlines, and call-to-actions.
+                    </p>
+                  </div>
+                  <button
                     onClick={() => {
                       const newSlide: HeroSlideData = {
                         id: Date.now(),
-                        eyebrow: "NEW INITIATIVE",
-                        hindiTitle: "सेवा और संकल्प",
-                        title: "Inspiring Hope.",
-                        italicWord: "Uniting",
-                        titleEnd: "Communities.",
+                        eyebrow: "COMMUNITY WELFARE",
+                        hindiTitle: "सेवा से परिवर्तन की ओर",
+                        title: "Growing Hope.",
+                        italicWord: "Empowering",
+                        titleEnd: "Every Life.",
                         description:
-                          "Add detailed program mission or emergency response statement here.",
+                          "Add comprehensive statement describing this grassroots initiative.",
                         image: "/images/hero-forest.jpg",
-                        alt: "Hero backdrop image",
+                        alt: "Hero slide backdrop image",
                         primaryCta: { text: "Learn More", href: "/our-work" },
                         secondaryCta: { text: "Contact Team", href: "/contact" },
-                        badgeText: "Direct Grassroots Action",
+                        badgeText: "Active Grassroots Mission",
                       };
                       setDraft({
                         ...draft,
                         heroSlides: [...draft.heroSlides, newSlide],
                       });
                     }}
-                    className="px-3.5 py-2 rounded-xl bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-xs font-bold border border-[#B8CBA5]/30 flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-xl bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-xs font-bold border border-[#B8CBA5]/30 flex items-center gap-1.5"
                   >
                     <Plus className="w-4 h-4" />
                     Add New Slide
                   </button>
-                  <button
-                    onClick={handleSaveAll}
-                    className="px-4 py-2 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white font-bold text-xs flex items-center gap-2"
-                  >
-                    <Save className="w-4 h-4" />
-                    Save Changes
-                  </button>
                 </div>
-              </div>
 
-              {/* Statistics Strip Counters */}
-              <div className="p-5 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
-                <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#E28723]" />
-                  Homepage Statistics Counters
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div>
-                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                      Years of Service (e.g. 20)
-                    </label>
-                    <input
-                      type="number"
-                      value={draft.stats.years}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, years: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={draft.stats.yearsLabel}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, yearsLabel: e.target.value },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 mt-1.5 rounded-lg bg-[#0A2419]/50 border border-white/10 text-white/80 text-[11px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                      Migrants Aided (e.g. 15000)
-                    </label>
-                    <input
-                      type="number"
-                      value={draft.stats.workers}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, workers: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={draft.stats.workersLabel}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, workersLabel: e.target.value },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 mt-1.5 rounded-lg bg-[#0A2419]/50 border border-white/10 text-white/80 text-[11px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                      Health Screenings (e.g. 8500)
-                    </label>
-                    <input
-                      type="number"
-                      value={draft.stats.screenings}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, screenings: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={draft.stats.screeningsLabel}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, screeningsLabel: e.target.value },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 mt-1.5 rounded-lg bg-[#0A2419]/50 border border-white/10 text-white/80 text-[11px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                      Districts Covered (e.g. 24)
-                    </label>
-                    <input
-                      type="number"
-                      value={draft.stats.districts}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, districts: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={draft.stats.districtsLabel}
-                      onChange={(e) =>
-                        setDraft({
-                          ...draft,
-                          stats: { ...draft.stats, districtsLabel: e.target.value },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 mt-1.5 rounded-lg bg-[#0A2419]/50 border border-white/10 text-white/80 text-[11px]"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Slides List */}
-              <div className="space-y-6">
-                {draft.heroSlides.map((slide, idx) => (
-                  <div
-                    key={slide.id}
-                    className="p-5 sm:p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4"
-                  >
-                    <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                      <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] text-xs">
-                        Slide #{idx + 1}
-                      </span>
-                      {draft.heroSlides.length > 1 && (
-                        <button
-                          onClick={() => {
-                            if (confirm(`Delete slide #${idx + 1}?`)) {
-                              setDraft({
-                                ...draft,
-                                heroSlides: draft.heroSlides.filter((s) => s.id !== slide.id),
-                              });
-                            }
-                          }}
-                          className="text-rose-400 hover:text-rose-300 p-1"
-                          title="Delete Slide"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Eyebrow Tag
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.eyebrow}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].eyebrow = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
+                <div className="space-y-6">
+                  {draft.heroSlides.map((slide, idx) => (
+                    <div
+                      key={slide.id}
+                      className="p-5 rounded-2xl bg-[#0A2419] border border-white/10 space-y-4"
+                    >
+                      <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
+                        <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] text-xs font-semibold">
+                          Slide #{idx + 1}
+                        </span>
+                        {draft.heroSlides.length > 1 && (
+                          <button
+                            onClick={() => {
+                              if (confirm(`Delete slide #${idx + 1}?`)) {
+                                setDraft({
+                                  ...draft,
+                                  heroSlides: draft.heroSlides.filter((s) => s.id !== slide.id),
+                                });
+                              }
+                            }}
+                            className="text-rose-400 hover:text-rose-300 p-1"
+                            title="Delete Slide"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
                       </div>
 
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Hindi Subtitle
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.hindiTitle}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].hindiTitle = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Eyebrow Tag (e.g. CHILD PROTECTION)
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.eyebrow}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].eyebrow = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Badge Text (Pill on Card)
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.badgeText}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].badgeText = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Hindi Subtitle (e.g. सेवा से परिवर्तन की ओर)
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.hindiTitle}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].hindiTitle = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Headline Start
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.title}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].title = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Badge Pill Text
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.badgeText}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].badgeText = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Italic Highlight Word
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.italicWord}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].italicWord = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Headline Start
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.title}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].title = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      <div>
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Headline End
-                        </label>
-                        <input
-                          type="text"
-                          value={slide.titleEnd}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].titleEnd = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Italic Highlight Word
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.italicWord}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].italicWord = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      <div className="sm:col-span-2 lg:col-span-3">
-                        <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
-                          Description Statement
-                        </label>
-                        <textarea
-                          rows={2}
-                          value={slide.description}
-                          onChange={(e) => {
-                            const updated = [...draft.heroSlides];
-                            updated[idx].description = e.target.value;
-                            setDraft({ ...draft, heroSlides: updated });
-                          }}
-                          className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
-                        />
-                      </div>
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Headline End
+                          </label>
+                          <input
+                            type="text"
+                            value={slide.titleEnd}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].titleEnd = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
 
-                      {/* Image Management */}
-                      <div className="sm:col-span-2 lg:col-span-3 p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-3">
-                        <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
-                          <ImageIcon className="w-4 h-4 text-[#E28723]" />
-                          Slide Background Image
-                        </label>
-                        <div className="flex flex-col sm:flex-row items-center gap-4">
-                          <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-[#B8CBA5]/30 bg-black/40 flex-shrink-0">
-                            {slide.image && (
-                              <Image
-                                src={slide.image}
-                                alt="Slide preview"
-                                fill
-                                className="object-cover"
-                              />
-                            )}
-                          </div>
-                          <div className="flex-1 w-full space-y-2">
+                        <div className="sm:col-span-2 lg:col-span-3">
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Description Paragraph
+                          </label>
+                          <textarea
+                            rows={2}
+                            value={slide.description}
+                            onChange={(e) => {
+                              const updated = [...draft.heroSlides];
+                              updated[idx].description = e.target.value;
+                              setDraft({ ...draft, heroSlides: updated });
+                            }}
+                            className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Primary CTA Button (Text &amp; Link)
+                          </label>
+                          <div className="grid grid-cols-2 gap-2">
                             <input
                               type="text"
-                              value={slide.image}
-                              placeholder="Image URL or local path (e.g. /images/hero-forest.jpg)"
+                              placeholder="Text"
+                              value={slide.primaryCta.text}
                               onChange={(e) => {
                                 const updated = [...draft.heroSlides];
-                                updated[idx].image = e.target.value;
+                                updated[idx].primaryCta.text = e.target.value;
                                 setDraft({ ...draft, heroSlides: updated });
                               }}
-                              className="w-full px-3 py-2 rounded-xl bg-[#071F14] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                              className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
                             />
-                            <div className="flex items-center gap-2">
-                              <label className="cursor-pointer px-3 py-1.5 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30 flex items-center gap-1.5 transition-all">
+                            <input
+                              type="text"
+                              placeholder="Link"
+                              value={slide.primaryCta.href}
+                              onChange={(e) => {
+                                const updated = [...draft.heroSlides];
+                                updated[idx].primaryCta.href = e.target.value;
+                                setDraft({ ...draft, heroSlides: updated });
+                              }}
+                              className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs font-mono"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                            Secondary CTA Button (Text &amp; Link)
+                          </label>
+                          <div className="grid grid-cols-2 gap-2">
+                            <input
+                              type="text"
+                              placeholder="Text"
+                              value={slide.secondaryCta.text}
+                              onChange={(e) => {
+                                const updated = [...draft.heroSlides];
+                                updated[idx].secondaryCta.text = e.target.value;
+                                setDraft({ ...draft, heroSlides: updated });
+                              }}
+                              className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                            />
+                            <input
+                              type="text"
+                              placeholder="Link"
+                              value={slide.secondaryCta.href}
+                              onChange={(e) => {
+                                const updated = [...draft.heroSlides];
+                                updated[idx].secondaryCta.href = e.target.value;
+                                setDraft({ ...draft, heroSlides: updated });
+                              }}
+                              className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs font-mono"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Image Management */}
+                        <div className="sm:col-span-2 lg:col-span-3 p-3.5 rounded-xl bg-[#071F14] border border-white/10 space-y-2">
+                          <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
+                            <ImageIcon className="w-4 h-4 text-[#E28723]" />
+                            Slide Backdrop Photo
+                          </label>
+                          <div className="flex flex-col sm:flex-row items-center gap-3">
+                            <div className="relative w-24 h-16 rounded-xl overflow-hidden border border-[#B8CBA5]/30 bg-black/40 flex-shrink-0">
+                              {slide.image && (
+                                <Image
+                                  src={slide.image}
+                                  alt="Slide preview"
+                                  fill
+                                  className="object-cover"
+                                />
+                              )}
+                            </div>
+                            <div className="flex-1 w-full space-y-1.5">
+                              <input
+                                type="text"
+                                value={slide.image}
+                                placeholder="Image URL (e.g. /images/hero-forest.jpg)"
+                                onChange={(e) => {
+                                  const updated = [...draft.heroSlides];
+                                  updated[idx].image = e.target.value;
+                                  setDraft({ ...draft, heroSlides: updated });
+                                }}
+                                className="w-full px-3 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs focus:ring-1 focus:ring-[#E28723] focus:outline-none"
+                              />
+                              <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
                                 <Upload className="w-3.5 h-3.5" />
-                                <span>Upload Photo from Device</span>
+                                <span>Upload Photo from Computer</span>
                                 <input
                                   type="file"
                                   accept="image/*"
@@ -1299,16 +1253,1862 @@ export default function AdminPage() {
                                   }
                                 />
                               </label>
-                              <span className="text-[10px] text-white/50">
-                                Supports PNG, JPG, WebP
-                              </span>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 2: VERIFIED STATISTICS STRIP */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-5">
+                <div className="border-b border-white/10 pb-3">
+                  <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-[#E28723]" />
+                    2. Verified Statistics Strip (4 Key Counters)
+                  </h3>
+                  <p className="text-[11px] text-[#B8CBA5]">
+                    Numbers animate smoothly when visitors scroll down the homepage.
+                  </p>
+                </div>
+
+                {/* Background Image for Stats Strip */}
+                <div className="p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                  <label className="text-[11px] font-semibold text-[#B8CBA5] block">
+                    Statistics Strip Background Backdrop Photo
+                  </label>
+                  <div className="flex flex-col sm:flex-row items-center gap-3">
+                    <div className="relative w-20 h-14 rounded-lg overflow-hidden border border-white/20 bg-black/40 flex-shrink-0">
+                      {draft.homepage.stats.backgroundImage && (
+                        <Image
+                          src={draft.homepage.stats.backgroundImage}
+                          alt="Stats backdrop"
+                          fill
+                          className="object-cover"
+                        />
+                      )}
+                    </div>
+                    <div className="flex-1 w-full space-y-1.5">
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.backgroundImage || ""}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: { ...draft.homepage.stats, backgroundImage: e.target.value },
+                            },
+                          })
+                        }
+                        className="w-full px-3 py-1.5 rounded-lg bg-[#071F14] border border-white/20 text-white text-xs"
+                      />
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>Upload Photo from Computer</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) =>
+                            handleFileUpload(e, (dataUrl) => {
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  stats: {
+                                    ...draft.homepage.stats,
+                                    backgroundImage: dataUrl,
+                                  },
+                                },
+                              });
+                            })
+                          }
+                        />
+                      </label>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Stat 1 */}
+                  <div className="p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                    <span className="text-[10px] font-bold text-[#B8CBA5] uppercase block">
+                      Counter 1 (Years)
+                    </span>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Target Number &amp; Suffix</label>
+                      <div className="grid grid-cols-2 gap-1.5 mt-0.5">
+                        <input
+                          type="number"
+                          value={draft.homepage.stats.stat1.number}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat1: { ...draft.homepage.stats.stat1, number: Number(e.target.value) },
+                                },
+                              },
+                            })
+                          }
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-bold font-mono"
+                        />
+                        <input
+                          type="text"
+                          value={draft.homepage.stats.stat1.suffix}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat1: { ...draft.homepage.stats.stat1, suffix: e.target.value },
+                                },
+                              },
+                            })
+                          }
+                          placeholder="+"
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-mono"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Main Label</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat1.label}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat1: { ...draft.homepage.stats.stat1, label: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs mt-0.5"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Sublabel</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat1.sublabel}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat1: { ...draft.homepage.stats.stat1, sublabel: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white/80 text-[11px] mt-0.5"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Stat 2 */}
+                  <div className="p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                    <span className="text-[10px] font-bold text-[#E28723] uppercase block">
+                      Counter 2 (Community)
+                    </span>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Target Number &amp; Suffix</label>
+                      <div className="grid grid-cols-2 gap-1.5 mt-0.5">
+                        <input
+                          type="number"
+                          value={draft.homepage.stats.stat2.number}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat2: { ...draft.homepage.stats.stat2, number: Number(e.target.value) },
+                                },
+                              },
+                            })
+                          }
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-bold font-mono"
+                        />
+                        <input
+                          type="text"
+                          value={draft.homepage.stats.stat2.suffix}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat2: { ...draft.homepage.stats.stat2, suffix: e.target.value },
+                                },
+                              },
+                            })
+                          }
+                          placeholder="+"
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-mono"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Main Label</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat2.label}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat2: { ...draft.homepage.stats.stat2, label: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs mt-0.5"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Sublabel</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat2.sublabel}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat2: { ...draft.homepage.stats.stat2, sublabel: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white/80 text-[11px] mt-0.5"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Stat 3 */}
+                  <div className="p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                    <span className="text-[10px] font-bold text-[#B8CBA5] uppercase block">
+                      Counter 3 (Health Camps)
+                    </span>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Target Number &amp; Suffix</label>
+                      <div className="grid grid-cols-2 gap-1.5 mt-0.5">
+                        <input
+                          type="number"
+                          value={draft.homepage.stats.stat3.number}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat3: { ...draft.homepage.stats.stat3, number: Number(e.target.value) },
+                                },
+                              },
+                            })
+                          }
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-bold font-mono"
+                        />
+                        <input
+                          type="text"
+                          value={draft.homepage.stats.stat3.suffix}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                stats: {
+                                  ...draft.homepage.stats,
+                                  stat3: { ...draft.homepage.stats.stat3, suffix: e.target.value },
+                                },
+                              },
+                            })
+                          }
+                          placeholder="+"
+                          className="px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-mono"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Main Label</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat3.label}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat3: { ...draft.homepage.stats.stat3, label: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs mt-0.5"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Sublabel</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat3.sublabel}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat3: { ...draft.homepage.stats.stat3, sublabel: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white/80 text-[11px] mt-0.5"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Stat 4 */}
+                  <div className="p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                    <span className="text-[10px] font-bold text-white uppercase block">
+                      Counter 4 (Helpline)
+                    </span>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Display Number (e.g. 24/7)</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat4.number}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat4: { ...draft.homepage.stats.stat4, number: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs font-bold font-mono mt-0.5"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Main Label</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat4.label}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat4: { ...draft.homepage.stats.stat4, label: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white text-xs mt-0.5"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-white/70 block">Helpline Number / Sublabel</label>
+                      <input
+                        type="text"
+                        value={draft.homepage.stats.stat4.sublabel}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              stats: {
+                                ...draft.homepage.stats,
+                                stat4: { ...draft.homepage.stats.stat4, sublabel: e.target.value },
+                              },
+                            },
+                          })
+                        }
+                        className="w-full px-2 py-1.5 rounded bg-[#071F14] border border-white/15 text-white/80 text-[11px] mt-0.5 font-mono"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 3: INTRODUCTION (WHO WE ARE) */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="border-b border-white/10 pb-3">
+                  <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                    <Users className="w-5 h-5 text-[#E28723]" />
+                    3. Who We Are (About JPS Section)
+                  </h3>
+                  <p className="text-[11px] text-[#B8CBA5]">
+                    The main introduction card on the homepage below the statistics strip.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Badge Tag
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.aboutIntro.badge}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            aboutIntro: { ...draft.homepage.aboutIntro, badge: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.aboutIntro.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            aboutIntro: { ...draft.homepage.aboutIntro, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word &amp; End
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.headingItalic}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, headingItalic: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Dignity"
+                        className="px-2 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.headingEnd}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, headingEnd: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="and Compassion"
+                        className="px-2 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Paragraph 1 (Main Intro)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={draft.homepage.aboutIntro.paragraph1}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            aboutIntro: { ...draft.homepage.aboutIntro, paragraph1: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Paragraph 2 (Welfare &amp; Healthcare Mission)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={draft.homepage.aboutIntro.paragraph2}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            aboutIntro: { ...draft.homepage.aboutIntro, paragraph2: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Primary Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.primaryBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, primaryBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Read Founding Story"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.primaryBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, primaryBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/about"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Secondary Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.secondaryBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, secondaryBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Connect With Our Team"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.aboutIntro.secondaryBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              aboutIntro: { ...draft.homepage.aboutIntro, secondaryBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/contact"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Feature Photo */}
+                  <div className="sm:col-span-3 p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-3">
+                    <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
+                      <ImageIcon className="w-4 h-4 text-[#E28723]" />
+                      Who We Are Feature Photo &amp; Captions
+                    </label>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-[#B8CBA5]/30 bg-black/40 flex-shrink-0">
+                        {draft.homepage.aboutIntro.image && (
+                          <Image
+                            src={draft.homepage.aboutIntro.image}
+                            alt="About feature preview"
+                            fill
+                            className="object-cover"
+                          />
+                        )}
+                      </div>
+                      <div className="flex-1 w-full space-y-2">
+                        <input
+                          type="text"
+                          value={draft.homepage.aboutIntro.image}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                aboutIntro: { ...draft.homepage.aboutIntro, image: e.target.value },
+                              },
+                            })
+                          }
+                          className="w-full px-3 py-1.5 rounded-lg bg-[#071F14] border border-white/20 text-white text-xs"
+                        />
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                          <input
+                            type="text"
+                            placeholder="Badge Tag"
+                            value={draft.homepage.aboutIntro.imageTag}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  aboutIntro: { ...draft.homepage.aboutIntro, imageTag: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Title"
+                            value={draft.homepage.aboutIntro.imageTitle}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  aboutIntro: { ...draft.homepage.aboutIntro, imageTitle: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Location"
+                            value={draft.homepage.aboutIntro.imageLocation}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  aboutIntro: { ...draft.homepage.aboutIntro, imageLocation: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                        <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Upload Photo from Computer</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) =>
+                              handleFileUpload(e, (dataUrl) => {
+                                setDraft({
+                                  ...draft,
+                                  homepage: {
+                                    ...draft.homepage,
+                                    aboutIntro: {
+                                      ...draft.homepage.aboutIntro,
+                                      image: dataUrl,
+                                    },
+                                  },
+                                });
+                              })
+                            }
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 4: PROGRAMS HEADER */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                      <Briefcase className="w-5 h-5 text-[#E28723]" />
+                      4. Programs Section Header (Our NGO In Action)
+                    </h3>
+                    <p className="text-[11px] text-[#B8CBA5]">
+                      The 6 program cards are automatically loaded from your &quot;Our Work Programs&quot; tab!
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setActiveTab("programs")}
+                    className="text-xs text-[#E28723] hover:underline flex items-center gap-1"
+                  >
+                    <span>Edit Individual Programs</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Badge Text
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.programsHeader.badge}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            programsHeader: { ...draft.homepage.programsHeader, badge: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.programsHeader.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            programsHeader: { ...draft.homepage.programsHeader, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.programsHeader.headingItalic}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            programsHeader: { ...draft.homepage.programsHeader, headingItalic: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Description Statement
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.programsHeader.description}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            programsHeader: { ...draft.homepage.programsHeader, description: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 5: NATURE & ECOLOGICAL HARMONY */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="border-b border-white/10 pb-3">
+                  <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                    <TreePine className="w-5 h-5 text-[#E28723]" />
+                    5. Nature &amp; Ecological Harmony Mission
+                  </h3>
+                  <p className="text-[11px] text-[#B8CBA5]">
+                    Sal forest preservation, sacred tribal reverence, and watershed protection.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Badge Text
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.badge}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, badge: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.headingItalic}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, headingItalic: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Description Statement
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={draft.homepage.natureSection.description}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, description: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  {/* 3 Metric Cards */}
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Metric Card 1 (Title &amp; Desc)
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card1Title}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card1Title: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="15,000+ Native Saplings"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                    />
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card1Desc}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card1Desc: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="Sal & Mahua Nursery Drives"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white/80 text-[11px] mt-1.5"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Metric Card 2 (Title &amp; Desc)
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card2Title}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card2Title: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="Sarhul Forest Reverence"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                    />
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card2Desc}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card2Desc: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="Sacred Tribal Tree Tradition"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white/80 text-[11px] mt-1.5"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Metric Card 3 (Title &amp; Desc)
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card3Title}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card3Title: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="Watershed Protection"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                    />
+                    <input
+                      type="text"
+                      value={draft.homepage.natureSection.card3Desc}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            natureSection: { ...draft.homepage.natureSection, card3Desc: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="Stream Soil Stabilization"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white/80 text-[11px] mt-1.5"
+                    />
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="sm:col-span-2">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Action Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.natureSection.actionBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              natureSection: { ...draft.homepage.natureSection, actionBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Explore Signature Nature Mission"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.natureSection.actionBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              natureSection: { ...draft.homepage.natureSection, actionBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/nature"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Nature Background Image & Side Photo */}
+                  <div className="sm:col-span-3 p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-3">
+                    <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
+                      <ImageIcon className="w-4 h-4 text-[#E28723]" />
+                      Nature Section Photos (Background &amp; Side Card)
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Background Image */}
+                      <div className="space-y-1.5">
+                        <span className="text-[10px] text-[#B8CBA5] font-semibold block">
+                          Full Section Background Photo
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="text"
+                            value={draft.homepage.natureSection.image}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  natureSection: { ...draft.homepage.natureSection, image: e.target.value },
+                                },
+                              })
+                            }
+                            className="flex-1 px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <label className="cursor-pointer px-2.5 py-1.5 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                            <Upload className="w-3 h-3" />
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) =>
+                                handleFileUpload(e, (dataUrl) => {
+                                  setDraft({
+                                    ...draft,
+                                    homepage: {
+                                      ...draft.homepage,
+                                      natureSection: { ...draft.homepage.natureSection, image: dataUrl },
+                                    },
+                                  });
+                                })
+                              }
+                            />
+                          </label>
+                        </div>
+                      </div>
+
+                      {/* Side Card Image */}
+                      <div className="space-y-1.5">
+                        <span className="text-[10px] text-[#B8CBA5] font-semibold block">
+                          Right Feature Card Photo &amp; Tag
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="text"
+                            value={draft.homepage.natureSection.sideImage}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  natureSection: { ...draft.homepage.natureSection, sideImage: e.target.value },
+                                },
+                              })
+                            }
+                            className="flex-1 px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <label className="cursor-pointer px-2.5 py-1.5 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                            <Upload className="w-3 h-3" />
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) =>
+                                handleFileUpload(e, (dataUrl) => {
+                                  setDraft({
+                                    ...draft,
+                                    homepage: {
+                                      ...draft.homepage,
+                                      natureSection: { ...draft.homepage.natureSection, sideImage: dataUrl },
+                                    },
+                                  });
+                                })
+                              }
+                            />
+                          </label>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 pt-1">
+                          <input
+                            type="text"
+                            placeholder="Tag (e.g. Ground Action)"
+                            value={draft.homepage.natureSection.sideTag}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  natureSection: { ...draft.homepage.natureSection, sideTag: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2 py-1 rounded bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Title (e.g. Tree Planting)"
+                            value={draft.homepage.natureSection.sideTitle}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  natureSection: { ...draft.homepage.natureSection, sideTitle: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2 py-1 rounded bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 6: 24/7 CRISIS RESPONSE PROTOCOL */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="border-b border-white/10 pb-3">
+                  <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                    <Phone className="w-5 h-5 text-[#E28723]" />
+                    6. 24/7 Crisis Response Spotlight
+                  </h3>
+                  <p className="text-[11px] text-[#B8CBA5]">
+                    Emergency hotline and immediate hospital intervention support.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Badge Text
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.crisisSection.badge}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, badge: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.crisisSection.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.crisisSection.headingItalic}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, headingItalic: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Description Statement
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={draft.homepage.crisisSection.description}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, description: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Helpline Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.crisisSection.helplinePhone}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, helplinePhone: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs font-mono"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Helpline Button Text
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.crisisSection.helplineBtnText}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            crisisSection: { ...draft.homepage.crisisSection, helplineBtnText: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Secondary Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.crisisSection.secondaryBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              crisisSection: { ...draft.homepage.crisisSection, secondaryBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Read Field Case Studies"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.crisisSection.secondaryBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              crisisSection: { ...draft.homepage.crisisSection, secondaryBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/impact"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Crisis Image */}
+                  <div className="sm:col-span-3 p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-3">
+                    <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
+                      <ImageIcon className="w-4 h-4 text-[#E28723]" />
+                      Crisis Spotlight Photo &amp; Tag
+                    </label>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-[#B8CBA5]/30 bg-black/40 flex-shrink-0">
+                        {draft.homepage.crisisSection.image && (
+                          <Image
+                            src={draft.homepage.crisisSection.image}
+                            alt="Crisis preview"
+                            fill
+                            className="object-cover"
+                          />
+                        )}
+                      </div>
+                      <div className="flex-1 w-full space-y-2">
+                        <input
+                          type="text"
+                          value={draft.homepage.crisisSection.image}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                crisisSection: { ...draft.homepage.crisisSection, image: e.target.value },
+                              },
+                            })
+                          }
+                          className="w-full px-3 py-1.5 rounded-lg bg-[#071F14] border border-white/20 text-white text-xs"
+                        />
+                        <div className="grid grid-cols-2 gap-2">
+                          <input
+                            type="text"
+                            placeholder="Tag (e.g. Field Volunteers)"
+                            value={draft.homepage.crisisSection.imageTag}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  crisisSection: { ...draft.homepage.crisisSection, imageTag: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Title (e.g. Compassionate Frontline Support)"
+                            value={draft.homepage.crisisSection.imageTitle}
+                            onChange={(e) =>
+                              setDraft({
+                                ...draft,
+                                homepage: {
+                                  ...draft.homepage,
+                                  crisisSection: { ...draft.homepage.crisisSection, imageTitle: e.target.value },
+                                },
+                              })
+                            }
+                            className="px-2.5 py-1.5 rounded-lg bg-[#071F14] border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                        <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Upload Photo from Computer</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) =>
+                              handleFileUpload(e, (dataUrl) => {
+                                setDraft({
+                                  ...draft,
+                                  homepage: {
+                                    ...draft.homepage,
+                                    crisisSection: {
+                                      ...draft.homepage.crisisSection,
+                                      image: dataUrl,
+                                    },
+                                  },
+                                });
+                              })
+                            }
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 7: CHARITY ART STORE SPOTLIGHT */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                      <Palette className="w-5 h-5 text-[#E28723]" />
+                      7. Charity Art Store Spotlight (कला से सेवा)
+                    </h3>
+                    <p className="text-[11px] text-[#B8CBA5]">
+                      The 4 featured artwork cards are automatically loaded from your &quot;Art Charity Store&quot; tab!
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setActiveTab("art")}
+                    className="text-xs text-[#E28723] hover:underline flex items-center gap-1"
+                  >
+                    <span>Manage Artworks &amp; Prices</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Badge Text
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.artSpotlight.badge}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            artSpotlight: { ...draft.homepage.artSpotlight, badge: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.artSpotlight.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            artSpotlight: { ...draft.homepage.artSpotlight, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.artSpotlight.headingItalic}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            artSpotlight: { ...draft.homepage.artSpotlight, headingItalic: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Description Statement
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={draft.homepage.artSpotlight.description}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            artSpotlight: { ...draft.homepage.artSpotlight, description: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Browse Store Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.artSpotlight.ctaBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              artSpotlight: { ...draft.homepage.artSpotlight, ctaBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Browse Charity Art Store"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.artSpotlight.ctaBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              artSpotlight: { ...draft.homepage.artSpotlight, ctaBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/art-store"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* SECTION 8: VOLUNTEER & DONATE CALL TO ACTION */}
+              {/* ------------------------------------------------------------- */}
+              <div className="p-6 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4">
+                <div className="border-b border-white/10 pb-3">
+                  <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                    <Heart className="w-5 h-5 text-[#E28723]" />
+                    8. Volunteer &amp; Donate Banner Call to Action
+                  </h3>
+                  <p className="text-[11px] text-[#B8CBA5]">
+                    Closing high-impact banner inviting volunteers and donors.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Eyebrow Tag
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.volunteerCta.eyebrow}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            volunteerCta: { ...draft.homepage.volunteerCta, eyebrow: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Start
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.volunteerCta.headingStart}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            volunteerCta: { ...draft.homepage.volunteerCta, headingStart: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Headline Italic Word
+                    </label>
+                    <input
+                      type="text"
+                      value={draft.homepage.volunteerCta.headingItalic}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            volunteerCta: { ...draft.homepage.volunteerCta, headingItalic: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Description Statement
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={draft.homepage.volunteerCta.description}
+                      onChange={(e) =>
+                        setDraft({
+                          ...draft,
+                          homepage: {
+                            ...draft.homepage,
+                            volunteerCta: { ...draft.homepage.volunteerCta, description: e.target.value },
+                          },
+                        })
+                      }
+                      className="w-full px-3 py-2 rounded-xl bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Primary Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.volunteerCta.primaryBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              volunteerCta: { ...draft.homepage.volunteerCta, primaryBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Become a Volunteer"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.volunteerCta.primaryBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              volunteerCta: { ...draft.homepage.volunteerCta, primaryBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/get-involved"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-[#B8CBA5] block mb-1">
+                      Secondary Button (Text &amp; Link)
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        value={draft.homepage.volunteerCta.secondaryBtnText}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              volunteerCta: { ...draft.homepage.volunteerCta, secondaryBtnText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="Make a Contribution"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs"
+                      />
+                      <input
+                        type="text"
+                        value={draft.homepage.volunteerCta.secondaryBtnHref}
+                        onChange={(e) =>
+                          setDraft({
+                            ...draft,
+                            homepage: {
+                              ...draft.homepage,
+                              volunteerCta: { ...draft.homepage.volunteerCta, secondaryBtnHref: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="/donate"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-white/10 text-white text-xs font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  {/* CTA Background Photo */}
+                  <div className="sm:col-span-3 p-4 rounded-xl bg-[#0A2419] border border-white/10 space-y-2">
+                    <label className="text-[11px] font-bold text-white flex items-center gap-1.5">
+                      <ImageIcon className="w-4 h-4 text-[#E28723]" />
+                      Banner Background Backdrop Photo
+                    </label>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-[#B8CBA5]/30 bg-black/40 flex-shrink-0">
+                        {draft.homepage.volunteerCta.image && (
+                          <Image
+                            src={draft.homepage.volunteerCta.image}
+                            alt="CTA preview"
+                            fill
+                            className="object-cover"
+                          />
+                        )}
+                      </div>
+                      <div className="flex-1 w-full space-y-2">
+                        <input
+                          type="text"
+                          value={draft.homepage.volunteerCta.image}
+                          onChange={(e) =>
+                            setDraft({
+                              ...draft,
+                              homepage: {
+                                ...draft.homepage,
+                                volunteerCta: { ...draft.homepage.volunteerCta, image: e.target.value },
+                              },
+                            })
+                          }
+                          className="w-full px-3 py-1.5 rounded-lg bg-[#071F14] border border-white/20 text-white text-xs"
+                        />
+                        <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] text-[11px] font-bold border border-[#B8CBA5]/30">
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Upload Photo from Computer</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) =>
+                              handleFileUpload(e, (dataUrl) => {
+                                setDraft({
+                                  ...draft,
+                                  homepage: {
+                                    ...draft.homepage,
+                                    volunteerCta: {
+                                      ...draft.homepage.volunteerCta,
+                                      image: dataUrl,
+                                    },
+                                  },
+                                });
+                              })
+                            }
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Floating Save Button */}
+              <div className="pt-4 flex justify-end">
+                <button
+                  onClick={handleSaveAll}
+                  className="px-6 py-3 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white font-bold text-sm flex items-center gap-2 shadow-lg transition-all"
+                >
+                  <Save className="w-4 h-4" />
+                  <span>Save All Website Changes</span>
+                </button>
               </div>
             </div>
           )}
