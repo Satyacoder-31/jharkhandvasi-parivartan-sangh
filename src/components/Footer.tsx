@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Phone,
   Mail,
@@ -21,8 +22,13 @@ import {
 import { useSiteContent } from "@/context/SiteContentContext";
 
 export default function Footer() {
+  const pathname = usePathname();
   const { content } = useSiteContent();
   const [newsletterEmail, setNewsletterEmail] = useState("");
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
   const [subscribed, setSubscribed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 

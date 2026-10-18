@@ -35,6 +35,8 @@ export interface LeadershipMember {
   bio: string;
   phone?: string;
   email?: string;
+  badge?: string;
+  category?: string;
 }
 
 export interface ProgramData {
@@ -46,6 +48,12 @@ export interface ProgramData {
   image: string;
   stats: string;
   bullets: string[];
+  overview?: string;
+  activities?: string[];
+  beneficiaries?: string;
+  outcomes?: string;
+  cta?: { text: string; href: string };
+  hasEmergencyPanel?: boolean;
 }
 
 export interface ArtworkData {
@@ -217,6 +225,11 @@ export interface SiteContent {
     mission: string;
     vision: string;
     leadership: LeadershipMember[];
+    headline?: string;
+    subheadline?: string;
+    foundedYear?: string;
+    history?: string;
+    timeline?: { year: string; title: string; description: string }[];
   };
   programs: ProgramData[];
   artStore: ArtworkData[];
@@ -480,9 +493,9 @@ export const defaultSiteContent: SiteContent = {
     },
   ],
   about: {
-    founderName: "Arvind Arya",
+    founderName: "Shri Arvind Arya",
     founderRole: "Founder & National President",
-    founderImage: "/images/leadership/founder-arvind-arya.jpg",
+    founderImage: "/images/leadership/arvind-arya.jpg",
     founderMessage:
       "Jharkhand is not merely a land of mineral richness and deep Sal canopies; it is the living spirit of our hardworking ancestors. When our brothers and sisters migrate to Mumbai seeking honest livelihood, they must never feel abandoned or defenseless in times of sickness or tragedy. JPS was built on the foundation of compassion, justice, and solidarity. Every child we educate and every elderly patient we nurse brings us closer to a dignified society.",
     founderQuote: "एक जुर्रत... एक ज़रूरत — सेवा से परिवर्तन की ओर",
@@ -492,41 +505,37 @@ export const defaultSiteContent: SiteContent = {
       "To protect, empower, and uplift migrant laborers, vulnerable elders, and marginalized children through immediate crisis relief, sustained healthcare access, educational sponsorship, and cultural identity preservation.",
     vision:
       "A compassionate, self-reliant diaspora where no migrant worker is denied justice or dignity, and every family remains proudly connected to their cultural heritage.",
+    headline: "Two Decades of Service, Unity & Cultural Pride",
+    subheadline: "Serving as a lifeline for Jharkhandis in Mumbai and building an unshakeable bond between the people of Maharashtra and Jharkhand.",
+    foundedYear: "2005",
+    history: "What began as a small initiative with the vision of uplifting and assisting the migrant community has now blossomed into a registered NGO in 2013 bearing no. E30004/MUMBAI committed to fostering social, cultural, educational, and medical welfare of Jharkhandis in Mumbai and beyond.",
+    timeline: [
+      { year: "2005", title: "Movement Inception in Mumbai", description: "Arvindkumar Arya initiated a grassroots support group to assist underprivileged Jharkhandi laborers facing wage disputes, language barriers, and sudden medical crises in Mumbai." },
+      { year: "2013", title: "Formal NGO Registration (E-30004/MUMBAI)", description: "Officially registered under the Maharashtra Public Trust Act (Reg. No. E-30004/07/07/2013 MUMBAI) committed to fostering social, cultural, educational, and medical welfare." },
+      { year: "2015", title: "Medical Camps & Eye Care Drives", description: "Partnered with leading surgeons and multi-specialty hospitals to deliver regular free eye checkups, diagnostic testing, and spectacles distribution across Mumbai suburbs." },
+      { year: "2018", title: "Educational Initiatives & Skill Building", description: "Collaborated with educational institutions and Child Welfare Committees to supply school kits, scholarships, and vocational counseling for underprivileged migrant youth." },
+      { year: "2020–21", title: "Nationwide COVID-19 Relief Intervention", description: "Operated 24/7 emergency helplines, distributing dry ration packets, emergency hospital coordination, and facilitating safe transit for migrant laborers across India." },
+      { year: "2022", title: "NITI Aayog Darpan & 80G Statutory Recognition", description: "Secured formal NITI Aayog registration (MH/2022/0329647/22-11-2022) and Income Tax 80G certification (AABTJ8020A24MB02) ensuring complete institutional transparency." },
+      { year: "2023–24", title: "Jharkhand Sthapna Diwas in Mumbai", description: "Organized landmark cultural celebrations uniting thousands of diaspora members, Maharashtra state ministers, and community leaders with traditional Santhali and Chhau dances." },
+      { year: "2025–26", title: "Entering 3rd Decade of Service", description: "Expanding welfare reach with backing from prominent IAS & IRS officers from Jharkhand, formalizing employment assistance, and protecting tribal environmental roots." },
+    ],
     leadership: [
-      {
-        id: "arvind-arya",
-        name: "Arvind Arya",
-        role: "Founder & National President",
-        organization: "Jharkhandvasi Parivartan Sangh",
-        image: "/images/leadership/founder-arvind-arya.jpg",
-        bio: "Social reformer and grassroots activist leading migrant welfare, community health camps, and diaspora unity in Mumbai since 2005.",
-        phone: "+91 90222 88222",
-        email: "arvind.arya@jpsngo.org",
-      },
-      {
-        id: "ramvilas-sharma",
-        name: "Ramvilas Sharma",
-        role: "Senior Vice President",
-        organization: "Executive Committee",
-        image: "/images/community-assembly.jpg",
-        bio: "Oversees migrant labor rights, administrative arbitration, and hospital emergency liaison across western suburbs of Mumbai.",
-      },
-      {
-        id: "surendra-sharma",
-        name: "Surendra Sharma",
-        role: "General Secretary",
-        organization: "JPS Secretariat",
-        image: "/images/cultural-birsa.jpg",
-        bio: "Coordinates community outreach, annual Birsa Munda Smruti Samaroh, and cultural development wings.",
-      },
-      {
-        id: "mahendra-sharma",
-        name: "Mahendra Sharma",
-        role: "Treasurer & Finance Trustee",
-        organization: "Board of Trustees",
-        image: "/images/tree-planting.jpg",
-        bio: "Manages financial audit compliance, 80G documentation, and emergency patient relief fund allocations.",
-      },
+      { id: "dr-avinash-gupta", name: "Dr. Avinash Gupta", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/dr-avinash-gupta.jpg", organization: "JPS Patron Council", bio: "Renowned medical consultant and philanthropist advising JPS health initiatives." },
+      { id: "ramkumar-pal", name: "Shri Ramkumar Pal", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/ramkumar-pal.jpg", organization: "JPS Patron Council", bio: "Senior community patron and industrialist supporting diaspora social security." },
+      { id: "ganpat-kothari", name: "Shri Ganpat Kothari", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/ganpat-kothari.jpg", organization: "JPS Patron Council", bio: "Eminent social philanthropist guiding institutional transparency and community welfare." },
+      { id: "manulal-baitha", name: "Shri Manulal Baitha", role: "Patron / Senior Member", badge: "Patron", category: "Patron", image: "/images/leadership/manulal-baitha.jpg", organization: "JPS Patron Council", bio: "Senior statesman and community elder guiding migrant rights in Mumbai." },
+      { id: "arvind-arya", name: "Shri Arvind Arya", role: "Founder & Chairman", badge: "Founder / President", category: "Executive", image: "/images/leadership/arvind-arya.jpg", organization: "Jharkhandvasi Parivartan Sangh", bio: "Social reformer and grassroots activist leading migrant welfare, community health camps, and diaspora unity in Mumbai since 2005.", phone: "+91 90222 88222", email: "arvind.arya@jpsngo.org" },
+      { id: "umashankar-modi", name: "Shri Umashankar Modi", role: "National Working President", badge: "Working President", category: "Executive", image: "/images/leadership/umashankar-modi.jpg", organization: "Executive Committee", bio: "Oversees nationwide operational campaigns, migrant grievance redressal, and branch coordination." },
+      { id: "vishal-bhagat", name: "Shri Vishal Bhagat", role: "National Vice President", badge: "Vice President", category: "Executive", image: "/images/leadership/vishal-bhagat.jpg", organization: "Executive Committee", bio: "Leads youth welfare programs and hospital emergency triage coordination." },
+      { id: "dwarika-singh", name: "Shri Dwarika Singh", role: "National Vice President", badge: "Vice President", category: "Executive", image: "/images/leadership/dwarika-singh.jpg", organization: "Executive Committee", bio: "Manages inter-district community outreach and worker transit support networks." },
+      { id: "niranjan-kumar", name: "Shri Niranjan Kumar", role: "National General Secretary", badge: "General Secretary", category: "Secretariat", image: "/images/leadership/niranjan-kumar.jpg", organization: "JPS Secretariat", bio: "Coordinates central communications, organizational charters, and legal aid desks." },
+      { id: "tulsi-yadav", name: "Shri Tulsi Yadav", role: "National General Secretary", badge: "General Secretary", category: "Secretariat", image: "/images/leadership/tulsi-yadav.jpg", organization: "JPS Secretariat", bio: "Directs labor welfare interventions and municipal hospital coordination." },
+      { id: "manoj-kumar", name: "Shri Manoj Kumar", role: "National Organisation Secretary", badge: "Org. Secretary", category: "Secretariat", image: "/images/leadership/manoj-kumar.jpg", organization: "JPS Secretariat", bio: "Organizes volunteer brigades and field medical camp logistics across Mumbai suburbs." },
+      { id: "kamdev-sahu", name: "Shri Kamdev Sahu", role: "National Secretary", badge: "Secretary", category: "Secretariat", image: "/images/leadership/kamdev-sahu.jpg", organization: "JPS Secretariat", bio: "Supervises educational supply distributions and child welfare drives." },
+      { id: "sunil-arya", name: "Shri Sunil Arya", role: "National Treasurer", badge: "Finance / Treasurer", category: "Secretariat", image: "/images/leadership/sunil-arya.jpg", organization: "Board of Trustees", bio: "Maintains financial audit compliance, 80G tax exemptions, and relief fund accounts." },
+      { id: "rajiv-rohit", name: "Shri Rajiv Rohit", role: "National Media-In-Charge", badge: "Press & Media", category: "Specialized", image: "/images/leadership/rajiv-rohit.jpg", organization: "Public Relations", bio: "Heads national media relations, press releases, and 'अपना झारखंड' publication." },
+      { id: "jay-saha", name: "Shri Jay Saha", role: "National Liaison Head", badge: "State Liaison", category: "Specialized", image: "/images/leadership/jay-saha.jpg", organization: "State Relations", bio: "Fosters institutional relations between Maharashtra and Jharkhand government departments." },
+      { id: "pradeep-lal", name: "Shri Pradeep Lal", role: "National Advisor", badge: "Advisory Board", category: "Specialized", image: "/images/leadership/pradeep-lal.jpg", organization: "Advisory Council", bio: "Advises on statutory governance, trust legal frameworks, and policy initiatives." },
     ],
   },
   programs: [

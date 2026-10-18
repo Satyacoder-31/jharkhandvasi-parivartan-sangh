@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, ArrowUp, MessageCircle } from "lucide-react";
 
 export default function FloatingHelpline() {
+  const pathname = usePathname();
   const [showTopBtn, setShowTopBtn] = useState(false);
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   useEffect(() => {
     const checkScroll = () => {

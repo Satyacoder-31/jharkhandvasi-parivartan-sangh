@@ -52,6 +52,11 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  // Hide the public website Navbar when viewing the Admin Panel
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   // Main navigation links with badge for Charity Art Store
   const navLinks = [
     { name: "Home", href: "/" },
