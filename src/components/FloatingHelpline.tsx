@@ -30,8 +30,8 @@ export default function FloatingHelpline() {
 
   return (
     <>
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+      {/* Floating Action Buttons (Desktop & Tablet only to avoid colliding with mobile bottom bar) */}
+      <div className="hidden md:flex fixed bottom-6 right-5 z-40 flex-col items-end gap-3 pointer-events-auto">
         {/* WhatsApp Direct Chat */}
         <a
           href="https://wa.me/917808008058?text=Hello%20Jharkhandvasi%20Parivartan%20Sangh,%20I%20would%20like%20to%20connect."
@@ -60,17 +60,28 @@ export default function FloatingHelpline() {
           </span>
         </a>
 
-        {/* Back to top */}
+        {/* Back to top (Desktop) */}
         {showTopBtn && (
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-[#123B2A] text-white flex items-center justify-center shadow-md hover:bg-[#1D5139] transition-all hover:-translate-y-1"
+            className="w-10 h-10 rounded-full bg-[#123B2A] text-white flex items-center justify-center shadow-md hover:bg-[#1D5139] transition-all hover:-translate-y-1 border border-white/10"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />
           </button>
         )}
       </div>
+
+      {/* Mobile Back-to-Top Button (positioned safely above mobile bottom bar) */}
+      {showTopBtn && (
+        <button
+          onClick={scrollToTop}
+          className="md:hidden fixed bottom-16 right-3.5 z-40 w-9 h-9 rounded-full bg-[#123B2A]/90 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-white/20 active:scale-95 transition-all"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-4 h-4 text-[#B8CBA5]" />
+        </button>
+      )}
     </>
   );
 }

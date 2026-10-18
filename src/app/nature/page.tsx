@@ -102,7 +102,7 @@ const ecoInitiatives = [
 
 export default function NaturePage() {
   return (
-    <div className="space-y-16 lg:space-y-24 pb-20">
+    <div className="space-y-16 lg:space-y-24 pb-24 overflow-x-hidden w-full max-w-full">
       {/* 1. CINEMATIC NATURE HERO */}
       <section className="relative w-full min-h-[580px] lg:min-h-[680px] flex items-center justify-center bg-[#05140D] text-white overflow-hidden">
         <Image

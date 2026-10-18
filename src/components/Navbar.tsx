@@ -15,14 +15,17 @@ import {
   Moon,
   ArrowUpRight,
   Lock,
+  Globe,
 } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage, toggleLanguage, t } = useLanguage();
 
   // Scroll to top on initial page load / refresh
   useEffect(() => {
@@ -58,15 +61,15 @@ export default function Navbar() {
     return null;
   }
 
-  // Main navigation links with badge for Charity Art Store
+  // Main navigation links with dynamic translation
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Our Work", href: "/our-work" },
-    { name: "Art for Charity", href: "/art-store", badge: "New" },
-    { name: "Impact", href: "/impact" },
-    { name: "Events", href: "/events" },
-    { name: "Contact", href: "/contact" },
+    { name: t("navHome"), href: "/" },
+    { name: t("navAbout"), href: "/about" },
+    { name: t("navOurWork"), href: "/our-work" },
+    { name: t("navArtStore"), href: "/art-store", badge: "New" },
+    { name: t("navImpact"), href: "/impact" },
+    { name: t("navEvents"), href: "/events" },
+    { name: t("navContact"), href: "/contact" },
   ];
 
   return (
@@ -75,15 +78,15 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 py-3 text-[#123B2A] dark:text-[#F7F5EC]"
-            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-3.5 sm:py-5 text-white"
+            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 py-2.5 sm:py-3 text-[#123B2A] dark:text-[#F7F5EC]"
+            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-3 sm:py-5 text-white"
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
           {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div
-              className={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 ${
+              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 ${
                 isScrolled
                   ? "bg-white dark:bg-[#123B2A] border border-[#123B2A]/15 dark:border-white/20"
                   : "bg-white/95 text-white border border-white/40 backdrop-blur-md"
@@ -108,11 +111,11 @@ export default function Navbar() {
                 JPS
               </span>
               <span
-                className={`text-[10px] sm:text-xs font-semibold tracking-tight leading-snug mt-0.5 truncate max-w-[130px] xs:max-w-[180px] sm:max-w-none ${
+                className={`text-[10px] sm:text-xs font-semibold tracking-tight leading-snug mt-0.5 truncate max-w-[115px] sm:max-w-none ${
                   isScrolled ? "text-[#123B2A]/85 dark:text-[#F7F5EC]/85" : "text-white/95 drop-shadow-sm"
                 }`}
               >
-                झारखंडवासी परिवर्तन संघ
+                {language === "hi" ? "झारखंडवासी परिवर्तन संघ" : "Parivartan Sangh"}
               </span>
             </div>
           </Link>
@@ -123,7 +126,7 @@ export default function Navbar() {
               const isActive = pathname === link.href;
               return (
                 <Link
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
                   className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all relative flex items-center gap-1.5 whitespace-nowrap ${
                     isScrolled
@@ -147,15 +150,32 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* 3. RIGHT CONTROLS: THEME, ADMIN, DONATE & GUARANTEED MOBILE MENU */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          {/* 3. RIGHT CONTROLS: LANGUAGE SWITCHER, THEME, ADMIN, DONATE & GUARANTEED MOBILE MENU */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+            {/* Interactive Bilingual Switcher (English ↔ Hindi) */}
+            <button
+              onClick={toggleLanguage}
+              className={`px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all flex items-center gap-1 border shadow-xs focus:outline-none ${
+                isScrolled
+                  ? "bg-gray-100 dark:bg-white/10 text-[#123B2A] dark:text-[#F7F5EC] border-black/10 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/20"
+                  : "bg-white/15 hover:bg-white/25 text-white border-white/25 backdrop-blur-md"
+              }`}
+              aria-label={`Switch to ${language === "en" ? "Hindi" : "English"}`}
+              title={`Switch language / भाषा बदलें (Current: ${language === "en" ? "English" : "हिंदी"})`}
+            >
+              <Globe className="w-3.5 h-3.5 text-[#E28723]" />
+              <span className={language === "en" ? "text-[#E28723] font-black" : "opacity-70"}>EN</span>
+              <span className="opacity-30 text-[10px]">|</span>
+              <span className={language === "hi" ? "text-[#E28723] font-black" : "opacity-70"}>हिं</span>
+            </button>
+
             {/* Interactive Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B8CBA5] ${
+              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B8CBA5] ${
                 isScrolled
                   ? "bg-gray-100 dark:bg-white/10 text-[#123B2A] dark:text-[#F7F5EC] hover:bg-gray-200 dark:hover:bg-white/20"
-                  : "bg-white/15 hover:bg-white/25 text-white border border-white/20"
+                  : "bg-white/15 hover:bg-white/25 text-white border border-white/20 backdrop-blur-md"
               }`}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
@@ -183,30 +203,30 @@ export default function Navbar() {
             {/* Donate CTA Button (Desktop & Tablet) */}
             <Link
               href="/donate"
-              className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow group ${
+              className={`hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow group ${
                 isScrolled
                   ? "bg-[#123B2A] dark:bg-[#E28723] hover:bg-[#1D5139] dark:hover:bg-[#c97419] text-white"
                   : "bg-[#E28723] hover:bg-[#c97419] text-white shadow-lg"
               }`}
             >
               <Heart className="w-3.5 h-3.5 fill-white group-hover:scale-110 transition-transform" />
-              <span>Donate</span>
+              <span>{t("btnDonate")}</span>
             </Link>
 
-            {/* High-Visibility Mobile Hamburger Menu Button */}
+            {/* High-Visibility Mobile Hamburger Menu Button (Guaranteed to stay within screen) */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden flex items-center gap-1.5 px-3 py-2 rounded-xl transition-all font-bold text-xs tracking-wide focus:outline-none focus:ring-2 focus:ring-[#E28723] shadow-sm ${
+              className={`lg:hidden flex-shrink-0 flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-all font-bold text-xs tracking-wide focus:outline-none focus:ring-2 focus:ring-[#E28723] shadow-sm ${
                 isScrolled
                   ? "bg-[#123B2A] text-white dark:bg-[#1D5139] dark:text-white hover:bg-[#1D5139]"
                   : "bg-white/25 hover:bg-white/35 text-white backdrop-blur-md border border-white/30"
               }`}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? t("navClose") : t("navMenu")}
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
-              <span className="font-bold text-[11px] uppercase tracking-wider">Menu</span>
+              {isOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
+              <span className="font-bold text-[11px] uppercase tracking-wider">{isOpen ? t("navClose") : t("navMenu")}</span>
             </button>
           </div>
         </div>
@@ -222,7 +242,7 @@ export default function Navbar() {
           />
 
           {/* Drawer Content */}
-          <div className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#F7F5EC] dark:bg-[#071F14] shadow-2xl flex flex-col justify-between p-6 overflow-y-auto animate-fade-in z-[101] text-[#17231C] dark:text-[#F7F5EC] border-l border-black/10 dark:border-white/10">
+          <div className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#F7F5EC] dark:bg-[#071F14] shadow-2xl flex flex-col justify-between p-5 sm:p-6 overflow-y-auto animate-fade-in z-[101] text-[#17231C] dark:text-[#F7F5EC] border-l border-black/10 dark:border-white/10">
             <div>
               {/* Drawer Top Row with Official Emblem */}
               <div className="flex items-center justify-between pb-4 border-b border-[#123B2A]/10 dark:border-white/10">
@@ -238,25 +258,55 @@ export default function Navbar() {
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-[#123B2A] dark:text-white leading-tight">
-                      झारखंडवासी परिवर्तन संघ
+                      {t("orgName")}
                     </h3>
-                    <p className="text-[10px] text-[#E28723] font-bold tracking-wider">एक जुर्रत... एक ज़रूरत</p>
-                    <p className="text-[10px] text-[#795943] dark:text-[#B8CBA5]">Borivali West, Mumbai</p>
+                    <p className="text-[10px] text-[#E28723] font-bold tracking-wider">{t("orgHindiMotto")}</p>
+                    <p className="text-[10px] text-[#795943] dark:text-[#B8CBA5]">{t("orgLocation")}</p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
                   className="p-2 rounded-xl text-[#123B2A] dark:text-white hover:bg-[#6F8D58]/20 focus:outline-none"
-                  aria-label="Close menu"
+                  aria-label={t("navClose")}
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
+              {/* Language Selector in Mobile Drawer */}
+              <div className="mt-3 p-3 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-[#E28723]" />
+                  <span className="text-xs font-semibold">{t("langSwitch")}</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white dark:bg-[#123B2A] p-1 rounded-xl border border-black/5 dark:border-white/10 shadow-sm">
+                  <button
+                    onClick={() => setLanguage("en")}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      language === "en"
+                        ? "bg-[#123B2A] text-white dark:bg-[#E28723] dark:text-white shadow"
+                        : "text-[#123B2A]/70 dark:text-white/70 hover:text-black dark:hover:text-white"
+                    }`}
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => setLanguage("hi")}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      language === "hi"
+                        ? "bg-[#123B2A] text-white dark:bg-[#E28723] dark:text-white shadow"
+                        : "text-[#123B2A]/70 dark:text-white/70 hover:text-black dark:hover:text-white"
+                    }`}
+                  >
+                    हिंदी
+                  </button>
+                </div>
+              </div>
+
               {/* Theme Toggle in Mobile Drawer */}
-              <div className="mt-4 p-3 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-between">
-                <span className="text-xs font-semibold">Theme</span>
+              <div className="mt-2.5 p-3 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-between">
+                <span className="text-xs font-semibold">{language === "hi" ? "थीम" : "Theme"}</span>
                 <button
                   onClick={toggleTheme}
                   className="px-3.5 py-1.5 rounded-full bg-white dark:bg-[#123B2A] text-xs font-bold shadow-sm flex items-center gap-1.5 border border-black/5 dark:border-white/10"
@@ -264,28 +314,28 @@ export default function Navbar() {
                   {theme === "dark" ? (
                     <>
                       <Sun className="w-3.5 h-3.5 text-[#E28723]" />
-                      <span>Light Mode</span>
+                      <span>{t("themeLight")}</span>
                     </>
                   ) : (
                     <>
                       <Moon className="w-3.5 h-3.5 text-[#123B2A]" />
-                      <span>Dark Mode</span>
+                      <span>{t("themeDark")}</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* Mobile Drawer Links */}
+              {/* Mobile Drawer Navigation Links */}
               <nav className="mt-4 flex flex-col gap-1.5">
                 {[
                   ...navLinks,
-                  { name: "Nature & Ecology", href: "/nature" },
-                  { name: "Get Involved", href: "/get-involved" },
+                  { name: t("navNature"), href: "/nature" },
+                  { name: t("navGetInvolved"), href: "/get-involved" },
                 ].map((link) => {
                   const isActive = pathname === link.href;
                   return (
                     <Link
-                      key={link.name}
+                      key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
                       className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-between ${
@@ -295,7 +345,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        {link.name === "Art for Charity" && <Palette className="w-4 h-4 text-[#E28723]" />}
+                        {link.href === "/art-store" && <Palette className="w-4 h-4 text-[#E28723]" />}
                         <span>{link.name}</span>
                       </span>
                       {link.badge ? (
@@ -319,14 +369,14 @@ export default function Navbar() {
                 className="w-full py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold flex items-center justify-center gap-2 shadow"
               >
                 <Heart className="w-3.5 h-3.5 fill-white" />
-                Support Our Mission (Donate)
+                {t("btnSupportMission")}
               </Link>
               <a
                 href="tel:+917808008058"
                 className="w-full py-2.5 rounded-full border border-[#123B2A] dark:border-white/30 text-[#123B2A] dark:text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#123B2A]/5 dark:hover:bg-white/5"
               >
                 <Phone className="w-3.5 h-3.5 text-[#E28723]" />
-                Call Helpline: +91 78080 08058
+                {t("btnCallHelpline")}: +91 78080 08058
               </a>
               <a
                 href="https://wa.me/917808008058"
@@ -335,7 +385,7 @@ export default function Navbar() {
                 className="w-full py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#123B2A] dark:text-[#B8CBA5] text-xs font-medium flex items-center justify-center gap-1.5"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>WhatsApp Coordination</span>
+                <span>{t("btnWhatsAppSupport")}</span>
               </a>
               <Link
                 href="/admin"
@@ -343,37 +393,56 @@ export default function Navbar() {
                 className="w-full py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#123B2A] dark:text-[#B8CBA5] text-xs font-semibold flex items-center justify-center gap-2 border border-black/10 dark:border-white/15"
               >
                 <Lock className="w-3.5 h-3.5 text-[#E28723]" />
-                <span>Admin Management Portal</span>
+                <span>{t("navAdmin")}</span>
               </Link>
             </div>
           </div>
         </div>
       )}
 
-      {/* 5. MOBILE BOTTOM QUICK-ACTION BAR (Shows on screen < 768px for immediate access) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#123B2A]/95 dark:bg-[#071F14]/95 backdrop-blur-md border-t border-[#1D5139] px-3 py-2 flex items-center justify-between gap-2 md:hidden shadow-2xl">
+      {/* 5. UNIFIED MOBILE BOTTOM QUICK-ACTION BAR (Fixed on screen < 768px for immediate access without collisions) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#071F14]/98 backdrop-blur-lg border-t border-[#1D5139]/80 px-2 py-2 flex items-center justify-around gap-1.5 md:hidden shadow-2xl">
+        {/* Call Helpline */}
         <a
           href="tel:+917808008058"
-          className="flex-1 py-2 px-2 rounded-xl bg-[#0A2419] text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 border border-white/10 active:scale-95 transition-transform"
+          className="flex-1 py-1.5 px-1 rounded-xl bg-[#0A2419] text-white text-[10px] font-semibold flex flex-col items-center justify-center gap-0.5 border border-white/10 active:scale-95 transition-transform"
+          aria-label="Call Helpline 78080 08058"
         >
-          <Phone className="w-3.5 h-3.5 text-[#E28723]" />
-          <span>Call Helpline</span>
+          <Phone className="w-4 h-4 text-[#E28723]" />
+          <span className="leading-tight truncate max-w-full">{t("btnCall")}</span>
         </a>
+
+        {/* WhatsApp Coordination */}
+        <a
+          href="https://wa.me/917808008058?text=Hello%20Jharkhandvasi%20Parivartan%20Sangh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 py-1.5 px-1 rounded-xl bg-[#0A2419] text-white text-[10px] font-semibold flex flex-col items-center justify-center gap-0.5 border border-[#25D366]/30 active:scale-95 transition-transform"
+          aria-label="WhatsApp Coordination"
+        >
+          <MessageCircle className="w-4 h-4 text-[#25D366]" />
+          <span className="leading-tight truncate max-w-full">{t("btnWhatsApp")}</span>
+        </a>
+
+        {/* Open Navigation Menu */}
         <button
           type="button"
-          onClick={() => setIsOpen(true)}
-          className="flex-1 py-2 px-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-[11px] font-bold flex items-center justify-center gap-1.5 border border-white/20 active:scale-95 transition-transform"
-          aria-label="Open Navigation Menu"
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex-1 py-1.5 px-1 rounded-xl bg-white/10 hover:bg-white/15 text-white text-[10px] font-bold flex flex-col items-center justify-center gap-0.5 border border-white/15 active:scale-95 transition-transform"
+          aria-label={isOpen ? t("navClose") : t("navMenu")}
         >
-          <Menu className="w-4 h-4 text-[#B8CBA5]" />
-          <span>Menu</span>
+          {isOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-[#B8CBA5]" />}
+          <span className="leading-tight truncate max-w-full">{isOpen ? t("navClose") : t("navMenu")}</span>
         </button>
+
+        {/* Donate CTA Button */}
         <Link
           href="/donate"
-          className="flex-1 py-2 px-2 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white text-[11px] font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
+          className="flex-1 py-1.5 px-1 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white text-[10px] font-bold flex flex-col items-center justify-center gap-0.5 shadow-md active:scale-95 transition-transform"
+          aria-label="Donate"
         >
-          <Heart className="w-3.5 h-3.5 fill-white" />
-          <span>Donate</span>
+          <Heart className="w-4 h-4 fill-white text-white" />
+          <span className="leading-tight truncate max-w-full">{t("btnDonate")}</span>
         </Link>
       </div>
     </>

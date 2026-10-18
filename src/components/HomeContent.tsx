@@ -26,7 +26,7 @@ export default function HomeContent() {
   const stat3Num = typeof hp.stats.stat3.number === "number" ? hp.stats.stat3.number : parseInt(String(hp.stats.stat3.number), 10) || 100;
 
   return (
-    <div className="space-y-16 lg:space-y-24 pb-16 overflow-hidden">
+    <div className="space-y-16 lg:space-y-24 pb-24 overflow-x-hidden w-full max-w-full">
       {/* 1. CINEMATIC HERO SLIDESHOW (DYNAMIC FROM CMS) */}
       <HeroSlider />
 

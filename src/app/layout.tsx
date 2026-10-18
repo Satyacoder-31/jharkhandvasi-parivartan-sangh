@@ -8,6 +8,7 @@ import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SiteContentProvider } from "@/context/SiteContentContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const dmSerif = DM_Serif_Display({
   weight: ["400"],
@@ -105,16 +106,18 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#071F14] text-[#F7F5EC] dark:bg-[#071F14] dark:text-[#F7F5EC] antialiased selection:bg-[#B8CBA5] selection:text-[#123B2A] transition-colors duration-300">
+      <body className="min-h-screen w-full max-w-full overflow-x-hidden relative flex flex-col bg-[#071F14] text-[#F7F5EC] dark:bg-[#071F14] dark:text-[#F7F5EC] antialiased selection:bg-[#B8CBA5] selection:text-[#123B2A] transition-colors duration-300">
         <ThemeProvider>
-          <SiteContentProvider>
-            <Preloader />
-            <CustomCursor />
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <FloatingHelpline />
-          </SiteContentProvider>
+          <LanguageProvider>
+            <SiteContentProvider>
+              <Preloader />
+              <CustomCursor />
+              <Navbar />
+              <main className="flex-grow w-full max-w-full overflow-x-hidden min-w-0">{children}</main>
+              <Footer />
+              <FloatingHelpline />
+            </SiteContentProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

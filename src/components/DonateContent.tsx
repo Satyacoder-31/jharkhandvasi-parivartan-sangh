@@ -55,7 +55,7 @@ export default function DonateContent() {
   ];
 
   return (
-    <div className="space-y-16 lg:space-y-24 pb-20">
+    <div className="space-y-16 lg:space-y-24 pb-24 overflow-x-hidden w-full max-w-full">
       {/* 1. EDITORIAL PAGE HEADER */}
       <section className="bg-[#05140D] text-white pt-32 sm:pt-40 pb-20 lg:pb-28 relative overflow-hidden">
         <Image

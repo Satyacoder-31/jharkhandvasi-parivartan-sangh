@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play, Heart, Shield, Sparkles } from "lucide-react";
 
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Slide {
   id: number;
@@ -117,10 +118,32 @@ const fallbackSlides: Slide[] = [
 
 export default function HeroSlider() {
   const { content } = useSiteContent();
+  const { language } = useLanguage();
   const slides = content.heroSlides && content.heroSlides.length > 0 ? content.heroSlides : fallbackSlides;
 
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  const getPrimaryCtaText = () => {
+    if (language === "hi") {
+      if (slides[current]?.primaryCta?.href === "/our-work") return "हमारे कार्य देखें";
+      if (slides[current]?.primaryCta?.href === "/events") return "कार्यक्रम देखें";
+      if (slides[current]?.primaryCta?.href === "/donate") return "सहयोग करें (दान)";
+      if (slides[current]?.primaryCta?.href === "/nature") return "पर्यावरण अभियान";
+      return "और जानें";
+    }
+    return slides[current]?.primaryCta?.text || "Explore";
+  };
+
+  const getSecondaryCtaText = () => {
+    if (language === "hi") {
+      if (slides[current]?.secondaryCta?.href === "/get-involved") return "स्वयंसेवक बनें";
+      if (slides[current]?.secondaryCta?.href === "/about") return "हमारे बारे में";
+      if (slides[current]?.secondaryCta?.href === "/contact") return "संपर्क करें";
+      return "जुड़ें";
+    }
+    return slides[current]?.secondaryCta?.text || "Join Us";
+  };
 
   // Safety check if slide index exceeds updated array length
   useEffect(() => {
@@ -209,14 +232,14 @@ export default function HeroSlider() {
                 href={slides[current].primaryCta.href}
                 className="px-7 py-3.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs sm:text-sm font-bold tracking-wide shadow-xl hover:shadow-2xl transition-all flex items-center gap-2 group"
               >
-                <span>{slides[current].primaryCta.text}</span>
+                <span>{getPrimaryCtaText()}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href={slides[current].secondaryCta.href}
                 className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-[#F7F5EC] text-xs sm:text-sm font-semibold tracking-wide border border-white/25 backdrop-blur-sm transition-all"
               >
-                {slides[current].secondaryCta.text}
+                {getSecondaryCtaText()}
               </Link>
             </div>
           </div>

@@ -20,10 +20,12 @@ import {
   Lock,
 } from "lucide-react";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const pathname = usePathname();
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const [newsletterEmail, setNewsletterEmail] = useState("");
 
   if (pathname?.startsWith("/admin")) {
@@ -87,14 +89,14 @@ export default function Footer() {
                 className="flex-1 sm:flex-initial px-6 py-3.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs sm:text-sm font-bold tracking-wide shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <Heart className="w-4 h-4 fill-white" />
-                <span>Support A Cause</span>
+                <span>{t("btnDonateNow")}</span>
               </Link>
               <Link
                 href="/art-store"
                 className="flex-1 sm:flex-initial px-6 py-3.5 rounded-full bg-[#123B2A] hover:bg-[#1D5139] text-[#B8CBA5] hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-all border border-[#B8CBA5]/30 flex items-center justify-center gap-2"
               >
                 <Palette className="w-4 h-4 text-[#E28723]" />
-                <span>Art For Charity</span>
+                <span>{t("btnExploreArt")}</span>
               </Link>
             </div>
           </div>
@@ -116,10 +118,10 @@ export default function Footer() {
               </div>
               <div>
                 <h4 className="font-serif font-bold text-lg text-white leading-tight">
-                  झारखंडवासी परिवर्तन संघ
+                  {t("orgName")}
                 </h4>
                 <p className="text-[11px] text-[#E28723] font-bold tracking-wider mt-0.5">
-                  एक जुर्रत... एक ज़रूरत
+                  {t("orgHindiMotto")}
                 </p>
                 <p className="text-[10px] text-[#B8CBA5] font-medium tracking-wide">
                   JHARKHANDVASI PARIVARTAN SANGH
@@ -196,42 +198,42 @@ export default function Footer() {
           {/* Column 2: Navigation Links (2.5 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              Quick Links
+              {language === "hi" ? "त्वरित लिंक" : "Quick Links"}
             </h5>
             <ul className="flex flex-col gap-2.5 text-xs text-[#F7F5EC]/80 font-light">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <Link href="/" className="hover:text-white transition-colors">{t("navHome")}</Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+                <Link href="/about" className="hover:text-white transition-colors">{t("navAbout")}</Link>
               </li>
               <li>
-                <Link href="/our-work" className="hover:text-white transition-colors">Our Work & Programs</Link>
+                <Link href="/our-work" className="hover:text-white transition-colors">{t("navOurWork")}</Link>
               </li>
               <li>
                 <Link href="/art-store" className="hover:text-white transition-colors flex items-center gap-1.5 text-[#E28723] font-medium">
                   <Palette className="w-3.5 h-3.5" />
-                  <span>Art for Charity</span>
+                  <span>{t("navArtStore")}</span>
                   <span className="px-1.5 py-0.2 rounded-full bg-[#E28723] text-white text-[9px] font-bold">New</span>
                 </Link>
               </li>
               <li>
                 <Link href="/nature" className="hover:text-white transition-colors flex items-center gap-1">
-                  <span>Nature & Environment</span>
+                  <span>{t("navNature")}</span>
                   <TreePine className="w-3 h-3 text-[#B8CBA5]" />
                 </Link>
               </li>
               <li>
-                <Link href="/impact" className="hover:text-white transition-colors">Impact & Stories</Link>
+                <Link href="/impact" className="hover:text-white transition-colors">{t("navImpact")}</Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-white transition-colors">Events & Gallery</Link>
+                <Link href="/events" className="hover:text-white transition-colors">{t("navEvents")}</Link>
               </li>
               <li>
-                <Link href="/resources" className="hover:text-white transition-colors">Resources & News</Link>
+                <Link href="/resources" className="hover:text-white transition-colors">Resources &amp; News</Link>
               </li>
               <li>
-                <Link href="/get-involved" className="hover:text-white transition-colors">Get Involved (Volunteer)</Link>
+                <Link href="/get-involved" className="hover:text-white transition-colors">{t("navGetInvolved")}</Link>
               </li>
             </ul>
           </div>
