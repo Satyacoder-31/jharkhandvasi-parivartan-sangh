@@ -164,6 +164,22 @@ export default function HomeContent() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071F14]/90 via-[#071F14]/20 to-transparent" />
+                  {/* Official Emblem Trust Badge */}
+                  <div className="absolute top-4 right-4 z-20 bg-white/95 dark:bg-[#071F14]/90 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-lg border border-black/5 dark:border-white/15 flex items-center gap-2">
+                    <div className="w-8 h-8 relative flex-shrink-0">
+                      <Image
+                        src="/images/logo/jps-emblem.png"
+                        alt="JPS Official Emblem"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-[10px] font-bold text-[#123B2A] dark:text-[#B8CBA5] leading-none">एक जुर्रत... एक ज़रूरत</p>
+                      <p className="text-[9px] text-[#795943] dark:text-white/70 font-medium leading-tight mt-0.5">Regd. NGO E-30004</p>
+                    </div>
+                  </div>
                   <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                     <span className="text-xs uppercase tracking-wider text-[#B8CBA5] font-semibold">
                       {hp.aboutIntro.imageTag}

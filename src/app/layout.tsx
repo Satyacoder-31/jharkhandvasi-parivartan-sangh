@@ -40,6 +40,16 @@ export const metadata: Metadata = {
     "Giridih NGO",
     "80G Tax Exemption NGO",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "Jharkhandvasi Parivartan Sangh | सेवा से परिवर्तन की ओर",
     description:
@@ -67,6 +77,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${dmSerif.variable} ${plusJakarta.variable}`} data-theme="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* Instant Script: Guarantee scroll position starts at (0, 0) on refresh & sync dark theme */}
         <script
           dangerouslySetInnerHTML={{

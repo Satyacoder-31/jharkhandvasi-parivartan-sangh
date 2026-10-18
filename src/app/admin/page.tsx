@@ -147,8 +147,14 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#071F14] text-white flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-[#0A2419] border border-[#B8CBA5]/20 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6">
           <div className="text-center space-y-3">
-            <div className="w-16 h-16 rounded-2xl bg-[#123B2A] border border-[#B8CBA5]/30 flex items-center justify-center mx-auto text-[#E28723]">
-              <Shield className="w-8 h-8" />
+            <div className="w-16 h-16 rounded-2xl bg-white p-1.5 border border-[#B8CBA5]/40 flex items-center justify-center mx-auto shadow-lg">
+              <Image
+                src="/images/logo/jps-emblem.png"
+                alt="Jharkhandvasi Parivartan Sangh Emblem"
+                width={56}
+                height={56}
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 text-[10px]">
               Authorized Administrative Portal
@@ -214,8 +220,14 @@ export default function AdminPage() {
       {/* Top Bar */}
       <header className="sticky top-0 z-40 bg-[#0A2419]/95 backdrop-blur-md border-b border-[#B8CBA5]/20 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#123B2A] border border-[#B8CBA5]/30 flex items-center justify-center text-[#E28723]">
-            <Shield className="w-5 h-5" />
+          <div className="w-9 h-9 rounded-xl bg-white p-1 border border-[#B8CBA5]/30 flex items-center justify-center shadow-sm flex-shrink-0">
+            <Image
+              src="/images/logo/jps-emblem.png"
+              alt="JPS Logo"
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <h1 className="font-serif text-base font-bold text-white flex items-center gap-2">

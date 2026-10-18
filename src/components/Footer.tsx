@@ -105,14 +105,23 @@ export default function Footer() {
           {/* Column 1: Organization Overview & Community Newsletter (4.5 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#123B2A] text-white flex items-center justify-center font-bold text-sm shadow-inner border border-[#B8CBA5]/20">
-                JPS
+              <div className="relative w-12 h-12 rounded-2xl bg-white p-1 border border-[#B8CBA5]/30 shadow-md flex-shrink-0">
+                <Image
+                  src="/images/logo/jps-emblem.png"
+                  alt="Jharkhandvasi Parivartan Sangh Official Emblem"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-lg text-white">
+                <h4 className="font-serif font-bold text-lg text-white leading-tight">
                   झारखंडवासी परिवर्तन संघ
                 </h4>
-                <p className="text-xs text-[#B8CBA5] font-medium tracking-wide">
+                <p className="text-[11px] text-[#E28723] font-bold tracking-wider mt-0.5">
+                  एक जुर्रत... एक ज़रूरत
+                </p>
+                <p className="text-[10px] text-[#B8CBA5] font-medium tracking-wide">
                   JHARKHANDVASI PARIVARTAN SANGH
                 </p>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -83,11 +84,15 @@ export default function Preloader() {
       <div className="relative z-10 flex flex-col items-center max-w-sm w-full px-6 text-center space-y-6">
         {/* Emblem */}
         <div className="relative">
-          <div className="w-16 h-16 rounded-3xl bg-[#123B2A] border border-[#B8CBA5]/30 flex items-center justify-center shadow-2xl relative overflow-hidden group">
-            <svg viewBox="0 0 36 36" className="w-10 h-10 text-[#B8CBA5] animate-pulse" fill="currentColor">
-              <path d="M18 3C17.4 3 17 3.4 17 4C17 11.2 12.3 16.5 6 17C5.4 17.05 5 17.5 5 18C5 18.5 5.4 18.95 6 19C12.3 19.5 17 24.8 17 32C17 32.6 17.4 33 18 33C18.6 33 19 32.6 19 32C19 24.8 23.7 19.5 30 19C30.6 18.95 31 18.5 31 18C31 17.5 30.6 17.05 30 17C23.7 16.5 19 11.2 19 4C19 3.4 18.6 3 18 3Z" />
-              <circle cx="18" cy="18" r="3" fill="#E28723" />
-            </svg>
+          <div className="w-20 h-20 rounded-3xl bg-white p-2 border-2 border-[#B8CBA5]/40 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+            <Image
+              src="/images/logo/jps-emblem.png"
+              alt="Jharkhandvasi Parivartan Sangh Official Emblem"
+              width={72}
+              height={72}
+              priority
+              className="w-full h-full object-contain drop-shadow"
+            />
           </div>
           <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E28723] opacity-75" />
@@ -103,8 +108,8 @@ export default function Preloader() {
           <h2 className="font-serif text-xl sm:text-2xl font-normal text-white tracking-wide">
             Jharkhandvasi Parivartan Sangh
           </h2>
-          <p className="text-xs text-[#E28723] font-medium tracking-wider">
-            सेवा • सशक्तिकरण • परिवर्तन
+          <p className="text-xs text-[#E28723] font-bold tracking-wider">
+            एक जुर्रत... एक ज़रूरत
           </p>
         </div>
 

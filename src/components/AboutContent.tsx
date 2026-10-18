@@ -160,11 +160,27 @@ export default function AboutContent() {
               <p className="text-sm text-[#17231C]/80 leading-relaxed font-light">
                 The institution&apos;s inception was driven by the relentless efforts of <strong>Mr. Arvindkumar Arya</strong>, whose tireless dedication to the betterment of Jharkhandi people has created a robust platform for social change. Through various initiatives, Jharkhandvasi Parivartan Sangh has not only improved the lives of migrants in Mumbai but also helped strengthen the bond between the people of Maharashtra and Jharkhand.
               </p>
-              <div className="p-4 rounded-2xl bg-[#F7F5EC] border border-[#123B2A]/10 text-xs text-[#123B2A] flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-[#1D5139] flex-shrink-0" />
-                <span>
-                  Official Motto: <strong>एक जुर्रत... एक ज़रूरत</strong> • Registered under Maharashtra Public Trust Act ({organization.regNo || "E-30004/MUMBAI"}).
-                </span>
+              <div className="p-5 rounded-3xl bg-white dark:bg-[#071F14] border border-[#123B2A]/15 dark:border-white/15 shadow-md flex flex-col sm:flex-row items-center gap-4">
+                <div className="relative w-20 h-20 flex-shrink-0 bg-white rounded-2xl p-1.5 shadow-sm border border-[#123B2A]/10">
+                  <Image
+                    src="/images/logo/jps-emblem.png"
+                    alt="Jharkhandvasi Parivartan Sangh Official Emblem"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-1 text-center sm:text-left">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#E28723]">
+                    Official Organization Seal &amp; Motto
+                  </span>
+                  <h4 className="font-serif text-lg sm:text-xl font-bold text-[#123B2A] dark:text-white">
+                    एक जुर्रत... एक ज़रूरत
+                  </h4>
+                  <p className="text-xs text-[#17231C]/75 dark:text-[#F7F5EC]/75 font-light leading-relaxed">
+                    Registered under Maharashtra Public Trust Act ({organization.regNo || "E-30004/MUMBAI"}). Dedicated to grassroots social welfare, migrant protection, and cultural preservation.
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           </div>

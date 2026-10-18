@@ -96,17 +96,28 @@ export default function DonateContent() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D5139]/30 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 space-y-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div>
-                <span className="badge-pill bg-[#E28723] text-white text-[10px] uppercase font-bold tracking-wider">
-                  Verified Trust Account
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-normal mt-2">
-                  Official Bank Coordinates &amp; Tax Exemption
-                </h2>
-                <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light mt-1">
-                  Electronic NEFT, RTGS, IMPS &amp; UPI Transfer Details
-                </p>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-white p-1 border border-white/20 shadow-md flex-shrink-0">
+                  <Image
+                    src="/images/logo/jps-emblem.png"
+                    alt="Official JPS Emblem"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <span className="badge-pill bg-[#E28723] text-white text-[10px] uppercase font-bold tracking-wider">
+                    Verified Trust Account
+                  </span>
+                  <h2 className="font-serif text-2xl sm:text-3xl font-normal mt-1">
+                    Official Bank Coordinates &amp; Tax Exemption
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light mt-0.5">
+                    Electronic NEFT, RTGS, IMPS &amp; UPI Transfer Details • Motto: <strong className="text-[#E28723]">एक जुर्रत... एक ज़रूरत</strong>
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center gap-2 text-xs bg-white/10 px-4 py-2 rounded-full border border-white/15 w-fit">

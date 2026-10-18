@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -74,27 +75,31 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 py-3.5 text-[#123B2A] dark:text-[#F7F5EC]"
-            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-4 sm:py-5 text-white"
+            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 py-3 text-[#123B2A] dark:text-[#F7F5EC]"
+            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-3.5 sm:py-5 text-white"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-          {/* 1. BRAND LOGO & IDENTITY */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+          {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM */}
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div
-              className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 shadow-sm ${
+              className={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 ${
                 isScrolled
-                  ? "bg-[#123B2A] dark:bg-[#1D5139] text-[#B8CBA5]"
-                  : "bg-white/20 backdrop-blur-md text-white border border-white/30"
+                  ? "bg-white dark:bg-[#123B2A] border border-[#123B2A]/15 dark:border-white/20"
+                  : "bg-white/95 text-white border border-white/40 backdrop-blur-md"
               }`}
             >
-              <svg viewBox="0 0 36 36" className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor">
-                <path d="M18 3C17.4 3 17 3.4 17 4C17 11.2 12.3 16.5 6 17C5.4 17.05 5 17.5 5 18C5 18.5 5.4 18.95 6 19C12.3 19.5 17 24.8 17 32C17 32.6 17.4 33 18 33C18.6 33 19 32.6 19 32C19 24.8 23.7 19.5 30 19C30.6 18.95 31 18.5 31 18C31 17.5 30.6 17.05 30 17C23.7 16.5 19 11.2 19 4C19 3.4 18.6 3 18 3Z" />
-                <circle cx="18" cy="18" r="3" fill="#E28723" />
-              </svg>
+              <Image
+                src="/images/logo/jps-emblem.png"
+                alt="Jharkhandvasi Parivartan Sangh Official Emblem"
+                width={40}
+                height={40}
+                priority
+                className="w-full h-full object-contain"
+              />
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <span
                 className={`font-serif font-bold text-base sm:text-lg tracking-tight leading-none ${
                   isScrolled ? "text-[#123B2A] dark:text-white" : "text-white"
@@ -103,8 +108,8 @@ export default function Navbar() {
                 JPS
               </span>
               <span
-                className={`text-[11px] sm:text-xs font-medium tracking-tight leading-snug mt-0.5 ${
-                  isScrolled ? "text-[#123B2A]/80 dark:text-[#F7F5EC]/80" : "text-white/90 drop-shadow-sm"
+                className={`text-[10px] sm:text-xs font-semibold tracking-tight leading-snug mt-0.5 truncate max-w-[130px] xs:max-w-[180px] sm:max-w-none ${
+                  isScrolled ? "text-[#123B2A]/85 dark:text-[#F7F5EC]/85" : "text-white/95 drop-shadow-sm"
                 }`}
               >
                 झारखंडवासी परिवर्तन संघ
@@ -142,12 +147,12 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* 3. RIGHT CONTROLS: THEME TOGGLE & DONATE (PERFECTLY ALIGNED) */}
-          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+          {/* 3. RIGHT CONTROLS: THEME, ADMIN, DONATE & GUARANTEED MOBILE MENU */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             {/* Interactive Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className={`w-10 h-10 rounded-full transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B8CBA5] ${
+              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B8CBA5] ${
                 isScrolled
                   ? "bg-gray-100 dark:bg-white/10 text-[#123B2A] dark:text-[#F7F5EC] hover:bg-gray-200 dark:hover:bg-white/20"
                   : "bg-white/15 hover:bg-white/25 text-white border border-white/20"
@@ -162,10 +167,10 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Admin Portal Quick Access */}
+            {/* Admin Portal Quick Access (Desktop & Tablet) */}
             <Link
               href="/admin"
-              className={`p-2 rounded-xl transition-all ${
+              className={`hidden sm:flex p-2 rounded-xl transition-all ${
                 isScrolled
                   ? "text-[#123B2A]/70 dark:text-white/70 hover:text-[#E28723] hover:bg-black/5 dark:hover:bg-white/10"
                   : "text-white/80 hover:text-white hover:bg-white/10"
@@ -175,10 +180,10 @@ export default function Navbar() {
               <Lock className="w-4 h-4" />
             </Link>
 
-            {/* Donate CTA Button */}
+            {/* Donate CTA Button (Desktop & Tablet) */}
             <Link
               href="/donate"
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow group ${
+              className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow group ${
                 isScrolled
                   ? "bg-[#123B2A] dark:bg-[#E28723] hover:bg-[#1D5139] dark:hover:bg-[#c97419] text-white"
                   : "bg-[#E28723] hover:bg-[#c97419] text-white shadow-lg"
@@ -188,17 +193,20 @@ export default function Navbar() {
               <span>Donate</span>
             </Link>
 
-            {/* Mobile Hamburger Menu Button */}
+            {/* High-Visibility Mobile Hamburger Menu Button */}
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden p-2 rounded-xl transition-colors focus:outline-none ${
+              className={`lg:hidden flex items-center gap-1.5 px-3 py-2 rounded-xl transition-all font-bold text-xs tracking-wide focus:outline-none focus:ring-2 focus:ring-[#E28723] shadow-sm ${
                 isScrolled
-                  ? "text-[#123B2A] dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
-                  : "text-white hover:bg-white/15"
+                  ? "bg-[#123B2A] text-white dark:bg-[#1D5139] dark:text-white hover:bg-[#1D5139]"
+                  : "bg-white/25 hover:bg-white/35 text-white backdrop-blur-md border border-white/30"
               }`}
               aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
+              <span className="font-bold text-[11px] uppercase tracking-wider">Menu</span>
             </button>
           </div>
         </div>
@@ -206,32 +214,40 @@ export default function Navbar() {
 
       {/* 4. MOBILE NAVIGATION DRAWER */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-[100] lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Drawer Content */}
-          <div className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#F7F5EC] dark:bg-[#071F14] shadow-2xl flex flex-col justify-between p-6 overflow-y-auto animate-fade-in z-50 text-[#17231C] dark:text-[#F7F5EC] border-l border-black/10 dark:border-white/10">
+          <div className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#F7F5EC] dark:bg-[#071F14] shadow-2xl flex flex-col justify-between p-6 overflow-y-auto animate-fade-in z-[101] text-[#17231C] dark:text-[#F7F5EC] border-l border-black/10 dark:border-white/10">
             <div>
-              {/* Drawer Top Row */}
+              {/* Drawer Top Row with Official Emblem */}
               <div className="flex items-center justify-between pb-4 border-b border-[#123B2A]/10 dark:border-white/10">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#123B2A] text-white flex items-center justify-center font-bold text-sm shadow">
-                    JPS
+                  <div className="w-10 h-10 rounded-xl bg-white p-1 border border-[#123B2A]/20 shadow flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/logo/jps-emblem.png"
+                      alt="JPS Logo"
+                      width={36}
+                      height={36}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
-                    <h3 className="font-serif font-bold text-sm text-[#123B2A] dark:text-white">
+                    <h3 className="font-serif font-bold text-sm text-[#123B2A] dark:text-white leading-tight">
                       झारखंडवासी परिवर्तन संघ
                     </h3>
-                    <p className="text-[11px] text-[#795943] dark:text-[#B8CBA5]">Borivali West, Mumbai</p>
+                    <p className="text-[10px] text-[#E28723] font-bold tracking-wider">एक जुर्रत... एक ज़रूरत</p>
+                    <p className="text-[10px] text-[#795943] dark:text-[#B8CBA5]">Borivali West, Mumbai</p>
                   </div>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-xl text-[#123B2A] dark:text-white hover:bg-[#6F8D58]/20"
+                  className="p-2 rounded-xl text-[#123B2A] dark:text-white hover:bg-[#6F8D58]/20 focus:outline-none"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -335,20 +351,29 @@ export default function Navbar() {
       )}
 
       {/* 5. MOBILE BOTTOM QUICK-ACTION BAR (Shows on screen < 768px for immediate access) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#123B2A] dark:bg-[#071F14] border-t border-[#1D5139] px-4 py-2.5 flex items-center justify-between gap-3 md:hidden shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#123B2A]/95 dark:bg-[#071F14]/95 backdrop-blur-md border-t border-[#1D5139] px-3 py-2 flex items-center justify-between gap-2 md:hidden shadow-2xl">
         <a
           href="tel:+917808008058"
-          className="flex-1 py-2 px-3 rounded-full bg-[#0A2419] text-white text-xs font-semibold flex items-center justify-center gap-1.5 border border-white/10"
+          className="flex-1 py-2 px-2 rounded-xl bg-[#0A2419] text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 border border-white/10 active:scale-95 transition-transform"
         >
           <Phone className="w-3.5 h-3.5 text-[#E28723]" />
           <span>Call Helpline</span>
         </a>
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="flex-1 py-2 px-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-[11px] font-bold flex items-center justify-center gap-1.5 border border-white/20 active:scale-95 transition-transform"
+          aria-label="Open Navigation Menu"
+        >
+          <Menu className="w-4 h-4 text-[#B8CBA5]" />
+          <span>Menu</span>
+        </button>
         <Link
           href="/donate"
-          className="flex-1 py-2 px-3 rounded-full bg-[#E28723] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow"
+          className="flex-1 py-2 px-2 rounded-xl bg-[#E28723] hover:bg-[#c97419] text-white text-[11px] font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
         >
           <Heart className="w-3.5 h-3.5 fill-white" />
-          <span>Donate Now</span>
+          <span>Donate</span>
         </Link>
       </div>
     </>
