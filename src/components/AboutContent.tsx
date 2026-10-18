@@ -277,35 +277,40 @@ export default function AboutContent() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-            Official Public Relation Team
+            {language === "hi" ? "आधिकारिक जनसंपर्क टीम" : "Official Public Relation Team"}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A]">
-            Organizational Leadership & Key Office Bearers ({leadershipTeam.length})
+          <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#123B2A]">
+            {language === "hi" ? "संगठनात्मक नेतृत्व एवं प्रमुख पदाधिकारी" : "Organizational Leadership & Key Office Bearers"} ({leadershipTeam.length})
           </h2>
           <p className="text-xs sm:text-sm text-[#17231C]/75 font-light">
-            Dedicated patrons, executive office bearers, and secretaries guiding Jharkhandvasi Parivartan Sangh across India.
+            {language === "hi"
+              ? "पूरे भारत में झारखंडवासी परिवर्तन संघ का मार्गदर्शन करने वाले समर्पित संरक्षक, कार्यकारी पदाधिकारी और सचिव।"
+              : "Dedicated patrons, executive office bearers, and secretaries guiding Jharkhandvasi Parivartan Sangh across India."}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {leadershipTeam.map((member, i) => (
             <div
               key={member.id || i}
               className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
-                <div className="relative w-full h-56 sm:h-64 bg-[#071F14]/5 overflow-hidden">
+                <div
+                  className="relative w-full aspect-[4/5] bg-[#071F14]/5 overflow-hidden"
+                  style={{ aspectRatio: "4 / 5" }}
+                >
                   <Image
                     src={member.image || "/images/leadership/arvind-arya.jpg"}
                     alt={`${member.name} - ${member.role}`}
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-85 group-hover:opacity-65 transition-opacity" />
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 max-w-[85%]">
                     <span
-                      className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md backdrop-blur-md ${
+                      className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-md backdrop-blur-md truncate block ${
                         member.category === "Patron"
                           ? "bg-[#795943]/90 text-white"
                           : member.category === "Executive"
@@ -316,28 +321,28 @@ export default function AboutContent() {
                       {member.badge || member.role}
                     </span>
                   </div>
-                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                    <span className="text-[10px] text-[#B8CBA5] font-semibold tracking-wide uppercase block">
-                      {member.category || "Executive"} Body
+                  <div className="absolute bottom-2 left-2.5 right-2.5 sm:bottom-2.5 sm:left-3 sm:right-3 text-white">
+                    <span className="text-[9px] sm:text-[10px] text-[#B8CBA5] font-semibold tracking-wide uppercase block truncate">
+                      {member.category || "Executive"} {language === "hi" ? "समिति" : "Body"}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-4 space-y-1.5">
-                  <h4 className="font-serif text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug">
+                <div className="p-3 sm:p-4 space-y-1 sm:space-y-1.5">
+                  <h4 className="font-serif text-sm sm:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
                     {member.name}
                   </h4>
-                  <p className="text-xs text-[#795943] font-medium leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#795943] font-medium leading-relaxed line-clamp-2 sm:line-clamp-none">
                     {member.role}
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 pt-2 border-t border-[#123B2A]/5 text-[11px] text-[#17231C]/65 flex items-center justify-between">
-                <span>JPS National Body</span>
-                <span className="text-[#1D5139] font-semibold flex items-center gap-1">
+              <div className="p-2.5 sm:p-4 pt-2 sm:pt-2 border-t border-[#123B2A]/5 text-[10px] sm:text-[11px] text-[#17231C]/65 flex items-center justify-between gap-1">
+                <span className="truncate">{language === "hi" ? "जे.पी.एस. राष्ट्रीय" : "JPS National"}</span>
+                <span className="text-[#1D5139] font-semibold flex items-center gap-1 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Active
+                  {language === "hi" ? "सक्रिय" : "Active"}
                 </span>
               </div>
             </div>
