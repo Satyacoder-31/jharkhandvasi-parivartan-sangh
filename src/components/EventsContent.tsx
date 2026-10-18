@@ -17,9 +17,11 @@ import {
 import GalleryLightbox from "@/components/GalleryLightbox";
 import PressMediaViewer from "@/components/PressMediaViewer";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function EventsContent() {
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const pastEvents = content.events || [];
   const organization = content.organization;
 
@@ -41,13 +43,17 @@ export default function EventsContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-              Community Chronicle & Media
+              {language === "hi" ? "सामुदायिक गतिविधियां एवं मीडिया" : "Community Chronicle & Media"}
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-              Events, Field Gatherings & <span className="italic text-[#B8CBA5]">Media Coverage</span>
+              {language === "hi" ? (
+                <>कार्यक्रम, जनसभाएं एवं <span className="italic text-[#B8CBA5]">मीडिया कवरेज</span></>
+              ) : (
+                <>Events, Field Gatherings & <span className="italic text-[#B8CBA5]">Media Coverage</span></>
+              )}
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              Moments of collective action, cultural heritage, eye health camps, and statewide recognition across Mumbai and Jharkhand.
+              {language === "hi" ? t("eventsSubheadline") : "Moments of collective action, cultural heritage, eye health camps, and statewide recognition across Mumbai and Jharkhand."}
             </p>
           </div>
         </div>

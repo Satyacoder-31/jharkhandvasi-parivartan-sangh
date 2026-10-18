@@ -118,7 +118,7 @@ const fallbackSlides: Slide[] = [
 
 export default function HeroSlider() {
   const { content } = useSiteContent();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const slides = content.heroSlides && content.heroSlides.length > 0 ? content.heroSlides : fallbackSlides;
 
   const [current, setCurrent] = useState(0);
@@ -205,25 +205,31 @@ export default function HeroSlider() {
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
                 <Sparkles className="w-3 h-3 text-[#E28723]" />
-                {slides[current].eyebrow}
+                {language === "hi" ? t(`hero${current + 1}Eyebrow`) : slides[current].eyebrow}
               </span>
               <span className="text-xs text-[#F7F5EC]/70 font-medium tracking-wide">
-                • {slides[current].hindiTitle}
+                • {language === "hi" ? slides[current].title : slides[current].hindiTitle}
               </span>
             </div>
 
             {/* Editorial Headline */}
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] tracking-tight text-white max-w-3xl">
-              {slides[current].title}{" "}
-              <span className="italic text-[#B8CBA5] font-normal underline decoration-[#E28723]/60 decoration-2 underline-offset-8">
-                {slides[current].italicWord}
-              </span>{" "}
-              {slides[current].titleEnd}
+              {language === "hi" ? (
+                <span>{t(`hero${current + 1}Title`)}</span>
+              ) : (
+                <>
+                  {slides[current].title}{" "}
+                  <span className="italic text-[#B8CBA5] font-normal underline decoration-[#E28723]/60 decoration-2 underline-offset-8">
+                    {slides[current].italicWord}
+                  </span>{" "}
+                  {slides[current].titleEnd}
+                </>
+              )}
             </h1>
 
             {/* Supporting Statement */}
             <p className="text-sm sm:text-base lg:text-lg text-[#F7F5EC]/90 max-w-2xl leading-relaxed font-light">
-              {slides[current].description}
+              {language === "hi" ? t(`hero${current + 1}Desc`) : slides[current].description}
             </p>
 
             {/* Call to Action Buttons */}
@@ -249,19 +255,23 @@ export default function HeroSlider() {
             <div className="w-80 p-5 rounded-3xl bg-[#123B2A]/90 backdrop-blur-md border border-[#B8CBA5]/25 shadow-2xl text-white space-y-3">
               <div className="flex items-center justify-between text-xs text-[#B8CBA5]">
                 <span className="font-semibold uppercase tracking-wider text-[10px]">
-                  Verified Initiative
+                  {language === "hi" ? "सत्यापित अभियान" : "Verified Initiative"}
                 </span>
                 <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
               </div>
               <h4 className="font-serif text-lg font-medium leading-snug">
-                {slides[current].badgeText}
+                {language === "hi" ? t(`hero${current + 1}Badge`) : slides[current].badgeText}
               </h4>
               <p className="text-xs text-[#F7F5EC]/75 leading-relaxed font-light">
-                Serving vulnerable workers, underprivileged children, and local families in Mumbai and rural Jharkhand.
+                {language === "hi"
+                  ? "मुंबई एवं ग्रामीण झारखंड में प्रवासी श्रमिकों, असहाय बुजुर्गों व बच्चों की अनवरत सेवा।"
+                  : "Serving vulnerable workers, underprivileged children, and local families in Mumbai and rural Jharkhand."}
               </p>
               <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
-                <span className="text-[#B8CBA5] font-medium">Headquarters</span>
-                <span className="text-white font-semibold">Borivali West, Mumbai</span>
+                <span className="text-[#B8CBA5] font-medium">{language === "hi" ? "मुख्यालय" : "Headquarters"}</span>
+                <span className="text-white font-semibold">
+                  {language === "hi" ? "बोरीवली पश्चिम, मुंबई" : "Borivali West, Mumbai"}
+                </span>
               </div>
             </div>
           </div>

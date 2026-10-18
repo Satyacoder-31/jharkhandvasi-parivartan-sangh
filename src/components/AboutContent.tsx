@@ -18,9 +18,11 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutContent() {
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const leadershipTeam = content.about.leadership || [];
   const timelineEvents = content.about.timeline || [];
   const about = content.about;
@@ -45,18 +47,22 @@ export default function AboutContent() {
           <div className="max-w-3xl space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-                Movement Estd. {about.foundedYear || "2005"} • Regd. 2013
+                {language === "hi"
+                  ? `अभियान स्थापना ${about.foundedYear || "2005"} • पंजीकृत 2013`
+                  : `Movement Estd. ${about.foundedYear || "2005"} • Regd. 2013`}
               </span>
               <span className="text-xs text-[#E28723] font-semibold tracking-wider">
-                Reg No. {organization.regNo || "E-30004/MUMBAI"}
+                {language === "hi" ? "पंजीकरण संख्या" : "Reg No."} {organization.regNo || "E-30004/MUMBAI"}
               </span>
             </div>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-              {about.headline || "Two Decades of Service, Unity & Cultural Pride"}
+              {language === "hi" ? t("aboutHeadline") : (about.headline || "Two Decades of Service, Unity & Cultural Pride")}
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              {about.subheadline ||
-                "Serving as a lifeline for Jharkhandis in Mumbai and building an unshakeable bond between the people of Maharashtra and Jharkhand."}
+              {language === "hi"
+                ? t("aboutSubheadline")
+                : (about.subheadline ||
+                  "Serving as a lifeline for Jharkhandis in Mumbai and building an unshakeable bond between the people of Maharashtra and Jharkhand.")}
             </p>
           </div>
         </div>
@@ -82,13 +88,13 @@ export default function AboutContent() {
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-bold text-white">
-                  Shri Arvind Arya
+                  {language === "hi" ? "श्री अरविंद आर्य" : "Shri Arvind Arya"}
                 </h3>
                 <p className="text-xs text-[#E28723] font-semibold uppercase tracking-wider">
-                  Founder & National President
+                  {language === "hi" ? "संस्थापक एवं राष्ट्रीय अध्यक्ष" : "Founder & National President"}
                 </p>
                 <p className="text-[11px] text-[#B8CBA5] mt-0.5">
-                  Jharkhandvasi Parivartan Sangh
+                  {t("orgName")}
                 </p>
               </div>
             </div>
@@ -97,16 +103,18 @@ export default function AboutContent() {
               <div className="flex items-center gap-2 text-[#E28723]">
                 <Quote className="w-8 h-8 opacity-80" />
                 <span className="text-xs uppercase font-bold tracking-widest text-[#B8CBA5]">
-                  Message from the Founder
+                  {language === "hi" ? t("aboutFounderTitle") : "Message from the Founder"}
                 </span>
               </div>
               <blockquote className="font-serif text-lg sm:text-xl font-light italic leading-relaxed text-[#F7F5EC]">
-                “Two decades of service have allowed us to understand the pulse of the Jharkhandi community and the challenges they face.
-                Our journey has been made possible through the support and blessings of every individual who believes in our cause. As we move forward, we seek your continued support to bring the dreams of Jharkhandis to fruition.
-                Together, we can create a future where every Jharkhandi, regardless of where they reside, has the opportunity to thrive.”
+                {language === "hi"
+                  ? `“${t("aboutFounderQuote")}”`
+                  : `“Two decades of service have allowed us to understand the pulse of the Jharkhandi community and the challenges they face. Our journey has been made possible through the support and blessings of every individual who believes in our cause. As we move forward, we seek your continued support to bring the dreams of Jharkhandis to fruition. Together, we can create a future where every Jharkhandi, regardless of where they reside, has the opportunity to thrive.”`}
               </blockquote>
               <p className="text-xs sm:text-sm text-[#F7F5EC]/75 font-light leading-relaxed pt-2 border-t border-white/10">
-                Jharkhandvasi Parivartan Sangh is more than an NGO; it is a lifeline for the people of Jharkhand. With a strong foundation built on service, dedication, and cultural pride, the Organization has become a trusted name in Mumbai and is poised to expand its work across new horizons.
+                {language === "hi"
+                  ? t("aboutFounderMessage")
+                  : "Jharkhandvasi Parivartan Sangh is more than an NGO; it is a lifeline for the people of Jharkhand. With a strong foundation built on service, dedication, and cultural pride, the Organization has become a trusted name in Mumbai and is poised to expand its work across new horizons."}
               </p>
             </div>
           </div>
@@ -145,40 +153,56 @@ export default function AboutContent() {
           <div className="lg:col-span-6 space-y-6">
             <ScrollReveal direction="right" duration={900} delay={150}>
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-                Our Origin Story
+                {language === "hi" ? "हमारी उत्पत्ति की कहानी" : "Our Origin Story"}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A] leading-tight">
-                Born Out of the Need to <span className="italic text-[#6F8D58]">Support Our People</span>
+                {language === "hi" ? (
+                  <>समाज के जरूरतमंदों के <span className="italic text-[#6F8D58]">सहारे की आवश्यकता से जन्मी संस्था</span></>
+                ) : (
+                  <>Born Out of the Need to <span className="italic text-[#6F8D58]">Support Our People</span></>
+                )}
               </h2>
               <p className="text-sm text-[#17231C]/80 leading-relaxed font-light">
-                <strong>Jharkhandvasi Parivartan Sangh (JPS)</strong>, established in <strong>{about.foundedYear || "2005"}</strong>, is a transformative movement born out of the need to support the underprivileged Jharkhandis who have migrated to Mumbai in search of livelihood.
+                {language === "hi" ? (
+                  <><strong>झारखंडवासी परिवर्तन संघ (JPS)</strong> की स्थापना वर्ष <strong>{about.foundedYear || "2005"}</strong> में उन असहाय झारखंडियों की सहायता के लिए की गई थी जो रोजी-रोटी की तलाश में मुंबई पहुंचे थे।</>
+                ) : (
+                  <><strong>Jharkhandvasi Parivartan Sangh (JPS)</strong>, established in <strong>{about.foundedYear || "2005"}</strong>, is a transformative movement born out of the need to support the underprivileged Jharkhandis who have migrated to Mumbai in search of livelihood.</>
+                )}
               </p>
               <p className="text-sm text-[#17231C]/80 leading-relaxed font-light">
-                {about.history ||
-                  "What began as a small initiative with the vision of uplifting and assisting the migrant community has now blossomed into a registered NGO committed to fostering social, cultural, educational, and medical welfare of Jharkhandis in Mumbai and beyond."}
+                {language === "hi"
+                  ? "एक छोटी सी पहल के रूप में शुरू हुआ यह अभियान आज एक पंजीकृत सार्वजनिक संस्था का रूप ले चुका है, जो मुंबई और पूरे देश में रहने वाले झारखंडियों के सामाजिक, सांस्कृतिक, शैक्षिक और चिकित्सीय कल्याण के लिए समर्पित है।"
+                  : (about.history ||
+                    "What began as a small initiative with the vision of uplifting and assisting the migrant community has now blossomed into a registered NGO committed to fostering social, cultural, educational, and medical welfare of Jharkhandis in Mumbai and beyond.")}
               </p>
               <p className="text-sm text-[#17231C]/80 leading-relaxed font-light">
-                The institution&apos;s inception was driven by the relentless efforts of <strong>Mr. Arvindkumar Arya</strong>, whose tireless dedication to the betterment of Jharkhandi people has created a robust platform for social change. Through various initiatives, Jharkhandvasi Parivartan Sangh has not only improved the lives of migrants in Mumbai but also helped strengthen the bond between the people of Maharashtra and Jharkhand.
+                {language === "hi" ? (
+                  <>संस्था का गठन <strong>श्री अरविंद आर्य</strong> के अटूट प्रयासों और समर्पण का परिणाम है। उनके निरंतर परिश्रम ने सामाजिक बदलाव का एक मजबूत मंच तैयार किया है, जिसने महाराष्ट्र और झारखंड के लोगों के बीच आत्मीय संबंधों को सुदृढ़ किया है।</>
+                ) : (
+                  <>The institution&apos;s inception was driven by the relentless efforts of <strong>Mr. Arvindkumar Arya</strong>, whose tireless dedication to the betterment of Jharkhandi people has created a robust platform for social change. Through various initiatives, Jharkhandvasi Parivartan Sangh has not only improved the lives of migrants in Mumbai but also helped strengthen the bond between the people of Maharashtra and Jharkhand.</>
+                )}
               </p>
               <div className="p-5 rounded-3xl bg-white dark:bg-[#071F14] border border-[#123B2A]/15 dark:border-white/15 shadow-md flex flex-col sm:flex-row items-center gap-4">
-                <div className="relative w-20 h-20 flex-shrink-0 bg-white rounded-2xl p-1.5 shadow-sm border border-[#123B2A]/10">
+                <div className="relative w-24 h-24 flex-shrink-0 bg-white rounded-2xl p-2 shadow-sm border border-[#123B2A]/10 flex items-center justify-center">
                   <Image
-                    src="/images/logo/jps-emblem.png"
-                    alt="Jharkhandvasi Parivartan Sangh Official Emblem"
-                    width={80}
-                    height={80}
+                    src="/images/logo/jps-logo-full.png"
+                    alt="Jharkhandvasi Parivartan Sangh Official Emblem with Slogan"
+                    width={96}
+                    height={86}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="space-y-1 text-center sm:text-left">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#E28723]">
-                    Official Organization Seal &amp; Motto
+                    {language === "hi" ? "आधिकारिक संस्था का ध्येय वाक्य" : "Official Organization Seal & Motto"}
                   </span>
                   <h4 className="font-serif text-lg sm:text-xl font-bold text-[#123B2A] dark:text-white">
                     एक जुर्रत... एक ज़रूरत
                   </h4>
                   <p className="text-xs text-[#17231C]/75 dark:text-[#F7F5EC]/75 font-light leading-relaxed">
-                    Registered under Maharashtra Public Trust Act ({organization.regNo || "E-30004/MUMBAI"}). Dedicated to grassroots social welfare, migrant protection, and cultural preservation.
+                    {language === "hi"
+                      ? `महाराष्ट्र पब्लिक ट्रस्ट अधिनियम के अंतर्गत पंजीकृत (${organization.regNo || "E-30004/MUMBAI"})। जमीनी जनसेवा, प्रवासी संरक्षण एवं संस्कृति रक्षा के लिए समर्पित।`
+                      : `Registered under Maharashtra Public Trust Act (${organization.regNo || "E-30004/MUMBAI"}). Dedicated to grassroots social welfare, migrant protection, and cultural preservation.`}
                   </p>
                 </div>
               </div>
@@ -192,49 +216,57 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
             <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A]">
-              Guiding Principles
+              {language === "hi" ? "मार्गदर्शक सिद्धांत" : "Guiding Principles"}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A]">
-              The Soul of Our Movement
+              {language === "hi" ? "हमारे अभियान की आत्मा" : "The Soul of Our Movement"}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-3xl border border-[#123B2A]/10 shadow-sm space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[#1D5139]">
-                Our Mission
+                {language === "hi" ? t("aboutMissionTitle") : "Our Mission"}
               </span>
               <h3 className="font-serif text-2xl font-normal text-[#123B2A]">
-                Human Dignity & Support
+                {language === "hi" ? "मानवीय गरिमा एवं संबल" : "Human Dignity & Support"}
               </h3>
               <p className="text-xs sm:text-sm text-[#17231C]/80 font-light leading-relaxed">
-                {about.mission ||
-                  "To stand with every migrant worker in distress, provide emergency medical care to elders, and ensure that every child of a daily-wage laborer retains their right to quality education and protection."}
+                {language === "hi"
+                  ? t("aboutMissionDesc")
+                  : (about.mission ||
+                    "To stand with every migrant worker in distress, provide emergency medical care to elders, and ensure that every child of a daily-wage laborer retains their right to quality education and protection.")}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-[#123B2A]/10 shadow-sm space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[#E28723]">
-                Our Vision
+                {language === "hi" ? t("aboutVisionTitle") : "Our Vision"}
               </span>
               <h3 className="font-serif text-2xl font-normal text-[#123B2A]">
-                Preserving Cultural Heritage
+                {language === "hi" ? "सांस्कृतिक पहचान का संरक्षण" : "Preserving Cultural Heritage"}
               </h3>
               <p className="text-xs sm:text-sm text-[#17231C]/80 font-light leading-relaxed">
-                {about.vision ||
-                  "By highlighting the rich cultural heritage of Jharkhand — celebrating Bhagwan Birsa Munda, Chhau dance, Sarhul, and Santhali traditions — JPS seeks to ensure that Jharkhandis in Mumbai never feel disconnected from their roots."}
+                {language === "hi"
+                  ? t("aboutVisionDesc")
+                  : (about.vision ||
+                    "By highlighting the rich cultural heritage of Jharkhand — celebrating Bhagwan Birsa Munda, Chhau dance, Sarhul, and Santhali traditions — JPS seeks to ensure that Jharkhandis in Mumbai never feel disconnected from their roots.")}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-[#123B2A]/10 shadow-sm space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[#795943]">
-                Core Values
+                {language === "hi" ? "मूल मूल्य" : "Core Values"}
               </span>
               <h3 className="font-serif text-2xl font-normal text-[#123B2A]">
                 सेवा, एकता, संघर्ष
               </h3>
               <p className="text-xs sm:text-sm text-[#17231C]/80 font-light leading-relaxed">
-                <strong>Service (सेवा), Unity (एकता), and Struggle (संघर्ष)</strong>. With unyielding dedication, the Sangh treats every individual seeking assistance as family, offering prompt relief regardless of background.
+                {language === "hi" ? (
+                  <><strong>सेवा, एकता एवं संघर्ष</strong>। पूर्ण निष्ठा के साथ, संघ मदद के लिए आने वाले हर व्यक्ति को परिवार का सदस्य मानता है और बिना किसी भेदभाव के त्वरित सहायता प्रदान करता है।</>
+                ) : (
+                  <><strong>Service (सेवा), Unity (एकता), and Struggle (संघर्ष)</strong>. With unyielding dedication, the Sangh treats every individual seeking assistance as family, offering prompt relief regardless of background.</>
+                )}
               </p>
             </div>
           </div>
@@ -528,13 +560,15 @@ export default function AboutContent() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#05140D] via-transparent to-black/50" />
           <div className="relative z-10 space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 text-[10px]">
-              20+ Years Documented Across All 24 Districts
+              {language === "hi" ? "सभी 24 जिलों में 20+ वर्षों की निरंतर सेवा" : "20+ Years Documented Across All 24 Districts"}
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal">
-              Be Part of Our Next Decade of Transformation
+              {language === "hi" ? "हमारे आगामी दशक के परिवर्तन अभियान से जुड़ें" : "Be Part of Our Next Decade of Transformation"}
             </h3>
             <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed max-w-xl mx-auto">
-              Explore our programs in healthcare, education, culture, and nature, or join our active volunteer force across Mumbai and Jharkhand.
+              {language === "hi"
+                ? "स्वास्थ्य, शिक्षा, संस्कृति और पर्यावरण संरक्षण में हमारे अभियानों को जानें, अथवा मुंबई और झारखंड में सक्रिय स्वयंसेवक बनें।"
+                : "Explore our programs in healthcare, education, culture, and nature, or join our active volunteer force across Mumbai and Jharkhand."}
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -542,19 +576,19 @@ export default function AboutContent() {
               href="/our-work"
               className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all"
             >
-              Explore Our Work
+              {language === "hi" ? t("btnViewPrograms") : "Explore Our Work"}
             </Link>
             <Link
               href="/donate"
               className="px-6 py-3 rounded-full bg-[#1D5139] hover:bg-[#071F14] text-white text-xs font-semibold tracking-wide border border-white/20 transition-all"
             >
-              Bank & 80G Donation Details
+              {language === "hi" ? "बैंक एवं 80G दान विवरण" : "Bank & 80G Donation Details"}
             </Link>
             <Link
               href="/contact"
               className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/20 transition-all"
             >
-              Contact Offices
+              {language === "hi" ? "कार्यालय संपर्क" : "Contact Offices"}
             </Link>
           </div>
         </div>

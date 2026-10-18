@@ -15,9 +15,11 @@ import InteractiveMap from "@/components/InteractiveMap";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HomeContent() {
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const hp = content.homepage;
 
   // Safe numeric fallbacks
@@ -51,10 +53,10 @@ export default function HomeContent() {
                   <AnimatedCounter target={stat1Num} suffix={hp.stats.stat1.suffix} duration={1800} />
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  {hp.stats.stat1.label}
+                  {language === "hi" ? t("statYears") : hp.stats.stat1.label}
                 </span>
                 <span className="text-[11px] text-[#F7F5EC]/65 block mt-0.5">
-                  {hp.stats.stat1.sublabel}
+                  {language === "hi" ? t("statYearsSub") : hp.stats.stat1.sublabel}
                 </span>
               </div>
 
@@ -64,10 +66,10 @@ export default function HomeContent() {
                   <AnimatedCounter target={stat2Num} suffix={hp.stats.stat2.suffix} duration={2200} />
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  {hp.stats.stat2.label}
+                  {language === "hi" ? t("statWorkers") : hp.stats.stat2.label}
                 </span>
                 <span className="text-[11px] text-[#F7F5EC]/65 block mt-0.5">
-                  {hp.stats.stat2.sublabel}
+                  {language === "hi" ? t("statWorkersSub") : hp.stats.stat2.sublabel}
                 </span>
               </div>
 
@@ -77,10 +79,10 @@ export default function HomeContent() {
                   <AnimatedCounter target={stat3Num} suffix={hp.stats.stat3.suffix} duration={2000} />
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  {hp.stats.stat3.label}
+                  {language === "hi" ? t("statScreenings") : hp.stats.stat3.label}
                 </span>
                 <span className="text-[11px] text-[#F7F5EC]/65 block mt-0.5">
-                  {hp.stats.stat3.sublabel}
+                  {language === "hi" ? t("statScreeningsSub") : hp.stats.stat3.sublabel}
                 </span>
               </div>
 
@@ -90,10 +92,10 @@ export default function HomeContent() {
                   {hp.stats.stat4.number}
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  {hp.stats.stat4.label}
+                  {language === "hi" ? t("statHelpline") : hp.stats.stat4.label}
                 </span>
                 <span className="text-[11px] text-[#E28723] font-mono block mt-0.5">
-                  {hp.stats.stat4.sublabel}
+                  {language === "hi" ? t("statHelplineSub") : hp.stats.stat4.sublabel}
                 </span>
               </div>
             </div>
@@ -108,10 +110,10 @@ export default function HomeContent() {
             src="/images/watershed-nature.jpg"
             alt="Pristine nature and forest rivers of Jharkhand"
             fill
-            className="object-cover opacity-35 dark:opacity-45 filter brightness-85"
+            className="object-cover opacity-25 dark:opacity-35 filter brightness-90"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/60 dark:from-[#071F14]/90 dark:via-[#071F14]/75 dark:to-[#071F14]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#071F14]/95 dark:via-[#071F14]/85 dark:to-[#071F14]/70" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Text Column */}
@@ -119,18 +121,24 @@ export default function HomeContent() {
               <ScrollReveal direction="left" duration={900}>
                 <div className="space-y-6">
                   <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A] dark:bg-[#B8CBA5]/20 dark:text-[#B8CBA5] border border-[#123B2A]/10 dark:border-[#B8CBA5]/30">
-                    {hp.aboutIntro.badge}
+                    {language === "hi" ? t("hpAboutBadge") : hp.aboutIntro.badge}
                   </span>
                   <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#123B2A] dark:text-white leading-tight">
-                    {hp.aboutIntro.headingStart}{" "}
-                    <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.aboutIntro.headingItalic}</span>{" "}
-                    {hp.aboutIntro.headingEnd}
+                    {language === "hi" ? (
+                      <span>{t("hpAboutHeading")}</span>
+                    ) : (
+                      <>
+                        {hp.aboutIntro.headingStart}{" "}
+                        <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.aboutIntro.headingItalic}</span>{" "}
+                        {hp.aboutIntro.headingEnd}
+                      </>
+                    )}
                   </h2>
                   <p className="text-sm sm:text-base text-[#17231C]/85 dark:text-[#F7F5EC]/85 leading-relaxed font-light">
-                    {hp.aboutIntro.paragraph1}
+                    {language === "hi" ? t("hpAboutP1") : hp.aboutIntro.paragraph1}
                   </p>
                   <p className="text-sm text-[#17231C]/80 dark:text-[#F7F5EC]/80 leading-relaxed font-light">
-                    {hp.aboutIntro.paragraph2}
+                    {language === "hi" ? t("hpAboutP2") : hp.aboutIntro.paragraph2}
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -138,14 +146,14 @@ export default function HomeContent() {
                       href={hp.aboutIntro.primaryBtnHref || "/about"}
                       className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2 group"
                     >
-                      <span>{hp.aboutIntro.primaryBtnText}</span>
+                      <span>{language === "hi" ? t("hpAboutBtnHistory") : hp.aboutIntro.primaryBtnText}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href={hp.aboutIntro.secondaryBtnHref || "/contact"}
                       className="px-6 py-3 rounded-full border border-[#123B2A]/20 dark:border-white/20 text-[#123B2A] dark:text-[#F7F5EC] hover:bg-black/5 dark:hover:bg-white/10 text-xs font-semibold tracking-wide transition-all"
                     >
-                      {hp.aboutIntro.secondaryBtnText}
+                      {language === "hi" ? t("hpAboutBtnFounder") : hp.aboutIntro.secondaryBtnText}
                     </Link>
                   </div>
                 </div>
@@ -164,19 +172,19 @@ export default function HomeContent() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071F14]/90 via-[#071F14]/20 to-transparent" />
-                  {/* Official Emblem Trust Badge */}
-                  <div className="absolute top-4 right-4 z-20 bg-white/95 dark:bg-[#071F14]/90 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-lg border border-black/5 dark:border-white/15 flex items-center gap-2">
-                    <div className="w-8 h-8 relative flex-shrink-0">
+                  {/* Official Emblem Trust Badge with Slogan */}
+                  <div className="absolute top-4 right-4 z-20 bg-white/95 dark:bg-[#071F14]/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-black/5 dark:border-white/15 flex items-center gap-2.5">
+                    <div className="w-10 h-10 relative flex-shrink-0">
                       <Image
-                        src="/images/logo/jps-emblem.png"
-                        alt="JPS Official Emblem"
-                        width={32}
-                        height={32}
+                        src="/images/logo/jps-logo-full.png"
+                        alt="JPS Official Emblem with Slogan"
+                        width={40}
+                        height={36}
                         className="w-full h-full object-contain"
                       />
                     </div>
                     <div className="text-left">
-                      <p className="text-[10px] font-bold text-[#123B2A] dark:text-[#B8CBA5] leading-none">एक जुर्रत... एक ज़रूरत</p>
+                      <p className="text-[11px] font-bold text-[#123B2A] dark:text-[#B8CBA5] leading-none">एक जुर्रत... एक ज़रूरत</p>
                       <p className="text-[9px] text-[#795943] dark:text-white/70 font-medium leading-tight mt-0.5">Regd. NGO E-30004</p>
                     </div>
                   </div>
@@ -213,14 +221,20 @@ export default function HomeContent() {
           <ScrollReveal direction="up">
             <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
               <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A] dark:bg-[#B8CBA5]/20 dark:text-[#B8CBA5] border border-[#123B2A]/10 dark:border-[#B8CBA5]/30">
-                {hp.programsHeader.badge}
+                {language === "hi" ? t("hpProgBadge") : hp.programsHeader.badge}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#123B2A] dark:text-white">
-                {hp.programsHeader.headingStart}{" "}
-                <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.programsHeader.headingItalic}</span>
+                {language === "hi" ? (
+                  <span>{t("hpProgHeading")}</span>
+                ) : (
+                  <>
+                    {hp.programsHeader.headingStart}{" "}
+                    <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.programsHeader.headingItalic}</span>
+                  </>
+                )}
               </h2>
               <p className="text-xs sm:text-sm text-[#17231C]/80 dark:text-[#F7F5EC]/80 font-light leading-relaxed">
-                {hp.programsHeader.description}
+                {language === "hi" ? t("hpProgDesc") : hp.programsHeader.description}
               </p>
             </div>
           </ScrollReveal>
@@ -240,16 +254,16 @@ export default function HomeContent() {
                       />
                       <div className="absolute top-3 left-3">
                         <span className="badge-pill bg-[#123B2A] text-[#B8CBA5] dark:bg-[#071F14]/90 backdrop-blur-sm text-[10px] border border-white/10">
-                          {prog.stats || "Active Program"}
+                          {language === "hi" ? t(`prog${idx + 1}Badge`) : (prog.stats || "Active Program")}
                         </span>
                       </div>
                     </div>
                     <div className="p-6 space-y-2">
                       <h3 className="font-serif text-xl font-normal text-[#123B2A] dark:text-white group-hover:text-[#1D5139] dark:group-hover:text-[#B8CBA5] transition-colors">
-                        {prog.title}
+                        {language === "hi" ? (prog.hindiTitle || t(`prog${idx + 1}Title`)) : prog.title}
                       </h3>
                       <p className="text-xs text-[#17231C]/75 dark:text-[#F7F5EC]/75 font-light leading-relaxed line-clamp-3">
-                        {prog.description}
+                        {language === "hi" ? t(`prog${idx + 1}Desc`) : prog.description}
                       </p>
                     </div>
                   </div>
@@ -258,7 +272,7 @@ export default function HomeContent() {
                       href={`/our-work#${prog.id}`}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1D5139] dark:text-[#B8CBA5] group-hover:underline"
                     >
-                      <span>Explore Program</span>
+                      <span>{language === "hi" ? "कार्यक्रम विस्तार देखें" : "Explore Program"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
@@ -286,42 +300,48 @@ export default function HomeContent() {
               <div className="lg:col-span-8 space-y-4">
                 <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A] dark:bg-[#B8CBA5]/20 dark:text-[#B8CBA5] border border-[#123B2A]/10 dark:border-[#B8CBA5]/30">
                   <TreePine className="w-3.5 h-3.5 text-[#E28723]" />
-                  {hp.natureSection.badge}
+                  {language === "hi" ? t("hpNatureBadge") : hp.natureSection.badge}
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-[#123B2A] dark:text-white">
-                  {hp.natureSection.headingStart}{" "}
-                  <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.natureSection.headingItalic}</span>
+                  {language === "hi" ? (
+                    <span>{t("hpNatureHeading")}</span>
+                  ) : (
+                    <>
+                      {hp.natureSection.headingStart}{" "}
+                      <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.natureSection.headingItalic}</span>
+                    </>
+                  )}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#17231C]/85 dark:text-[#F7F5EC]/85 font-light leading-relaxed max-w-2xl">
-                  {hp.natureSection.description}
+                  {language === "hi" ? t("hpNatureDesc") : hp.natureSection.description}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                   <div className="p-3.5 rounded-2xl bg-[#F7F5EC] dark:bg-[#123B2A]/80 border border-[#123B2A]/10 dark:border-[#B8CBA5]/20">
                     <TreePine className="w-4 h-4 text-[#E28723] mb-1" />
                     <span className="font-serif text-sm font-semibold text-[#123B2A] dark:text-white block">
-                      {hp.natureSection.card1Title}
+                      {language === "hi" ? t("hpNatureCard1Title") : hp.natureSection.card1Title}
                     </span>
                     <span className="text-[11px] text-[#17231C]/70 dark:text-[#F7F5EC]/70">
-                      {hp.natureSection.card1Desc}
+                      {language === "hi" ? t("hpNatureCard1Desc") : hp.natureSection.card1Desc}
                     </span>
                   </div>
                   <div className="p-3.5 rounded-2xl bg-[#F7F5EC] dark:bg-[#123B2A]/80 border border-[#123B2A]/10 dark:border-[#B8CBA5]/20">
                     <Leaf className="w-4 h-4 text-[#1D5139] dark:text-[#B8CBA5] mb-1" />
                     <span className="font-serif text-sm font-semibold text-[#123B2A] dark:text-white block">
-                      {hp.natureSection.card2Title}
+                      {language === "hi" ? t("hpNatureCard2Title") : hp.natureSection.card2Title}
                     </span>
                     <span className="text-[11px] text-[#17231C]/70 dark:text-[#F7F5EC]/70">
-                      {hp.natureSection.card2Desc}
+                      {language === "hi" ? t("hpNatureCard2Desc") : hp.natureSection.card2Desc}
                     </span>
                   </div>
                   <div className="p-3.5 rounded-2xl bg-[#F7F5EC] dark:bg-[#123B2A]/80 border border-[#123B2A]/10 dark:border-[#B8CBA5]/20">
                     <Droplets className="w-4 h-4 text-[#1D5139] dark:text-[#B8CBA5] mb-1" />
                     <span className="font-serif text-sm font-semibold text-[#123B2A] dark:text-white block">
-                      {hp.natureSection.card3Title}
+                      {language === "hi" ? t("hpNatureCard3Title") : hp.natureSection.card3Title}
                     </span>
                     <span className="text-[11px] text-[#17231C]/70 dark:text-[#F7F5EC]/70">
-                      {hp.natureSection.card3Desc}
+                      {language === "hi" ? t("hpNatureCard3Desc") : hp.natureSection.card3Desc}
                     </span>
                   </div>
                 </div>
@@ -331,7 +351,7 @@ export default function HomeContent() {
                     href={hp.natureSection.actionBtnHref || "/nature"}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all"
                   >
-                    <span>{hp.natureSection.actionBtnText}</span>
+                    <span>{language === "hi" ? "पर्यावरण अभियान देखें" : hp.natureSection.actionBtnText}</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -377,14 +397,20 @@ export default function HomeContent() {
               <ScrollReveal direction="left" duration={800}>
                 <div className="space-y-5">
                   <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold">
-                    {hp.crisisSection.badge}
+                    {language === "hi" ? t("hpCrisisBadge") : hp.crisisSection.badge}
                   </span>
                   <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-tight text-[#123B2A] dark:text-white">
-                    {hp.crisisSection.headingStart}{" "}
-                    <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.crisisSection.headingItalic}</span>
+                    {language === "hi" ? (
+                      <span>{t("hpCrisisHeading")}</span>
+                    ) : (
+                      <>
+                        {hp.crisisSection.headingStart}{" "}
+                        <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.crisisSection.headingItalic}</span>
+                      </>
+                    )}
                   </h2>
                   <p className="text-sm text-[#17231C]/85 dark:text-[#F7F5EC]/85 font-light leading-relaxed max-w-xl">
-                    {hp.crisisSection.description}
+                    {language === "hi" ? t("hpCrisisDesc") : hp.crisisSection.description}
                   </p>
                   <div className="flex flex-wrap items-center gap-3 pt-2">
                     <a
@@ -392,13 +418,13 @@ export default function HomeContent() {
                       className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
                     >
                       <Phone className="w-4 h-4" />
-                      <span>{hp.crisisSection.helplineBtnText}</span>
+                      <span>{language === "hi" ? t("hpCrisisCallBtn") : hp.crisisSection.helplineBtnText}</span>
                     </a>
                     <Link
                       href={hp.crisisSection.secondaryBtnHref || "/impact"}
                       className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-[#123B2A] dark:text-[#F7F5EC] text-xs font-semibold tracking-wide border border-[#123B2A]/10 dark:border-white/20 transition-all"
                     >
-                      {hp.crisisSection.secondaryBtnText}
+                      {language === "hi" ? "राहत कार्य विवरण" : hp.crisisSection.secondaryBtnText}
                     </Link>
                   </div>
                 </div>
@@ -447,14 +473,20 @@ export default function HomeContent() {
               <div className="max-w-2xl space-y-3">
                 <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold">
                   <Palette className="w-3.5 h-3.5" />
-                  {hp.artSpotlight.badge}
+                  {language === "hi" ? t("hpArtBadge") : hp.artSpotlight.badge}
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-[#123B2A] dark:text-white">
-                  {hp.artSpotlight.headingStart}{" "}
-                  <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.artSpotlight.headingItalic}</span>
+                  {language === "hi" ? (
+                    <span>{t("hpArtHeading")}</span>
+                  ) : (
+                    <>
+                      {hp.artSpotlight.headingStart}{" "}
+                      <span className="italic text-[#1D5139] dark:text-[#B8CBA5]">{hp.artSpotlight.headingItalic}</span>
+                    </>
+                  )}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#17231C]/85 dark:text-[#F7F5EC]/85 font-light leading-relaxed">
-                  {hp.artSpotlight.description}
+                  {language === "hi" ? t("hpArtDesc") : hp.artSpotlight.description}
                 </p>
               </div>
 
@@ -463,7 +495,7 @@ export default function HomeContent() {
                   href={hp.artSpotlight.ctaBtnHref || "/art-store"}
                   className="px-6 py-3.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs sm:text-sm font-bold tracking-wide shadow-lg transition-all inline-flex items-center gap-2"
                 >
-                  <span>{hp.artSpotlight.ctaBtnText}</span>
+                  <span>{language === "hi" ? "कलाकृतियां देखें" : hp.artSpotlight.ctaBtnText}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -509,7 +541,7 @@ export default function HomeContent() {
                         {art.impact && (
                           <div className="p-2.5 rounded-xl bg-[#E8F5E9] dark:bg-[#06180F] border border-[#2E7D32]/35 dark:border-[#2E7D32]/60 text-[11px] leading-snug shadow-sm">
                             <span className="font-bold text-[#1B5E20] dark:text-[#A5D6A7] block text-[10px] uppercase tracking-wide">
-                              Direct Welfare Impact:
+                              {language === "hi" ? "प्रत्यक्ष कल्याणकारी प्रभाव:" : "Direct Welfare Impact:"}
                             </span>
                             <span className="text-[#143E2B] dark:text-[#F1F8E9] font-medium text-[11px]">
                               {art.impact}
@@ -523,7 +555,7 @@ export default function HomeContent() {
                         href="/art-store"
                         className="w-full py-2.5 rounded-xl bg-[#123B2A] hover:bg-[#1D5139] text-white text-xs font-bold text-center block transition-all shadow-sm"
                       >
-                        Acquire Artwork • ₹{art.price.toLocaleString("en-IN")}
+                        {language === "hi" ? `कला सहयोग • ₹${art.price.toLocaleString("en-IN")}` : `Acquire Artwork • ₹${art.price.toLocaleString("en-IN")}`}
                       </Link>
                     </div>
                   </div>
@@ -570,14 +602,20 @@ export default function HomeContent() {
 
             <div className="relative z-10 max-w-xl space-y-2">
               <span className="text-xs uppercase tracking-wider text-[#B8CBA5] font-bold">
-                {hp.volunteerCta.eyebrow}
+                {language === "hi" ? t("hpVolEyebrow") : hp.volunteerCta.eyebrow}
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal">
-                {hp.volunteerCta.headingStart}{" "}
-                <span className="italic text-[#B8CBA5]">{hp.volunteerCta.headingItalic}</span>
+                {language === "hi" ? (
+                  <span>{t("hpVolHeading")}</span>
+                ) : (
+                  <>
+                    {hp.volunteerCta.headingStart}{" "}
+                    <span className="italic text-[#B8CBA5]">{hp.volunteerCta.headingItalic}</span>
+                  </>
+                )}
               </h3>
               <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light leading-relaxed">
-                {hp.volunteerCta.description}
+                {language === "hi" ? t("hpVolDesc") : hp.volunteerCta.description}
               </p>
             </div>
 
@@ -586,13 +624,13 @@ export default function HomeContent() {
                 href={hp.volunteerCta.primaryBtnHref || "/get-involved"}
                 className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all"
               >
-                {hp.volunteerCta.primaryBtnText}
+                {language === "hi" ? t("hpVolBtnJoin") : hp.volunteerCta.primaryBtnText}
               </Link>
               <Link
                 href={hp.volunteerCta.secondaryBtnHref || "/donate"}
                 className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/25 transition-all"
               >
-                {hp.volunteerCta.secondaryBtnText}
+                {language === "hi" ? t("hpVolBtnDonate") : hp.volunteerCta.secondaryBtnText}
               </Link>
             </div>
           </div>

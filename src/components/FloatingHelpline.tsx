@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Phone, ArrowUp, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingHelpline() {
   const pathname = usePathname();
+  const { language } = useLanguage();
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   if (pathname?.startsWith("/admin")) {
@@ -41,7 +43,7 @@ export default function FloatingHelpline() {
           aria-label="Direct WhatsApp Support"
         >
           <span className="hidden sm:inline text-xs font-semibold tracking-wide text-[#F7F5EC] group-hover:text-white">
-            WhatsApp Support
+            {language === "hi" ? "व्हाट्सएप सहायता" : "WhatsApp Support"}
           </span>
           <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0 shadow">
             <MessageCircle className="w-4 h-4 fill-white" />

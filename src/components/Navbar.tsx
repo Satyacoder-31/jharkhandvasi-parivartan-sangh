@@ -83,20 +83,20 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
-          {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM */}
+          {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM & SLOGAN */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div
-              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 ${
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-0.5 ${
                 isScrolled
                   ? "bg-white dark:bg-[#123B2A] border border-[#123B2A]/15 dark:border-white/20"
                   : "bg-white/95 text-white border border-white/40 backdrop-blur-md"
               }`}
             >
               <Image
-                src="/images/logo/jps-emblem.png"
-                alt="Jharkhandvasi Parivartan Sangh Official Emblem"
-                width={40}
-                height={40}
+                src="/images/logo/jps-logo-full.png"
+                alt="Jharkhandvasi Parivartan Sangh Official Logo with Slogan"
+                width={48}
+                height={44}
                 priority
                 className="w-full h-full object-contain"
               />
@@ -115,7 +115,10 @@ export default function Navbar() {
                   isScrolled ? "text-[#123B2A]/85 dark:text-[#F7F5EC]/85" : "text-white/95 drop-shadow-sm"
                 }`}
               >
-                {language === "hi" ? "झारखंडवासी परिवर्तन संघ" : "Parivartan Sangh"}
+                {language === "hi" ? "झारखंडवासी परिवर्तन संघ" : "Jharkhandvasi Parivartan Sangh"}
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-bold text-[#E28723] leading-none mt-0.5 block">
+                एक जुर्रत... एक ज़रूरत
               </span>
             </div>
           </Link>
@@ -247,12 +250,12 @@ export default function Navbar() {
               {/* Drawer Top Row with Official Emblem */}
               <div className="flex items-center justify-between pb-4 border-b border-[#123B2A]/10 dark:border-white/10">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-white p-1 border border-[#123B2A]/20 shadow flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-white p-1 border border-[#123B2A]/20 shadow flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/logo/jps-emblem.png"
-                      alt="JPS Logo"
-                      width={36}
-                      height={36}
+                      src="/images/logo/jps-logo-full.png"
+                      alt="JPS Logo with Slogan"
+                      width={48}
+                      height={44}
                       className="w-full h-full object-contain"
                     />
                   </div>

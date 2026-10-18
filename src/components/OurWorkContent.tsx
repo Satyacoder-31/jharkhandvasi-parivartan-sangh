@@ -16,9 +16,11 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function OurWorkContent() {
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const programs = content.programs || [];
   const organization = content.organization;
 
@@ -40,25 +42,31 @@ export default function OurWorkContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-              Grassroots Impact Pillars
+              {language === "hi" ? "जमीनी सेवा स्तंभ" : "Grassroots Impact Pillars"}
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-              Our Work & <span className="italic text-[#B8CBA5]">Social Welfare</span> Programs
+              {language === "hi" ? (
+                <>हमारे कार्य एवं <span className="italic text-[#B8CBA5]">समाज कल्याण</span> कार्यक्रम</>
+              ) : (
+                <>Our Work & <span className="italic text-[#B8CBA5]">Social Welfare</span> Programs</>
+              )}
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              Six dedicated areas of grassroots intervention addressing migrant vulnerability, healthcare access, child literacy, women&apos;s resilience, and tribal cultural preservation.
+              {language === "hi"
+                ? "प्रवासी संकट, स्वास्थ्य सेवा, बाल साक्षरता, महिला संबल और आदिवासी सांस्कृतिक संरक्षण को समर्पित छह प्रमुख जनकल्याणकारी क्षेत्र।"
+                : "Six dedicated areas of grassroots intervention addressing migrant vulnerability, healthcare access, child literacy, women's resilience, and tribal cultural preservation."}
             </p>
           </div>
 
           {/* Quick Anchor Navigation Strip */}
           <div className="flex flex-wrap gap-2 pt-8">
-            {programs.map((p) => (
+            {programs.map((p, idx) => (
               <a
                 key={p.id}
                 href={`#${p.id}`}
                 className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-[#F7F5EC] text-xs font-semibold tracking-wide border border-white/15 transition-all"
               >
-                {p.title.split("&")[0]}
+                {language === "hi" ? (t(`prog${idx + 1}Badge`) || p.title.split("&")[0]) : p.title.split("&")[0]}
               </a>
             ))}
           </div>
@@ -107,15 +115,15 @@ export default function OurWorkContent() {
                 >
                   <div>
                     <span className="text-xs uppercase tracking-wider text-[#E28723] font-bold block mb-1">
-                      Program Pillar 0{idx + 1}
+                      {language === "hi" ? `सेवा स्तंभ 0${idx + 1}` : `Program Pillar 0${idx + 1}`}
                     </span>
                     <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#123B2A]">
-                      {program.title}
+                      {language === "hi" ? (t(`prog${idx + 1}Title`) || program.title) : program.title}
                     </h2>
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#17231C]/80 font-light leading-relaxed">
-                    {program.overview || program.description}
+                    {language === "hi" ? (t(`prog${idx + 1}Desc`) || program.overview || program.description) : (program.overview || program.description)}
                   </p>
 
                   {/* Emergency Assistance Panel for Migrants */}
@@ -124,10 +132,12 @@ export default function OurWorkContent() {
                       <Phone className="w-5 h-5 text-[#1D5139] dark:text-[#B8CBA5] flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-[#123B2A] dark:text-[#F7F5EC]">
                         <strong className="block text-[#1D5139] dark:text-[#E28723] font-bold">
-                          24/7 Migrant Distress Helpline: {organization.secondaryPhone || "+91 90222 88222"}
+                          {language === "hi" ? "24/7 प्रवासी संकट हेल्पलाइन:" : "24/7 Migrant Distress Helpline:"} {organization.secondaryPhone || "+91 90222 88222"}
                         </strong>
                         <span className="text-[#17231C]/90 dark:text-[#F7F5EC]/85">
-                          Our emergency response protocol is active day and night for hospital casualties, accidents, or urgent repatriation coordination.
+                          {language === "hi"
+                            ? "अस्पताल आपातकाल, दुर्घटना या सुरक्षित गृह वापसी के लिए हमारी राहत डेस्क दिन-रात सक्रिय है।"
+                            : "Our emergency response protocol is active day and night for hospital casualties, accidents, or urgent repatriation coordination."}
                         </span>
                       </div>
                     </div>
@@ -136,7 +146,7 @@ export default function OurWorkContent() {
                   {((program.activities && program.activities.length > 0) || (program.bullets && program.bullets.length > 0)) && (
                     <div className="space-y-2">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#123B2A]">
-                        Core Interventions:
+                        {language === "hi" ? "प्रमुख कार्य एवं गतिविधियां:" : "Core Interventions:"}
                       </h4>
                       <ul className="space-y-1.5 text-xs text-[#17231C]/80 font-light">
                         {(program.activities || program.bullets || []).map((act, i) => (
@@ -151,7 +161,7 @@ export default function OurWorkContent() {
 
                   {program.beneficiaries && (
                     <div className="p-3 rounded-xl bg-[#F7F5EC] border border-[#123B2A]/10 text-xs text-[#17231C]/85">
-                      <strong>Target Beneficiaries:</strong> {program.beneficiaries}
+                      <strong>{language === "hi" ? "लक्षित लाभार्थी:" : "Target Beneficiaries:"}</strong> {program.beneficiaries}
                     </div>
                   )}
 
@@ -160,14 +170,14 @@ export default function OurWorkContent() {
                       href={program.cta?.href || "/contact"}
                       className="px-6 py-2.5 rounded-full bg-[#123B2A] hover:bg-[#1D5139] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-1.5"
                     >
-                      <span>{program.cta?.text || "Connect With Program"}</span>
+                      <span>{language === "hi" ? "इस कार्यक्रम से जुड़ें" : (program.cta?.text || "Connect With Program")}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <Link
                       href="/donate"
                       className="text-xs font-semibold text-[#795943] hover:underline"
                     >
-                      Support this initiative →
+                      {language === "hi" ? "इस कार्य में सहयोग दें →" : "Support this initiative →"}
                     </Link>
                   </div>
                 </div>
@@ -181,10 +191,12 @@ export default function OurWorkContent() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-[#123B2A] text-white rounded-3xl p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4">
           <h3 className="font-serif text-2xl sm:text-3xl font-normal">
-            Need Direct Community Assistance?
+            {language === "hi" ? "क्या आपको या किसी परिचित को सहायता की आवश्यकता है?" : "Need Direct Community Assistance?"}
           </h3>
           <p className="text-xs sm:text-sm text-[#F7F5EC]/80 font-light leading-relaxed max-w-lg mx-auto">
-            Our volunteers in Borivali West and across Mumbai are available to listen, advise, and intervene. Reach out through our verified channels.
+            {language === "hi"
+              ? "बोरीवली पश्चिम और मुंबई संभाग में हमारे स्वयंसेवक सुनने, सलाह देने और सहायता करने हेतु सदैव तत्पर हैं।"
+              : "Our volunteers in Borivali West and across Mumbai are available to listen, advise, and intervene. Reach out through our verified channels."}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
@@ -192,13 +204,13 @@ export default function OurWorkContent() {
               className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              <span>Call Helpline: {organization.primaryPhone || "+91 90222 88222"}</span>
+              <span>{language === "hi" ? "हेल्पलाइन कॉल:" : "Call Helpline:"} {organization.primaryPhone || "+91 90222 88222"}</span>
             </a>
             <Link
               href="/contact"
               className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/20 transition-all"
             >
-              Write To Our Office
+              {language === "hi" ? "कार्यालय को संदेश भेजें" : "Write To Our Office"}
             </Link>
           </div>
         </div>

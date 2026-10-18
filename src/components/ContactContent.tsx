@@ -18,9 +18,11 @@ import {
 import OfficeAddressesView from "@/components/OfficeAddressesView";
 import ContactForm from "@/components/ContactForm";
 import { useSiteContent } from "@/context/SiteContentContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactContent() {
   const { content } = useSiteContent();
+  const { language, t } = useLanguage();
   const organization = content.organization;
   const rawPhone = organization.primaryPhone.replace(/[^0-9]/g, "");
 
@@ -43,17 +45,19 @@ export default function ContactContent() {
           <div className="max-w-3xl space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-                Official Offices &amp; Helplines
+                {language === "hi" ? "आधिकारिक कार्यालय एवं हेल्पलाइन" : "Official Offices & Helplines"}
               </span>
               <span className="text-xs text-[#E28723] font-semibold tracking-wider">
-                Mumbai • Giridih
+                {language === "hi" ? "मुंबई • गिरिडीह" : "Mumbai • Giridih"}
               </span>
             </div>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-              Get in Touch with <span className="italic text-[#B8CBA5]">Our Offices</span>
+              {language === "hi" ? t("contactHeadline") : <>Get in Touch with <span className="italic text-[#B8CBA5]">Our Offices</span></>}
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              We operate a 24/7 emergency response network for migrant workers and families, alongside our registered central office in Borivali West, Mumbai and branch in Giridih, Jharkhand.
+              {language === "hi"
+                ? t("contactSubheadline")
+                : "We operate a 24/7 emergency response network for migrant workers and families, alongside our registered central office in Borivali West, Mumbai and branch in Giridih, Jharkhand."}
             </p>
           </div>
         </div>
@@ -67,14 +71,16 @@ export default function ContactContent() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
               <span className="text-xs font-bold uppercase tracking-wider text-white">
-                24-Hour Emergency Intervention Protocol
+                {language === "hi" ? t("contactEmergencyTitle") : "24-Hour Emergency Intervention Protocol"}
               </span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-normal">
-              Facing Immediate Medical or Distress Crisis?
+              {language === "hi" ? t("contactEmergencyHeading") : "Facing Immediate Medical or Distress Crisis?"}
             </h3>
             <p className="text-xs sm:text-sm text-white/90 font-light leading-relaxed">
-              For urgent hospital assistance, industrial trauma, or emergency travel coordination, please dial our dedicated emergency helpline directly.
+              {language === "hi"
+                ? t("contactEmergencyDesc")
+                : "For urgent hospital assistance, industrial trauma, or emergency travel coordination, please dial our dedicated emergency helpline directly."}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -83,7 +89,7 @@ export default function ContactContent() {
               className="px-6 py-3.5 rounded-full bg-[#123B2A] hover:bg-[#1D5139] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-[#E28723]" />
-              <span>Call {organization.primaryPhone || "+91 78080 08058"}</span>
+              <span>{language === "hi" ? "कॉल करें:" : "Call"} {organization.primaryPhone || "+91 78080 08058"}</span>
             </a>
             <a
               href={`https://wa.me/${rawPhone || "917808008058"}?text=Emergency%20Assistance%20Requested`}
@@ -92,7 +98,7 @@ export default function ContactContent() {
               className="px-6 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold tracking-wide border border-white/30 transition-all flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Helpline</span>
+              <span>{language === "hi" ? "व्हाट्सएप हेल्पलाइन" : "WhatsApp Helpline"}</span>
             </a>
           </div>
         </div>
@@ -105,10 +111,10 @@ export default function ContactContent() {
           <div className="lg:col-span-5 space-y-6">
             <div>
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A] mb-2">
-                Official Locations ({organization.offices?.length || 2})
+                {language === "hi" ? `आधिकारिक कार्यालय (${organization.offices?.length || 2})` : `Official Locations (${organization.offices?.length || 2})`}
               </span>
               <h2 className="font-serif text-3xl font-normal text-[#123B2A]">
-                Headquarters &amp; Communications
+                {language === "hi" ? "मुख्यालय एवं आधिकारिक पते" : "Headquarters & Communications"}
               </h2>
             </div>
 
@@ -119,13 +125,15 @@ export default function ContactContent() {
           <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-[#123B2A]/10 shadow-sm space-y-6">
             <div className="space-y-1">
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-                Direct Query Intake
+                {language === "hi" ? "सीधा संदेश" : "Direct Query Intake"}
               </span>
               <h3 className="font-serif text-2xl font-normal text-[#123B2A]">
-                Send an Online Message to Our Office
+                {language === "hi" ? t("contactFormTitle") : "Send an Online Message to Our Office"}
               </h3>
               <p className="text-xs text-[#17231C]/75 font-light">
-                Fill in your details below. For urgent matters, our coordination desk will call or WhatsApp you directly.
+                {language === "hi"
+                  ? "कृपया नीचे अपना विवरण भरें। तत्काल सहायता हेतु हमारे प्रतिनिधि सीधे फोन या व्हाट्सएप पर संपर्क करेंगे।"
+                  : "Fill in your details below. For urgent matters, our coordination desk will call or WhatsApp you directly."}
               </p>
             </div>
 

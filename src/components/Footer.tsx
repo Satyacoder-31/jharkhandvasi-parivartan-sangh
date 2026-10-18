@@ -73,13 +73,19 @@ export default function Footer() {
           <div className="relative z-10 p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl space-y-2">
               <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30 text-[10px]">
-                Grassroots Solidarity • Mumbai & Jharkhand
+                {language === "hi" ? "जमीनी एकजुटता • मुंबई एवं झारखंड" : "Grassroots Solidarity • Mumbai & Jharkhand"}
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
-                Together, We Turn Compassion Into <span className="italic text-[#B8CBA5]">Enduring Change.</span>
+                {language === "hi" ? (
+                  <>एक साथ मिलकर, हम सेवा को <span className="italic text-[#B8CBA5]">स्थायी बदलाव</span> में बदलते हैं।</>
+                ) : (
+                  <>Together, We Turn Compassion Into <span className="italic text-[#B8CBA5]">Enduring Change.</span></>
+                )}
               </h3>
               <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed">
-                From emergency hospital advocacy for stranded migrant workers to elderly diagnostic health camps, child study kits, and traditional tribal art preservation.
+                {language === "hi"
+                  ? "अस्पताल में असहाय प्रवासी श्रमिकों की मदद से लेकर बुजुर्ग स्वास्थ्य शिविर, बच्चों की पढ़ाई किट और आदिवासी संस्कृति का संरक्षण।"
+                  : "From emergency hospital advocacy for stranded migrant workers to elderly diagnostic health camps, child study kits, and traditional tribal art preservation."}
               </p>
             </div>
 
@@ -107,12 +113,12 @@ export default function Footer() {
           {/* Column 1: Organization Overview & Community Newsletter (4.5 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-2xl bg-white p-1 border border-[#B8CBA5]/30 shadow-md flex-shrink-0">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-1.5 border border-[#B8CBA5]/40 shadow-lg flex-shrink-0 flex items-center justify-center">
                 <Image
-                  src="/images/logo/jps-emblem.png"
-                  alt="Jharkhandvasi Parivartan Sangh Official Emblem"
-                  width={48}
-                  height={48}
+                  src="/images/logo/jps-logo-full.png"
+                  alt="Jharkhandvasi Parivartan Sangh Official Logo with Slogan"
+                  width={80}
+                  height={72}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -130,23 +136,23 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-[#F7F5EC]/75 leading-relaxed font-light">
-              Founded in 2013 under the leadership of Arvind Arya, Jharkhandvasi Parivartan Sangh (JPS) is a registered social welfare organization based in Borivali West, Mumbai. Dedicated to migrant worker protection, senior citizen healthcare, child education kits, and native forest conservation.
+              {t("footerDesc")}
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#B8CBA5] font-medium pt-1">
               <ShieldCheck className="w-4 h-4 text-[#E28723] flex-shrink-0" />
-              <span>Registered Grassroots Social Welfare Organization</span>
+              <span>{t("footerRegisteredOrg")}</span>
             </div>
 
             {/* Grassroots Newsletter / Updates Subscription */}
             <div className="mt-2 p-4 rounded-2xl bg-[#123B2A]/60 border border-[#B8CBA5]/20 space-y-2.5">
               <span className="text-[11px] font-semibold text-[#B8CBA5] block">
-                Stay Connected With Field Updates
+                {t("footerStayConnected")}
               </span>
               {subscribed ? (
                 <div className="flex items-center gap-2 text-xs text-[#B8CBA5] bg-[#1D5139]/60 p-2.5 rounded-xl border border-[#B8CBA5]/30">
                   <CheckCircle2 className="w-4 h-4 text-[#E28723]" />
-                  <span>Thank you! You are subscribed to JPS community bulletins.</span>
+                  <span>{t("footerSubscribeSuccess")}</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -154,7 +160,7 @@ export default function Footer() {
                     type="email"
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="Enter email for updates..."
+                    placeholder={t("footerSubscribePlaceholder")}
                     required
                     className="flex-1 px-3 py-2 text-xs rounded-xl bg-black/30 border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#B8CBA5]"
                   />
@@ -179,7 +185,7 @@ export default function Footer() {
                 className="px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-xs text-[#B8CBA5] hover:text-white transition-colors border border-white/10 flex items-center gap-1.5"
                 aria-label="Official Facebook Page"
               >
-                <span>Facebook Community</span>
+                <span>{language === "hi" ? "फेसबुक समुदाय" : "Facebook Community"}</span>
                 <ExternalLink className="w-3 h-3 opacity-60" />
               </a>
               <a
@@ -189,7 +195,7 @@ export default function Footer() {
                 className="px-3 py-1.5 rounded-full bg-[#25D366]/20 hover:bg-[#25D366]/30 text-xs text-white transition-colors border border-[#25D366]/40 flex items-center gap-1.5"
                 aria-label="Official WhatsApp Helpline"
               >
-                <span>WhatsApp Helpline</span>
+                <span>{language === "hi" ? "व्हाट्सएप हेल्पलाइन" : "WhatsApp Helpline"}</span>
                 <ExternalLink className="w-3 h-3 opacity-60" />
               </a>
             </div>
@@ -198,7 +204,7 @@ export default function Footer() {
           {/* Column 2: Navigation Links (2.5 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              {language === "hi" ? "त्वरित लिंक" : "Quick Links"}
+              {t("footerQuickLinks")}
             </h5>
             <ul className="flex flex-col gap-2.5 text-xs text-[#F7F5EC]/80 font-light">
               <li>
@@ -230,7 +236,9 @@ export default function Footer() {
                 <Link href="/events" className="hover:text-white transition-colors">{t("navEvents")}</Link>
               </li>
               <li>
-                <Link href="/resources" className="hover:text-white transition-colors">Resources &amp; News</Link>
+                <Link href="/resources" className="hover:text-white transition-colors">
+                  {language === "hi" ? "संसाधन व समाचार" : "Resources & News"}
+                </Link>
               </li>
               <li>
                 <Link href="/get-involved" className="hover:text-white transition-colors">{t("navGetInvolved")}</Link>
@@ -241,42 +249,42 @@ export default function Footer() {
           {/* Column 3: Core Causes (2.5 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              Core Programs
+              {t("footerCorePrograms")}
             </h5>
             <ul className="flex flex-col gap-2.5 text-xs text-[#F7F5EC]/80 font-light">
               <li>
                 <Link href="/our-work#migrants" className="hover:text-white transition-colors">
-                  Migrant Crisis Support & Hospital Aid
+                  {t("prog1Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/our-work#seniors" className="hover:text-white transition-colors">
-                  Senior Citizen Health & Geriatric Care
+                  {t("prog2Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/our-work#education" className="hover:text-white transition-colors">
-                  Child Protection & Education Kits
+                  {t("prog3Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/our-work#health" className="hover:text-white transition-colors">
-                  Free Medical & Diagnostic Health Camps
+                  {t("prog4Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/our-work#women" className="hover:text-white transition-colors">
-                  Women & Family Welfare Relief
+                  {t("prog5Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/our-work#culture" className="hover:text-white transition-colors">
-                  Tribal Heritage & Martyr Tributes
+                  {t("prog6Title")}
                 </Link>
               </li>
               <li>
                 <Link href="/nature#reforestation" className="hover:text-white transition-colors">
-                  Native Sal Reforestation & Sapling Drives
+                  {language === "hi" ? "देशी साल वृक्षारोपण एवं नर्सरी" : "Native Sal Reforestation & Sapling Drives"}
                 </Link>
               </li>
             </ul>
@@ -285,18 +293,19 @@ export default function Footer() {
           {/* Column 4: Verified Contact & Helpline (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h5 className="font-serif text-sm font-semibold text-white tracking-wider uppercase text-[#B8CBA5]">
-              Contact &amp; Official Offices
+              {t("footerContactOffices")}
             </h5>
             <div className="flex flex-col gap-3.5 text-xs text-[#F7F5EC]/80 font-light">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block font-medium">
-                    {content.organization.offices[0]?.title || "Registered Head Office (Mumbai)"}:
+                    {language === "hi" ? t("footerHeadOffice") : content.organization.offices[0]?.title || "Registered Head Office (Mumbai)"}:
                   </strong>
                   <span>
-                    {content.organization.offices[0]?.address ||
-                      "32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai-400091"}
+                    {language === "hi"
+                      ? "32 नालंदा सोसाइटी, आस्था डेयरी के पास, गली नं-1, गोराई-1, बोरीवली (प.), मुंबई-400091"
+                      : (content.organization.offices[0]?.address || "32 Nalanda Society, Near Aastha Dairy, Galli No-1, Gorai-1, Borivali (West), Mumbai-400091")}
                   </span>
                 </div>
               </div>
@@ -304,11 +313,12 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block font-medium">
-                    {content.organization.offices[1]?.title || "Branch Office (Giridih)"}:
+                    {language === "hi" ? t("footerBranchOffice") : content.organization.offices[1]?.title || "Branch Office (Giridih)"}:
                   </strong>
                   <span>
-                    {content.organization.offices[1]?.address ||
-                      "DK Traders, Buxidih Road, Near Burman Decorator, Giridih, Jharkhand - 815301"}
+                    {language === "hi"
+                      ? "डीके ट्रेडर्स, बक्सीडीह रोड, बर्मन डेकोरेटर के पास, गिरिडीह, झारखंड - 815301"
+                      : (content.organization.offices[1]?.address || "DK Traders, Buxidih Road, Near Burman Decorator, Giridih, Jharkhand - 815301")}
                   </span>
                 </div>
               </div>
@@ -319,9 +329,9 @@ export default function Footer() {
                     {content.organization.primaryPhone}
                   </a>
                   <a href={`tel:${content.organization.secondaryPhone}`} className="text-[#F7F5EC]/90 text-[11px] hover:text-white block">
-                    Alt Helpline: {content.organization.secondaryPhone}
+                    {language === "hi" ? "अतिरिक्त हेल्पलाइन:" : "Alt Helpline:"} {content.organization.secondaryPhone}
                   </a>
-                  <span className="text-[10px] text-[#B8CBA5]">24/7 Registered Community &amp; Crisis Helpline</span>
+                  <span className="text-[10px] text-[#B8CBA5]">{t("footerHelplineLabel")}</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
@@ -340,7 +350,7 @@ export default function Footer() {
             <div className="mt-2 pt-3 border-t border-white/10 space-y-1.5 text-[11px] text-[#B8CBA5]/90">
               <div className="flex items-center gap-1.5 text-white font-medium">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#E28723]" />
-                <span>Reg. No: {content.organization.regNo}</span>
+                <span>{language === "hi" ? "पंजीकरण संख्या" : "Reg. No"}: {content.organization.regNo}</span>
               </div>
               <div className="text-[10px] text-[#F7F5EC]/70">
                 80G: {content.organization.bankDetails.taxExemption} | PAN: {content.organization.bankDetails.pan}
@@ -350,7 +360,7 @@ export default function Footer() {
                   href="/donate"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-[#E28723] hover:underline mt-1"
                 >
-                  <span>Bank &amp; 80G Tax Exemption Details</span>
+                  <span>{t("footerTaxNotice")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -361,26 +371,28 @@ export default function Footer() {
         {/* 3. BOTTOM STRIP WITH BACK-TO-TOP & ADMIN PORTAL LINK */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F5EC]/60 font-light">
           <div>
-            © 2005–2026 {content.organization.hindiName} (रजि.) | {content.organization.tagline}
+            {language === "hi"
+              ? `© 2005–2026 झारखंडवासी परिवर्तन संघ (रजि.) | सेवा से परिवर्तन की ओर`
+              : `© 2005–2026 ${content.organization.name} (Regd.) | ${content.organization.tagline}`}
           </div>
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
-            <Link href="/about" className="hover:text-white transition-colors">Founding Story</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Emergency Redressal</Link>
-            <Link href="/donate" className="hover:text-white transition-colors">Financial Transparency</Link>
+            <Link href="/about" className="hover:text-white transition-colors">{t("footerFoundingStory")}</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">{t("footerEmergencyRedressal")}</Link>
+            <Link href="/donate" className="hover:text-white transition-colors">{t("footerFinancialTransparency")}</Link>
             <Link
               href="/admin"
               className="inline-flex items-center gap-1.5 text-[#E28723] hover:text-[#f39c38] font-semibold transition-colors px-2.5 py-0.5 rounded-full bg-white/5 border border-[#E28723]/30"
               title="Manage website content, photos, and addresses"
             >
               <Lock className="w-3 h-3" />
-              <span>Admin Portal</span>
+              <span>{t("navAdmin")}</span>
             </Link>
             <button
               onClick={scrollToTop}
               className="inline-flex items-center gap-1 text-[#B8CBA5] hover:text-white transition-colors ml-2"
               aria-label="Back to top of page"
             >
-              <span>Back to Top</span>
+              <span>{t("footerBackToTop")}</span>
               <ChevronUp className="w-3.5 h-3.5" />
             </button>
           </div>
