@@ -457,9 +457,9 @@ export default function HomeContent() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {content.artStore.slice(0, 4).map((art, idx) => (
                 <ScrollReveal key={art.id} direction="up" delay={50 * (idx + 1)}>
-                  <div className="bg-[#FDFCF9] dark:bg-[#0D2C1F] rounded-2xl overflow-hidden border border-[#123B2A]/10 dark:border-white/10 group hover:border-[#1D5139]/40 dark:hover:border-[#B8CBA5]/40 transition-all flex flex-col justify-between h-full">
+                  <div className="bg-[#FDFCF9] dark:bg-[#0D2C1F] rounded-2xl overflow-hidden border border-[#123B2A]/10 dark:border-white/10 group hover:border-[#1D5139]/40 dark:hover:border-[#B8CBA5]/40 transition-all flex flex-col justify-between h-full shadow-sm">
                     <div>
-                      <div className="relative h-48 w-full overflow-hidden">
+                      <div className="relative h-48 w-full overflow-hidden bg-[#123B2A]">
                         <Image
                           src={art.image || "/images/art-birsa.jpg"}
                           alt={art.title}
@@ -467,30 +467,47 @@ export default function HomeContent() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           sizes="(max-width: 640px) 100vw, 25vw"
                         />
+                        <div className="absolute top-2.5 left-2.5">
+                          <span className="badge-pill bg-[#123B2A]/85 text-[#B8CBA5] backdrop-blur-sm text-[10px]">
+                            {art.categoryLabel || "Charity Art"}
+                          </span>
+                        </div>
                         <div className="absolute top-2.5 right-2.5">
                           <span className="px-2.5 py-0.5 rounded-full bg-[#E28723] text-white text-[10px] font-bold shadow">
-                            Donation: ₹{art.price.toLocaleString("en-IN")}
+                            ₹{art.price.toLocaleString("en-IN")}
                           </span>
                         </div>
                       </div>
-                      <div className="p-4 space-y-1.5">
-                        <span className="text-[10px] text-[#1D5139] dark:text-[#B8CBA5] font-semibold uppercase tracking-wider block">
-                          {art.origin || "Handmade Artwork"}
-                        </span>
-                        <h4 className="font-serif text-sm font-medium text-[#123B2A] dark:text-white group-hover:text-[#1D5139] dark:group-hover:text-[#B8CBA5] transition-colors line-clamp-1">
+                      <div className="p-4 space-y-2">
+                        {art.hindiTitle && (
+                          <span className="text-[10px] text-[#795943] dark:text-[#B8CBA5]/80 font-medium block">
+                            {art.hindiTitle}
+                          </span>
+                        )}
+                        <h4 className="font-serif text-sm font-semibold text-[#123B2A] dark:text-white group-hover:text-[#1D5139] dark:group-hover:text-[#B8CBA5] transition-colors line-clamp-1 leading-snug">
                           {art.title}
                         </h4>
                         <p className="text-[11px] text-[#17231C]/70 dark:text-[#F7F5EC]/70 line-clamp-2">
                           {art.description}
                         </p>
+                        {art.impact && (
+                          <div className="p-2.5 rounded-xl bg-[#E8F5E9] dark:bg-[#06180F] border border-[#2E7D32]/35 dark:border-[#2E7D32]/60 text-[11px] leading-snug shadow-sm">
+                            <span className="font-bold text-[#1B5E20] dark:text-[#A5D6A7] block text-[10px] uppercase tracking-wide">
+                              Direct Welfare Impact:
+                            </span>
+                            <span className="text-[#143E2B] dark:text-[#F1F8E9] font-medium text-[11px]">
+                              {art.impact}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="p-4 pt-0">
                       <Link
                         href="/art-store"
-                        className="w-full py-2 rounded-xl bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 text-[#123B2A] dark:text-[#B8CBA5] dark:hover:text-white text-xs font-semibold text-center block transition-all"
+                        className="w-full py-2.5 rounded-xl bg-[#123B2A] hover:bg-[#1D5139] text-white text-xs font-bold text-center block transition-all shadow-sm"
                       >
-                        Acquire Artwork
+                        Acquire Artwork • ₹{art.price.toLocaleString("en-IN")}
                       </Link>
                     </div>
                   </div>

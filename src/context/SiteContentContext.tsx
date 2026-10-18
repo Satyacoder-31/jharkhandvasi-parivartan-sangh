@@ -82,7 +82,10 @@ function mergeWithDefaults(parsed: any): SiteContent {
       leadership: parsed.about?.leadership || defaultSiteContent.about.leadership,
     },
     programs: parsed.programs || defaultSiteContent.programs,
-    artStore: parsed.artStore || defaultSiteContent.artStore,
+    artStore:
+      Array.isArray(parsed.artStore) && parsed.artStore.length > 0 && parsed.artStore[0].impact
+        ? parsed.artStore
+        : defaultSiteContent.artStore,
     events: parsed.events || defaultSiteContent.events,
     mediaGallery: parsed.mediaGallery || defaultSiteContent.mediaGallery,
   };

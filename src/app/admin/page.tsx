@@ -3655,15 +3655,18 @@ export default function AdminPage() {
                     onClick={() => {
                       const newArt: ArtworkData = {
                         id: `art-${Date.now()}`,
-                        title: "New Artwork / Photo Frame",
+                        title: "New Commemorative Artwork / Frame",
                         hindiTitle: "कलाकृति",
+                        category: "portrait",
+                        categoryLabel: "Official Commemorative Art",
                         artist: "Tribal Artisan Collective",
                         origin: "Jharkhand",
-                        dimensions: "18\" × 24\" Framed",
-                        medium: "Archival Canvas Print",
-                        price: 1500,
-                        description: "All proceeds support education and healthcare.",
-                        image: "/images/art/birsa-munda-frame.jpg",
+                        dimensions: '24" × 30" Custom Framed',
+                        medium: "Archival Canvas Print with Wood Mount",
+                        price: 3500,
+                        description: "Original commemorative artwork supporting education and healthcare initiatives.",
+                        impact: "Provides 10 child education kits and diagnostic health screenings for migrant workers.",
+                        image: "/images/commemorative/birsa-munda-dharti-aaba-portrait.jpg",
                         inStock: true,
                         featured: true,
                       };
@@ -3694,9 +3697,14 @@ export default function AdminPage() {
                     className="p-5 rounded-2xl bg-[#071F14] border border-[#B8CBA5]/20 space-y-4 relative"
                   >
                     <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                      <span className="badge-pill bg-[#E28723]/20 text-[#E28723] text-[10px]">
-                        ₹{art.price.toLocaleString()} • {art.inStock ? "In Stock" : "Sold Out"}
-                      </span>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] text-[10px]">
+                          {art.categoryLabel || "Charity Art"}
+                        </span>
+                        <span className="badge-pill bg-[#E28723]/20 text-[#E28723] text-[10px]">
+                          ₹{art.price.toLocaleString()} • {art.inStock ? "In Stock" : "Sold Out"}
+                        </span>
+                      </div>
                       {draft.artStore.length > 1 && (
                         <button
                           onClick={() => {
@@ -3716,20 +3724,75 @@ export default function AdminPage() {
                     </div>
 
                     <div className="space-y-3">
-                      <div>
-                        <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
-                          Artwork Title
-                        </label>
-                        <input
-                          type="text"
-                          value={art.title}
-                          onChange={(e) => {
-                            const updated = [...draft.artStore];
-                            updated[idx].title = e.target.value;
-                            setDraft({ ...draft, artStore: updated });
-                          }}
-                          className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white font-bold text-xs"
-                        />
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Artwork Title (English)
+                          </label>
+                          <input
+                            type="text"
+                            value={art.title}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].title = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white font-bold text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Hindi Title / Subtitle
+                          </label>
+                          <input
+                            type="text"
+                            value={art.hindiTitle || ""}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].hindiTitle = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Category (Catalog Filter)
+                          </label>
+                          <select
+                            value={art.category || "portrait"}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].category = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                          >
+                            <option value="portrait">Commemorative Portrait (portrait)</option>
+                            <option value="sohrai">Traditional Sohrai Art (sohrai)</option>
+                            <option value="folk">Tribal Folk Art (folk)</option>
+                            <option value="nature">Nature Fine Art (nature)</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Category Label (Badge Text)
+                          </label>
+                          <input
+                            type="text"
+                            value={art.categoryLabel || ""}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].categoryLabel = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            placeholder="e.g. Official Commemorative Art"
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                          />
+                        </div>
                       </div>
 
                       <div className="grid grid-cols-2 gap-2.5">
@@ -3745,7 +3808,7 @@ export default function AdminPage() {
                               updated[idx].price = Number(e.target.value);
                               setDraft({ ...draft, artStore: updated });
                             }}
-                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs font-mono"
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs font-mono font-bold"
                           />
                         </div>
                         <div>
@@ -3758,6 +3821,39 @@ export default function AdminPage() {
                             onChange={(e) => {
                               const updated = [...draft.artStore];
                               updated[idx].dimensions = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Artist / Collective
+                          </label>
+                          <input
+                            type="text"
+                            value={art.artist || ""}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].artist = e.target.value;
+                              setDraft({ ...draft, artStore: updated });
+                            }}
+                            className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                            Origin / Region
+                          </label>
+                          <input
+                            type="text"
+                            value={art.origin || ""}
+                            onChange={(e) => {
+                              const updated = [...draft.artStore];
+                              updated[idx].origin = e.target.value;
                               setDraft({ ...draft, artStore: updated });
                             }}
                             className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
@@ -3778,6 +3874,41 @@ export default function AdminPage() {
                             setDraft({ ...draft, artStore: updated });
                           }}
                           className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="text-[10px] font-semibold text-[#B8CBA5] block mb-1">
+                          Artwork Description
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={art.description || ""}
+                          onChange={(e) => {
+                            const updated = [...draft.artStore];
+                            updated[idx].description = e.target.value;
+                            setDraft({ ...draft, artStore: updated });
+                          }}
+                          className="w-full px-2.5 py-1.5 rounded-lg bg-[#0A2419] border border-[#B8CBA5]/30 text-white text-xs leading-relaxed"
+                        />
+                      </div>
+
+                      {/* Highlighted Welfare Impact Box */}
+                      <div className="p-3 rounded-xl bg-[#082216] border-2 border-[#2E7D32]/50 space-y-1">
+                        <label className="text-[10px] font-bold text-[#A5D6A7] flex items-center gap-1.5">
+                          <Heart className="w-3.5 h-3.5 text-[#E28723] fill-[#E28723]" />
+                          Direct Welfare Impact (Visible on Homepage &amp; Art Store Page)
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={art.impact || ""}
+                          onChange={(e) => {
+                            const updated = [...draft.artStore];
+                            updated[idx].impact = e.target.value;
+                            setDraft({ ...draft, artStore: updated });
+                          }}
+                          placeholder="e.g. Sponsors free diagnostic eye screenings and prescription spectacles for 35 low-income elders..."
+                          className="w-full px-2.5 py-1.5 rounded-lg bg-[#04140D] border border-[#2E7D32]/40 text-white text-xs leading-relaxed focus:border-[#81C784] focus:outline-none"
                         />
                       </div>
 

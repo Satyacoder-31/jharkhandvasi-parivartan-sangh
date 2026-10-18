@@ -52,12 +52,15 @@ export interface ArtworkData {
   id: string;
   title: string;
   hindiTitle: string;
+  category: "sohrai" | "portrait" | "nature" | "folk" | string;
+  categoryLabel: string;
   artist: string;
   origin: string;
   dimensions: string;
   medium: string;
   price: number;
   description: string;
+  impact: string;
   image: string;
   inStock: boolean;
   featured: boolean;
@@ -627,63 +630,79 @@ export const defaultSiteContent: SiteContent = {
   artStore: [
     {
       id: "art-birsa-frame",
-      title: "Bhagwan Birsa Munda Commemorative Frame",
-      hindiTitle: "धरती आबा भगवान बिरसा मुंडा फोटो फ्रेम",
-      artist: "Traditional Craftsmen Collective",
-      origin: "Khunti / Ranchi, Jharkhand",
-      dimensions: "18\" × 24\" Handcrafted Teak Finish Frame",
-      medium: "High-resolution Archival Gold Print on Canvas",
-      price: 1500,
+      title: "Official Commemorative Frame: Dharti Aaba Bhagwan Birsa Munda",
+      hindiTitle: "धरती आबा भगवान बिरसा मुंडा स्मृति कलाकृति",
+      category: "portrait",
+      categoryLabel: "Official Commemorative Art",
+      artist: "Commissioned by Arvind Arya, Jharkhandvasi Parivartan Sangh",
+      origin: "Mumbai / Khunti, Jharkhand",
+      dimensions: '24" × 34" Custom Framed Commemorative Display',
+      medium: "Official JPS Archival Fine Art Print with Gold Frame Mount",
+      price: 5100,
       description:
-        "An iconic portrait of Dharti Aaba Bhagwan Birsa Munda, the legendary tribal freedom fighter who ignited the historic Ulgulan revolt. 100% proceeds support child education and senior citizen medical camps.",
-      image: "/images/art/birsa-munda-frame.jpg",
+        "The official commemorative portrait of Bhagwan Birsa Munda bearing the JPS insignia and 'एक जुर्रत... एक ज़रूरत' motto, depicting Dharti Aaba holding his sacred bow with courage and freedom pride. Presented to state dignitaries and community patrons.",
+      impact:
+        "Sponsors free diagnostic eye screenings and prescription spectacles distribution for 35 low-income elders and migrant workers in Mumbai.",
+      image: "/images/commemorative/birsa-munda-dharti-aaba-portrait.jpg",
       inStock: true,
       featured: true,
     },
     {
       id: "art-sohrai-wildlife",
-      title: "Sacred Sohrai Tribal Wall Painting",
-      hindiTitle: "पारंपरिक सोहराई भित्ति चित्र",
-      artist: "Indigenous Tribal Women Artisans",
+      title: "Tree of Life & Forest Wildlife (Sohrai Masterpiece)",
+      hindiTitle: "पारंपरिक सोहराय एवं कोहबर लोक कला",
+      category: "sohrai",
+      categoryLabel: "Traditional Sohrai Art",
+      artist: "Tribal Women Artisan Collective, Hazaribagh / Jharkhand",
       origin: "Hazaribagh, Jharkhand",
-      dimensions: "24\" × 36\" Stretched Canvas",
-      medium: "Natural Earth Pigments & Acrylic on Hand-woven Canvas",
-      price: 3200,
+      dimensions: '36" × 28" (Framed / Unframed on request)',
+      medium: "Natural Earth Pigments on Primed Textured Canvas",
+      price: 4500,
       description:
-        "GI-tagged Sohrai tribal art featuring fertility motifs, sacred forest animals, and botanical symbols painted in reverence of nature and harvest.",
+        "Intricate handmade Sohrai mural depicting the sacred Kalpavriksha (Tree of Life), peacocks, horned deer, and indigenous village motifs painted using natural ochre and earth pigments.",
+      impact:
+        "100% of this contribution funds complete Shiksha Protsahan study kits (notebooks, bags, uniforms) for 9 underprivileged school children.",
       image: "/images/art-sohrai.jpg",
       inStock: true,
       featured: true,
     },
     {
-      id: "art-jhumar-celebration",
-      title: "Karam Festival Jhumar Dance Canvas",
-      hindiTitle: "करम पर्व झूमर लोक नृत्य",
-      artist: "Santhal Pargana Folk Collective",
-      origin: "Dumka, Jharkhand",
-      dimensions: "20\" × 30\" Gallery Wrapped Canvas",
-      medium: "Oil & Acrylic on Textured Canvas",
-      price: 2800,
+      id: "art-sarhul-celebration",
+      title: "Sarhul Spring Flower Celebration",
+      hindiTitle: "सरहुल लोक नृत्य एवं समुदाय उत्सव",
+      category: "folk",
+      categoryLabel: "Tribal Folk Art",
+      artist: "Rural Folk Artisan Fellowship",
+      origin: "Santhal Pargana, Jharkhand",
+      dimensions: '32" × 24" Custom Mount',
+      medium: "Traditional Tempera on Handmade Herbal Paper",
+      price: 3800,
       description:
-        "Vibrant depiction of women dancing hand-in-hand celebrating the Karam festival under the sacred Mahua tree with Madal drums beating in harmony.",
-      image: "/images/cultural-birsa.jpg",
+        "Joyful community celebration under flowering Sal trees honoring Mother Earth for the Sarhul festival, depicting unity, tribal drumming, and spring renewal.",
+      impact:
+        "Provides emergency dry ration kits (flour, rice, dal, oil) for 2 distressed migrant worker families facing sudden crisis in Mumbai.",
+      image: "/images/art-sarhul.jpg",
       inStock: true,
-      featured: false,
+      featured: true,
     },
     {
-      id: "art-sal-forest-canopy",
-      title: "Morning Sun in Saranda Sal Forest",
-      hindiTitle: "सारंडा के साल वन में भोर की किरणें",
-      artist: "Arvind Arya & Youth Photo Collective",
-      origin: "West Singhbhum, Jharkhand",
-      dimensions: "16\" × 24\" Matte Photographic Print with Museum Mount",
-      medium: "Fine Art Photography on Archival Hahnemühle Paper",
-      price: 1800,
+      id: "art-netarhat-forest",
+      title: "Netarhat Mist & Sal Forest River Valley",
+      hindiTitle: "नेतरहाट साल वन एवं प्राकृतिक नदी",
+      category: "nature",
+      categoryLabel: "Nature Fine Art",
+      artist: "Volunteer Fine Arts Guild",
+      origin: "Latehar / Netarhat, Jharkhand",
+      dimensions: '28" × 22" Gallery Wrap',
+      medium: "Fine Art Watercolor & Acrylic on Heavy Canvas",
+      price: 2800,
       description:
-        "Golden rays piercing through the 700-hill Sal tree canopy of Asia's largest Sal forest in Saranda.",
-      image: "/images/hero-forest.jpg",
+        "Serene sunrise landscape capturing morning sunbeams penetrating the ancient Sal forest canopy with a clear mountain stream flowing over red rock banks.",
+      impact:
+        "Funds community tree sapling nurseries, soil preparation, and planting care for 25 native Sal and Mahua trees in degraded lands.",
+      image: "/images/art-forest.jpg",
       inStock: true,
-      featured: false,
+      featured: true,
     },
   ],
   events: [

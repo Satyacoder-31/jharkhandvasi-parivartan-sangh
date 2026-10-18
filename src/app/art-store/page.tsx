@@ -17,90 +17,13 @@ import {
   Sparkles,
 } from "lucide-react";
 
-interface Artwork {
-  id: number;
-  title: string;
-  hindiTitle: string;
-  category: "sohrai" | "portrait" | "nature" | "folk";
-  categoryLabel: string;
-  medium: string;
-  dimensions: string;
-  artist: string;
-  suggestedDonation: number;
-  image: string;
-  description: string;
-  impact: string;
-}
-
-const artworks: Artwork[] = [
-  {
-    id: 1,
-    title: "Tree of Life & Forest Wildlife (Sohrai Masterpiece)",
-    hindiTitle: "पारंपरिक सोहराय एवं कोहबर लोक कला",
-    category: "sohrai",
-    categoryLabel: "Traditional Sohrai Art",
-    medium: "Natural Earth Pigments on Primed Textured Canvas",
-    dimensions: '36" × 28" (Framed / Unframed on request)',
-    artist: "Tribal Women Artisan Collective, Hazaribagh / Jharkhand",
-    suggestedDonation: 4500,
-    image: "/images/art-sohrai.jpg",
-    description:
-      "Intricate handmade Sohrai mural depicting the sacred Kalpavriksha (Tree of Life), peacocks, horned deer, and indigenous village motifs painted using natural ochre and earth pigments.",
-    impact:
-      "100% of this contribution funds complete Shiksha Protsahan study kits (notebooks, bags, uniforms) for 9 underprivileged school children.",
-  },
-  {
-    id: 2,
-    title: "Official Commemorative Frame: Dharti Aaba Bhagwan Birsa Munda",
-    hindiTitle: "धरती आबा भगवान बिरसा मुंडा स्मृति कलाकृति",
-    category: "portrait",
-    categoryLabel: "Official Commemorative Art",
-    medium: "Official JPS Archival Fine Art Print with Gold Frame Mount",
-    dimensions: '24" × 34" Custom Framed Commemorative Display',
-    artist: "Commissioned by Arvind Arya, Jharkhandvasi Parivartan Sangh",
-    suggestedDonation: 5100,
-    image: "/images/commemorative/birsa-munda-dharti-aaba-portrait.jpg",
-    description:
-      "The official commemorative portrait of Bhagwan Birsa Munda bearing the JPS insignia and 'एक जुर्रत... एक ज़रूरत' motto, depicting Dharti Aaba holding his sacred bow with courage and freedom pride. Presented to state dignitaries and community patrons.",
-    impact:
-      "Sponsors free diagnostic eye screenings and prescription spectacles distribution for 35 low-income elders and migrant workers in Mumbai.",
-  },
-  {
-    id: 3,
-    title: "Sarhul Spring Flower Celebration",
-    hindiTitle: "सरहुल लोक नृत्य एवं समुदाय उत्सव",
-    category: "folk",
-    categoryLabel: "Tribal Folk Art",
-    medium: "Traditional Tempera on Handmade Herbal Paper",
-    dimensions: '32" × 24" Custom Mount',
-    artist: "Rural Folk Artisan Fellowship",
-    suggestedDonation: 3800,
-    image: "/images/art-sarhul.jpg",
-    description:
-      "Joyful community celebration under flowering Sal trees honoring Mother Earth for the Sarhul festival, depicting unity, tribal drumming, and spring renewal.",
-    impact:
-      "Provides emergency dry ration kits (flour, rice, dal, oil) for 2 distressed migrant worker families facing sudden crisis in Mumbai.",
-  },
-  {
-    id: 4,
-    title: "Netarhat Mist & Sal Forest River Valley",
-    hindiTitle: "नेतरहाट साल वन एवं प्राकृतिक नदी",
-    category: "nature",
-    categoryLabel: "Nature Fine Art",
-    medium: "Fine Art Watercolor & Acrylic on Heavy Canvas",
-    dimensions: '28" × 22" Gallery Wrap',
-    artist: "Volunteer Fine Arts Guild",
-    suggestedDonation: 2800,
-    image: "/images/art-forest.jpg",
-    description:
-      "Serene sunrise landscape capturing morning sunbeams penetrating the ancient Sal forest canopy with a clear mountain stream flowing over red rock banks.",
-    impact:
-      "Funds community tree sapling nurseries, soil preparation, and planting care for 25 native Sal and Mahua trees in degraded lands.",
-  },
-];
+import { useSiteContent } from "@/context/SiteContentContext";
+import { ArtworkData } from "@/data/defaultSiteContent";
 
 export default function ArtStorePage() {
-  const [selectedArt, setSelectedArt] = useState<Artwork | null>(null);
+  const { content } = useSiteContent();
+  const artworks = content.artStore;
+  const [selectedArt, setSelectedArt] = useState<ArtworkData | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [buyerName, setBuyerName] = useState("");
   const [buyerPhone, setBuyerPhone] = useState("");
@@ -329,7 +252,7 @@ export default function ArtStorePage() {
                     Charity Donation
                   </span>
                   <span className="font-serif text-lg font-bold text-[#123B2A]">
-                    ₹{art.suggestedDonation.toLocaleString()}
+                    ₹{(art.price || 0).toLocaleString("en-IN")}
                   </span>
                 </div>
 
@@ -381,7 +304,7 @@ export default function ArtStorePage() {
                   {selectedArt.title}
                 </h3>
                 <span className="font-serif text-xl font-bold text-[#E28723] block mt-1">
-                  ₹{selectedArt.suggestedDonation.toLocaleString()} Donation
+                  ₹{(selectedArt.price || 0).toLocaleString("en-IN")} Donation
                 </span>
               </div>
 
@@ -463,7 +386,7 @@ export default function ArtStorePage() {
                     <span>
                       {isSubmitting
                         ? "Registering Pledge..."
-                        : `Pledge ₹${selectedArt.suggestedDonation.toLocaleString()} & Acquire`}
+                        : `Pledge ₹${(selectedArt.price || 0).toLocaleString("en-IN")} & Acquire`}
                     </span>
                   </button>
                 </form>
