@@ -457,7 +457,11 @@ export default function AboutContent() {
             <div className="relative h-48 w-full">
               <Image
                 src="/images/events/ashish-shelar-felicitation.jpg"
-                alt="Felicitation of Adv. Ashish Shelar (Mumbai BJP President)"
+                alt={
+                  language === "hi"
+                    ? "विधायक संजय उपाध्याय (बोरीवली, मुंबई) के साथ जेपीएस प्रतिनिधिमंडल"
+                    : "Felicitation of Sanjay Upadhyay (MLA, Borivali Mumbai)"
+                }
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 100vw, 33vw"
@@ -465,13 +469,17 @@ export default function AboutContent() {
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-bold text-[#1D5139] uppercase tracking-wider block">
-                Maharashtra Assembly
+                {language === "hi" ? "महाराष्ट्र विधानसभा" : "Maharashtra Assembly"}
               </span>
               <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
-                Felicitation of Adv. Ashish Shelar (Mumbai BJP President)
+                {language === "hi"
+                  ? "विधायक संजय उपाध्याय (बोरीवली, मुंबई) का सम्मान"
+                  : "Felicitation of Sanjay Upadhyay (MLA, Borivali Mumbai)"}
               </h5>
               <p className="text-[11px] text-[#17231C]/70 font-light">
-                Building inter-state support for migrant social security and grassroots welfare networks.
+                {language === "hi"
+                  ? "प्रवासी सामाजिक सुरक्षा, अस्पताल सहायता एवं जनकल्याणकारी योजनाओं पर विधायक संजय उपाध्याय जी के साथ विचार-विमर्श एवं पत्रिका भेंट।"
+                  : "Presenting 'Apna Jharkhand' magazine and discussing migrant social security, healthcare access, and grassroots welfare with Borivali MLA Shri Sanjay Upadhyay."}
               </p>
             </div>
           </div>

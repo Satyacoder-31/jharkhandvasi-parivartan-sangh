@@ -72,12 +72,12 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 7,
-    title: "Felicitation of Adv. Ashish Shelar (Mumbai BJP President)",
+    title: "Felicitation of Sanjay Upadhyay (MLA, Borivali Mumbai)",
     category: "community",
-    categoryLabel: "Civic Leadership",
+    categoryLabel: "Legislative Leadership",
     image: "/images/events/ashish-shelar-felicitation.jpg",
-    location: "Mumbai Assembly Office",
-    description: "Strengthening ties between Maharashtra and Jharkhand with senior leadership backing for migrant social security.",
+    location: "Borivali, Mumbai",
+    description: "Presenting 'Apna Jharkhand' souvenir magazine and coordinating migrant social security with Borivali MLA Shri Sanjay Upadhyay.",
   },
   {
     id: 8,
