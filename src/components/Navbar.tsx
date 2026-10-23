@@ -78,11 +78,30 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 py-2.5 sm:py-3 text-[#123B2A] dark:text-[#F7F5EC]"
-            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-3 sm:py-5 text-white"
+            ? "bg-white/95 dark:bg-[#071F14]/95 backdrop-blur-md shadow-md border-b border-black/5 dark:border-white/10 text-[#123B2A] dark:text-[#F7F5EC]"
+            : "bg-gradient-to-b from-black/90 via-black/60 to-transparent text-white"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+        {/* TOP LIVE ANNOUNCEMENT RIBBON: GRAND KARMA MAHOTSAV 2026 */}
+        <div className="bg-gradient-to-r from-[#0F3524] via-[#123B2A] to-[#B35E10] text-white text-[11px] sm:text-xs py-1.5 px-3 border-b border-white/10 shadow-inner">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap text-center">
+            <span className="bg-[#E28723] text-white font-bold px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider animate-pulse flex-shrink-0">
+              {language === "hi" ? "आगामी भव्य आयोजन" : "Live Upcoming Event"}
+            </span>
+            <span className="font-medium text-white/95 truncate sm:overflow-visible">
+              🌿 <strong>{language === "hi" ? "भव्य कर्मा महोत्सव 2026" : "Grand Karma Mahotsav 2026"}</strong>: {language === "hi" ? "रविवार, 25 अक्टूबर • दोपहर 12:30 से शाम 7:30 • वीर सावरकर उद्यान, बोरीवली (प.)" : "Sunday, 25 Oct • 12:30 PM - 7:30 PM • Veer Savarkar Udyan, Borivali (W)"}
+            </span>
+            <Link
+              href="/events#karma-mahotsav"
+              className="text-[#B8CBA5] hover:text-white font-bold underline inline-flex items-center gap-0.5 flex-shrink-0 text-[10px] sm:text-xs ml-1"
+            >
+              <span>{language === "hi" ? "पूरा निमंत्रण देखें" : "View Invitation"}</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
           {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM & SLOGAN */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div

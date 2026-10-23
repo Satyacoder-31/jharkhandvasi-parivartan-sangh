@@ -25,6 +25,21 @@ interface Slide {
 
 const fallbackSlides: Slide[] = [
   {
+    id: 0,
+    eyebrow: "🌿 UPCOMING GRAND FESTIVAL • 25 OCTOBER 2026",
+    hindiTitle: "भव्य कर्मा महोत्सव 2026 • जनजातीय गौरव दिवस",
+    title: "Grand Karma Mahotsav 2026:",
+    italicWord: "Tribal Pride",
+    titleEnd: "& Cultural Heritage.",
+    description:
+      "झारखंडवासी परिवर्तन संघ की ओर से जनजातीय गौरव दिवस के उपलक्ष्य में 'एक भारत, श्रेष्ठ भारत' भव्य कर्मा महोत्सव। रविवार 25 अक्टूबर 2026, दोपहर 12:30 से शाम 7:30 बजे तक, वीर सावरकर उद्यान, बोरीवली (प.), मुंबई। विशेष प्रस्तुति: Vicky Musical Team एवं लोकगीत-लोकनृत्य।",
+    image: "/images/gallery/traditional-santhali-dance-performance-stage.jpg",
+    alt: "Grand Karma Mahotsav 2026 Veer Savarkar Udyan Borivali Mumbai",
+    primaryCta: { text: "Invitation & Details", href: "/events#karma-mahotsav" },
+    secondaryCta: { text: "Call Helpline: 7808008058", href: "tel:+917808008058" },
+    badgeText: "Sunday, 25 Oct 2026 • Veer Savarkar Udyan, Borivali (W)",
+  },
+  {
     id: 1,
     eyebrow: "SERVICE • EMPOWERMENT • TRANSFORMATION",
     hindiTitle: "सेवा से परिवर्तन की ओर",
