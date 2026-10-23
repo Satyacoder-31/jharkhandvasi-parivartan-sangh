@@ -91,13 +91,13 @@ export default function AboutContent() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-4 flex flex-col items-center text-center space-y-3">
-              <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-[#B8CBA5]/50 overflow-hidden shadow-2xl bg-[#1D5139] relative">
+              <div className="w-40 sm:w-48 aspect-[4/5] rounded-2xl border-4 border-[#B8CBA5]/50 overflow-hidden shadow-2xl bg-[#0c1829] relative flex items-center justify-center">
                 <Image
                   src="/images/leadership/arvind-arya.jpg"
                   alt="Shri Arvind Arya - Founder & President"
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 144px, 176px"
+                  className="object-contain"
+                  sizes="(max-width: 640px) 160px, 192px"
                   quality={95}
                   priority
                 />
@@ -413,7 +413,7 @@ export default function AboutContent() {
                     src={member.image || "/images/leadership/arvind-arya.jpg"}
                     alt={`${member.name} - ${member.role}`}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     quality={95}
                     priority={i < 4}
@@ -527,14 +527,14 @@ export default function AboutContent() {
               </button>
 
               <div className="flex items-center gap-4">
-                <div className="relative w-20 h-24 rounded-2xl overflow-hidden border-2 border-[#123B2A]/20 shadow-md shrink-0 bg-[#071F14]/5">
+                <div className="relative w-20 h-24 rounded-2xl overflow-hidden border-2 border-[#123B2A]/20 shadow-md shrink-0 bg-[#0c1829] flex items-center justify-center">
                   <Image
                     src={selectedMember.image || "/images/leadership/arvind-arya.jpg"}
                     alt={selectedMember.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-contain"
                     sizes="80px"
-                    quality={90}
+                    quality={95}
                   />
                 </div>
                 <div className="space-y-1">
