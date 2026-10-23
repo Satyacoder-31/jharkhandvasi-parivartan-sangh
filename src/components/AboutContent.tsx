@@ -426,7 +426,11 @@ export default function AboutContent() {
             <div className="relative h-48 w-full">
               <Image
                 src="/images/events/governor-radhakrishnan-meeting.jpg"
-                alt="JPS delegation meeting with Jharkhand Governor CP Radhakrishnan"
+                alt={
+                  language === "hi"
+                    ? "श्री प्रहलाद दामोदरदास मोदी (मा. प्रधानमंत्री नरेंद्र मोदी के भ्राता) के साथ"
+                    : "With Shri Prahlad Damodar Das Modi (Brother of Hon'ble PM Narendra Modi)"
+                }
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 100vw, 33vw"
@@ -434,13 +438,17 @@ export default function AboutContent() {
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-bold text-[#795943] uppercase tracking-wider block">
-                Raj Bhavan Conclave
+                {language === "hi" ? "विशिष्ट राष्ट्रीय अतिथि" : "Distinguished Dignitary"}
               </span>
               <h5 className="font-serif text-sm font-bold text-[#123B2A] leading-snug">
-                With Former Jharkhand Governor CP Radhakrishnan
+                {language === "hi"
+                  ? "श्री प्रहलाद दामोदरदास मोदी के साथ (मा. प्रधानमंत्री नरेंद्र मोदी के भ्राता)"
+                  : "With Shri Prahlad Damodar Das Modi (Brother of PM Narendra Modi)"}
               </h5>
               <p className="text-[11px] text-[#17231C]/70 font-light">
-                Submitting statewide development proposals and tribal welfare charters to the Hon&apos;ble Governor.
+                {language === "hi"
+                  ? "माननीय प्रधानमंत्री श्री नरेंद्र दामोदरदास मोदी जी के भ्राता श्री प्रहलाद मोदी जी का स्वागत एवं सामाजिक कल्याण पर विचार-विमर्श।"
+                  : "Felicitating Shri Prahlad Damodar Das Modi, brother of Hon'ble Prime Minister Narendra Damodar Das Modi, and discussing social outreach & community welfare."}
               </p>
             </div>
           </div>

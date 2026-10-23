@@ -62,12 +62,12 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 6,
-    title: "Official Delegation Meeting with Jharkhand Governor",
+    title: "Felicitation of Shri Prahlad Damodar Das Modi (Brother of PM Narendra Modi)",
     category: "community",
-    categoryLabel: "Administrative Liaison",
+    categoryLabel: "Distinguished Dignitary",
     image: "/images/events/governor-radhakrishnan-meeting.jpg",
-    location: "Raj Bhavan",
-    description: "Presenting community welfare representations and diaspora development proposals to Hon'ble Jharkhand Governor CP Radhakrishnan.",
+    location: "Dignitary Conclave, Mumbai",
+    description: "Floral felicitation of Shri Prahlad Damodar Das Modi, brother of Hon'ble Prime Minister Narendra Damodar Das Modi, discussing social initiatives and migrant welfare.",
   },
   {
     id: 7,
