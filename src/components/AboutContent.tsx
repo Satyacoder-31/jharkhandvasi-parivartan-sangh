@@ -413,7 +413,7 @@ export default function AboutContent() {
                     src={member.image || "/images/leadership/arvind-arya.jpg"}
                     alt={`${member.name} - ${member.role}`}
                     fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     quality={95}
                     priority={i < 4}
