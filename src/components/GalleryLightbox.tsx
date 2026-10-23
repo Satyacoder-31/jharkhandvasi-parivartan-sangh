@@ -16,7 +16,16 @@ export interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-{
+  {
+    id: 100,
+    title: "Official Invitation Poster: Grand Karma Mahotsav 2026",
+    category: "culture",
+    categoryLabel: "Cultural Festival & Invitations",
+    image: "/images/events/karma-mahotsav-2026-poster.jpg",
+    location: "Veer Savarkar Udyan, Borivali West, Mumbai",
+    description: "Official invitation poster for Grand Karma Mahotsav on Sunday, 25 October 2026, featuring Hon'ble Gopal Shetty, Sanjay Nirupam, Sanjay Upadhyay, and Vicky Musical Team.",
+  },
+  {
     id: 1,
     title: "Release of 'Apna Jharkhand' Magazine by Babulal Marandi & Prahlad Modi",
     category: "culture",

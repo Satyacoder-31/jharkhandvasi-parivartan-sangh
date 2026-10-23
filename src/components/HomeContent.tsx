@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -15,6 +16,11 @@ import {
   Music,
   Sparkles,
   MessageCircle,
+  Video,
+  FileImage,
+  Download,
+  Users,
+  Award,
 } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -27,6 +33,9 @@ export default function HomeContent() {
   const { content } = useSiteContent();
   const { language, t } = useLanguage();
   const hp = content.homepage;
+
+  const [eventMediaTab, setEventMediaTab] = useState<"video" | "poster">("video");
+  const [isPosterOpen, setIsPosterOpen] = useState(false);
 
   // Safe numeric fallbacks
   const stat1Num = typeof hp.stats.stat1.number === "number" ? hp.stats.stat1.number : parseInt(String(hp.stats.stat1.number), 10) || 20;
@@ -46,15 +55,18 @@ export default function HomeContent() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#E28723]/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#1D5139]/40 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               {/* Left Column: Event Card Details */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5">
+                  <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 shadow">
                     <Sparkles className="w-3.5 h-3.5" />
-                    {language === "hi" ? "आगामी भव्य आयोजन • जनजातीय गौरव दिवस" : "Upcoming Grand Celebration • Janjatiya Gaurav Diwas"}
+                    {language === "hi" ? "आगामी भव्य आयोजन • 25 अक्टूबर 2026" : "Upcoming Grand Celebration • 25 Oct 2026"}
                   </span>
                   <span className="badge-pill bg-white/10 text-[#B8CBA5] border border-white/15 text-[10px]">
+                    जनजातीय गौरव दिवस
+                  </span>
+                  <span className="badge-pill bg-white/10 text-[#E28723] border border-white/15 text-[10px]">
                     एक भारत, श्रेष्ठ भारत
                   </span>
                 </div>
@@ -65,8 +77,8 @@ export default function HomeContent() {
                   </h2>
                   <p className="text-xs sm:text-sm text-[#B8CBA5] font-medium tracking-wide">
                     {language === "hi"
-                      ? "झारखंडवासी परिवर्तन संघ, मुंबई की ओर से जनजातीय गौरव दिवस के उपलक्ष्य में 'एक भारत, श्रेष्ठ भारत' की भावना के साथ भव्य आयोजन।"
-                      : "Organized by Jharkhandvasi Parivartan Sangh, Mumbai, commemorating Janjatiya Gaurav Diwas in the spirit of 'Ek Bharat, Shreshtha Bharat'."}
+                      ? "झारखंडवासी परिवर्तन संघ, मुंबई की ओर से जनजातीय गौरव दिवस के उपलक्ष्य में 'एक भारत, श्रेष्ठ भारत' की भावना के साथ भव्य कर्मा महोत्सव का आयोजन।"
+                      : "Organized by Jharkhandvasi Parivartan Sangh, Mumbai, commemorating Janjatiya Gaurav Diwas in the vibrant spirit of 'Ek Bharat, Shreshtha Bharat'."}
                   </p>
                 </div>
 
@@ -106,37 +118,95 @@ export default function HomeContent() {
                     </div>
                     <div>
                       <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
-                        {language === "hi" ? "स्थान (Venue)" : "Venue Location"}
+                        {language === "hi" ? "स्थान (Venue Address)" : "Venue Location"}
                       </span>
                       <p className="text-xs sm:text-sm font-bold text-white">
-                        {language === "hi" ? "वीर सावरकर उद्यान, बोरीवली पश्चिम, मुंबई" : "Veer Savarkar Udyan, Borivali West, Mumbai"}
+                        {language === "hi"
+                          ? "वीर सावरकर उद्यान, एम. के. स्कूल के पास, टी.पी.एस. रोड नंबर 51, बोरीवली पश्चिम, मुंबई"
+                          : "Veer Savarkar Udyan, Near M.K. School, T.P.S. Road No. 51, Borivali West, Mumbai"}
                       </p>
                     </div>
                   </div>
 
-                  <div className="sm:col-span-2 p-3.5 rounded-2xl bg-[#E28723]/15 border border-[#E28723]/30 backdrop-blur-sm flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#E28723] flex items-center justify-center flex-shrink-0 shadow">
-                      <Music className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-[#E28723] uppercase tracking-wider font-bold block">
-                        {language === "hi" ? "विशेष आकर्षण (Special Attraction)" : "Special Highlights"}
+                  {/* Special Attraction: Vicky Musical Team */}
+                  <div className="sm:col-span-2 p-3.5 rounded-2xl bg-[#E28723]/15 border border-[#E28723]/30 backdrop-blur-sm space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-lg bg-[#E28723] flex items-center justify-center flex-shrink-0 shadow">
+                        <Music className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-[11px] text-[#E28723] uppercase tracking-wider font-bold">
+                        {language === "hi" ? "विशेष आकर्षण: Vicky Musical Team एवं लोकगीत-लोकनृत्य" : "Special Attraction: Vicky Musical Team"}
                       </span>
-                      <p className="text-xs sm:text-sm text-white font-medium">
-                        <strong>Vicky Musical Team</strong> {language === "hi" ? "एवं झारखंड की समृद्ध आदिवासी संस्कृति, पारंपरिक लोकगीत और लोकनृत्य।" : "& rich indigenous folk arts, tribal music, and dances of Jharkhand."}
-                      </p>
+                    </div>
+                    <p className="text-xs text-white/90 font-medium">
+                      {language === "hi"
+                        ? "झारखंड की समृद्ध आदिवासी संस्कृति, पारंपरिक लोकगीत और लोकनृत्य की मनमोहक प्रस्तुतियां।"
+                        : "Rich indigenous tribal music, Santhali dances, and cultural folklore of Jharkhand."}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-0.5">
+                      {["नितेश कश्यप", "सतीश कुमार", "संजोग बंसल", "सुहानी ओरांव", "रिंकू"].map((artist) => (
+                        <span key={artist} className="px-2.5 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/15">
+                          🎤 {artist}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Hon'ble Dignitaries Strip */}
+                  <div className="sm:col-span-2 p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Award className="w-4 h-4 text-[#E28723]" />
+                      <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold">
+                        {language === "hi" ? "सम्माननीय मुख्य अतिथिगण (Hon'ble Dignitaries)" : "Hon'ble Guests & Dignitaries"}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                      <div className="p-2 rounded-xl bg-black/25 border border-white/10">
+                        <span className="text-[9px] uppercase tracking-wider text-[#E28723] font-bold block">
+                          {language === "hi" ? "मुख्य अतिथि" : "Chief Guest"}
+                        </span>
+                        <p className="text-xs font-bold text-white">माननीय श्री गोपाल शेट्टी</p>
+                        <p className="text-[10px] text-[#F7F5EC]/70">जनसेवक, बोरीवली</p>
+                      </div>
+                      <div className="p-2 rounded-xl bg-black/25 border border-white/10">
+                        <span className="text-[9px] uppercase tracking-wider text-[#E28723] font-bold block">
+                          {language === "hi" ? "विशेष मुख्य अतिथि" : "Special Chief Guest"}
+                        </span>
+                        <p className="text-xs font-bold text-white">श्री संजय निरुपम जी</p>
+                        <p className="text-[10px] text-[#F7F5EC]/70">पूर्व सांसद एवं शिवसेना नेता</p>
+                      </div>
+                      <div className="p-2 rounded-xl bg-black/25 border border-white/10">
+                        <span className="text-[9px] uppercase tracking-wider text-[#E28723] font-bold block">
+                          {language === "hi" ? "विशिष्ट अतिथि" : "Guest of Honour"}
+                        </span>
+                        <p className="text-xs font-bold text-white">माननीय श्री संजय उपाध्याय जी</p>
+                        <p className="text-[10px] text-[#F7F5EC]/70">विधायक, बोरीवली</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Slogan & Welcome Notice */}
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-2">
-                  <p className="text-xs text-[#F7F5EC]/90 font-light">
-                    🙏 <strong>{language === "hi" ? "आप सभी सपरिवार सादर आमंत्रित हैं!" : "You are cordially invited with family & friends!"}</strong>
-                  </p>
-                  <span className="text-xs font-bold text-[#E28723] tracking-wide">
-                    जय बिरसा मुंडा! जय झारखंड! जय महाराष्ट्र!
-                  </span>
+                {/* Slogan & Welcome Notice with Organizers */}
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1.5">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+                    <p className="text-xs text-[#F7F5EC]/95 font-medium">
+                      🙏 <strong>{language === "hi" ? "आप सभी सपरिवार सादर आमंत्रित हैं!" : "You are cordially invited with family & friends!"}</strong>
+                    </p>
+                    <span className="text-xs font-bold text-[#E28723] tracking-wide">
+                      जय बिरसा मुंडा! जय झारखंड! जय महाराष्ट्र!
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-[#B8CBA5] border-t border-white/10 pt-1.5 text-center sm:text-left">
+                    {language === "hi" ? (
+                      <>
+                        <strong>आयोजक:</strong> अरविंद आर्य (संस्थापक राष्ट्रीय अध्यक्ष) • मोनिका (सह-आयोजक)
+                      </>
+                    ) : (
+                      <>
+                        <strong>Organizers:</strong> Arvind Arya (Founder National President) • Monika (Co-organizer)
+                      </>
+                    )}
+                  </div>
                 </div>
 
                 {/* Contact & CTA Buttons */}
@@ -146,7 +216,7 @@ export default function HomeContent() {
                     className="px-5 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow-lg transition-all flex items-center gap-2"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>हेल्पलाइन: 78080 08058</span>
+                    <span>78080 08058</span>
                   </a>
 
                   <a
@@ -164,7 +234,7 @@ export default function HomeContent() {
                     className="px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>व्हाट्सएप पूछताछ</span>
+                    <span>व्हाट्सएप</span>
                   </a>
 
                   <Link
@@ -177,38 +247,139 @@ export default function HomeContent() {
                 </div>
               </div>
 
-              {/* Right Column: Visual Poster / Dance Photo */}
+              {/* Right Column: Interactive Video & Poster Media Card */}
               <div className="lg:col-span-5 space-y-3">
-                <div className="relative h-80 sm:h-96 w-full rounded-2xl overflow-hidden border-2 border-[#E28723]/50 shadow-2xl group">
-                  <Image
-                    src="/images/gallery/traditional-santhali-dance-performance-stage.jpg"
-                    alt="Grand Karma Mahotsav 2026 - Veer Savarkar Udyan, Borivali (W), Mumbai"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                {/* Media Switcher Tabs */}
+                <div className="flex items-center gap-2 p-1 bg-black/40 rounded-2xl border border-white/15">
+                  <button
+                    type="button"
+                    onClick={() => setEventMediaTab("video")}
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                      eventMediaTab === "video"
+                        ? "bg-[#E28723] text-white shadow"
+                        : "text-[#B8CBA5] hover:text-white"
+                    }`}
+                  >
+                    <Video className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "वीडियो आमंत्रण" : "Video Teaser"}</span>
+                  </button>
 
-                  <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
-                    <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold">
-                      वीर सावरकर उद्यान, बोरीवली (प.)
-                    </span>
-                    <h4 className="font-serif text-lg font-bold">
-                      झारखंड की समृद्ध आदिवासी कला एवं संगीत
-                    </h4>
-                    <p className="text-[11px] text-[#F7F5EC]/85 font-light">
-                      मांदर, नगाड़ा, पारम्परिक झूमर एवं Vicky Musical Team की मनमोहक सांस्कृतिक प्रस्तुतियां।
-                    </p>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setEventMediaTab("poster")}
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                      eventMediaTab === "poster"
+                        ? "bg-[#E28723] text-white shadow"
+                        : "text-[#B8CBA5] hover:text-white"
+                    }`}
+                  >
+                    <FileImage className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "आधिकारिक पोस्टर" : "Official Poster"}</span>
+                  </button>
                 </div>
 
-                <div className="text-center text-[11px] text-[#B8CBA5] bg-white/5 py-2 px-3 rounded-xl border border-white/10">
-                  📍 Veer Savarkar Udyan, Borivali West, Mumbai • 25 October 2026
+                {/* Media Viewport */}
+                {eventMediaTab === "video" ? (
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723]/60 bg-black shadow-2xl">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster="/images/events/karma-mahotsav-2026-poster.jpg"
+                      className="w-full aspect-[9/16] sm:aspect-video object-contain bg-black"
+                    >
+                      <source src="/videos/karma-mahotsav-2026.mp4" type="video/mp4" />
+                      Your browser does not support video playback.
+                    </video>
+                    <div className="p-3 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-xs">
+                      <span className="text-[#F7F5EC] font-semibold flex items-center gap-1.5">
+                        <Video className="w-3.5 h-3.5 text-[#E28723]" />
+                        Karma Mahotsav 2026 Promo
+                      </span>
+                      <a
+                        href="/videos/karma-mahotsav-2026.mp4"
+                        download="Karma-Mahotsav-2026-Invitation.mp4"
+                        className="text-[#E28723] hover:underline flex items-center gap-1 font-bold"
+                      >
+                        <Download className="w-3 h-3" />
+                        डाउनलोड
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => setIsPosterOpen(true)}
+                    className="relative cursor-pointer rounded-2xl overflow-hidden border-2 border-[#E28723]/60 bg-black/60 shadow-2xl group flex items-center justify-center p-2"
+                  >
+                    <div className="relative w-full aspect-[9/16] max-h-[460px]">
+                      <Image
+                        src="/images/events/karma-mahotsav-2026-poster.jpg"
+                        alt="Grand Karma Mahotsav 2026 Official Invitation Poster"
+                        fill
+                        className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-4 py-2 rounded-full bg-[#E28723] text-white text-xs font-bold shadow-lg">
+                        🔍 {language === "hi" ? "पूरा पोस्टर देखें" : "Click to Enlarge"}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Sub-strip with direct download and maps links */}
+                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                  <a
+                    href="/images/events/karma-mahotsav-2026-poster.jpg"
+                    download="Karma-Mahotsav-2026-Poster.jpg"
+                    className="py-2.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-center font-semibold text-[#B8CBA5] hover:text-white transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <Download className="w-3.5 h-3.5 text-[#E28723]" />
+                    <span>{language === "hi" ? "पोस्टर डाउनलोड" : "Download Poster"}</span>
+                  </a>
+
+                  <a
+                    href="https://maps.google.com/?q=Veer+Savarkar+Udyan+Borivali+West+Mumbai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-center font-semibold text-[#B8CBA5] hover:text-white transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-[#E28723]" />
+                    <span>{language === "hi" ? "गूगल मैप्स दिशा" : "Directions"}</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </ScrollReveal>
+
+        {/* Poster Fullscreen Modal */}
+        {isPosterOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setIsPosterOpen(false)}
+          >
+            <div className="relative max-w-lg w-full max-h-[90vh] flex flex-col items-center">
+              <button
+                type="button"
+                onClick={() => setIsPosterOpen(false)}
+                className="self-end mb-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold hover:bg-white/40 transition"
+              >
+                ✕ बंद करें (Close)
+              </button>
+              <div className="relative w-full aspect-[9/16] max-h-[80vh] rounded-2xl overflow-hidden border-2 border-[#E28723]">
+                <Image
+                  src="/images/events/karma-mahotsav-2026-poster.jpg"
+                  alt="Grand Karma Mahotsav 2026 Poster"
+                  fill
+                  className="object-contain"
+                  sizes="90vw"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 2. VERIFIED STATISTICS STRIP (DYNAMIC INCREASING NUMBERS ON SCROLL) */}

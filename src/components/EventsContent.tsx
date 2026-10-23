@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,6 +17,10 @@ import {
   Clock,
   Music,
   MessageCircle,
+  Video,
+  FileImage,
+  Download,
+  Share2,
 } from "lucide-react";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import PressMediaViewer from "@/components/PressMediaViewer";
@@ -27,6 +32,8 @@ export default function EventsContent() {
   const { language, t } = useLanguage();
   const pastEvents = content.events || [];
   const organization = content.organization;
+
+  const [isPosterModalOpen, setIsPosterModalOpen] = useState(false);
 
   return (
     <div className="space-y-16 lg:space-y-24 pb-24 overflow-x-hidden w-full max-w-full">
@@ -64,182 +71,359 @@ export default function EventsContent() {
 
       {/* 2. GRAND FEATURED UPCOMING EVENT: KARMA MAHOTSAV 2026 */}
       <section id="karma-mahotsav" className="max-w-7xl mx-auto px-4 sm:px-6 scroll-mt-28">
-        <div className="relative bg-gradient-to-br from-[#071F14] via-[#0F3524] to-[#123B2A] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#E28723] shadow-2xl overflow-hidden">
+        <div className="relative bg-gradient-to-br from-[#071F14] via-[#0F3524] to-[#123B2A] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#E28723] shadow-2xl overflow-hidden space-y-8">
           {/* Ambient lighting & decoration */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#E28723]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#1D5139]/50 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left: Event Details & Schedule */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 shadow">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  {language === "hi" ? "आगामी भव्य आयोजन • 25 अक्टूबर 2026" : "Live Upcoming Festival • 25 Oct 2026"}
-                </span>
-                <span className="badge-pill bg-white/10 text-[#B8CBA5] border border-white/15 text-[10px]">
-                  जनजातीय गौरव दिवस
-                </span>
-                <span className="badge-pill bg-white/10 text-[#E28723] border border-white/15 text-[10px]">
-                  एक भारत, श्रेष्ठ भारत
-                </span>
-              </div>
+          {/* Top Banner Row */}
+          <div className="relative z-10 space-y-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 shadow">
+                <Sparkles className="w-3.5 h-3.5" />
+                {language === "hi" ? "आगामी भव्य आयोजन • 25 अक्टूबर 2026" : "Upcoming Grand Celebration • 25 Oct 2026"}
+              </span>
+              <span className="badge-pill bg-white/10 text-[#B8CBA5] border border-white/15 text-[10px]">
+                जनजातीय गौरव दिवस
+              </span>
+              <span className="badge-pill bg-white/10 text-[#E28723] border border-white/15 text-[10px]">
+                एक भारत, श्रेष्ठ भारत
+              </span>
+            </div>
 
-              <div className="space-y-2">
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  🌿🙏 {language === "hi" ? "भव्य कर्मा महोत्सव 2026" : "Grand Karma Mahotsav 2026"} 🙏🌿
-                </h2>
-                <p className="text-xs sm:text-sm text-[#F7F5EC]/90 font-light leading-relaxed">
-                  {language === "hi"
-                    ? "झारखंडवासी परिवर्तन संघ, मुंबई की ओर से जनजातीय गौरव दिवस के उपलक्ष्य में 'एक भारत, श्रेष्ठ भारत' की भावना के साथ भव्य कर्मा महोत्सव का भव्य आयोजन।"
-                    : "Organized by Jharkhandvasi Parivartan Sangh, Mumbai, celebrating Janjatiya Gaurav Diwas in the vibrant spirit of 'Ek Bharat, Shreshtha Bharat'."}
+            <div className="space-y-2 max-w-4xl">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                🌿🙏 {language === "hi" ? "भव्य कर्मा महोत्सव 2026" : "Grand Karma Mahotsav 2026"} 🙏🌿
+              </h2>
+              <p className="text-sm sm:text-base text-[#F7F5EC]/90 font-light leading-relaxed">
+                {language === "hi"
+                  ? "झारखंडवासी परिवर्तन संघ, मुंबई की ओर से जनजातीय गौरव दिवस के उपलक्ष्य में 'एक भारत, श्रेष्ठ भारत' की भावना के साथ भव्य कर्मा महोत्सव का भव्य आयोजन।"
+                  : "Organized by Jharkhandvasi Parivartan Sangh, Mumbai, celebrating Janjatiya Gaurav Diwas in the vibrant spirit of 'Ek Bharat, Shreshtha Bharat'."}
+              </p>
+            </div>
+          </div>
+
+          {/* Schedule & Venue Coordinates Grid */}
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#E28723] flex items-center justify-center flex-shrink-0 shadow">
+                <Calendar className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
+                  {language === "hi" ? "दिनांक (Date)" : "Event Date"}
+                </span>
+                <p className="text-sm font-bold text-white">
+                  {language === "hi" ? "रविवार, 25 अक्टूबर 2026" : "Sunday, 25 Oct 2026"}
                 </p>
-              </div>
-
-              {/* Schedule cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#E28723] flex items-center justify-center flex-shrink-0 shadow">
-                    <Calendar className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
-                      {language === "hi" ? "दिनांक (Date)" : "Event Date"}
-                    </span>
-                    <p className="text-sm font-bold text-white">
-                      {language === "hi" ? "रविवार, 25 अक्टूबर 2026" : "Sunday, 25 October 2026"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#123B2A] border border-white/20 flex items-center justify-center flex-shrink-0 shadow">
-                    <Clock className="w-5 h-5 text-[#E28723]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
-                      {language === "hi" ? "समय (Timing)" : "Event Timing"}
-                    </span>
-                    <p className="text-sm font-bold text-white">
-                      {language === "hi" ? "दोपहर 12:30 से शाम 7:30 बजे तक" : "12:30 PM to 7:30 PM"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2 p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#B35E10] flex items-center justify-center flex-shrink-0 shadow">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
-                      {language === "hi" ? "स्थान (Venue Location)" : "Official Venue"}
-                    </span>
-                    <p className="text-sm font-bold text-white">
-                      {language === "hi" ? "वीर सावरकर उद्यान, बोरीवली पश्चिम, मुंबई" : "Veer Savarkar Udyan, Borivali West, Mumbai"}
-                    </p>
-                    <p className="text-[11px] text-[#F7F5EC]/70 pt-0.5">
-                      Near Borivali Station &amp; Link Road • Central Public Amphitheater
-                    </p>
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2 p-4 rounded-2xl bg-[#E28723]/15 border border-[#E28723]/35 backdrop-blur-sm flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#E28723] flex items-center justify-center flex-shrink-0 shadow">
-                    <Music className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-[#E28723] uppercase tracking-wider font-bold block">
-                      {language === "hi" ? "विशेष आकर्षण (Special Attraction)" : "Special Highlights & Performances"}
-                    </span>
-                    <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
-                      <strong>Vicky Musical Team</strong> {language === "hi" ? "एवं झारखंड की समृद्ध आदिवासी संस्कृति, पारंपरिक लोकगीत और लोकनृत्य (झुमर, पाइका, मांदर एवं नगाड़ा वादन)।" : "& live indigenous folk music, traditional Santhali dances, and Mandar-Nagara percussion ensembles."}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Cordial Invitation & Slogan */}
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                <p className="text-xs sm:text-sm text-[#F7F5EC]/95">
-                  🙏 <strong>{language === "hi" ? "आप सभी सपरिवार सादर आमंत्रित हैं।" : "You and your family are cordially invited!"}</strong>
-                </p>
-                <span className="text-xs font-bold text-[#E28723] tracking-wide">
-                  जय बिरसा मुंडा! जय झारखंड! जय महाराष्ट्र!
-                </span>
-              </div>
-
-              {/* Contact buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a
-                  href="tel:+917808008058"
-                  className="px-6 py-3.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow-xl transition-all flex items-center gap-2"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>संपर्क: 78080 08058</span>
-                </a>
-
-                <a
-                  href="tel:+919022288222"
-                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wide border border-white/25 shadow transition-all flex items-center gap-2"
-                >
-                  <Phone className="w-4 h-4 text-[#B8CBA5]" />
-                  <span>90222 88222</span>
-                </a>
-
-                <a
-                  href="https://wa.me/917808008058?text=Namaste%2C%20I%20want%20to%20attend%20Karma%20Mahotsav%202026%20at%20Veer%20Savarkar%20Udyan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold tracking-wide shadow-xl transition-all flex items-center gap-2"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>व्हाट्सएप पूछताछ</span>
-                </a>
-
-                <a
-                  href="https://maps.google.com/?q=Veer+Savarkar+Udyan+Borivali+West+Mumbai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-full bg-transparent hover:bg-white/10 text-[#B8CBA5] hover:text-white text-xs font-bold tracking-wide border border-[#B8CBA5]/40 transition-all flex items-center gap-2"
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span>गूगल मैप्स लोकेशन</span>
-                </a>
+                <span className="text-[10px] text-[#F7F5EC]/70">Diwali Season Festival</span>
               </div>
             </div>
 
-            {/* Right: Cultural Visual Card */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="relative h-96 sm:h-[420px] w-full rounded-3xl overflow-hidden border-2 border-[#E28723]/60 shadow-2xl group">
-                <Image
-                  src="/images/gallery/tribal-cultural-ensemble-artists-stage.jpg"
-                  alt="Tribal folk artists performing at Karma Mahotsav"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
-
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                  <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold">
-                    वीर सावरकर उद्यान, बोरीवली (प.)
-                  </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold leading-tight">
-                    प्रकृति एवं संस्कृति का पावन पर्व: कर्मा पूजा
-                  </h3>
-                  <p className="text-xs text-[#F7F5EC]/85 font-light leading-relaxed">
-                    झारखंड के गौरवशाली लोकनृत्य, मांदर की थाप एवं Vicky Musical Team के साथ सांस्कृतिक एकता का महापर्व।
-                  </p>
-                </div>
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#123B2A] border border-white/20 flex items-center justify-center flex-shrink-0 shadow">
+                <Clock className="w-5 h-5 text-[#E28723]" />
               </div>
+              <div>
+                <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
+                  {language === "hi" ? "समय (Timing)" : "Event Timing"}
+                </span>
+                <p className="text-sm font-bold text-white">
+                  {language === "hi" ? "दोपहर 12:30 से शाम 7:30 बजे" : "12:30 PM - 7:30 PM"}
+                </p>
+                <span className="text-[10px] text-[#F7F5EC]/70">Cultural &amp; Musical Sessions</span>
+              </div>
+            </div>
 
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-center text-xs text-[#B8CBA5]">
-                📍 <strong>स्थल:</strong> वीर सावरकर उद्यान, बोरीवली (प.), मुंबई • <strong>दिनांक:</strong> 25 अक्टूबर 2026
+            <div className="sm:col-span-2 p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#B35E10] flex items-center justify-center flex-shrink-0 shadow">
+                <MapPin className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <span className="text-[10px] text-[#B8CBA5] uppercase tracking-wider font-semibold block">
+                  {language === "hi" ? "स्थान (Official Venue)" : "Venue Location"}
+                </span>
+                <p className="text-sm font-bold text-white">
+                  {language === "hi"
+                    ? "वीर सावरकर उद्यान, एम. के. स्कूल के पास, टी.पी.एस. रोड नंबर 51, बोरीवली पश्चिम, मुंबई"
+                    : "Veer Savarkar Udyan, Near M.K. School, T.P.S. Road No. 51, Borivali West, Mumbai"}
+                </p>
+                <span className="text-[10px] text-[#F7F5EC]/70">Near Borivali Station &amp; Link Road Junction</span>
               </div>
             </div>
           </div>
+
+          {/* VIP Dignitaries & Hon'ble Guests Section */}
+          <div className="relative z-10 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-3">
+            <div className="flex items-center gap-2">
+              <Award className="w-5 h-5 text-[#E28723]" />
+              <h3 className="font-serif text-lg font-bold text-white">
+                {language === "hi" ? "सम्माननीय मुख्य अतिथिगण (Hon'ble Guests)" : "Hon'ble Guests & Dignitaries"}
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 rounded-xl bg-black/30 border border-white/15 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#E28723]/20 border border-[#E28723] flex items-center justify-center text-[#E28723] font-bold text-xs flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-[#E28723] block">
+                    {language === "hi" ? "मुख्य अतिथि" : "Chief Guest"}
+                  </span>
+                  <h4 className="text-sm font-bold text-white">माननीय श्री गोपाल शेट्टी</h4>
+                  <p className="text-xs text-[#B8CBA5]">जनसेवक, बोरीवली (पूर्व सांसद)</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-black/30 border border-white/15 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#E28723]/20 border border-[#E28723] flex items-center justify-center text-[#E28723] font-bold text-xs flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-[#E28723] block">
+                    {language === "hi" ? "विशेष मुख्य अतिथि" : "Special Chief Guest"}
+                  </span>
+                  <h4 className="text-sm font-bold text-white">श्री संजय निरुपम जी</h4>
+                  <p className="text-xs text-[#B8CBA5]">पूर्व सांसद एवं शिवसेना नेता</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-black/30 border border-white/15 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#E28723]/20 border border-[#E28723] flex items-center justify-center text-[#E28723] font-bold text-xs flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-[#E28723] block">
+                    {language === "hi" ? "विशिष्ट अतिथि" : "Guest of Honour"}
+                  </span>
+                  <h4 className="text-sm font-bold text-white">माननीय श्री संजय उपाध्याय जी</h4>
+                  <p className="text-xs text-[#B8CBA5]">विधायक, बोरीवली (मुंबई)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Special Attraction: Vicky Musical Team */}
+          <div className="relative z-10 p-5 rounded-2xl bg-[#E28723]/15 border border-[#E28723]/40 backdrop-blur-sm space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-[#E28723] flex items-center justify-center text-white shadow">
+                  <Music className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-[#E28723] block">
+                    {language === "hi" ? "विशेष सांस्कृतिक आकर्षण" : "Special Cultural Attraction"}
+                  </span>
+                  <h4 className="font-serif text-lg font-bold text-white">
+                    Vicky Musical Team एवं पारंपरिक लोककला
+                  </h4>
+                </div>
+              </div>
+              <span className="text-xs text-[#B8CBA5] font-light">
+                पारंपरिक झुमर, पाइका, मांदर एवं नगाड़ा वादन
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm text-white/90">
+              {language === "hi"
+                ? "झारखंड के सुप्रसिद्ध संगीत कलाकारों द्वारा मनमोहक प्रस्तुति, लोकगीत और लोकनृत्य का अद्वितीय संगम:"
+                : "Captivating musical performances by renowned tribal and folk vocalists:"}
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              {[
+                { name: "नितेश कश्यप", role: "Vocalist" },
+                { name: "सतीश कुमार", role: "Vocalist" },
+                { name: "संजोग बंसल", role: "Vocalist" },
+                { name: "सुहानी ओरांव", role: "Singer" },
+                { name: "रिंकू", role: "Performer" },
+              ].map((artist) => (
+                <div key={artist.name} className="p-2.5 rounded-xl bg-black/30 border border-white/10 text-center">
+                  <p className="text-xs font-bold text-white">🎤 {artist.name}</p>
+                  <span className="text-[9px] text-[#E28723] uppercase tracking-wider block">{artist.role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DUAL SHOWCASE: OFFICIAL VIDEO TEASER + OFFICIAL POSTER */}
+          <div id="karma-mahotsav-video" className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start scroll-mt-28">
+            {/* Left: Video Player */}
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold flex items-center gap-1.5 shadow">
+                  <Video className="w-3.5 h-3.5" />
+                  {language === "hi" ? "आधिकारिक वीडियो आमंत्रण / Official Video Teaser" : "Official Video Invitation"}
+                </span>
+                <a
+                  href="/videos/karma-mahotsav-2026.mp4"
+                  download="Karma-Mahotsav-2026-Invitation.mp4"
+                  className="text-xs font-bold text-[#E28723] hover:underline flex items-center gap-1"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  {language === "hi" ? "वीडियो डाउनलोड करें" : "Download Video"}
+                </a>
+              </div>
+
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] shadow-2xl bg-black aspect-video sm:aspect-video flex items-center justify-center">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/images/events/karma-mahotsav-2026-poster.jpg"
+                  className="w-full h-full object-contain bg-black"
+                >
+                  <source src="/videos/karma-mahotsav-2026.mp4" type="video/mp4" />
+                  Your browser does not support HTML5 video playback.
+                </video>
+              </div>
+
+              <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#B8CBA5]">
+                <span>🎬 भव्य कर्मा महोत्सव 2026 आधिकारिक वीडियो आमंत्रण (13.4 MB MP4)</span>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://wa.me/?text=🌿🙏%20भव्य%20कर्मा%20महोत्सव%202026%20🙏🌿%0Aदिनांक:%20रविवार,%2025%20अक्टूबर%202026%0Aस्थान:%20वीर%20सावरकर%20उद्यान,%20बोरीवली%20पश्चिम,%20मुंबई%0Aदेखें%20वीडियो:%20https://jharkhandvasi-parivartan-sangh-rho.vercel.app/events%23karma-mahotsav"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#25D366] hover:underline flex items-center gap-1 font-semibold"
+                  >
+                    <Share2 className="w-3.5 h-3.5" />
+                    व्हाट्सएप पर शेयर
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Official Event Poster */}
+            <div className="lg:col-span-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="badge-pill bg-white/10 text-white text-[10px] font-bold border border-white/20 flex items-center gap-1.5">
+                  <FileImage className="w-3.5 h-3.5 text-[#E28723]" />
+                  {language === "hi" ? "आधिकारिक आमंत्रण पोस्टर" : "Official Invitation Poster"}
+                </span>
+                <a
+                  href="/images/events/karma-mahotsav-2026-poster.jpg"
+                  download="Karma-Mahotsav-2026-Poster.jpg"
+                  className="text-xs font-bold text-[#E28723] hover:underline flex items-center gap-1"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  {language === "hi" ? "पोस्टर डाउनलोड" : "Download Poster"}
+                </a>
+              </div>
+
+              <div
+                onClick={() => setIsPosterModalOpen(true)}
+                className="relative cursor-pointer rounded-2xl overflow-hidden border-2 border-[#E28723]/70 bg-black/50 shadow-2xl group flex items-center justify-center p-3"
+              >
+                <div className="relative w-full aspect-[9/16] max-h-[460px]">
+                  <Image
+                    src="/images/events/karma-mahotsav-2026-poster.jpg"
+                    alt="Grand Karma Mahotsav 2026 Official Poster"
+                    fill
+                    className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="px-4 py-2 rounded-full bg-[#E28723] text-white text-xs font-bold shadow-xl">
+                    🔍 {language === "hi" ? "बड़ा करके देखें" : "Click to Enlarge"}
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-center text-[#B8CBA5]">
+                📍 Veer Savarkar Udyan, Near M.K. School, T.P.S. Road No. 51, Borivali (W), Mumbai
+              </p>
+            </div>
+          </div>
+
+          {/* Slogan, Welcome Notice & Organizers Credit */}
+          <div className="relative z-10 p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <p className="text-xs sm:text-sm text-[#F7F5EC]/95">
+                🙏 <strong>{language === "hi" ? "आप सभी सपरिवार सादर आमंत्रित हैं।" : "You and your family are cordially invited!"}</strong>
+              </p>
+              <span className="text-xs font-bold text-[#E28723] tracking-wide">
+                जय बिरसा मुंडा! जय झारखंड! जय महाराष्ट्र!
+              </span>
+            </div>
+            <div className="border-t border-white/10 pt-2 text-xs text-[#B8CBA5] text-center sm:text-left">
+              {language === "hi" ? (
+                <>
+                  <strong>आयोजक:</strong> अरविंद आर्य (संस्थापक राष्ट्रीय अध्यक्ष) • मोनिका (सह-आयोजक)
+                </>
+              ) : (
+                <>
+                  <strong>Organizers:</strong> Arvind Arya (Founder National President) • Monika (Co-organizer)
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Contact buttons */}
+          <div className="relative z-10 flex flex-wrap items-center gap-3 pt-2">
+            <a
+              href="tel:+917808008058"
+              className="px-6 py-3.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow-xl transition-all flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4" />
+              <span>हेल्पलाइन: 78080 08058</span>
+            </a>
+
+            <a
+              href="tel:+919022288222"
+              className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wide border border-white/25 shadow transition-all flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-[#B8CBA5]" />
+              <span>90222 88222</span>
+            </a>
+
+            <a
+              href="https://wa.me/917808008058?text=Namaste%2C%20I%20want%20to%20attend%20Karma%20Mahotsav%202026%20at%20Veer%20Savarkar%20Udyan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold tracking-wide shadow-xl transition-all flex items-center gap-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>व्हाट्सएप पूछताछ</span>
+            </a>
+
+            <a
+              href="https://maps.google.com/?q=Veer+Savarkar+Udyan+Borivali+West+Mumbai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-full bg-transparent hover:bg-white/10 text-[#B8CBA5] hover:text-white text-xs font-bold tracking-wide border border-[#B8CBA5]/40 transition-all flex items-center gap-2"
+            >
+              <MapPin className="w-4 h-4" />
+              <span>गूगल मैप्स लोकेशन</span>
+            </a>
+          </div>
         </div>
+
+        {/* Poster Fullscreen Modal */}
+        {isPosterModalOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setIsPosterModalOpen(false)}
+          >
+            <div className="relative max-w-lg w-full max-h-[90vh] flex flex-col items-center">
+              <button
+                type="button"
+                onClick={() => setIsPosterModalOpen(false)}
+                className="self-end mb-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold hover:bg-white/40 transition"
+              >
+                ✕ बंद करें (Close)
+              </button>
+              <div className="relative w-full aspect-[9/16] max-h-[82vh] rounded-2xl overflow-hidden border-2 border-[#E28723]">
+                <Image
+                  src="/images/events/karma-mahotsav-2026-poster.jpg"
+                  alt="Grand Karma Mahotsav 2026 Poster"
+                  fill
+                  className="object-contain"
+                  sizes="90vw"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 2.5 SPOTLIGHT RECENT MILESTONE: PRAVASI SAMMELAN 2026 */}

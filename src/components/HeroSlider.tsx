@@ -36,7 +36,7 @@ const fallbackSlides: Slide[] = [
     image: "/images/gallery/traditional-santhali-dance-performance-stage.jpg",
     alt: "Grand Karma Mahotsav 2026 Veer Savarkar Udyan Borivali Mumbai",
     primaryCta: { text: "Invitation & Details", href: "/events#karma-mahotsav" },
-    secondaryCta: { text: "Call Helpline: 7808008058", href: "tel:+917808008058" },
+    secondaryCta: { text: "Watch Video Teaser 🎬", href: "/events#karma-mahotsav-video" },
     badgeText: "Sunday, 25 Oct 2026 • Veer Savarkar Udyan, Borivali (W)",
   },
   {
@@ -141,6 +141,7 @@ export default function HeroSlider() {
 
   const getPrimaryCtaText = () => {
     if (language === "hi") {
+      if (slides[current]?.primaryCta?.href === "/events#karma-mahotsav") return "निमंत्रण एवं विस्तृत विवरण";
       if (slides[current]?.primaryCta?.href === "/our-work") return "हमारे कार्य देखें";
       if (slides[current]?.primaryCta?.href === "/events") return "कार्यक्रम देखें";
       if (slides[current]?.primaryCta?.href === "/donate") return "सहयोग करें (दान)";
@@ -152,6 +153,7 @@ export default function HeroSlider() {
 
   const getSecondaryCtaText = () => {
     if (language === "hi") {
+      if (slides[current]?.secondaryCta?.href === "/events#karma-mahotsav-video") return "वीडियो आमंत्रण देखें 🎬";
       if (slides[current]?.secondaryCta?.href === "/get-involved") return "स्वयंसेवक बनें";
       if (slides[current]?.secondaryCta?.href === "/about") return "हमारे बारे में";
       if (slides[current]?.secondaryCta?.href === "/contact") return "संपर्क करें";
