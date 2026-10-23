@@ -137,6 +137,39 @@ export default function DonateContent() {
               </div>
             </div>
 
+            {/* Official Bank of India UPI QR Card */}
+            <div className="bg-white/10 border border-white/20 p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 sm:gap-8 shadow-2xl backdrop-blur-md">
+              <div className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-2xl overflow-hidden bg-white p-2 shadow-2xl flex-shrink-0 border-2 border-[#E28723]">
+                <Image
+                  src="/images/jps-official-upi-qr.jpg"
+                  alt="Official Bank of India (BOI) UPI QR Code - Jharkhandvasi Parivartan Sangh"
+                  fill
+                  className="object-contain p-1"
+                  sizes="(max-width: 640px) 192px, 224px"
+                  priority
+                />
+              </div>
+              <div className="space-y-3 text-center md:text-left flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E28723]/20 border border-[#E28723]/30 text-[#E28723] text-xs font-semibold">
+                  <QrCode className="w-4 h-4" />
+                  <span>{language === "hi" ? "आधिकारिक यूपीआई स्कैन एवं भुगतान" : "Official UPI Instant Scan & Pay"}</span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+                  {language === "hi" ? "बैंक ऑफ़ इंडिया आधिकारिक यूपीआई क्यूआर" : "Bank of India (BOI) Official UPI QR"}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed max-w-2xl">
+                  {language === "hi"
+                    ? "GPay, PhonePe, Paytm, BHIM या किसी भी बैंकिंग ऐप से सीधे स्कैन करें। सभी अंशदान धारा 80G के तहत 50% कर कटौती के पात्र हैं।"
+                    : "Scan instantly with Google Pay, PhonePe, Paytm, BHIM or any UPI banking app. 100% direct contribution to registered trust programs with 80G tax exemption."}
+                </p>
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2 text-[11px] text-[#B8CBA5]">
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">BOI A/C: 013610110004678</span>
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">IFSC: BKID0000136</span>
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">Trust Reg: E-30004/MUMBAI</span>
+                </div>
+              </div>
+            </div>
+
             {/* Bank Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-1">
