@@ -97,7 +97,8 @@ export default function AboutContent() {
                   alt="Shri Arvind Arya - Founder & President"
                   fill
                   className="object-cover object-top"
-                  sizes="180px"
+                  sizes="(max-width: 640px) 144px, 176px"
+                  quality={95}
                   priority
                 />
               </div>
@@ -414,6 +415,7 @@ export default function AboutContent() {
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    quality={90}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
@@ -539,6 +541,7 @@ export default function AboutContent() {
                     fill
                     className="object-cover object-top"
                     sizes="80px"
+                    quality={90}
                   />
                 </div>
                 <div className="space-y-1">
