@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -15,6 +16,12 @@ import {
   Quote,
   Building2,
   Compass,
+  Download,
+  Maximize2,
+  X,
+  Filter,
+  Eye,
+  UserCheck,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useSiteContent } from "@/context/SiteContentContext";
@@ -27,6 +34,14 @@ export default function AboutContent() {
   const timelineEvents = content.about.timeline || [];
   const about = content.about;
   const organization = content.organization;
+
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isBoardModalOpen, setIsBoardModalOpen] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<(typeof leadershipTeam)[0] | null>(null);
+
+  const filteredLeadership = selectedCategory === "all"
+    ? leadershipTeam
+    : leadershipTeam.filter((m) => m.category === selectedCategory);
 
   return (
     <div className="space-y-16 lg:space-y-24 pb-24 overflow-x-hidden w-full max-w-full">
@@ -274,10 +289,10 @@ export default function AboutContent() {
       </section>
 
       {/* 5. PUBLIC RELATION TEAM & LEADERSHIP (DYNAMIC FROM CMS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <section id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10 scroll-mt-28">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-            {language === "hi" ? "आधिकारिक जनसंपर्क टीम" : "Official Public Relation Team"}
+            {language === "hi" ? "आधिकारिक संगठनात्मक नेतृत्व" : "Official Leadership & Public Relations Team"}
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#123B2A]">
             {language === "hi" ? "संगठनात्मक नेतृत्व एवं प्रमुख पदाधिकारी" : "Organizational Leadership & Key Office Bearers"} ({leadershipTeam.length})
@@ -289,11 +304,104 @@ export default function AboutContent() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-          {leadershipTeam.map((member, i) => (
+        {/* 5.1 OFFICIAL LEADERSHIP BOARD BANNER CARD */}
+        <div className="relative rounded-3xl overflow-hidden border-2 border-[#123B2A]/20 bg-gradient-to-br from-[#071F14] via-[#0F3524] to-[#123B2A] text-white p-4 sm:p-6 lg:p-8 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            {/* Visual Board Preview */}
+            <div
+              onClick={() => setIsBoardModalOpen(true)}
+              className="lg:col-span-7 relative cursor-pointer group rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-[#0B1E34] aspect-[16/9] flex items-center justify-center p-2"
+            >
+              <Image
+                src="/images/leadership/leadership-team-board.png"
+                alt="JPS National Leadership Chart Official Board"
+                fill
+                className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="px-4 py-2 rounded-full bg-[#E28723] text-white text-xs font-bold shadow-xl flex items-center gap-1.5">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  {language === "hi" ? "पूरा बोर्ड बड़ा करके देखें (Zoom)" : "View Full Board (HD)"}
+                </span>
+              </div>
+            </div>
+
+            {/* Board Info & Quick Actions */}
+            <div className="lg:col-span-5 space-y-3.5 text-center lg:text-left">
+              <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold uppercase tracking-wider shadow">
+                {language === "hi" ? "आधिकारिक संगठनात्मक चार्ट" : "Official Executive Board"}
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-snug">
+                {language === "hi" ? "राष्ट्रीय संरक्षक मंडल एवं कार्यकारिणी समिति" : "National Patron Council & Executive Committee"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed">
+                {language === "hi"
+                  ? "झारखंडवासी परिवर्तन संघ की राष्ट्रीय नेतृत्व समिति — 16 प्रमुख पदाधिकारी जो समाज, प्रवासी श्रमिक, शिक्षा और स्वास्थ्य कल्याण के लिए निरंतर समर्पित हैं।"
+                  : "The apex leadership council of Jharkhandvasi Parivartan Sangh guiding welfare campaigns, migrant worker rights, healthcare, and educational empowerment."}
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+                <button
+                  type="button"
+                  onClick={() => setIsBoardModalOpen(true)}
+                  className="px-4 py-2.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold transition flex items-center gap-1.5 shadow"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>{language === "hi" ? "पूरा बोर्ड देखें" : "View Board"}</span>
+                </button>
+                <a
+                  href="/images/leadership/leadership-team-board.png"
+                  download="JPS-National-Leadership-Board.png"
+                  className="px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition flex items-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#B8CBA5]" />
+                  <span>{language === "hi" ? "डाउनलोड चार्ट" : "Download Chart"}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 5.2 CATEGORY FILTER TABS (MOBILE HORIZONTAL SCROLL) */}
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 scrollbar-none justify-start sm:justify-center px-1">
+          {[
+            { key: "all", label: language === "hi" ? "सभी पदाधिकारी" : "All Leaders", count: leadershipTeam.length },
+            { key: "Patron", label: language === "hi" ? "संरक्षक मंडल" : "Patrons", count: 4 },
+            { key: "Executive", label: language === "hi" ? "कार्यकारी नेतृत्व" : "Executive", count: 6 },
+            { key: "Secretariat", label: language === "hi" ? "सचिवालय" : "Secretariat", count: 3 },
+            { key: "Specialized", label: language === "hi" ? "मीडिया व सलाहकार" : "Media & Advisory", count: 3 },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => setSelectedCategory(tab.key)}
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
+                selectedCategory === tab.key
+                  ? "bg-[#123B2A] text-white shadow-md scale-105"
+                  : "bg-white text-[#17231C]/75 hover:bg-[#B8CBA5]/20 border border-[#123B2A]/10"
+              }`}
+            >
+              <span>{tab.label}</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                  selectedCategory === tab.key ? "bg-white/25 text-white" : "bg-[#123B2A]/10 text-[#123B2A]"
+                }`}
+              >
+                {tab.count}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* 5.3 RESPONSIVE LEADERSHIP GRID (OPTIMIZED FOR 2-COLUMN MOBILE & 4-COLUMN DESKTOP) */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5 lg:gap-6">
+          {filteredLeadership.map((member, i) => (
             <div
               key={member.id || i}
-              className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
+              onClick={() => setSelectedMember(member)}
+              className="bg-white rounded-2xl overflow-hidden border border-[#123B2A]/10 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <div
@@ -307,38 +415,43 @@ export default function AboutContent() {
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-85 group-hover:opacity-65 transition-opacity" />
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 max-w-[85%]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                  {/* Badge */}
+                  <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 max-w-[90%]">
                     <span
-                      className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-md backdrop-blur-md truncate block ${
+                      className={`text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-md backdrop-blur-md truncate block ${
                         member.category === "Patron"
-                          ? "bg-[#795943]/90 text-white"
+                          ? "bg-[#795943]/95 text-white"
                           : member.category === "Executive"
-                          ? "bg-[#E28723]/90 text-white"
-                          : "bg-[#1D5139]/90 text-white"
+                          ? "bg-[#E28723]/95 text-white"
+                          : "bg-[#1D5139]/95 text-white"
                       }`}
                     >
                       {member.badge || member.role}
                     </span>
                   </div>
-                  <div className="absolute bottom-2 left-2.5 right-2.5 sm:bottom-2.5 sm:left-3 sm:right-3 text-white">
-                    <span className="text-[9px] sm:text-[10px] text-[#B8CBA5] font-semibold tracking-wide uppercase block truncate">
+
+                  {/* Category Pill on Mobile */}
+                  <div className="absolute bottom-1.5 left-2 right-2 sm:bottom-2.5 sm:left-3 sm:right-3 text-white flex items-center justify-between text-[8px] sm:text-[10px]">
+                    <span className="text-[#B8CBA5] font-semibold tracking-wide uppercase truncate">
                       {member.category || "Executive"} {language === "hi" ? "समिति" : "Body"}
                     </span>
+                    <span className="hidden sm:inline-block text-white/70">Tap details</span>
                   </div>
                 </div>
 
-                <div className="p-3 sm:p-4 space-y-1 sm:space-y-1.5">
-                  <h4 className="font-serif text-sm sm:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
+                <div className="p-2.5 sm:p-4 space-y-1 sm:space-y-1.5">
+                  <h4 className="font-serif text-xs sm:text-base md:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1">
                     {member.name}
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-[#795943] font-medium leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  <p className="text-[10px] sm:text-xs text-[#795943] font-medium leading-tight line-clamp-2 min-h-[1.8rem] sm:min-h-[2rem]">
                     {member.role}
                   </p>
                 </div>
               </div>
 
-              <div className="p-2.5 sm:p-4 pt-2 sm:pt-2 border-t border-[#123B2A]/5 text-[10px] sm:text-[11px] text-[#17231C]/65 flex items-center justify-between gap-1">
+              <div className="p-2 sm:p-3 pt-1.5 sm:pt-2 border-t border-[#123B2A]/5 text-[9px] sm:text-[11px] text-[#17231C]/65 flex items-center justify-between gap-1">
                 <span className="truncate">{language === "hi" ? "जे.पी.एस. राष्ट्रीय" : "JPS National"}</span>
                 <span className="text-[#1D5139] font-semibold flex items-center gap-1 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -348,6 +461,122 @@ export default function AboutContent() {
             </div>
           ))}
         </div>
+
+        {/* 5.4 FULL BOARD LIGHTBOX MODAL */}
+        {isBoardModalOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+            onClick={() => setIsBoardModalOpen(false)}
+          >
+            <div
+              className="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center bg-[#071F14] rounded-2xl border border-white/20 p-3 sm:p-5"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 text-white">
+                <div>
+                  <h4 className="font-serif text-sm sm:text-lg font-bold">
+                    {language === "hi" ? "झारखंडवासी परिवर्तन संघ — आधिकारिक संगठनात्मक बोर्ड" : "JPS National Leadership Chart"}
+                  </h4>
+                  <p className="text-[10px] sm:text-xs text-[#B8CBA5]">
+                    {language === "hi" ? "16 प्रमुख पदाधिकारी (संरक्षक, कार्यकारिणी, सचिवालय)" : "16 Key Office Bearers (Patrons, Executive, Secretariat)"}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="/images/leadership/leadership-team-board.png"
+                    download="JPS-National-Leadership-Board.png"
+                    className="px-3 py-1.5 rounded-full bg-[#E28723] text-white text-xs font-bold flex items-center gap-1 hover:bg-[#c97419] transition"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">डाउनलोड</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setIsBoardModalOpen(false)}
+                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+
+              <div className="relative w-full aspect-[16/9] sm:h-[70vh] rounded-xl overflow-hidden mt-3 bg-[#0B1E34]">
+                <Image
+                  src="/images/leadership/leadership-team-board.png"
+                  alt="JPS National Leadership Chart Full View"
+                  fill
+                  className="object-contain"
+                  sizes="95vw"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 5.5 MEMBER DETAILS MODAL */}
+        {selectedMember && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedMember(null)}
+          >
+            <div
+              className="relative max-w-md w-full bg-white rounded-3xl p-5 sm:p-6 shadow-2xl space-y-4 border border-[#123B2A]/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-[#17231C] transition"
+              >
+                ✕
+              </button>
+
+              <div className="flex items-center gap-4">
+                <div className="relative w-20 h-24 rounded-2xl overflow-hidden border-2 border-[#123B2A]/20 shadow-md shrink-0 bg-[#071F14]/5">
+                  <Image
+                    src={selectedMember.image || "/images/leadership/arvind-arya.jpg"}
+                    alt={selectedMember.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="80px"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <span
+                    className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full inline-block ${
+                      selectedMember.category === "Patron"
+                        ? "bg-[#795943] text-white"
+                        : selectedMember.category === "Executive"
+                        ? "bg-[#E28723] text-white"
+                        : "bg-[#1D5139] text-white"
+                    }`}
+                  >
+                    {selectedMember.badge || selectedMember.role}
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-[#123B2A] leading-tight">
+                    {selectedMember.name}
+                  </h3>
+                  <p className="text-xs text-[#795943] font-semibold">{selectedMember.role}</p>
+                  <p className="text-[10px] text-[#17231C]/60">{selectedMember.organization || "Jharkhandvasi Parivartan Sangh"}</p>
+                </div>
+              </div>
+
+              {selectedMember.bio && (
+                <div className="p-3.5 rounded-2xl bg-[#B8CBA5]/15 border border-[#B8CBA5]/30 text-xs text-[#17231C]/85 leading-relaxed">
+                  {selectedMember.bio}
+                </div>
+              )}
+
+              <div className="flex items-center justify-between text-[11px] text-[#17231C]/70 pt-1 border-t border-[#123B2A]/10">
+                <span>{selectedMember.category} Committee</span>
+                <span className="text-[#1D5139] font-bold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Verified Leader
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 6. CIVIL SERVICES & MAHARASHTRA TIES (WITH REAL DOCUMENTARY PHOTOS) */}
