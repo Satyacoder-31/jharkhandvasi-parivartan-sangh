@@ -406,7 +406,7 @@ export default function AboutContent() {
             >
               <div>
                 <div
-                  className="relative w-full aspect-[4/5] bg-[#071F14]/5 overflow-hidden"
+                  className="relative w-full aspect-[4/5] bg-[#0c1829] overflow-hidden"
                   style={{ aspectRatio: "4 / 5" }}
                 >
                   <Image
@@ -415,45 +415,38 @@ export default function AboutContent() {
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    quality={90}
+                    quality={95}
+                    priority={i < 4}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badge */}
-                  <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 max-w-[90%]">
+                  <div className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 max-w-[90%] z-10">
                     <span
                       className={`text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-md backdrop-blur-md truncate block ${
                         member.category === "Patron"
-                          ? "bg-[#795943]/95 text-white"
+                          ? "bg-[#795943]/90 text-white"
                           : member.category === "Executive"
-                          ? "bg-[#E28723]/95 text-white"
-                          : "bg-[#1D5139]/95 text-white"
+                          ? "bg-[#E28723]/90 text-white"
+                          : "bg-[#1D5139]/90 text-white"
                       }`}
                     >
                       {member.badge || member.role}
                     </span>
                   </div>
-
-                  {/* Category Pill on Mobile */}
-                  <div className="absolute bottom-1.5 left-2 right-2 sm:bottom-2.5 sm:left-3 sm:right-3 text-white flex items-center justify-between text-[8px] sm:text-[10px]">
-                    <span className="text-[#B8CBA5] font-semibold tracking-wide uppercase truncate">
-                      {member.category || "Executive"} {language === "hi" ? "समिति" : "Body"}
-                    </span>
-                    <span className="hidden sm:inline-block text-white/70">Tap details</span>
-                  </div>
                 </div>
 
-                <div className="p-2.5 sm:p-4 space-y-1 sm:space-y-1.5">
-                  <h4 className="font-serif text-xs sm:text-base md:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1">
+                <div className="p-3 sm:p-4 space-y-1 sm:space-y-1.5">
+                  <h4 className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1">
                     {member.name}
                   </h4>
-                  <p className="text-[10px] sm:text-xs text-[#795943] font-medium leading-tight line-clamp-2 min-h-[1.8rem] sm:min-h-[2rem]">
+                  <p className="text-[11px] sm:text-xs text-[#795943] font-medium leading-tight line-clamp-2 min-h-[1.8rem] sm:min-h-[2rem]">
                     {member.role}
                   </p>
                 </div>
               </div>
 
-              <div className="p-2 sm:p-3 pt-1.5 sm:pt-2 border-t border-[#123B2A]/5 text-[9px] sm:text-[11px] text-[#17231C]/65 flex items-center justify-between gap-1">
+              <div className="p-2.5 sm:p-3 pt-1.5 sm:pt-2 border-t border-[#123B2A]/5 text-[10px] sm:text-[11px] text-[#17231C]/65 flex items-center justify-between gap-1">
                 <span className="truncate">{language === "hi" ? "जे.पी.एस. राष्ट्रीय" : "JPS National"}</span>
                 <span className="text-[#1D5139] font-semibold flex items-center gap-1 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
