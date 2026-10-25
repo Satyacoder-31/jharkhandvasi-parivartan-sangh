@@ -149,10 +149,11 @@ export default function AdminPage() {
           <div className="text-center space-y-3">
             <div className="w-16 h-16 rounded-2xl bg-white p-1.5 border border-[#B8CBA5]/40 flex items-center justify-center mx-auto shadow-lg">
               <Image
-                src="/images/logo/jps-emblem.png"
-                alt="Jharkhandvasi Parivartan Sangh Emblem"
+                src="/images/logo/jps-logo-full.png"
+                alt="Jharkhandvasi Parivartan Sangh Official Logo"
                 width={56}
                 height={56}
+                unoptimized
                 className="w-full h-full object-contain"
               />
             </div>
@@ -222,10 +223,11 @@ export default function AdminPage() {
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-white p-1 border border-[#B8CBA5]/30 flex items-center justify-center shadow-sm flex-shrink-0">
             <Image
-              src="/images/logo/jps-emblem.png"
+              src="/images/logo/jps-logo-full.png"
               alt="JPS Logo"
               width={32}
               height={32}
+              unoptimized
               className="w-full h-full object-contain"
             />
           </div>

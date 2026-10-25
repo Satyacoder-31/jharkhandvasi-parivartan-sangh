@@ -84,13 +84,14 @@ export default function Preloader() {
       <div className="relative z-10 flex flex-col items-center max-w-sm w-full px-6 text-center space-y-6">
         {/* Emblem */}
         <div className="relative">
-          <div className="w-24 h-24 rounded-3xl bg-white p-2 border-2 border-[#B8CBA5]/40 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white p-2.5 border-2 border-[#B8CBA5]/40 flex items-center justify-center shadow-2xl relative overflow-hidden group">
             <Image
               src="/images/logo/jps-logo-full.png"
               alt="Jharkhandvasi Parivartan Sangh Official Logo with Slogan"
-              width={90}
-              height={82}
+              width={120}
+              height={110}
               priority
+              unoptimized
               className="w-full h-full object-contain drop-shadow"
             />
           </div>

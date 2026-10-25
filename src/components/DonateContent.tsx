@@ -114,6 +114,7 @@ export default function DonateContent() {
                     alt="Jharkhandvasi Parivartan Sangh Official Logo with Slogan"
                     width={80}
                     height={72}
+                    unoptimized
                     className="w-full h-full object-contain"
                   />
                 </div>

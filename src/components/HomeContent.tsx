@@ -524,12 +524,13 @@ export default function HomeContent() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071F14]/90 via-[#071F14]/20 to-transparent" />
                   {/* Official Emblem Trust Badge with Slogan */}
                   <div className="absolute top-4 right-4 z-20 bg-white/95 dark:bg-[#071F14]/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-black/5 dark:border-white/15 flex items-center gap-2.5">
-                    <div className="w-10 h-10 relative flex-shrink-0">
+                    <div className="w-10 h-10 relative flex-shrink-0 bg-white rounded-xl p-1 shadow-sm border border-[#123B2A]/10">
                       <Image
                         src="/images/logo/jps-logo-full.png"
                         alt="JPS Official Emblem with Slogan"
                         width={40}
                         height={36}
+                        unoptimized
                         className="w-full h-full object-contain"
                       />
                     </div>

@@ -105,10 +105,10 @@ export default function Navbar() {
           {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM & SLOGAN */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div
-              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-0.5 ${
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 bg-white border ${
                 isScrolled
-                  ? "bg-white dark:bg-[#123B2A] border border-[#123B2A]/15 dark:border-white/20"
-                  : "bg-white/95 text-white border border-white/40 backdrop-blur-md"
+                  ? "border-[#123B2A]/20 shadow-sm"
+                  : "border-white/40 shadow-md"
               }`}
             >
               <Image
@@ -117,6 +117,7 @@ export default function Navbar() {
                 width={48}
                 height={44}
                 priority
+                unoptimized
                 className="w-full h-full object-contain"
               />
             </div>
@@ -275,6 +276,7 @@ export default function Navbar() {
                       alt="JPS Logo with Slogan"
                       width={48}
                       height={44}
+                      unoptimized
                       className="w-full h-full object-contain"
                     />
                   </div>

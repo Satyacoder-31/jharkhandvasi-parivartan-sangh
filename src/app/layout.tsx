@@ -80,6 +80,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="preload" as="image" href="/images/logo/jps-logo-full.png" />
         {/* Instant Script: Guarantee scroll position starts at (0, 0) on refresh & sync dark theme */}
         <script
           dangerouslySetInnerHTML={{

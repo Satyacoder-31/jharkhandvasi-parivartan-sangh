@@ -205,6 +205,7 @@ export default function AboutContent() {
                     alt="Jharkhandvasi Parivartan Sangh Official Emblem with Slogan"
                     width={96}
                     height={86}
+                    unoptimized
                     className="w-full h-full object-contain"
                   />
                 </div>
