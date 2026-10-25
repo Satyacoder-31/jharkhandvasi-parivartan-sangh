@@ -340,7 +340,7 @@ export default function AboutContent() {
               </h3>
               <p className="text-xs sm:text-sm text-[#F7F5EC]/85 font-light leading-relaxed">
                 {language === "hi"
-                  ? "झारखंडवासी परिवर्तन संघ की राष्ट्रीय नेतृत्व समिति — 16 प्रमुख पदाधिकारी जो समाज, प्रवासी श्रमिक, शिक्षा और स्वास्थ्य कल्याण के लिए निरंतर समर्पित हैं।"
+                  ? `झारखंडवासी परिवर्तन संघ की राष्ट्रीय नेतृत्व समिति — ${leadershipTeam.length} प्रमुख पदाधिकारी जो समाज, प्रवासी श्रमिक, शिक्षा और स्वास्थ्य कल्याण के लिए निरंतर समर्पित हैं।`
                   : "The apex leadership council of Jharkhandvasi Parivartan Sangh guiding welfare campaigns, migrant worker rights, healthcare, and educational empowerment."}
               </p>
 
@@ -439,10 +439,10 @@ export default function AboutContent() {
 
                 <div className="p-3 sm:p-4 space-y-1 sm:space-y-1.5">
                   <h4 className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#123B2A] group-hover:text-[#1D5139] transition-colors leading-snug line-clamp-1">
-                    {member.name}
+                    {language === "hi" && member.hindiName ? member.hindiName : member.name}
                   </h4>
                   <p className="text-[11px] sm:text-xs text-[#795943] font-medium leading-tight line-clamp-2 min-h-[1.8rem] sm:min-h-[2rem]">
-                    {member.role}
+                    {language === "hi" && member.hindiRole ? member.hindiRole : member.role}
                   </p>
                 </div>
               </div>
@@ -551,9 +551,11 @@ export default function AboutContent() {
                     {selectedMember.badge || selectedMember.role}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-[#123B2A] leading-tight">
-                    {selectedMember.name}
+                    {language === "hi" && selectedMember.hindiName ? selectedMember.hindiName : selectedMember.name}
                   </h3>
-                  <p className="text-xs text-[#795943] font-semibold">{selectedMember.role}</p>
+                  <p className="text-xs text-[#795943] font-semibold">
+                    {language === "hi" && selectedMember.hindiRole ? selectedMember.hindiRole : selectedMember.role}
+                  </p>
                   <p className="text-[10px] text-[#17231C]/60">{selectedMember.organization || "Jharkhandvasi Parivartan Sangh"}</p>
                 </div>
               </div>

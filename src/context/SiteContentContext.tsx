@@ -79,7 +79,13 @@ function mergeWithDefaults(parsed: any): SiteContent {
     about: {
       ...defaultSiteContent.about,
       ...(parsed.about || {}),
-      leadership: parsed.about?.leadership || defaultSiteContent.about.leadership,
+      leadership: (() => {
+        const storedLeaders = Array.isArray(parsed.about?.leadership) ? parsed.about.leadership : [];
+        const defaultLeaders = defaultSiteContent.about.leadership;
+        const storedIds = new Set(storedLeaders.map((m: { id: string }) => m.id));
+        const missingDefaults = defaultLeaders.filter((m) => !storedIds.has(m.id));
+        return storedLeaders.length > 0 ? [...storedLeaders, ...missingDefaults] : defaultLeaders;
+      })(),
     },
     programs: parsed.programs || defaultSiteContent.programs,
     artStore:

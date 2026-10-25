@@ -105,7 +105,7 @@ export default function Navbar() {
           {/* 1. BRAND LOGO & IDENTITY WITH OFFICIAL JPS EMBLEM & SLOGAN */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0">
             <div
-              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-1 bg-white border ${
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all group-hover:scale-105 shadow-md flex-shrink-0 p-0.5 bg-white border ${
                 isScrolled
                   ? "border-[#123B2A]/20 shadow-sm"
                   : "border-white/40 shadow-md"
@@ -115,10 +115,10 @@ export default function Navbar() {
                 src="/images/logo/jps-logo-full.png"
                 alt="Jharkhandvasi Parivartan Sangh Official Logo with Slogan"
                 width={48}
-                height={44}
+                height={48}
                 priority
                 unoptimized
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-lg"
               />
             </div>
 
@@ -270,14 +270,14 @@ export default function Navbar() {
               {/* Drawer Top Row with Official Emblem */}
               <div className="flex items-center justify-between pb-4 border-b border-[#123B2A]/10 dark:border-white/10">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-12 h-12 rounded-xl bg-white p-1 border border-[#123B2A]/20 shadow flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-white p-0.5 border border-[#123B2A]/20 shadow flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/logo/jps-logo-full.png"
                       alt="JPS Logo with Slogan"
                       width={48}
-                      height={44}
+                      height={48}
                       unoptimized
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain rounded-lg"
                     />
                   </div>
                   <div>

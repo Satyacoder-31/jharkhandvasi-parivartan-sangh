@@ -29,7 +29,9 @@ export interface HeroSlideData {
 export interface LeadershipMember {
   id: string;
   name: string;
+  hindiName?: string;
   role: string;
+  hindiRole?: string;
   organization: string;
   image: string;
   bio: string;
@@ -536,6 +538,7 @@ export const defaultSiteContent: SiteContent = {
       { id: "rajiv-rohit", name: "Shri Rajiv Rohit", role: "National Media-In-Charge", badge: "Media In-Charge", category: "Specialized", image: "/images/leadership/rajiv-rohit.jpg", organization: "Public Relations", bio: "Heads national media relations, press releases, and 'अपना झारखंड' publication." },
       { id: "jay-saha", name: "Shri Jay Saha", role: "National Liaison Head", badge: "Liaison Head", category: "Specialized", image: "/images/leadership/jay-saha.jpg", organization: "State Relations", bio: "Fosters institutional relations between Maharashtra and Jharkhand government departments." },
       { id: "pradeep-lal", name: "Shri Pradeep Lal", role: "National Advisor", badge: "Advisor", category: "Specialized", image: "/images/leadership/pradeep-lal.jpg", organization: "Advisory Council", bio: "Advises on statutory governance, trust legal frameworks, and policy initiatives." },
+      { id: "deep-narayan-kushwaha", name: "Shri Deep Narayan Kushwaha", hindiName: "श्री दीप नारायण कुशवाहा", role: "National Advisor", hindiRole: "राष्ट्रीय सलाहकार", badge: "Advisor", category: "Specialized", image: "/images/leadership/deep-narayan-kushwaha.jpg", organization: "National Advisory Council", bio: "मार्गदर्शन, सामाजिक उत्थान एवं प्रवासी कल्याण हेतु समर्पित राष्ट्रीय सलाहकार।" },
     ],
   },
   programs: [
