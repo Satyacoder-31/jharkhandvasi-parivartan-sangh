@@ -380,14 +380,14 @@ export default function Footer() {
             <Link href="/about" className="hover:text-white transition-colors">{t("footerFoundingStory")}</Link>
             <Link href="/contact" className="hover:text-white transition-colors">{t("footerEmergencyRedressal")}</Link>
             <Link href="/donate" className="hover:text-white transition-colors">{t("footerFinancialTransparency")}</Link>
-            <Link
+            <a
               href="/admin"
               className="inline-flex items-center gap-1.5 text-[#E28723] hover:text-[#f39c38] font-semibold transition-colors px-2.5 py-0.5 rounded-full bg-white/5 border border-[#E28723]/30"
               title="Manage website content, photos, and addresses"
             >
               <Lock className="w-3 h-3" />
               <span>{t("navAdmin")}</span>
-            </Link>
+            </a>
             <button
               onClick={scrollToTop}
               className="inline-flex items-center gap-1 text-[#B8CBA5] hover:text-white transition-colors ml-2"

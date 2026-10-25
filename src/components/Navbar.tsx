@@ -211,7 +211,7 @@ export default function Navbar() {
             </button>
 
             {/* Admin Portal Quick Access (Desktop & Tablet) */}
-            <Link
+            <a
               href="/admin"
               className={`hidden sm:flex p-2 rounded-xl transition-all ${
                 isScrolled
@@ -221,7 +221,7 @@ export default function Navbar() {
               title="Admin Portal (Manage Website Content)"
             >
               <Lock className="w-4 h-4" />
-            </Link>
+            </a>
 
             {/* Donate CTA Button (Desktop & Tablet) */}
             <Link
@@ -411,14 +411,14 @@ export default function Navbar() {
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>{t("btnWhatsAppSupport")}</span>
               </a>
-              <Link
+              <a
                 href="/admin"
                 onClick={() => setIsOpen(false)}
                 className="w-full py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-[#123B2A] dark:text-[#B8CBA5] text-xs font-semibold flex items-center justify-center gap-2 border border-black/10 dark:border-white/15"
               >
                 <Lock className="w-3.5 h-3.5 text-[#E28723]" />
                 <span>{t("navAdmin")}</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

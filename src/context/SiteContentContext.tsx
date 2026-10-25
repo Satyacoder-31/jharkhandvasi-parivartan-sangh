@@ -92,8 +92,20 @@ function mergeWithDefaults(parsed: any): SiteContent {
       Array.isArray(parsed.artStore) && parsed.artStore.length > 0 && parsed.artStore[0].impact
         ? parsed.artStore
         : defaultSiteContent.artStore,
-    events: parsed.events || defaultSiteContent.events,
-    mediaGallery: parsed.mediaGallery || defaultSiteContent.mediaGallery,
+    events: (() => {
+      const storedEvents = Array.isArray(parsed.events) ? parsed.events : [];
+      if (storedEvents.length === 0) return defaultSiteContent.events;
+      return storedEvents.map((evt: any) => {
+        if (!evt.image || evt.id === "event-birsa-munda-150-janmotsav") {
+          return {
+            ...evt,
+            image: evt.image || "/images/events/birsa-munda-garland-stage-ceremony.jpg",
+          };
+        }
+        return evt;
+      });
+    })(),
+    mediaGallery: Array.isArray(parsed.mediaGallery) && parsed.mediaGallery.length > 0 ? parsed.mediaGallery : defaultSiteContent.mediaGallery,
   };
 }
 

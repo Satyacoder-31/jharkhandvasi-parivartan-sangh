@@ -26,6 +26,64 @@ import GalleryLightbox from "@/components/GalleryLightbox";
 import PressMediaViewer from "@/components/PressMediaViewer";
 import { useSiteContent } from "@/context/SiteContentContext";
 import { useLanguage } from "@/context/LanguageContext";
+import { EventData } from "@/data/defaultSiteContent";
+
+function MilestoneEventCard({ evt }: { evt: EventData }) {
+  const [imgSrc, setImgSrc] = useState(
+    evt.image || "/images/gallery/birsa-munda-150-jayanti-sthapna-diwas-assembly.jpg"
+  );
+
+  return (
+    <div className="bg-white dark:bg-[#0A2419] rounded-3xl overflow-hidden border border-[#123B2A]/10 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+      <div>
+        <div className="relative h-44 w-full bg-[#071F14]">
+          <Image
+            src={imgSrc}
+            alt={evt.title}
+            fill
+            unoptimized
+            onError={() => {
+              if (
+                imgSrc !==
+                "/images/gallery/birsa-munda-150-jayanti-sthapna-diwas-assembly.jpg"
+              ) {
+                setImgSrc(
+                  "/images/gallery/birsa-munda-150-jayanti-sthapna-diwas-assembly.jpg"
+                );
+              } else {
+                setImgSrc("/images/cultural-birsa.jpg");
+              }
+            }}
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 25vw"
+          />
+          <div className="absolute top-3 left-3">
+            <span className="badge-pill bg-[#123B2A]/85 text-[#B8CBA5] backdrop-blur-sm text-[10px]">
+              {evt.category}
+            </span>
+          </div>
+        </div>
+
+        <div className="p-5 space-y-2">
+          <div className="flex items-center gap-1.5 text-[11px] text-[#795943] dark:text-[#B8CBA5] font-medium">
+            <Calendar className="w-3.5 h-3.5 text-[#E28723]" />
+            <span>{evt.date}</span>
+          </div>
+          <h3 className="font-serif text-base font-normal text-[#123B2A] dark:text-white leading-snug">
+            {evt.title}
+          </h3>
+          <p className="text-xs text-[#17231C]/75 dark:text-[#F7F5EC]/70 font-light leading-relaxed">
+            {evt.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="p-5 pt-0 border-t border-[#123B2A]/10 dark:border-white/10 mt-2 text-[11px] text-[#795943] dark:text-[#B8CBA5]">
+        📍 {evt.location}
+      </div>
+    </div>
+  );
+}
 
 export default function EventsContent() {
   const { content } = useSiteContent();
@@ -555,44 +613,7 @@ export default function EventsContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pastEvents.map((evt) => (
-            <div
-              key={evt.id}
-              className="bg-white rounded-3xl overflow-hidden border border-[#123B2A]/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="relative h-44 w-full bg-[#071F14]">
-                  <Image
-                    src={evt.image || "/images/cultural-birsa.jpg"}
-                    alt={evt.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="badge-pill bg-[#123B2A]/85 text-[#B8CBA5] backdrop-blur-sm text-[10px]">
-                      {evt.category}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-5 space-y-2">
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#795943] font-medium">
-                    <Calendar className="w-3.5 h-3.5 text-[#E28723]" />
-                    <span>{evt.date}</span>
-                  </div>
-                  <h3 className="font-serif text-base font-normal text-[#123B2A] leading-snug">
-                    {evt.title}
-                  </h3>
-                  <p className="text-xs text-[#17231C]/75 font-light leading-relaxed">
-                    {evt.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-5 pt-0 border-t border-[#123B2A]/10 mt-2 text-[11px] text-[#795943]">
-                📍 {evt.location}
-              </div>
-            </div>
+            <MilestoneEventCard key={evt.id} evt={evt} />
           ))}
         </div>
       </section>
