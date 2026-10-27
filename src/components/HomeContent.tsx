@@ -35,7 +35,7 @@ export default function HomeContent() {
   const { language, t } = useLanguage();
   const hp = content.homepage;
 
-  const [eventMediaTab, setEventMediaTab] = useState<"video" | "anup-jalota" | "poster">("video");
+  const [eventMediaTab, setEventMediaTab] = useState<"video" | "anup-jalota" | "3d-logo" | "poster">("video");
   const [isPosterOpen, setIsPosterOpen] = useState(false);
 
   // Safe numeric fallbacks
@@ -251,11 +251,11 @@ export default function HomeContent() {
               {/* Right Column: Interactive Video & Poster Media Card */}
               <div className="lg:col-span-5 space-y-3">
                 {/* Media Switcher Tabs */}
-                <div className="flex items-center gap-1.5 p-1 bg-black/40 rounded-2xl border border-white/15">
+                <div className="flex items-center gap-1 p-1 bg-black/40 rounded-2xl border border-white/15">
                   <button
                     type="button"
                     onClick={() => setEventMediaTab("video")}
-                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                    className={`flex-1 py-2 px-1.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                       eventMediaTab === "video"
                         ? "bg-[#E28723] text-white shadow"
                         : "text-[#B8CBA5] hover:text-white"
@@ -268,20 +268,33 @@ export default function HomeContent() {
                   <button
                     type="button"
                     onClick={() => setEventMediaTab("anup-jalota")}
-                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                    className={`flex-1 py-2 px-1.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                       eventMediaTab === "anup-jalota"
                         ? "bg-[#E28723] text-white shadow"
                         : "text-[#B8CBA5] hover:text-white"
                     }`}
                   >
                     <Award className="w-3.5 h-3.5" />
-                    <span>{language === "hi" ? "अनूप जलोटा संदेश" : "Anup Jalota"}</span>
+                    <span>{language === "hi" ? "अनूप जलोटा" : "Anup Jalota"}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setEventMediaTab("3d-logo")}
+                    className={`flex-1 py-2 px-1.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                      eventMediaTab === "3d-logo"
+                        ? "bg-[#E28723] text-white shadow"
+                        : "text-[#B8CBA5] hover:text-white"
+                    }`}
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "3D लोगो" : "3D Emblem"}</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setEventMediaTab("poster")}
-                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                    className={`flex-1 py-2 px-1.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                       eventMediaTab === "poster"
                         ? "bg-[#E28723] text-white shadow"
                         : "text-[#B8CBA5] hover:text-white"
@@ -293,7 +306,36 @@ export default function HomeContent() {
                 </div>
 
                 {/* Media Viewport */}
-                {eventMediaTab === "anup-jalota" ? (
+                {eventMediaTab === "3d-logo" ? (
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] bg-black shadow-2xl">
+                    <video
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full aspect-[9/16] sm:aspect-video object-contain bg-black"
+                    >
+                      <source src="/videos/jps-official-3d-logo-animation.mp4" type="video/mp4" />
+                      Your browser does not support video playback.
+                    </video>
+                    <div className="p-3 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-xs">
+                      <span className="text-[#F7F5EC] font-semibold flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#E28723]" />
+                        आधिकारिक 3D प्रतीक चिह्न • एक जुर्रत... एक ज़रूरत
+                      </span>
+                      <a
+                        href="/videos/jps-official-3d-logo-animation.mp4"
+                        download="JPS-Official-3D-Emblem-Animation.mp4"
+                        className="text-[#E28723] hover:underline flex items-center gap-1 font-bold"
+                      >
+                        <Download className="w-3 h-3" />
+                        डाउनलोड
+                      </a>
+                    </div>
+                  </div>
+                ) : eventMediaTab === "anup-jalota" ? (
                   <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] bg-black shadow-2xl">
                     <video
                       controls

@@ -244,29 +244,85 @@ export default function AboutContent() {
                   <>The institution&apos;s inception was driven by the relentless efforts of <strong>Mr. Arvindkumar Arya</strong>, whose tireless dedication to the betterment of Jharkhandi people has created a robust platform for social change. Through various initiatives, Jharkhandvasi Parivartan Sangh has not only improved the lives of migrants in Mumbai but also helped strengthen the bond between the people of Maharashtra and Jharkhand.</>
                 )}
               </p>
-              <div className="p-5 rounded-3xl bg-white dark:bg-[#071F14] border border-[#123B2A]/15 dark:border-white/15 shadow-md flex flex-col sm:flex-row items-center gap-4">
-                <div className="relative w-24 h-24 flex-shrink-0 bg-white rounded-2xl p-2 shadow-sm border border-[#123B2A]/10 flex items-center justify-center">
-                  <Image
-                    src="/images/logo/jps-logo-full.png"
-                    alt="Jharkhandvasi Parivartan Sangh Official Emblem with Slogan"
-                    width={96}
-                    height={86}
-                    unoptimized
-                    className="w-full h-full object-contain"
-                  />
+              {/* Official 3D Emblem Animation & Motto Showcase */}
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#071F14] via-[#0D2C1F] to-[#123B2A] text-white border-2 border-[#E28723]/60 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold flex items-center gap-1 shadow">
+                      <Sparkles className="w-3 h-3" />
+                      {language === "hi" ? "आधिकारिक 3D प्रतीक चिह्न" : "Official 3D Insignia"}
+                    </span>
+                    <span className="text-xs text-[#B8CBA5] font-semibold">
+                      {language === "hi" ? "ध्येय वाक्य अनावरण" : "Motto Reveal Animation"}
+                    </span>
+                  </div>
+                  <a
+                    href="/videos/jps-official-3d-logo-animation.mp4"
+                    download="JPS-Official-3D-Emblem-Animation.mp4"
+                    className="text-[11px] font-bold text-[#E28723] hover:underline flex items-center gap-1"
+                  >
+                    <Download className="w-3 h-3" />
+                    डाउनलोड 3D वीडियो
+                  </a>
                 </div>
-                <div className="space-y-1 text-center sm:text-left">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#E28723]">
-                    {language === "hi" ? "आधिकारिक संस्था का ध्येय वाक्य" : "Official Organization Seal & Motto"}
-                  </span>
-                  <h4 className="font-serif text-lg sm:text-xl font-bold text-[#123B2A] dark:text-white">
-                    एक जुर्रत... एक ज़रूरत
-                  </h4>
-                  <p className="text-xs text-[#17231C]/75 dark:text-[#F7F5EC]/75 font-light leading-relaxed">
-                    {language === "hi"
-                      ? `महाराष्ट्र पब्लिक ट्रस्ट अधिनियम के अंतर्गत पंजीकृत (${organization.regNo || "E-30004/MUMBAI"})। जमीनी जनसेवा, प्रवासी संरक्षण एवं संस्कृति रक्षा के लिए समर्पित।`
-                      : `Registered under Maharashtra Public Trust Act (${organization.regNo || "E-30004/MUMBAI"}). Dedicated to grassroots social welfare, migrant protection, and cultural preservation.`}
-                  </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
+                  {/* Left: 3D Video Player */}
+                  <div className="sm:col-span-5 relative rounded-2xl overflow-hidden border-2 border-[#E28723]/80 bg-black shadow-2xl flex items-center justify-center aspect-[9/16] max-h-[320px] mx-auto w-full">
+                    <video
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-contain bg-black"
+                    >
+                      <source src="/videos/jps-official-3d-logo-animation.mp4" type="video/mp4" />
+                      Your browser does not support video playback.
+                    </video>
+                  </div>
+
+                  {/* Right: Meaning & Slogan Description */}
+                  <div className="sm:col-span-7 space-y-3">
+                    <div>
+                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#E28723] block">
+                        {language === "hi" ? "आधिकारिक संस्था का ध्येय वाक्य" : "Official Organization Seal & Motto"}
+                      </span>
+                      <h4 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide mt-0.5">
+                        एक जुर्रत... एक ज़रूरत
+                      </h4>
+                      <p className="text-xs text-[#B8CBA5] font-medium mt-1">
+                        {language === "hi"
+                          ? `महाराष्ट्र पब्लिक ट्रस्ट अधिनियम के अंतर्गत पंजीकृत (${organization.regNo || "E-30004/MUMBAI"})।`
+                          : `Registered under Maharashtra Public Trust Act (${organization.regNo || "E-30004/MUMBAI"}).`}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2 text-xs text-[#F7F5EC]/90 border-t border-white/10 pt-2.5">
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#E28723] font-bold">🌿</span>
+                        <span>
+                          <strong>{language === "hi" ? "प्रकृति व साल वृक्ष:" : "Sal Forest Heritage:"}</strong>{" "}
+                          {language === "hi" ? "झारखंड की पावन भूमि व वन संपदा की रक्षा।" : "Rooted in tribal ecological guardianship."}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#E28723] font-bold">🤝</span>
+                        <span>
+                          <strong>{language === "hi" ? "संबल के दो हाथ:" : "Two Helping Hands:"}</strong>{" "}
+                          {language === "hi" ? "प्रवासी श्रमिकों, बुजुर्गों और बच्चों के लिए 24/7 सुरक्षा व सेवा।" : "24/7 humanitarian care and dignity for every migrant."}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#E28723] font-bold">⭕</span>
+                        <span>
+                          <strong>{language === "hi" ? "एकता चक्र:" : "Circle of Unity:"}</strong>{" "}
+                          {language === "hi" ? "महाराष्ट्र और झारखंड के बीच अटूट भाईचारा व सौहार्द।" : "Uniting diaspora across Maharashtra and Jharkhand."}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

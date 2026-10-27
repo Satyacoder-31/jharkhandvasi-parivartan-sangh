@@ -233,6 +233,7 @@ export interface SiteContent {
     foundedYear?: string;
     history?: string;
     timeline?: { year: string; title: string; description: string }[];
+    emblemVideo?: string;
   };
   programs: ProgramData[];
   artStore: ArtworkData[];
@@ -522,6 +523,7 @@ export const defaultSiteContent: SiteContent = {
       { year: "2023–24", title: "Jharkhand Sthapna Diwas in Mumbai", description: "Organized landmark cultural celebrations uniting thousands of diaspora members, Maharashtra state ministers, and community leaders with traditional Santhali and Chhau dances." },
       { year: "2025–26", title: "Entering 3rd Decade of Service", description: "Expanding welfare reach with backing from prominent IAS & IRS officers from Jharkhand, formalizing employment assistance, and protecting tribal environmental roots." },
     ],
+    emblemVideo: "/videos/jps-official-3d-logo-animation.mp4",
     leadership: [
       { id: "dr-avinash-gupta", name: "Dr. Avinash Gupta", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/dr-avinash-gupta.jpg", organization: "JPS Patron Council", bio: "Renowned medical consultant and philanthropist advising JPS health initiatives." },
       { id: "ramkumar-pal", name: "Shri Ramkumar Pal", role: "Patron", badge: "Patron", category: "Patron", image: "/images/leadership/ramkumar-pal.jpg", organization: "JPS Patron Council", bio: "Senior community patron and industrialist supporting diaspora social security." },
