@@ -21,6 +21,7 @@ import {
   Download,
   Users,
   Award,
+  Quote,
 } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -34,7 +35,7 @@ export default function HomeContent() {
   const { language, t } = useLanguage();
   const hp = content.homepage;
 
-  const [eventMediaTab, setEventMediaTab] = useState<"video" | "poster">("video");
+  const [eventMediaTab, setEventMediaTab] = useState<"video" | "anup-jalota" | "poster">("video");
   const [isPosterOpen, setIsPosterOpen] = useState(false);
 
   // Safe numeric fallbacks
@@ -250,36 +251,75 @@ export default function HomeContent() {
               {/* Right Column: Interactive Video & Poster Media Card */}
               <div className="lg:col-span-5 space-y-3">
                 {/* Media Switcher Tabs */}
-                <div className="flex items-center gap-2 p-1 bg-black/40 rounded-2xl border border-white/15">
+                <div className="flex items-center gap-1.5 p-1 bg-black/40 rounded-2xl border border-white/15">
                   <button
                     type="button"
                     onClick={() => setEventMediaTab("video")}
-                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                       eventMediaTab === "video"
                         ? "bg-[#E28723] text-white shadow"
                         : "text-[#B8CBA5] hover:text-white"
                     }`}
                   >
                     <Video className="w-3.5 h-3.5" />
-                    <span>{language === "hi" ? "वीडियो आमंत्रण" : "Video Teaser"}</span>
+                    <span>{language === "hi" ? "कर्मा प्रोमो" : "Karma Promo"}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setEventMediaTab("anup-jalota")}
+                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                      eventMediaTab === "anup-jalota"
+                        ? "bg-[#E28723] text-white shadow"
+                        : "text-[#B8CBA5] hover:text-white"
+                    }`}
+                  >
+                    <Award className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "अनूप जलोटा संदेश" : "Anup Jalota"}</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setEventMediaTab("poster")}
-                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    className={`flex-1 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                       eventMediaTab === "poster"
                         ? "bg-[#E28723] text-white shadow"
                         : "text-[#B8CBA5] hover:text-white"
                     }`}
                   >
                     <FileImage className="w-3.5 h-3.5" />
-                    <span>{language === "hi" ? "आधिकारिक पोस्टर" : "Official Poster"}</span>
+                    <span>{language === "hi" ? "पोस्टर" : "Poster"}</span>
                   </button>
                 </div>
 
                 {/* Media Viewport */}
-                {eventMediaTab === "video" ? (
+                {eventMediaTab === "anup-jalota" ? (
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] bg-black shadow-2xl">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full aspect-[9/16] sm:aspect-video object-contain bg-black"
+                    >
+                      <source src="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4" type="video/mp4" />
+                      Your browser does not support video playback.
+                    </video>
+                    <div className="p-3 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-xs">
+                      <span className="text-[#F7F5EC] font-semibold flex items-center gap-1.5">
+                        <Award className="w-3.5 h-3.5 text-[#E28723]" />
+                        पद्मश्री अनूप जलोटा - झारखंड स्थापना दिवस
+                      </span>
+                      <a
+                        href="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4"
+                        download="Anup-Jalota-Jharkhand-Sthapana-Diwas-Message.mp4"
+                        className="text-[#E28723] hover:underline flex items-center gap-1 font-bold"
+                      >
+                        <Download className="w-3 h-3" />
+                        डाउनलोड
+                      </a>
+                    </div>
+                  </div>
+                ) : eventMediaTab === "video" ? (
                   <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723]/60 bg-black shadow-2xl">
                     <video
                       controls
@@ -447,6 +487,141 @@ export default function HomeContent() {
                 <span className="text-[11px] text-[#E28723] font-mono block mt-0.5">
                   {language === "hi" ? t("statHelplineSub") : hp.stats.stat4.sublabel}
                 </span>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 2.5 DIGNITARY SPOTLIGHT: PADMA SHRI ANUP JALOTA VIDEO MESSAGE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <ScrollReveal direction="up" duration={850}>
+          <div className="relative bg-gradient-to-br from-[#071F14] via-[#0D2C1F] to-[#123B2A] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#E28723]/60 shadow-2xl overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#E28723]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#1D5139]/40 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Dignitary Details & Spoken Message */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    {language === "hi" ? "राष्ट्रीय विभूति शुभकामना संदेश" : "National Icon Blessing & Endorsement"}
+                  </span>
+                  <span className="badge-pill bg-white/10 text-[#B8CBA5] border border-white/15 text-[10px]">
+                    झारखंड स्थापना दिवस महोत्सव (मुंबई)
+                  </span>
+                  <span className="badge-pill bg-white/10 text-[#E28723] border border-white/15 text-[10px]">
+                    15+ वर्ष सेवा सम्मान
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    {language === "hi"
+                      ? "भजन सम्राट पद्मश्री अनूप जलोटा जी का विशेष संदेश"
+                      : "Special Video Message by Padma Shri Anup Jalota"}
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#B8CBA5] font-medium">
+                    {language === "hi"
+                      ? "मुंबई में 18 नवंबर को आयोजित होने वाले झारखंड स्थापना दिवस महोत्सव के पावन अवसर पर झारखंडवासी परिवर्तन संघ एवं संस्थापक अरविंद आर्य जी के लिए प्रेरणादायी संदेश।"
+                      : "Honoring Founder Arvind Arya and Jharkhandvasi Parivartan Sangh on the landmark Jharkhand Sthapana Diwas Mahotsav in Mumbai."}
+                  </p>
+                </div>
+
+                {/* Spoken Quote Card */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-black/40 border border-[#E28723]/30 backdrop-blur-sm space-y-3">
+                  <div className="flex items-center gap-2 text-[#E28723]">
+                    <Quote className="w-6 h-6 opacity-90 flex-shrink-0" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8CBA5]">
+                      {language === "hi" ? "पद्मश्री अनूप जलोटा जी के शब्द" : "Words of Padma Shri Anup Jalota"}
+                    </span>
+                  </div>
+                  <blockquote className="font-serif text-sm sm:text-base italic text-[#F7F5EC] leading-relaxed">
+                    “मुंबई में 18 नवंबर को होने वाले झारखंड स्थापना दिवस महोत्सव में झारखंड वासी परिवर्तन संघ के संस्थापक अरविंद आर्य जी को हार्दिक बधाई देता हूं और आप सभी इन्हें शुभकामनाएं दें। इन्होंने 15 वर्षों में हजारों लोगों को संगठित किया है, जिसमें हर वर्ग और हर क्षेत्र के आम और खास लोग हैं। यह बहुत बड़ी बात है और ऐसे व्यक्ति को हमेशा बधाई देनी चाहिए, शुभकामनाएं देनी चाहिए। नमस्कार।”
+                  </blockquote>
+                  <div className="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#B8CBA5]">
+                    <span className="font-semibold text-white">
+                      — पद्मश्री अनूप जलोटा (भारतीय गायक, संगीतकार एवं अभिनेता)
+                    </span>
+                    <span className="text-[#E28723] text-[11px]">
+                      प्रशंसा: संस्थापक अरविंद आर्य जी
+                    </span>
+                  </div>
+                </div>
+
+                {/* Badges / Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-[10px] text-[#E28723] font-bold block uppercase">विभूति</span>
+                    <strong className="text-white">पद्मश्री अनूप जलोटा</strong>
+                    <span className="text-[10px] text-[#F7F5EC]/70 block">प्रख्यात संगीतकार व गायक</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-[10px] text-[#E28723] font-bold block uppercase">सम्मानित नेतृत्व</span>
+                    <strong className="text-white">श्री अरविंद आर्य जी</strong>
+                    <span className="text-[10px] text-[#F7F5EC]/70 block">संस्थापक, राष्ट्रीय अध्यक्ष JPS</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-[10px] text-[#E28723] font-bold block uppercase">आयोजन</span>
+                    <strong className="text-white">18 नवंबर, मुंबई</strong>
+                    <span className="text-[10px] text-[#F7F5EC]/70 block">झारखंड स्थापना दिवस समारोह</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <a
+                    href="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4"
+                    download="Anup-Jalota-Jharkhand-Sthapana-Diwas-Message.mp4"
+                    className="px-5 py-2.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow-lg transition-all flex items-center gap-2"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "वीडियो डाउनलोड करें (6.9 MB)" : "Download Video (6.9 MB)"}</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/?text=%E0%A4%AA%E0%A4%A6%E0%A5%8D%E0%A4%AE%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%85%E0%A4%A8%E0%A5%82%E0%A4%AA%20%E0%A4%9C%E0%A4%B2%E0%A5%8B%E0%A4%9F%E0%A4%BE%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A4%BE%20%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%20%E0%A4%B8%E0%A4%82%E0%A4%A6%E0%A5%87%E0%A4%B6%20%E0%A4%9D%E0%A4%BE%E0%A4%B0%E0%A4%96%E0%A4%82%E0%A4%A1%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%80%20%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%A8%20%E0%A4%B8%E0%A4%82%E0%A4%98%20%E0%A4%8F%E0%A4%B5%E0%A4%82%20%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%AA%E0%A4%95%20%E0%A4%85%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%82%E0%A4%A6%20%E0%A4%86%E0%A4%B0%E0%A5%8D%E0%A4%AF%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%3A%20https%3A%2F%2Fjharkhandvasi-parivartan-sangh-rho.vercel.app%2Fevents%23anup-jalota-video"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "व्हाट्सएप पर शेयर करें" : "Share on WhatsApp"}</span>
+                  </a>
+
+                  <Link
+                    href="/events#anup-jalota-video"
+                    className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-[#B8CBA5] hover:text-white text-xs font-bold tracking-wide border border-white/20 transition-all flex items-center gap-1.5"
+                  >
+                    <span>{language === "hi" ? "कार्यक्रम विवरण" : "Event Coverage"}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: High Quality Video Player */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] shadow-2xl bg-black aspect-video flex items-center justify-center">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-contain bg-black"
+                  >
+                    <source src="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4" type="video/mp4" />
+                    Your browser does not support HTML5 video playback.
+                  </video>
+                </div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between text-xs text-[#B8CBA5]">
+                  <span className="flex items-center gap-1.5 text-white font-medium">
+                    <Video className="w-3.5 h-3.5 text-[#E28723]" />
+                    पद्मश्री अनूप जलोटा आधिकारिक संदेश (33s MP4)
+                  </span>
+                  <span className="text-[11px] text-[#E28723] font-semibold">
+                    18 नवंबर, मुंबई
+                  </span>
+                </div>
               </div>
             </div>
           </div>

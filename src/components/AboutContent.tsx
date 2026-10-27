@@ -22,6 +22,7 @@ import {
   Filter,
   Eye,
   UserCheck,
+  Video,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useSiteContent } from "@/context/SiteContentContext";
@@ -132,6 +133,51 @@ export default function AboutContent() {
                   ? t("aboutFounderMessage")
                   : "Jharkhandvasi Parivartan Sangh is more than an NGO; it is a lifeline for the people of Jharkhand. With a strong foundation built on service, dedication, and cultural pride, the Organization has become a trusted name in Mumbai and is poised to expand its work across new horizons."}
               </p>
+
+              {/* National Icon Video Endorsement for Founder Arvind Arya */}
+              <div className="pt-4 border-t border-white/15 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold flex items-center gap-1 shadow">
+                      <Sparkles className="w-3 h-3" />
+                      {language === "hi" ? "राष्ट्रीय विभूति द्वारा अभिनंदन" : "National Icon Blessing"}
+                    </span>
+                    <span className="text-xs text-[#B8CBA5] font-semibold">
+                      पद्मश्री अनूप जलोटा जी का विशेष संदेश
+                    </span>
+                  </div>
+                  <a
+                    href="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4"
+                    download="Anup-Jalota-Jharkhand-Sthapana-Diwas-Message.mp4"
+                    className="text-[11px] font-bold text-[#E28723] hover:underline flex items-center gap-1"
+                  >
+                    <Download className="w-3 h-3" />
+                    डाउनलोड वीडियो
+                  </a>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-black/40 p-3 sm:p-4 rounded-2xl border border-[#E28723]/30">
+                  <div className="md:col-span-5 rounded-xl overflow-hidden border border-[#E28723]/60 bg-black aspect-video flex items-center justify-center">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-contain bg-black"
+                    >
+                      <source src="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4" type="video/mp4" />
+                      Your browser does not support HTML5 video playback.
+                    </video>
+                  </div>
+                  <div className="md:col-span-7 space-y-1.5 text-xs">
+                    <p className="italic text-[#F7F5EC]/90 leading-relaxed font-serif">
+                      “झारखंड वासी परिवर्तन संघ के संस्थापक अरविंद आर्य जी को हार्दिक बधाई... इन्होंने 15 वर्षों में हजारों लोगों को संगठित किया है, जिसमें हर वर्ग और हर क्षेत्र के आम और खास लोग हैं। ऐसे व्यक्ति को हमेशा बधाई और शुभकामनाएं देनी चाहिए।”
+                    </p>
+                    <p className="text-[11px] text-[#E28723] font-semibold">
+                      — पद्मश्री अनूप जलोटा (18 नवंबर झारखंड स्थापना दिवस महोत्सव, मुंबई)
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

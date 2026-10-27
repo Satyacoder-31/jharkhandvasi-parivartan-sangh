@@ -86,6 +86,7 @@ export interface EventData {
   description: string;
   image: string;
   dignitaries?: string;
+  video?: string;
 }
 
 export interface MediaPhoto {
@@ -718,6 +719,19 @@ export const defaultSiteContent: SiteContent = {
     },
   ],
   events: [
+    {
+      id: "event-anup-jalota-sthapana-diwas",
+      title: "Padma Shri Anup Jalota Video Blessings - Jharkhand Sthapana Diwas",
+      date: "November 18",
+      location: "Mumbai, Maharashtra",
+      category: "Dignitary Blessings",
+      badge: "Padma Shri Address",
+      description:
+        "Padma Shri Bhajan Samrat Anup Jalota delivered an inspiring video message congratulating Founder Arvind Arya and Jharkhandvasi Parivartan Sangh on Jharkhand Foundation Day in Mumbai, commending 15+ years of dedicated service in mobilizing and uplifting thousands of diaspora members.",
+      image: "/images/cultural-birsa.jpg",
+      video: "/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4",
+      dignitaries: "Padma Shri Anup Jalota (Indian Musician & Actor), Founder Arvind Arya",
+    },
     {
       id: "event-souvenir-launch",
       title: "Release of 'अपना झारखंड' Souvenir Magazine",

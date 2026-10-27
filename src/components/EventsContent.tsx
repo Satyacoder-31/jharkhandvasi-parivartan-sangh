@@ -21,6 +21,7 @@ import {
   FileImage,
   Download,
   Share2,
+  Quote,
 } from "lucide-react";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import PressMediaViewer from "@/components/PressMediaViewer";
@@ -482,6 +483,142 @@ export default function EventsContent() {
             </div>
           </div>
         )}
+      </section>
+
+      {/* 2.4 DIGNITARY ENDORSEMENT: PADMA SHRI ANUP JALOTA VIDEO MESSAGE */}
+      <section id="anup-jalota-video" className="max-w-7xl mx-auto px-4 sm:px-6 scroll-mt-28">
+        <div className="relative bg-gradient-to-br from-[#071F14] via-[#0D2C1F] to-[#123B2A] text-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#E28723] shadow-2xl overflow-hidden space-y-8">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#E28723]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#1D5139]/50 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Top Banner Row */}
+          <div className="relative z-10 space-y-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="badge-pill bg-[#E28723] text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow">
+                <Sparkles className="w-3.5 h-3.5" />
+                {language === "hi" ? "राष्ट्रीय विभूति शुभकामना संदेश" : "National Dignitary Address"}
+              </span>
+              <span className="badge-pill bg-white/10 text-[#B8CBA5] border border-white/15 text-[10px]">
+                मुंबई में 18 नवंबर: झारखंड स्थापना दिवस महोत्सव
+              </span>
+              <span className="badge-pill bg-white/10 text-[#E28723] border border-white/15 text-[10px]">
+                15+ वर्ष सेवा सम्मान
+              </span>
+            </div>
+
+            <div className="space-y-1.5">
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight">
+                {language === "hi"
+                  ? "भजन सम्राट पद्मश्री अनूप जलोटा जी का विशेष वीडियो संदेश"
+                  : "Padma Shri Anup Jalota's Special Video Blessings"}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#B8CBA5]">
+                {language === "hi"
+                  ? "झारखंडवासी परिवर्तन संघ के 15+ वर्षों के सेवा कार्यों और संस्थापक अरविंद आर्य जी के नेतृत्व में लाखों प्रवासियों के संगठन को राष्ट्रीय विभूति का आशीर्वाद।"
+                  : "National icon and Padma Shri awardee Anup Jalota blessing Founder Arvind Arya and JPS on the historic Mumbai Jharkhand Sthapana Diwas Mahotsav."}
+              </p>
+            </div>
+          </div>
+
+          {/* Dual Column: Video Player & Spoken Transcript */}
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left: Video Player */}
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="badge-pill bg-[#E28723] text-white text-[10px] font-bold flex items-center gap-1.5 shadow">
+                  <Video className="w-3.5 h-3.5" />
+                  {language === "hi" ? "आधिकारिक वीडियो संदेश" : "Official Video Message"}
+                </span>
+                <a
+                  href="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4"
+                  download="Anup-Jalota-Jharkhand-Sthapana-Diwas-Message.mp4"
+                  className="text-xs font-bold text-[#E28723] hover:underline flex items-center gap-1"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  {language === "hi" ? "वीडियो डाउनलोड करें (6.9 MB)" : "Download Video (6.9 MB)"}
+                </a>
+              </div>
+
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#E28723] shadow-2xl bg-black aspect-video flex items-center justify-center">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-black"
+                >
+                  <source src="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4" type="video/mp4" />
+                  Your browser does not support HTML5 video playback.
+                </video>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#B8CBA5]">
+                <span>🎬 पद्मश्री अनूप जलोटा जी का संदेश • 18 नवंबर झारखंड स्थापना दिवस (33s MP4)</span>
+                <a
+                  href="https://wa.me/?text=%E0%A4%AA%E0%A4%A6%E0%A5%8D%E0%A4%AE%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%85%E0%A4%A8%E0%A5%82%E0%A4%AA%20%E0%A4%9C%E0%A4%B2%E0%A5%8B%E0%A4%9F%E0%A4%BE%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A4%BE%20%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%20%E0%A4%B8%E0%A4%82%E0%A4%A6%E0%A5%87%E0%A4%B6%20%E0%A4%9D%E0%A4%BE%E0%A4%B0%E0%A4%96%E0%A4%82%E0%A4%A1%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%80%20%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%A8%20%E0%A4%B8%E0%A4%82%E0%A4%98%20%E0%A4%8F%E0%A4%B5%E0%A4%82%20%E0%A4%B8%E0%A4%82%E0%A4%A8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%AA%E0%A4%95%20%E0%A4%85%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%82%E0%A4%A6%20%E0%A4%86%E0%A4%B0%E0%A5%8D%E0%A4%AF%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%3A%20https%3A%2F%2Fjharkhandvasi-parivartan-sangh-rho.vercel.app%2Fevents%23anup-jalota-video"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#25D366] hover:underline flex items-center gap-1 font-semibold"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  व्हाट्सएप पर शेयर करें
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Spoken Words & Key Highlights */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="p-5 rounded-2xl bg-black/40 border border-[#E28723]/30 backdrop-blur-sm space-y-3">
+                <div className="flex items-center gap-2 text-[#E28723]">
+                  <Quote className="w-6 h-6 opacity-90 flex-shrink-0" />
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8CBA5]">
+                    {language === "hi" ? "आधिकारिक उद्बोधन (शब्दशः)" : "Official Transcript (Verbatim)"}
+                  </span>
+                </div>
+                <blockquote className="font-serif text-sm italic text-[#F7F5EC] leading-relaxed">
+                  “मैं अनूप जलोटा आपसे कुछ निवेदन कर रहा हूं कि मुंबई में 18 नवंबर को होने वाले झारखंड स्थापना दिवस महोत्सव में झारखंड वासी परिवर्तन संघ के संस्थापक अरविंद आर्य जी को हार्दिक बधाई देता हूं और आप सभी इन्हें शुभकामनाएं दें। इन्होंने 15 वर्षों में हजारों लोगों को संगठित किया है, जिसमें हर वर्ग और हर क्षेत्र के आम और खास लोग हैं। यह बहुत बड़ी बात है और ऐसे व्यक्ति को हमेशा बधाई देनी चाहिए, शुभकामनाएं देनी चाहिए। नमस्कार।”
+                </blockquote>
+                <div className="pt-2 border-t border-white/10 text-xs text-[#B8CBA5]">
+                  <strong className="text-white">पद्मश्री अनूप जलोटा</strong> • भारतीय गायक, संगीतकार व अभिनेता
+                </div>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <Award className="w-4 h-4 text-[#E28723] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">15+ वर्षों का निस्वार्थ समर्पण:</strong>{" "}
+                    <span className="text-[#F7F5EC]/85">मुंबई में प्रवासी कामगारों, चिकित्सा सहायता और सामाजिक एकता हेतु निरंतर संघर्ष।</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <Calendar className="w-4 h-4 text-[#B8CBA5] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">18 नवंबर स्थापना दिवस महोत्सव:</strong>{" "}
+                    <span className="text-[#F7F5EC]/85">मुंबई में प्रतिवर्ष धूमधाम से आयोजित होने वाला गौरवशाली सांस्कृतिक महाकुंभ।</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <a
+                  href="/videos/anup-jalota-jharkhand-sthapana-diwas-message.mp4"
+                  download="Anup-Jalota-Jharkhand-Sthapana-Diwas-Message.mp4"
+                  className="px-5 py-2.5 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>डाउनलोड वीडियो</span>
+                </a>
+                <Link
+                  href="/about"
+                  className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-[#B8CBA5] hover:text-white text-xs font-bold tracking-wide border border-white/20 transition-all flex items-center gap-1.5"
+                >
+                  <span>संस्थापक परिचय पढ़ें</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 2.5 SPOTLIGHT RECENT MILESTONE: PRAVASI SAMMELAN 2026 */}
