@@ -289,7 +289,7 @@ export default function EventsContent() {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
               {[
-                { name: "नितेश कश्यप", role: "Vocalist" },
+                { name: "नितेश कच्छप", role: "Vocalist" },
                 { name: "सतीश कुमार", role: "Vocalist" },
                 { name: "संजोग बंसल", role: "Vocalist" },
                 { name: "सुहानी ओरांव", role: "Singer" },

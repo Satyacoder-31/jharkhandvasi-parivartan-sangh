@@ -145,7 +145,7 @@ export default function HomeContent() {
                         : "Rich indigenous tribal music, Santhali dances, and cultural folklore of Jharkhand."}
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-0.5">
-                      {["नितेश कश्यप", "सतीश कुमार", "संजोग बंसल", "सुहानी ओरांव", "रिंकू"].map((artist) => (
+                      {["नितेश कच्छप", "सतीश कुमार", "संजोग बंसल", "सुहानी ओरांव", "रिंकू"].map((artist) => (
                         <span key={artist} className="px-2.5 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/15">
                           🎤 {artist}
                         </span>
