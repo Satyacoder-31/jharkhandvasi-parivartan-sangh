@@ -97,7 +97,7 @@ const fallbackSlides: Slide[] = [
     alt: "Migrant worker community assembly discussing welfare in Mumbai",
     primaryCta: { text: "Emergency Support Protocol", href: "/contact" },
     secondaryCta: { text: "Learn Our Story", href: "/about" },
-    badgeText: "24/7 Active Crisis Helpline: +91 90222 88222",
+    badgeText: "24/7 Active Crisis Helpline: +91 78080 08058",
   },
   {
     id: 5,

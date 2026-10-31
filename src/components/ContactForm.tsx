@@ -51,8 +51,8 @@ export default function ContactForm() {
         <ShieldAlert className="w-5 h-5 text-[#E28723] flex-shrink-0 mt-0.5" />
         <div className="leading-relaxed">
           <strong>Immediate Crisis / Life-Threatening Distress?</strong> Please do not wait for a web form response. Call our direct 24/7 Helpline immediately at{" "}
-          <a href="tel:+919022288222" className="underline font-bold text-[#123B2A]">
-            +91 90222 88222
+          <a href="tel:+917808008058" className="underline font-bold text-[#123B2A]">
+            +91 78080 08058
           </a>{" "}
           or message via WhatsApp.
         </div>
@@ -148,7 +148,7 @@ export default function ContactForm() {
               </label>
               <input
                 type="tel"
-                placeholder="e.g. +91 90222 88222"
+                placeholder="e.g. +91 78080 08058"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className={`w-full px-4 py-2.5 rounded-xl border text-xs focus:ring-2 focus:ring-[#1D5139] focus:outline-none ${

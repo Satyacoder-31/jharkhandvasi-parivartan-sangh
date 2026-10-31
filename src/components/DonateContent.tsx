@@ -347,12 +347,14 @@ export default function DonateContent() {
               <Phone className="w-4 h-4" />
               <span>{language === "hi" ? "हेल्पलाइन:" : "Helpline:"} {organization.primaryPhone || "+91 78080 08058"}</span>
             </a>
-            <a
-              href={`tel:${organization.secondaryPhone || "+919022288222"}`}
-              className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/20 transition-all flex items-center gap-2 flex-shrink-0"
-            >
-              <span>{organization.secondaryPhone || "+91 90222 88222"}</span>
-            </a>
+            {organization.secondaryPhone && organization.secondaryPhone !== organization.primaryPhone && organization.secondaryPhone !== "+91 78080 08058" ? (
+              <a
+                href={`tel:${organization.secondaryPhone}`}
+                className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/20 transition-all flex items-center gap-2 flex-shrink-0"
+              >
+                <span>{organization.secondaryPhone}</span>
+              </a>
+            ) : null}
           </div>
         </div>
       </section>

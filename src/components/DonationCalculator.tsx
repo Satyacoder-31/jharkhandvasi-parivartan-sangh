@@ -233,7 +233,7 @@ export default function DonationCalculator() {
               </div>
               <div className="text-[11px] text-[#B8CBA5] pt-1">
                 {language === "hi" ? "भुगतान रसीद हेल्पलाइन पर साझा करें:" : "Share payment screenshot or query to Helpline:"}{" "}
-                <strong className="text-white">+91 78080 08058</strong> / <strong className="text-white">+91 90222 88222</strong>
+                <strong className="text-white">+91 78080 08058</strong>
               </div>
             </div>
           </div>

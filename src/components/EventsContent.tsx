@@ -428,14 +428,6 @@ export default function EventsContent() {
             </a>
 
             <a
-              href="tel:+919022288222"
-              className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wide border border-white/25 shadow transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-[#B8CBA5]" />
-              <span>90222 88222</span>
-            </a>
-
-            <a
               href="https://wa.me/917808008058?text=Namaste%2C%20I%20want%20to%20attend%20Karma%20Mahotsav%202026%20at%20Veer%20Savarkar%20Udyan"
               target="_blank"
               rel="noopener noreferrer"

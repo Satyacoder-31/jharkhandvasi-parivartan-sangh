@@ -412,11 +412,11 @@ export default function ArtStorePage() {
           </div>
 
           <a
-            href="tel:+919022288222"
+            href="tel:+917808008058"
             className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2 flex-shrink-0"
           >
             <Phone className="w-4 h-4" />
-            <span>Call Desk: +91 90222 88222</span>
+            <span>Call Desk: +91 78080 08058</span>
           </a>
         </div>
       </section>

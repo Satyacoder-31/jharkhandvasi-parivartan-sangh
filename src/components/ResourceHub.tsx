@@ -182,7 +182,7 @@ export default function ResourceHub() {
 
                 <button
                   onClick={() =>
-                    alert(`Sample Educational Document Preview: "${item.title}". Contact JPS Office (+91 90222 88222) for complete physical distribution batches.`)
+                    alert(`Sample Educational Document Preview: "${item.title}". Contact JPS Office (+91 78080 08058) for complete physical distribution batches.`)
                   }
                   className="inline-flex items-center gap-1.5 font-bold text-[#1D5139] hover:underline"
                 >

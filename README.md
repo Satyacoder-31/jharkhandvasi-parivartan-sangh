@@ -25,7 +25,7 @@ Official digital home for **Jharkhandvasi Parivartan Sangh (झारखंड�
 | `/events` | **Events & Gallery** | Milestone gatherings, upcoming schedule advisory, and documentary photo chronicle with fullscreen lightbox. |
 | `/get-involved` | **Get Involved & Volunteer** | 6 contribution paths, volunteer value proposition, and validated application form with reference token. |
 | `/donate` | **Donate & Transparency** | Suggested INR contribution tiers, real-time impact calculator, anti-fraud verification notes, and safe pledge workflow. |
-| `/contact` | **Contact & Emergency Support**| Borivali West HQ details, 24/7 helpline (+91 90222 88222), WhatsApp link, and emergency intake form. |
+| `/contact` | **Contact & Emergency Support**| Borivali West HQ details, 24/7 helpline (+91 78080 08058), WhatsApp link, and emergency intake form. |
 | `/resources` | **Resources & News** | Publications, welfare guides, environmental reports, and searchable resource hub. |
 
 ---
@@ -72,7 +72,7 @@ npm run start
 
 ## 🔐 Security, Privacy & Integrity Rules
 
-- **Helpline:** `+91 90222 88222` (Borivali West, Mumbai).
+- **Helpline:** `+91 78080 08058` (Borivali West, Mumbai).
 - **Anti-Fraud Account Policy:** Bank coordinates and payment links are provided exclusively through confirmed organization representatives to protect donors.
 - **Privacy Protections:** Beneficiary names and identifying details are respectfully anonymized where necessary.
 

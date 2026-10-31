@@ -57,11 +57,11 @@ export default function ResourcesPage() {
               </p>
               <div className="pt-2 flex flex-wrap items-center gap-4 text-xs">
                 <a
-                  href="tel:+919022288222"
+                  href="tel:+917808008058"
                   className="px-6 py-2.5 rounded-full bg-[#123B2A] hover:bg-[#1D5139] text-white font-bold tracking-wide shadow flex items-center gap-2"
                 >
                   <Download className="w-3.5 h-3.5 text-[#E28723]" />
-                  <span>Request Handbook PDF (+91 90222 88222)</span>
+                  <span>Request Handbook PDF (+91 78080 08058)</span>
                 </a>
                 <span className="text-[#795943] font-mono">1.4 MB • Updated January 2026</span>
               </div>

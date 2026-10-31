@@ -132,7 +132,7 @@ export default function OurWorkContent() {
                       <Phone className="w-5 h-5 text-[#1D5139] dark:text-[#B8CBA5] flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-[#123B2A] dark:text-[#F7F5EC]">
                         <strong className="block text-[#1D5139] dark:text-[#E28723] font-bold">
-                          {language === "hi" ? "24/7 प्रवासी संकट हेल्पलाइन:" : "24/7 Migrant Distress Helpline:"} {organization.secondaryPhone || "+91 90222 88222"}
+                          {language === "hi" ? "24/7 प्रवासी संकट हेल्पलाइन:" : "24/7 Migrant Distress Helpline:"} {organization.primaryPhone || "+91 78080 08058"}
                         </strong>
                         <span className="text-[#17231C]/90 dark:text-[#F7F5EC]/85">
                           {language === "hi"
@@ -200,11 +200,11 @@ export default function OurWorkContent() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
-              href={`tel:${organization.primaryPhone || "+919022288222"}`}
+              href={`tel:${organization.primaryPhone || "+917808008058"}`}
               className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              <span>{language === "hi" ? "हेल्पलाइन कॉल:" : "Call Helpline:"} {organization.primaryPhone || "+91 90222 88222"}</span>
+              <span>{language === "hi" ? "हेल्पलाइन कॉल:" : "Call Helpline:"} {organization.primaryPhone || "+91 78080 08058"}</span>
             </a>
             <Link
               href="/contact"

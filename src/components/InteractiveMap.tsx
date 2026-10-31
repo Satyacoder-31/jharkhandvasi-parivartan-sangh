@@ -25,7 +25,7 @@ const hubs: Hub[] = [
     description:
       "Core operational hub managing 24/7 emergency response for migrant laborers, free eye and medical checkup camps, hospital liaison, and legal aid across the Mumbai Metropolitan Region.",
     activities: [
-      "24/7 Emergency Helpline (+91 78080 08058 / +91 90222 88222)",
+      "24/7 Emergency Helpline (+91 78080 08058)",
       "Senior Citizen Free Medical & Eye Camps",
       "Coordination with Child Welfare Committee (CWC)",
       "Mortal Remains Dignified Repatriation Support",

@@ -217,15 +217,7 @@ export default function HomeContent() {
                     className="px-5 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold tracking-wide shadow-lg transition-all flex items-center gap-2"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>78080 08058</span>
-                  </a>
-
-                  <a
-                    href="tel:+919022288222"
-                    className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wide border border-white/20 shadow transition-all flex items-center gap-2"
-                  >
-                    <Phone className="w-4 h-4 text-[#B8CBA5]" />
-                    <span>90222 88222</span>
+                    <span>{language === "hi" ? "हेल्पलाइन: 78080 08058" : "Helpline: 78080 08058"}</span>
                   </a>
 
                   <a
