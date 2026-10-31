@@ -11,12 +11,12 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
-import VolunteerForm from "@/components/VolunteerForm";
+import GetInvolvedForms from "@/components/GetInvolvedForms";
 
 export const metadata = {
-  title: "Get Involved & Volunteer | Jharkhandvasi Parivartan Sangh",
+  title: "Get Involved, Membership & Volunteer | Jharkhandvasi Parivartan Sangh",
   description:
-    "Join Jharkhandvasi Parivartan Sangh as an active volunteer. Mentor children, assist senior health camps, participate in tree planting, and support migrant families in Mumbai and Jharkhand.",
+    "Apply for official membership of Jharkhandvasi Parivartan Sangh or join as an active volunteer. Mentor children, assist senior health camps, participate in tree planting, and support migrant families in Mumbai and Jharkhand.",
 };
 
 const volunteerWays = [
@@ -71,14 +71,30 @@ export default function GetInvolvedPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#B8CBA5] border border-[#B8CBA5]/30">
-              Grassroots Participation
+              Grassroots Participation & Membership
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
               Lend Your Hands. <span className="italic text-[#B8CBA5]">Transform</span> Lives.
             </h1>
             <p className="text-sm sm:text-base text-[#F7F5EC]/85 font-light leading-relaxed">
-              Real social change is created by people who show up. Whether you can dedicate two hours on a Sunday or offer specialized skills, there is a place for you in our movement.
+              Real social change is created by people who show up. Apply for verified membership or join our frontline volunteer corps across Mumbai and Jharkhand.
             </p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <a
+                href="#membership-form"
+                className="px-6 py-3 rounded-full bg-[#E28723] hover:bg-[#c97419] text-white text-xs font-bold shadow-lg transition-all"
+              >
+                सदस्यता फॉर्म भरें (Apply for Membership)
+              </a>
+              <a
+                href="https://wa.me/917808008058?text=Namaste%2C%20I%20want%20to%20apply%20for%20JPS%20Membership"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold shadow-lg transition-all flex items-center gap-2"
+              >
+                व्हाट्सएप संपर्क: 78080 08058
+              </a>
+            </div>
           </div>
         </div>
         <div className="absolute right-0 top-0 w-96 h-96 bg-[#1D5139] rounded-full blur-3xl opacity-40 pointer-events-none" />
@@ -108,13 +124,13 @@ export default function GetInvolvedPage() {
 
           <div className="lg:col-span-6 space-y-5">
             <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-              Why Volunteer With JPS?
+              Why Join JPS?
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A]">
               Direct Grassroots Experience Without Bureaucracy
             </h2>
             <p className="text-sm text-[#17231C]/80 font-light leading-relaxed">
-              When you volunteer with Jharkhandvasi Parivartan Sangh, you do not sit in endless strategy meetings. You meet the workers whose wages were saved, hold the hand of an elder receiving their first eye screening, and see the genuine joy of a child holding their first storybook.
+              When you join Jharkhandvasi Parivartan Sangh, you do not sit in endless strategy meetings. You meet the workers whose wages were saved, hold the hand of an elder receiving their first eye screening, and see the genuine joy of a child holding their first storybook.
             </p>
             <ul className="space-y-2 text-xs text-[#17231C]/80 font-light">
               <li className="flex items-center gap-2">
@@ -123,7 +139,7 @@ export default function GetInvolvedPage() {
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#1D5139]" />
-                <span>Certificate of community service for students and young professionals.</span>
+                <span>Official membership identity card issued after verification.</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#1D5139]" />
@@ -135,13 +151,13 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* 3. WAYS TO CONTRIBUTE GRID */}
-      <section className="bg-[#F7F5EC] py-16 sm:py-20 border-y border-[#123B2A]/10">
+      <section className="bg-[#F7F5EC] dark:bg-[#071F14] py-16 sm:py-20 border-y border-[#123B2A]/10 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-            <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A]">
+            <span className="badge-pill bg-[#B8CBA5]/30 text-[#123B2A] dark:text-[#B8CBA5]">
               Contribution Paths
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A] dark:text-[#F7F5EC]">
               Six Ways You Can Make an Impact
             </h2>
           </div>
@@ -152,16 +168,16 @@ export default function GetInvolvedPage() {
               return (
                 <div
                   key={idx}
-                  className="bg-white p-6 sm:p-8 rounded-3xl border border-[#123B2A]/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                  className="bg-white dark:bg-white/5 p-6 sm:p-8 rounded-3xl border border-[#123B2A]/10 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#E9F0E4] text-[#1D5139] flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#E9F0E4] dark:bg-white/10 text-[#1D5139] dark:text-[#E28723] flex items-center justify-center">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="font-serif text-xl font-normal text-[#123B2A]">
+                    <h3 className="font-serif text-xl font-normal text-[#123B2A] dark:text-[#F7F5EC]">
                       {way.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#17231C]/75 font-light leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#17231C]/75 dark:text-[#F7F5EC]/75 font-light leading-relaxed">
                       {way.desc}
                     </p>
                   </div>
@@ -172,21 +188,9 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* 4. VOLUNTEER REGISTRATION FORM */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
-          <span className="badge-pill bg-[#B8CBA5]/20 text-[#123B2A]">
-            Join the Frontline
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#123B2A]">
-            Apply to Join Our Volunteer Network
-          </h2>
-          <p className="text-xs text-[#795943] font-light">
-            Fill in your details below. A coordinator from our Borivali West desk will reach out.
-          </p>
-        </div>
-
-        <VolunteerForm />
+      {/* 4. MEMBERSHIP & VOLUNTEER REGISTRATION FORMS */}
+      <section id="membership-form" className="max-w-7xl mx-auto px-4 sm:px-6 scroll-mt-28">
+        <GetInvolvedForms />
       </section>
     </div>
   );

@@ -242,6 +242,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/membership" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <span>{language === "hi" ? "सदस्यता पत्र (Membership)" : "Membership Form"}</span>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#25D366] text-white font-bold">WA</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/get-involved" className="hover:text-white transition-colors">{t("navGetInvolved")}</Link>
               </li>
             </ul>

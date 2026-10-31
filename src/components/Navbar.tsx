@@ -354,6 +354,7 @@ export default function Navbar() {
                 {[
                   ...navLinks,
                   { name: t("navNature"), href: "/nature" },
+                  { name: language === "hi" ? "सदस्यता पत्र" : "Membership Form", href: "/membership", badge: "WA" },
                   { name: t("navGetInvolved"), href: "/get-involved" },
                 ].map((link) => {
                   const isActive = pathname === link.href;

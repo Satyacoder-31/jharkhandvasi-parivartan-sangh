@@ -94,6 +94,18 @@ export default function VolunteerForm() {
           <div className="p-4 rounded-2xl bg-[#F7F5EC] border border-[#123B2A]/10 text-xs font-mono text-[#123B2A] max-w-xs mx-auto">
             Volunteer Reference ID: <strong>{appId}</strong>
           </div>
+          <div className="pt-2">
+            <a
+              href={`https://wa.me/917808008058?text=${encodeURIComponent(
+                `*झारखंडवासी परिवर्तन संघ (रजि.) - स्वयंसेवक आवेदन*\n• संदर्भ: ${appId}\n• नाम: ${formData.name}\n• मोबाईल: ${formData.phone}\n• शहर: ${formData.city}\n• रुचि: ${formData.interests.join(", ")}\n• उपलब्धता: ${formData.availability}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold shadow-md transition-all inline-flex items-center gap-2"
+            >
+              <span>व्हाट्सएप पर पुष्टि भेजें (+91 78080 08058)</span>
+            </a>
+          </div>
           <button
             onClick={() => {
               setIsSuccess(false);
